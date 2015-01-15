@@ -6,7 +6,12 @@
 //  Copyright (c) 2015 Noha Alon. All rights reserved.
 //
 
+
 import UIKit
+import CoreData
+
+// Client ID for Google Authentication
+let kClientId = "741302004274-aiafgsvf2ps49k3ifplk8lp0p1triil6.apps.googleusercontent.com";
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -40,7 +45,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
+    
+    // For google Authentication
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String, annotation: AnyObject?) -> Bool {
+        return GPPURLHandler.handleURL(url, sourceApplication: sourceApplication, annotation: annotation)
+    }
 
 }
 
