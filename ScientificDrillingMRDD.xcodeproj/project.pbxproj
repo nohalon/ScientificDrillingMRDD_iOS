@@ -64,7 +64,6 @@
 		2D1B162B1A67849E001B3382 /* GoogleOpenSource.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleOpenSource.framework; path = "../../../Downloads/google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework"; sourceTree = "<group>"; };
 		2D1B162C1A67849E001B3382 /* GooglePlus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlus.framework; path = "../../../Downloads/google-plus-ios-sdk-1.7.1/GooglePlus.framework"; sourceTree = "<group>"; };
 		2D1B162F1A6784C9001B3382 /* GooglePlus.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GooglePlus.bundle; path = "../../../Downloads/google-plus-ios-sdk-1.7.1/GooglePlus.bundle"; sourceTree = "<group>"; };
-		2D1B16311A678A9D001B3382 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +101,6 @@
 		2D1B15E71A678152001B3382 = {
 			isa = PBXGroup;
 			children = (
-				2D1B16311A678A9D001B3382 /* Bridging-Header.h */,
 				2D1B162F1A6784C9001B3382 /* GooglePlus.bundle */,
 				2D1B162B1A67849E001B3382 /* GoogleOpenSource.framework */,
 				2D1B162C1A67849E001B3382 /* GooglePlus.framework */,
