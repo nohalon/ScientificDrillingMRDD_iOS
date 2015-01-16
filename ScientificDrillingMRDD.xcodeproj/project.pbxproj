@@ -24,9 +24,9 @@
 		2D1B16261A678470001B3382 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D1B16251A678470001B3382 /* Security.framework */; };
 		2D1B16281A67847A001B3382 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D1B16271A67847A001B3382 /* SystemConfiguration.framework */; };
 		2D1B162A1A678482001B3382 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D1B16291A678482001B3382 /* UIKit.framework */; };
-		2D1B162D1A67849E001B3382 /* GoogleOpenSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D1B162B1A67849E001B3382 /* GoogleOpenSource.framework */; };
-		2D1B162E1A67849E001B3382 /* GooglePlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D1B162C1A67849E001B3382 /* GooglePlus.framework */; };
-		2D1B16301A6784C9001B3382 /* GooglePlus.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D1B162F1A6784C9001B3382 /* GooglePlus.bundle */; };
+		A0E962B41A68E942004B1C00 /* GoogleOpenSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E962B11A68E942004B1C00 /* GoogleOpenSource.framework */; };
+		A0E962B51A68E942004B1C00 /* GooglePlus.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E962B21A68E942004B1C00 /* GooglePlus.bundle */; };
+		A0E962B61A68E942004B1C00 /* GooglePlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E962B31A68E942004B1C00 /* GooglePlus.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,9 +61,9 @@
 		2D1B16251A678470001B3382 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		2D1B16271A67847A001B3382 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		2D1B16291A678482001B3382 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		2D1B162B1A67849E001B3382 /* GoogleOpenSource.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleOpenSource.framework; path = "../../../Downloads/google-plus-ios-sdk-1.7.1/GoogleOpenSource.framework"; sourceTree = "<group>"; };
-		2D1B162C1A67849E001B3382 /* GooglePlus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlus.framework; path = "../../../Downloads/google-plus-ios-sdk-1.7.1/GooglePlus.framework"; sourceTree = "<group>"; };
-		2D1B162F1A6784C9001B3382 /* GooglePlus.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GooglePlus.bundle; path = "../../../Downloads/google-plus-ios-sdk-1.7.1/GooglePlus.bundle"; sourceTree = "<group>"; };
+		A0E962B11A68E942004B1C00 /* GoogleOpenSource.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleOpenSource.framework; path = Frameworks/GoogleOpenSource.framework; sourceTree = "<group>"; };
+		A0E962B21A68E942004B1C00 /* GooglePlus.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GooglePlus.bundle; path = Frameworks/GooglePlus.bundle; sourceTree = "<group>"; };
+		A0E962B31A68E942004B1C00 /* GooglePlus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlus.framework; path = Frameworks/GooglePlus.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,9 +71,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D1B16301A6784C9001B3382 /* GooglePlus.bundle in Frameworks */,
-				2D1B162D1A67849E001B3382 /* GoogleOpenSource.framework in Frameworks */,
-				2D1B162E1A67849E001B3382 /* GooglePlus.framework in Frameworks */,
+				A0E962B41A68E942004B1C00 /* GoogleOpenSource.framework in Frameworks */,
+				A0E962B51A68E942004B1C00 /* GooglePlus.bundle in Frameworks */,
+				A0E962B61A68E942004B1C00 /* GooglePlus.framework in Frameworks */,
 				2D1B162A1A678482001B3382 /* UIKit.framework in Frameworks */,
 				2D1B16281A67847A001B3382 /* SystemConfiguration.framework in Frameworks */,
 				2D1B16261A678470001B3382 /* Security.framework in Frameworks */,
@@ -101,9 +101,9 @@
 		2D1B15E71A678152001B3382 = {
 			isa = PBXGroup;
 			children = (
-				2D1B162F1A6784C9001B3382 /* GooglePlus.bundle */,
-				2D1B162B1A67849E001B3382 /* GoogleOpenSource.framework */,
-				2D1B162C1A67849E001B3382 /* GooglePlus.framework */,
+				A0E962B11A68E942004B1C00 /* GoogleOpenSource.framework */,
+				A0E962B21A68E942004B1C00 /* GooglePlus.bundle */,
+				A0E962B31A68E942004B1C00 /* GooglePlus.framework */,
 				2D1B16291A678482001B3382 /* UIKit.framework */,
 				2D1B16271A67847A001B3382 /* SystemConfiguration.framework */,
 				2D1B16251A678470001B3382 /* Security.framework */,
@@ -395,8 +395,10 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/nohaalon/Downloads/google-plus-ios-sdk-1.7.1",
+					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = ScientificDrillingMRDD/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				New_Setting = "";
 				OTHER_LDFLAGS = (
@@ -415,8 +417,10 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/nohaalon/Downloads/google-plus-ios-sdk-1.7.1",
+					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = ScientificDrillingMRDD/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				New_Setting = "";
 				OTHER_LDFLAGS = (
@@ -481,6 +485,7 @@
 				2D1B16111A678152001B3382 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2D1B16121A678152001B3382 /* Build configuration list for PBXNativeTarget "ScientificDrillingMRDDTests" */ = {
 			isa = XCConfigurationList;
@@ -489,6 +494,7 @@
 				2D1B16141A678152001B3382 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
