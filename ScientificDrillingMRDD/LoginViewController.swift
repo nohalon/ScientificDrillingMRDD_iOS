@@ -1,8 +1,8 @@
 //
-//  ViewController.swift
+//  LoginViewController.swift
 //  ScientificDrillingMRDD
 //
-//  Created by Noha Alon on 1/14/15.
+//  Created by Justine Dunham on 1/21/15.
 //  Copyright (c) 2015 Noha Alon. All rights reserved.
 //
 
@@ -13,8 +13,8 @@ import AssetsLibrary
 import CoreLocation
 import CoreMotion
 
-class ViewController: UIViewController, GPPSignInDelegate {
-
+class LoginViewController: UIViewController, GPPSignInDelegate {
+    
     @IBOutlet weak var btnGPlus: GPPSignInButton!
     @IBOutlet weak var label: UILabel!
     
@@ -40,18 +40,45 @@ class ViewController: UIViewController, GPPSignInDelegate {
         signIn?.trySilentAuthentication()
         //signIn?.authenticate()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+   
+    //Pop views back to login
+    func logoutApplication() {
+        signIn?.signOut()
+        navigationController?.popToRootViewControllerAnimated(true)
+        println("Logging out")
+    }
 
+    //Go to home page if authenticated
+    func checkSignIn() {
+        if GPPSignIn.sharedInstance().authentication != nil {
+            performSegueWithIdentifier("WellsSegue", sender: "LoginViewController")
+        } else {
+            println("Not logged in")
+        }
+    }
+
+    //After authentication
     func finishedWithAuth(auth: GTMOAuth2Authentication!, error: NSError!) {
-        println(auth)
+        checkSignIn()
+        //println(auth)
     }
     
     func didDisconnectWithError(error: NSError!) {
         println()
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "WellsSegue"
+        {
+            if let destinationVC = segue.destinationViewController as? WellsViewController {
+                println("Segue")
+            }
+        }
     }
 }
 

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2D1B15F61A678152001B3382 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1B15F51A678152001B3382 /* AppDelegate.swift */; };
-		2D1B15F81A678152001B3382 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1B15F71A678152001B3382 /* ViewController.swift */; };
 		2D1B15FB1A678152001B3382 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D1B15F91A678152001B3382 /* Main.storyboard */; };
 		2D1B15FD1A678152001B3382 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D1B15FC1A678152001B3382 /* Images.xcassets */; };
 		2D1B16001A678152001B3382 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D1B15FE1A678152001B3382 /* LaunchScreen.xib */; };
@@ -24,6 +23,8 @@
 		2D1B16261A678470001B3382 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D1B16251A678470001B3382 /* Security.framework */; };
 		2D1B16281A67847A001B3382 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D1B16271A67847A001B3382 /* SystemConfiguration.framework */; };
 		2D1B162A1A678482001B3382 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D1B16291A678482001B3382 /* UIKit.framework */; };
+		A03393B31A7045160010B45C /* WellsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03393B21A7045160010B45C /* WellsViewController.swift */; };
+		A03393B51A7046710010B45C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03393B41A7046710010B45C /* LoginViewController.swift */; };
 		A0E962B41A68E942004B1C00 /* GoogleOpenSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E962B11A68E942004B1C00 /* GoogleOpenSource.framework */; };
 		A0E962B51A68E942004B1C00 /* GooglePlus.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E962B21A68E942004B1C00 /* GooglePlus.bundle */; };
 		A0E962B61A68E942004B1C00 /* GooglePlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E962B31A68E942004B1C00 /* GooglePlus.framework */; };
@@ -43,7 +44,6 @@
 		2D1B15F01A678152001B3382 /* ScientificDrillingMRDD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScientificDrillingMRDD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D1B15F41A678152001B3382 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D1B15F51A678152001B3382 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2D1B15F71A678152001B3382 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2D1B15FA1A678152001B3382 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2D1B15FC1A678152001B3382 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2D1B15FF1A678152001B3382 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -61,6 +61,8 @@
 		2D1B16251A678470001B3382 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		2D1B16271A67847A001B3382 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		2D1B16291A678482001B3382 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A03393B21A7045160010B45C /* WellsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WellsViewController.swift; sourceTree = "<group>"; };
+		A03393B41A7046710010B45C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A0E962B11A68E942004B1C00 /* GoogleOpenSource.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleOpenSource.framework; path = Frameworks/GoogleOpenSource.framework; sourceTree = "<group>"; };
 		A0E962B21A68E942004B1C00 /* GooglePlus.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GooglePlus.bundle; path = Frameworks/GooglePlus.bundle; sourceTree = "<group>"; };
 		A0E962B31A68E942004B1C00 /* GooglePlus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlus.framework; path = Frameworks/GooglePlus.framework; sourceTree = "<group>"; };
@@ -134,8 +136,9 @@
 			isa = PBXGroup;
 			children = (
 				2D1B15F51A678152001B3382 /* AppDelegate.swift */,
-				2D1B15F71A678152001B3382 /* ViewController.swift */,
+				A03393B41A7046710010B45C /* LoginViewController.swift */,
 				2D1B15F91A678152001B3382 /* Main.storyboard */,
+				A03393B21A7045160010B45C /* WellsViewController.swift */,
 				2D1B15FC1A678152001B3382 /* Images.xcassets */,
 				2D1B15FE1A678152001B3382 /* LaunchScreen.xib */,
 				2D1B15F31A678152001B3382 /* Supporting Files */,
@@ -268,8 +271,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D1B15F81A678152001B3382 /* ViewController.swift in Sources */,
+				A03393B51A7046710010B45C /* LoginViewController.swift in Sources */,
 				2D1B15F61A678152001B3382 /* AppDelegate.swift in Sources */,
+				A03393B31A7045160010B45C /* WellsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
