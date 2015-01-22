@@ -56,6 +56,8 @@ class LoginViewController: UIViewController, GPPSignInDelegate {
     //Go to home page if authenticated
     func checkSignIn() {
         if GPPSignIn.sharedInstance().authentication != nil {
+            // Load Wells
+            wellsMngr.loadWells()
             performSegueWithIdentifier("WellsSegue", sender: "LoginViewController")
         } else {
             println("Not logged in")

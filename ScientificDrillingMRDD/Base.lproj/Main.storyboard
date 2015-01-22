@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="IKL-2w-Uex">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--LoginViewController-->
@@ -10,19 +9,20 @@
             <objects>
                 <viewController storyboardIdentifier="LoginViewController" title="LoginViewController" id="vXZ-lx-hvc" customClass="LoginViewController" customModule="ScientificDrillingMRDD" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
-                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                        <viewControllerLayoutGuide type="top" id="cwq-1T-aGh"/>
+                        <viewControllerLayoutGuide type="bottom" id="sNo-PV-Qkr"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button opaque="NO" contentMode="center" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7vY-PF-Tzb" customClass="GPPSignInButton">
-                                <rect key="frame" x="65" y="311" width="191" height="43"/>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7vY-PF-Tzb" customClass="GPPSignInButton">
+                                <rect key="frame" x="65" y="263" width="191" height="43"/>
                                 <color key="backgroundColor" red="0.89184816919191923" green="0.16113177621543154" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="43" id="bSU-Vr-duP"/>
+                                    <constraint firstAttribute="height" constant="43" id="Za4-hi-Rkx"/>
+                                    <constraint firstAttribute="width" constant="191" id="nKH-kb-JFD"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
@@ -31,12 +31,18 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Scientific Drilling MRDD" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RjI-4H-zIF">
+                                <rect key="frame" x="43" y="141" width="235" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="7vY-PF-Tzb" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="49" id="0pB-By-nqd"/>
-                            <constraint firstItem="7vY-PF-Tzb" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="BZB-lJ-KGv"/>
-                            <constraint firstAttribute="centerY" secondItem="7vY-PF-Tzb" secondAttribute="centerY" id="cRS-cW-Caj"/>
+                            <constraint firstAttribute="centerX" secondItem="7vY-PF-Tzb" secondAttribute="centerX" id="H9N-h1-UIw"/>
+                            <constraint firstAttribute="centerX" secondItem="RjI-4H-zIF" secondAttribute="centerX" id="dfC-Iw-Ufu"/>
+                            <constraint firstAttribute="centerY" secondItem="7vY-PF-Tzb" secondAttribute="centerY" id="fVP-dI-tDf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pi3-IE-Exo"/>
@@ -47,20 +53,36 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="694" y="300"/>
+            <point key="canvasLocation" x="694" y="299"/>
         </scene>
         <!--Wells View Controller-->
         <scene sceneID="J07-Mb-80G">
             <objects>
                 <viewController storyboardIdentifier="WellsViewController" id="Fmk-mM-Eyi" customClass="WellsViewController" customModule="ScientificDrillingMRDD" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="144-cd-xfQ"/>
-                        <viewControllerLayoutGuide type="bottom" id="hMZ-ZG-deE"/>
+                        <viewControllerLayoutGuide type="top" id="3gx-PJ-DJl"/>
+                        <viewControllerLayoutGuide type="bottom" id="sE2-vp-eWY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="YZY-Wn-ZHE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mkZ-fe-3aM">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Fmk-mM-Eyi" id="L10-VU-vrq"/>
+                                    <outlet property="delegate" destination="Fmk-mM-Eyi" id="TaF-SP-1Hk"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mkZ-fe-3aM" firstAttribute="bottom" secondItem="sE2-vp-eWY" secondAttribute="top" id="EyC-BS-e6n"/>
+                            <constraint firstItem="mkZ-fe-3aM" firstAttribute="leading" secondItem="YZY-Wn-ZHE" secondAttribute="leading" id="YhH-IX-NLu"/>
+                            <constraint firstItem="mkZ-fe-3aM" firstAttribute="top" secondItem="YZY-Wn-ZHE" secondAttribute="top" id="ZKX-UG-kjK"/>
+                            <constraint firstAttribute="trailing" secondItem="mkZ-fe-3aM" secondAttribute="trailing" id="oST-44-FrU"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6VG-hw-lGa">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="4ED-R9-qIc">
@@ -75,11 +97,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="signOutBtn" destination="wdC-0X-be0" id="tE5-7J-7rz"/>
+                        <outlet property="table" destination="mkZ-fe-3aM" id="JAG-b5-Key"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QsS-jo-APs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1224" y="300"/>
+            <point key="canvasLocation" x="1224" y="317.99999999999994"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ws3-32-Y1d">
@@ -97,7 +120,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e8f-fx-d9P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="162" y="300"/>
+            <point key="canvasLocation" x="162" y="299.99999999999994"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

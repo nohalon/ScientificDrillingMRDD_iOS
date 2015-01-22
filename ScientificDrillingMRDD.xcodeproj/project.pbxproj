@@ -28,6 +28,7 @@
 		A0E962B41A68E942004B1C00 /* GoogleOpenSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E962B11A68E942004B1C00 /* GoogleOpenSource.framework */; };
 		A0E962B51A68E942004B1C00 /* GooglePlus.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E962B21A68E942004B1C00 /* GooglePlus.bundle */; };
 		A0E962B61A68E942004B1C00 /* GooglePlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E962B31A68E942004B1C00 /* GooglePlus.framework */; };
+		EAE7C8141A70A118002AB567 /* WellsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE7C8131A70A118002AB567 /* WellsManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		A0E962B11A68E942004B1C00 /* GoogleOpenSource.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleOpenSource.framework; path = Frameworks/GoogleOpenSource.framework; sourceTree = "<group>"; };
 		A0E962B21A68E942004B1C00 /* GooglePlus.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GooglePlus.bundle; path = Frameworks/GooglePlus.bundle; sourceTree = "<group>"; };
 		A0E962B31A68E942004B1C00 /* GooglePlus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlus.framework; path = Frameworks/GooglePlus.framework; sourceTree = "<group>"; };
+		EAE7C8131A70A118002AB567 /* WellsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WellsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 				2D1B15F51A678152001B3382 /* AppDelegate.swift */,
 				A03393B41A7046710010B45C /* LoginViewController.swift */,
 				2D1B15F91A678152001B3382 /* Main.storyboard */,
+				EAE7C8131A70A118002AB567 /* WellsManager.swift */,
 				A03393B21A7045160010B45C /* WellsViewController.swift */,
 				2D1B15FC1A678152001B3382 /* Images.xcassets */,
 				2D1B15FE1A678152001B3382 /* LaunchScreen.xib */,
@@ -274,6 +277,7 @@
 				A03393B51A7046710010B45C /* LoginViewController.swift in Sources */,
 				2D1B15F61A678152001B3382 /* AppDelegate.swift in Sources */,
 				A03393B31A7045160010B45C /* WellsViewController.swift in Sources */,
+				EAE7C8141A70A118002AB567 /* WellsManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
