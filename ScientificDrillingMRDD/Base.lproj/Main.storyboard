@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="IKL-2w-Uex">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -34,7 +34,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Scientific Drilling MRDD" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RjI-4H-zIF">
                                 <rect key="frame" x="43" y="141" width="235" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -48,7 +48,7 @@
                     <navigationItem key="navigationItem" id="pi3-IE-Exo"/>
                     <connections>
                         <outlet property="btnGPlus" destination="7vY-PF-Tzb" id="VQn-MI-b1h"/>
-                        <segue destination="Fmk-mM-Eyi" kind="push" identifier="WellsSegue" id="IZ4-71-D9P"/>
+                        <segue destination="ftp-G7-xyz" kind="custom" identifier="WellsSegue" id="KCa-xl-iDc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -92,35 +92,39 @@
                                 <state key="normal" title="Logout">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="t5q-cu-8sr" kind="unwind" unwindAction="unwindToLogin:" id="0bD-aP-g8y"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="signOutBtn" destination="wdC-0X-be0" id="tE5-7J-7rz"/>
                         <outlet property="table" destination="mkZ-fe-3aM" id="JAG-b5-Key"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QsS-jo-APs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="t5q-cu-8sr" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1224" y="317.99999999999994"/>
+            <point key="canvasLocation" x="1819" y="-27"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="Ws3-32-Y1d">
+        <scene sceneID="YQr-KI-n2T">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IKL-2w-Uex" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ftp-G7-xyz" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ppV-cm-Wmr">
+                    <navigationItem key="navigationItem" id="xxr-8o-HZ0"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="46n-eS-nFU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="Ijd-9i-DpZ"/>
+                        <segue destination="Fmk-mM-Eyi" kind="relationship" relationship="rootViewController" id="CU9-qT-XJg"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="e8f-fx-d9P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CDU-dG-cKV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="162" y="299.99999999999994"/>
+            <point key="canvasLocation" x="1244" y="541"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

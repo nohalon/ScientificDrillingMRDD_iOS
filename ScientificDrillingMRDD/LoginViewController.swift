@@ -58,7 +58,7 @@ class LoginViewController: UIViewController, GPPSignInDelegate {
         if GPPSignIn.sharedInstance().authentication != nil {
             // Load Wells
             wellsMngr.loadWells()
-            performSegueWithIdentifier("WellsSegue", sender: "LoginViewController")
+            performSegueWithIdentifier("WellsSegue", sender: self)
         } else {
             println("Not logged in")
         }
@@ -80,6 +80,16 @@ class LoginViewController: UIViewController, GPPSignInDelegate {
             if let destinationVC = segue.destinationViewController as? WellsViewController {
                 println("Segue")
             }
+        }
+        else if segue.identifier == "LogoutSegue"
+        {
+            
+        }
+    }
+    
+    @IBAction func unwindToLogin(segue : UIStoryboardSegue) {
+        if segue.identifier == "LogoutSegue" {
+            logoutApplication()
         }
     }
 }

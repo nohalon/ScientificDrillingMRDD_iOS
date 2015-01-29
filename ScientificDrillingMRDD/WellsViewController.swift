@@ -10,7 +10,7 @@ import Foundation
 
 class WellsViewController: UIViewController {
     
-    @IBOutlet weak var signOutBtn: UIButton!
+    //@IBOutlet weak var signOutBtn: UIButton!
     @IBOutlet var table: UITableView!
     
     var array : NSArray = [];
@@ -18,7 +18,7 @@ class WellsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true;
-        signOutBtn.addTarget(GPPSignIn.sharedInstance().delegate, action: "logoutApplication", forControlEvents: .TouchUpInside)
+        //signOutBtn.addTarget(GPPSignIn.sharedInstance().delegate, action: "logoutApplication", forControlEvents: .TouchUpInside)
     }
     
     override func didReceiveMemoryWarning() {
