@@ -1,0 +1,99 @@
+{
+   "request":{
+      "application":"APPLICATION_CODE",
+      "applications_group":"GROUP_CODE",       // Optional. Can be used instead of "application"
+      "auth":"api_access_token",
+      "notifications":[
+         {
+            // Content settings
+            "send_date":"now",           // YYYY-MM-DD HH:mm  OR 'now'
+            "ignore_user_timezone": true,   // or false
+            "content":{                  // Object( language1: 'content1', language2: 'content2' ) OR string. For Windows 8 this parameter is ignored, use "wns_content" instead.
+               "en":"English",
+               "ru":"Русский",
+               "de":"Deutsch"
+            },
+            "page_id": 39,               // Optional. int
+            "link": "http://google.com", // Optional. string
+            "minimize_link": 0,  // Optional param:  0 or false - not minimize, 1 - google, 2 - bitly, 3 - baidu (china) . Default = 1
+            "data":{                     // JSON string or JSON object, will be passed as "u" parameter in the payload
+                  "custom": "json data"
+            },
+            "platforms": [1,2,3,4,5,6,7,8,9,10,11], // 1 - iOS; 2 - BB; 3 - Android; 4 - Nokia ASHA; 5 - Windows Phone; 7 - OS X; 8 - Windows 8; 9 - Amazon; 10 - Safari; 11 - Chrome
+
+            // iOS related
+            "ios_badges": 5,               // Optional. Integer. This value will be sent to ALL devices given in "devices"
+            "ios_sound": "sound file.wav",    // Optional. Sound file name in the main bundle of application
+            "ios_ttl": 3600, // Optional. Time to live parameter - the maximum lifespan of a message in seconds
+            "ios_category_id": "1",       // Optional. Integer. iOS8 category ID from Pushwoosh
+            "ios_root_params" : {     //Optional - root level parameters to the aps dictionary
+                      "aps":{
+                                "content-available": "1"
+                                }
+                                                },
+            "apns_trim_content":1,     // Optional. (0|1) Trims the exceeding content strings with ellipsis
+            "ios_trim_content": 1,       // Deprecated, use "apns_trim_content" instead.
+
+            // Android related
+            "android_root_params": {"key": "value"}, // custom key-value object. root level parameters for the android payload recipients
+            "android_sound" : "soundfile", // Optional. Sound file name in the "res/raw" folder, do not include the extension
+            "android_header":"header",    // Optional. Android notification header
+            "android_icon": "icon",
+            "android_custom_icon": "http://example.com/image.png", // Optional. Full path URL to the image file
+            "android_banner": "http://example.com/banner.png", // Optional. Full path URL to the image file
+            "android_gcm_ttl": 3600, // Optional. Time to live parameter - the maximum lifespan of a message in seconds
+
+            // Amazon related
+            "adm_root_params": {"key": "value"}, // custom key-value object
+            "adm_sound": "push.mp3",
+            "adm_header": "Header",
+            "adm_icon": "icon",
+            "adm_custom_icon": "http://example.com/image.png",
+            "adm_banner": "http://example.com/banner.png",
+            "adm_ttl": 3600, // Optional. Time to live parameter - the maximum lifespan of a message in seconds
+
+            // Windows Phone related.
+            "wp_type": "Tile",           // Windows Phone notification type. 'Tile' or 'Toast'. Raw notifications are not supported. 'Tile' if default
+            "wp_background": "/Resources/Red.jpg", // Tile image
+            "wp_backbackground": "/Resources/Green.jpg", // Back tile image
+            "wp_backtitle": "back title",  // Back tile title
+            "wp_backcontent": "back content",  // Back tile content
+            "wp_count": 3,               // Optional. Integer. Badge for Windows Phone notification
+
+            // BlackBerry related.
+            "blackberry_header": "header",           // BlackBerry header, applicable to BB10 Series devices
+
+            // Mac OS X related
+            "mac_badges": 3,
+            "mac_sound": "sound.caf",
+            "mac_root_params": {"content-available":1},
+            "mac_ttl": 3600, // Optional. Time to live parameter - the maximum lifespan of a message in seconds
+
+            // WNS related
+            "wns_content": { // Content (XML or raw) of notification encoded in MIME's base64 in form of Object( language1: 'content1', language2: 'content2' ) OR String
+               "en": "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48YmFkZ2UgdmFsdWU9ImF2YWlsYWJsZSIvPg==",
+               "de": "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48YmFkZ2UgdmFsdWU9Im5ld01lc3NhZ2UiLz4="
+            },
+            "wns_type": "Badge", // 'Tile' | 'Toast' | 'Badge' | 'Raw'
+            "wns_tag": "myTag", // Optional. Used in the replacement policy of the Tile. An alphanumeric string of no more than 16 characters.
+
+             // Safari related
+            "safari_title": "Title", // Title of the notification
+            "safari_action": "Click here", // Optional
+            "safari_url_args": ["firstArgument", "secondArgument"], // Optional if your application url template has no placeholders
+            "safari_ttl": 3600, // Optional. Time to live parameter - the maximum lifespan of a message in seconds
+
+            "chrome_header":"", // Optional. You can specify the header of the message in this parameter
+            "chrome_icon":"", // Either the full path URL to the icon, or the path to the file in resources of the extension
+            "chrome_gcm_ttl":"", // Optional. Time to live parameter - the maximum lifespan of a message in seconds
+
+
+            "devices":[                  // Optional. Not more than 1000 tokens in an array. If set, message will only be delivered to the devices in the list. Ignored if the applications group is used
+               "dec301908b9ba8df85e57a58e40f96f523f4c2068674f5fe2ba25cdc250a2a41"
+            ],
+            "filter": "FILTER_NAME" //Optional.
+            "conditions": [TAG_CONDITION1, TAG_CONDITION2, ..., TAG_CONDITIONN] //Optional. See remark
+         }
+      ]
+   }
+}

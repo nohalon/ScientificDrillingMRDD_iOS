@@ -1,0 +1,23 @@
+{
+   "request":{
+      "application":"D27B6-775D3",
+      "auth":"DjayaoQ63wUnp1fNH6JnZyi3InnqjkJa04QzZqcEba8OzjY3pCmz7Pe3hDwMs66saEhBNRmeMZw752qXVSUJ",
+      "notifications":[
+         {
+            "send_date":"now",
+            "ignore_user_timezone": true,
+            "content":{
+               "en":"English"
+            },
+            "data":{
+                  "custom": "json data"
+            },
+            "platforms": [3],
+
+            "android_header":"header",
+            "android_icon": "icon",
+            "android_custom_icon": "http://example.com/image.png"
+         }
+      ]
+   }
+}
