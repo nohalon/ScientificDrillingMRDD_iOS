@@ -13,7 +13,8 @@ class WellsViewController: UIViewController {
     //@IBOutlet weak var signOutBtn: UIButton!
     @IBOutlet var table: UITableView!
     
-    var array : NSArray = [];
+    var array : NSArray = []
+    var index = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,11 +37,26 @@ class WellsViewController: UIViewController {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "TestCell")
+        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "WellCell")
         cell.textLabel?.text = wellsMngr.wells[indexPath.row].name        
-        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         
         return cell;
+    }
+
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.index = indexPath.row
+        
+        self.performSegueWithIdentifier("DashboardSegue", sender: self)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "DashboardSegue" {
+            var dashboard = segue.destinationViewController as WellsDashboardController
+
+            dashboard.wellName = wellsMngr.wells[index].name
+            
+            //= wellsMngr.wells[index].name
+        }
     }
     
 }

@@ -28,6 +28,7 @@
 		A0E962B41A68E942004B1C00 /* GoogleOpenSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E962B11A68E942004B1C00 /* GoogleOpenSource.framework */; };
 		A0E962B51A68E942004B1C00 /* GooglePlus.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E962B21A68E942004B1C00 /* GooglePlus.bundle */; };
 		A0E962B61A68E942004B1C00 /* GooglePlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E962B31A68E942004B1C00 /* GooglePlus.framework */; };
+		EA913BFB1A7AE7FC00E1F97B /* WellsDashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA913BFA1A7AE7FC00E1F97B /* WellsDashboardController.swift */; };
 		EAE7C8141A70A118002AB567 /* WellsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE7C8131A70A118002AB567 /* WellsManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,7 @@
 		A0E962B11A68E942004B1C00 /* GoogleOpenSource.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleOpenSource.framework; path = Frameworks/GoogleOpenSource.framework; sourceTree = "<group>"; };
 		A0E962B21A68E942004B1C00 /* GooglePlus.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GooglePlus.bundle; path = Frameworks/GooglePlus.bundle; sourceTree = "<group>"; };
 		A0E962B31A68E942004B1C00 /* GooglePlus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlus.framework; path = Frameworks/GooglePlus.framework; sourceTree = "<group>"; };
+		EA913BFA1A7AE7FC00E1F97B /* WellsDashboardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WellsDashboardController.swift; path = ../WellsDashboardController.swift; sourceTree = "<group>"; };
 		EAE7C8131A70A118002AB567 /* WellsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WellsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -138,10 +140,11 @@
 			isa = PBXGroup;
 			children = (
 				2D1B15F51A678152001B3382 /* AppDelegate.swift */,
+				EA913BFA1A7AE7FC00E1F97B /* WellsDashboardController.swift */,
+				A03393B21A7045160010B45C /* WellsViewController.swift */,
 				A03393B41A7046710010B45C /* LoginViewController.swift */,
 				2D1B15F91A678152001B3382 /* Main.storyboard */,
 				EAE7C8131A70A118002AB567 /* WellsManager.swift */,
-				A03393B21A7045160010B45C /* WellsViewController.swift */,
 				2D1B15FC1A678152001B3382 /* Images.xcassets */,
 				2D1B15FE1A678152001B3382 /* LaunchScreen.xib */,
 				2D1B15F31A678152001B3382 /* Supporting Files */,
@@ -278,6 +281,7 @@
 				2D1B15F61A678152001B3382 /* AppDelegate.swift in Sources */,
 				A03393B31A7045160010B45C /* WellsViewController.swift in Sources */,
 				EAE7C8141A70A118002AB567 /* WellsManager.swift in Sources */,
+				EA913BFB1A7AE7FC00E1F97B /* WellsDashboardController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
