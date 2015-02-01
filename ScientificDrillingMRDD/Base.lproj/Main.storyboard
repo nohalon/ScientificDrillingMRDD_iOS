@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--LoginViewController-->
@@ -79,7 +78,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="KRU-rc-ETa" kind="modal" identifier="DashboardSegue" id="3J6-hB-ilN"/>
+                                            <segue destination="KRU-rc-ETa" kind="push" identifier="DashboardSegue" id="3J6-hB-ilN"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -131,22 +130,9 @@
                     <view key="view" contentMode="scaleToFill" id="qhA-15-GxQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CHc-Js-aQB">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <items>
-                                    <navigationItem title="Title" id="HLz-UD-wxC">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="n69-Mw-j0N"/>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="CHc-Js-aQB" firstAttribute="leading" secondItem="qhA-15-GxQ" secondAttribute="leadingMargin" constant="-16" id="njy-4u-3k6"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="CHc-Js-aQB" secondAttribute="trailing" constant="-16" id="zn2-PG-cHb"/>
-                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="qQi-n3-p7X"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pKr-Vv-XNn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

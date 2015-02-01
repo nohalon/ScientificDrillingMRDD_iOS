@@ -9,7 +9,7 @@ class WellsDashboardController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationBar.topItem?.title = wellName;
+        self.navigationItem.title = wellName;
         
     }
     
