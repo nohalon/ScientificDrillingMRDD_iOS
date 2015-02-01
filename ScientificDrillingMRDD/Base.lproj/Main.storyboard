@@ -132,11 +132,39 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="qQi-n3-p7X"/>
+                    <navigationItem key="navigationItem" id="qQi-n3-p7X">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="gbX-1A-qZf">
+                            <connections>
+                                <segue destination="02Y-Xs-5On" kind="modal" identifier="AddCurves" id="cGa-SZ-8g3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pKr-Vv-XNn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1819" y="1030"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="tsA-DO-Poc">
+            <objects>
+                <viewController id="b8w-Sp-QUf" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3W5-So-3jc"/>
+                        <viewControllerLayoutGuide type="bottom" id="R0L-iO-eib"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gRU-S1-BDF" userLabel="Add curves page">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="T2C-BB-gvi">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="7ed-xP-6gX"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Ga8-70-rQk"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nYW-8D-743" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2893" y="1030"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YQr-KI-n2T">
@@ -156,6 +184,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CDU-dG-cKV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1234" y="293"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="htc-A5-qq1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="02Y-Xs-5On" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nzC-xC-L20">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="b8w-Sp-QUf" kind="relationship" relationship="rootViewController" id="mxg-rn-P8f"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q7B-Kc-dhV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2361" y="1030"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

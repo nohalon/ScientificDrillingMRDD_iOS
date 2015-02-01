@@ -10,7 +10,6 @@ class WellsDashboardController : UIViewController {
         super.viewDidLoad()
         
         self.navigationItem.title = wellName;
-        
     }
     
 }
