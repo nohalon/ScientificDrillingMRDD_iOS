@@ -130,6 +130,28 @@
                     <view key="view" contentMode="scaleToFill" id="qhA-15-GxQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WyA-dh-VLj">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gbA-dE-Zs7">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="oWa-5w-Esc">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="qQi-n3-p7X">
@@ -142,7 +164,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pKr-Vv-XNn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1819" y="1030"/>
+            <point key="canvasLocation" x="1823" y="1012.5"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tsA-DO-Poc">
@@ -159,17 +181,16 @@
                     </view>
                     <navigationItem key="navigationItem" id="T2C-BB-gvi">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="7ed-xP-6gX"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Ga8-70-rQk"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nYW-8D-743" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2893" y="1030"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--wells view nav-->
         <scene sceneID="YQr-KI-n2T">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ftp-G7-xyz" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ftp-G7-xyz" userLabel="wells view nav" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="xxr-8o-HZ0"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="46n-eS-nFU">
@@ -185,10 +206,10 @@
             </objects>
             <point key="canvasLocation" x="1234" y="293"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Add Curves Nav-->
         <scene sceneID="htc-A5-qq1">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="02Y-Xs-5On" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="02Y-Xs-5On" userLabel="Add Curves Nav" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="nzC-xC-L20">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
