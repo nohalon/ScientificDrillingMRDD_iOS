@@ -23,6 +23,8 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
         collectionView!.registerClass(CollectionViewCell.self, forCellWithReuseIdentifier: "CollectionViewCell")
         collectionView!.backgroundColor = UIColor.whiteColor()
         self.view.addSubview(collectionView!)
+        
+        dashMngr.loadDashboard(well.name)
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -30,15 +32,24 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        var items: Int?
+        if let dash = dashMngr.dashboards[well.name] {
+            items = dash.dataVisualizations.count
+        }
+        else {
+            items = 0
+        }
+        return items!
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CollectionViewCell", forIndexPath: indexPath) as CollectionViewCell
         cell.layer.borderWidth = 1.0
+        var dashboard = dashMngr.dashboards[well.name]
+        var visualization = dashboard?.dataVisualizations[indexPath.row]
         
-        cell.unitLabel?.text = "Temperature"
-        cell.textLabel?.text = "\(indexPath.row)" + String(5) + " " + DEGREE_SIGN + "F"
+        cell.unitLabel?.text = visualization?.label
+        cell.textLabel?.text = "\(visualization?.currentValue)"
         
         return cell
     }
@@ -80,6 +91,7 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
             })
         
             task.resume()
+            
         }
     }
    
@@ -90,6 +102,8 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
             if let selected = addCurveController.selectedCurve {
                 dashMngr.dashboards[well.name]?.addVisualization(VisualizationType.StaticValue, id: 1, name: selected)
             }
+            
+            dashMngr.loadDashboard(well.name)
         }
         
         if let dashboard = dashMngr.dashboards[well.name] {
