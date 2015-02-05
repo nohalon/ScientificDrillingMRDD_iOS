@@ -28,6 +28,7 @@
 		A073BC161A81D301003A3A72 /* Well.swift in Sources */ = {isa = PBXBuildFile; fileRef = A073BC151A81D301003A3A72 /* Well.swift */; };
 		A073BC181A81D4AF003A3A72 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A073BC171A81D4AF003A3A72 /* Dashboard.swift */; };
 		A073BC1A1A82A89D003A3A72 /* AddCurveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A073BC191A82A89D003A3A72 /* AddCurveViewController.swift */; };
+		A0D2B5F31A83DAFC0040B8B7 /* DashboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D2B5F21A83DAFC0040B8B7 /* DashboardManager.swift */; };
 		A0E962B41A68E942004B1C00 /* GoogleOpenSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E962B11A68E942004B1C00 /* GoogleOpenSource.framework */; };
 		A0E962B51A68E942004B1C00 /* GooglePlus.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E962B21A68E942004B1C00 /* GooglePlus.bundle */; };
 		A0E962B61A68E942004B1C00 /* GooglePlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E962B31A68E942004B1C00 /* GooglePlus.framework */; };
@@ -74,6 +75,7 @@
 		A073BC151A81D301003A3A72 /* Well.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Well.swift; sourceTree = "<group>"; };
 		A073BC171A81D4AF003A3A72 /* Dashboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
 		A073BC191A82A89D003A3A72 /* AddCurveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCurveViewController.swift; sourceTree = "<group>"; };
+		A0D2B5F21A83DAFC0040B8B7 /* DashboardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardManager.swift; sourceTree = "<group>"; };
 		A0E962B11A68E942004B1C00 /* GoogleOpenSource.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleOpenSource.framework; path = Frameworks/GoogleOpenSource.framework; sourceTree = "<group>"; };
 		A0E962B21A68E942004B1C00 /* GooglePlus.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GooglePlus.bundle; path = Frameworks/GooglePlus.bundle; sourceTree = "<group>"; };
 		A0E962B31A68E942004B1C00 /* GooglePlus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlus.framework; path = Frameworks/GooglePlus.framework; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 			children = (
 				2D1B15F51A678152001B3382 /* AppDelegate.swift */,
 				EA913BFA1A7AE7FC00E1F97B /* WellsDashboardController.swift */,
+				A0D2B5F21A83DAFC0040B8B7 /* DashboardManager.swift */,
 				EA20A29F1A8040080023D2CC /* CollectionViewCell.swift */,
 				A03393B21A7045160010B45C /* WellsViewController.swift */,
 				A03393B41A7046710010B45C /* LoginViewController.swift */,
@@ -303,6 +306,7 @@
 				A0FFB46C1A8326E90032C8DC /* Curve.swift in Sources */,
 				A03393B31A7045160010B45C /* WellsViewController.swift in Sources */,
 				A073BC161A81D301003A3A72 /* Well.swift in Sources */,
+				A0D2B5F31A83DAFC0040B8B7 /* DashboardManager.swift in Sources */,
 				EAE7C8141A70A118002AB567 /* WellsManager.swift in Sources */,
 				EA913BFB1A7AE7FC00E1F97B /* WellsDashboardController.swift in Sources */,
 				A0FFB46E1A8327280032C8DC /* DataVisualization.swift in Sources */,

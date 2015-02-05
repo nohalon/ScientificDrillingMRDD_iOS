@@ -19,10 +19,11 @@ class Dashboard: NSObject {
     }
     
     func addVisualization(type: VisualizationType, id: Int, name: String) {
-        dataVisualizations.append(DataVisualization(type: type, curveId: id, label: name))
+        println("Adding " + name + " to " + title)
+        dataVisualizations += [(DataVisualization(type: type, curveId: id, label: name))]
     }
     
     func addVisualization(visualization: DataVisualization) {
-        dataVisualizations.append(visualization)
+        dataVisualizations += [visualization]
     }
 }

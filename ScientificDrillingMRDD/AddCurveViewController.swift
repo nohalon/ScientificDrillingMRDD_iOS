@@ -13,6 +13,8 @@ class AddCurveViewController: UITableViewController {
     @IBOutlet var curveTable: UITableView!
     
     var curveList = [String]()
+    var selectedCurve: String?
+    var index: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,11 +40,25 @@ class AddCurveViewController: UITableViewController {
         return cell;
     }
 
-    /*func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.index = indexPath.row
+        self.selectedCurve = curveList[index]
         
-        self.performSegueWithIdentifier("DashboardSegue", sender: self)
-    }*/
+        self.performSegueWithIdentifier("SelectCurveSegue", sender: self)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "SelectCurveSegue" {
+            //var dashboard = segue.destinationViewController as WellsDashboardController
+            //dashboard.well = wellsMngr.wells[index]
+            
+            //= wellsMngr.wells[index].name
+        }
+    }
+    
+    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        
+    }
     
     @IBAction func cancel(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
