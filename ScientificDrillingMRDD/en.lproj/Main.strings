@@ -1,0 +1,15 @@
+
+/* Class = "IBUIButton"; normalTitle = "Login with Google+"; ObjectID = "7vY-PF-Tzb"; */
+"7vY-PF-Tzb.normalTitle" = "Login with Google+";
+
+/* Class = "IBUILabel"; text = "Scientific Drilling MRDD"; ObjectID = "RjI-4H-zIF"; */
+"RjI-4H-zIF.text" = "Scientific Drilling MRDD";
+
+/* Class = "IBUIButton"; normalTitle = "Cancel"; ObjectID = "haZ-d3-gvi"; */
+"haZ-d3-gvi.normalTitle" = "Cancel";
+
+/* Class = "IBUIViewController"; title = "LoginViewController"; ObjectID = "vXZ-lx-hvc"; */
+"vXZ-lx-hvc.title" = "LoginViewController";
+
+/* Class = "IBUIButton"; normalTitle = "Logout"; ObjectID = "wdC-0X-be0"; */
+"wdC-0X-be0.normalTitle" = "Logout";

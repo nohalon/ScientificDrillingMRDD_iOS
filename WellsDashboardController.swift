@@ -7,12 +7,12 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
 
     @IBOutlet var collectionView: UICollectionView!
     
-    var wellName = "some-name"
+    var well: Well = Well(id: -1, name: "NoWell")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = wellName;
+        self.navigationItem.title = well.name;
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
@@ -41,6 +41,14 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
         cell.textLabel?.text = "\(indexPath.row)" + String(5) + " " + DEGREE_SIGN + "F"
         
         return cell
+    }
+   
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "AddCurveSegue" {
+            var addCurveController = segue.destinationViewController as AddCurveViewController
+            var curves = wellsMngr.getCurvesForWell(well.name)
+            addCurveController.curveList = curves
+        }
     }
     
     override func didReceiveMemoryWarning() {

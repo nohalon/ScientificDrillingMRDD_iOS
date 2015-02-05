@@ -10,17 +10,17 @@ import UIKit
 
 var wellsMngr: WellsManager = WellsManager()
 
-struct Well {
+/*struct Well {
     var name = "some-name"
-}
+}*/
 
 class WellsManager: NSObject {
     
     var wells = [Well]()
     
-    func addWell(name : String)
+    func addWell(id: Int, name: String)
     {
-        wells.append(Well(name: name))
+        wells.append(Well(id: id, name: name))
     }
     
     func loadWells()
@@ -40,7 +40,7 @@ class WellsManager: NSObject {
                 if jsonResult is NSArray {
                     
                     for x in jsonResult as NSArray {
-                        wellsMngr.addWell(String(x as NSString))
+                        wellsMngr.addWell(1, name: String(x as NSString))
                     }
                 }
                 else {
@@ -55,6 +55,46 @@ class WellsManager: NSObject {
         })
         
         task.resume()
+    }
+    
+    func getCurvesForWell(name: String) -> [String] {
+        //var escapedName = name.stringByReplacingOccurrencesOfString(" ", withString: "%20", options: NSStringCompareOptions.LiteralSearch, range: nil)
+        var urlString = "http://127.0.0.1:5000/getCurvesForWell?" + name
+        urlString = urlString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+        //let url = NSURL(string: "http://127.0.0.1:5000/getCurvesForWell?" + name)
+        var url = NSURL(string: urlString)
+        var curveNames = [String]()
+        
+        // Opens session with server
+        let task = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: {data, response, error -> Void in
+            if(error != nil) {
+                // If there is an error in the web request, print it to the console
+                println(error.localizedDescription)
+            }
+            println("url task")
+            var err: NSError?
+            
+            if let jsonResult: AnyObject = NSJSONSerialization.JSONObjectWithData(data,options:nil,error: nil) {
+                if jsonResult is NSArray {
+                    
+                    for x in jsonResult as NSArray {
+                        curveNames.append(String(x as NSString))
+                    }
+                }
+                else {
+                    println("jsonResult was not an NSArray")
+                }
+            }
+            
+            if(err != nil) {
+                // If there is an error parsing JSON, print it to the console
+                println("JSON Error \(err!.localizedDescription)")
+            }
+        })
+        
+        task.resume()
+    
+        return curveNames
     }
    
 }

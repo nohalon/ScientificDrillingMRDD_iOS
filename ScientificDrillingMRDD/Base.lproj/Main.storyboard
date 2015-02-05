@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -97,7 +97,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6VG-hw-lGa">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="4ED-R9-qIc">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="4ED-R9-qIc">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wdC-0X-be0">
                                 <rect key="frame" x="-23" y="-15" width="71" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -118,6 +118,42 @@
                 <exit id="t5q-cu-8sr" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1819" y="293"/>
+        </scene>
+        <!--Add Curve View Controller-->
+        <scene sceneID="uZJ-C6-8hW">
+            <objects>
+                <tableViewController storyboardIdentifier="Add Curve Controller" id="qj5-pC-Qv8" customClass="AddCurveViewController" customModule="ScientificDrillingMRDD" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="gXU-Bg-x56">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="tD9-GV-nLt">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tD9-GV-nLt" id="r2L-ku-tV3">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="qj5-pC-Qv8" id="x2c-Qi-dYf"/>
+                            <outlet property="delegate" destination="qj5-pC-Qv8" id="5cR-Pr-TKd"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="lW5-jT-Rbt">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="kBL-X0-kpx">
+                            <connections>
+                                <action selector="cancel:" destination="qj5-pC-Qv8" id="EKH-U2-4ev"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="curveTable" destination="gXU-Bg-x56" id="tr9-ZE-m1U"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BQ4-dH-rPa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2785" y="1012"/>
         </scene>
         <!--Wells Dashboard Controller-->
         <scene sceneID="6gW-Gk-XeS">
@@ -157,7 +193,7 @@
                     <navigationItem key="navigationItem" id="qQi-n3-p7X">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="gbX-1A-qZf">
                             <connections>
-                                <segue destination="02Y-Xs-5On" kind="modal" identifier="AddCurves" id="cGa-SZ-8g3"/>
+                                <segue destination="cJm-qa-kB5" kind="modal" identifier="AddCurveSegue" id="Bne-Cx-nHW"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -166,31 +202,10 @@
             </objects>
             <point key="canvasLocation" x="1823" y="1012.5"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="tsA-DO-Poc">
-            <objects>
-                <viewController id="b8w-Sp-QUf" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="3W5-So-3jc"/>
-                        <viewControllerLayoutGuide type="bottom" id="R0L-iO-eib"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="gRU-S1-BDF" userLabel="Add curves page">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="T2C-BB-gvi">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="7ed-xP-6gX"/>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nYW-8D-743" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2893" y="1030"/>
-        </scene>
-        <!--wells view nav-->
+        <!--Wells View Nav-->
         <scene sceneID="YQr-KI-n2T">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ftp-G7-xyz" userLabel="wells view nav" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ftp-G7-xyz" userLabel="Wells View Nav" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="xxr-8o-HZ0"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="46n-eS-nFU">
@@ -206,23 +221,23 @@
             </objects>
             <point key="canvasLocation" x="1234" y="293"/>
         </scene>
-        <!--Add Curves Nav-->
-        <scene sceneID="htc-A5-qq1">
+        <!--Add Curve Nav-->
+        <scene sceneID="blp-Mh-Msb">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="02Y-Xs-5On" userLabel="Add Curves Nav" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Add Curves Nav" automaticallyAdjustsScrollViewInsets="NO" id="cJm-qa-kB5" userLabel="Add Curve Nav" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nzC-xC-L20">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7dw-Zo-eXh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="b8w-Sp-QUf" kind="relationship" relationship="rootViewController" id="mxg-rn-P8f"/>
+                        <segue destination="qj5-pC-Qv8" kind="relationship" relationship="rootViewController" id="IYU-NY-jGt"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Q7B-Kc-dhV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zJP-ed-Efa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2361" y="1030"/>
+            <point key="canvasLocation" x="2307" y="1012"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
