@@ -45,7 +45,8 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "AddCurveSegue" {
-            var addCurveController = segue.destinationViewController as AddCurveViewController
+            let navigationController = segue.destinationViewController as UINavigationController
+            var addCurveController = navigationController.topViewController as AddCurveViewController
             var curves = wellsMngr.getCurvesForWell(well.name)
             addCurveController.curveList = curves
         }
