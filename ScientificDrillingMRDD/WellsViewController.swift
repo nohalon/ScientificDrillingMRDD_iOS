@@ -54,8 +54,7 @@ class WellsViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "DashboardSegue" {
             var dashboard = segue.destinationViewController as WellsDashboardController
-
-            dashboard.wellName = wellsMngr.wells[index].name
+            dashboard.well = wellsMngr.wells[index]
             
             //= wellsMngr.wells[index].name
         }

@@ -10,17 +10,17 @@ import UIKit
 
 var wellsMngr: WellsManager = WellsManager()
 
-struct Well {
+/*struct Well {
     var name = "some-name"
-}
+}*/
 
 class WellsManager: NSObject {
     
     var wells = [Well]()
     
-    func addWell(name : String)
+    func addWell(id: Int, name: String)
     {
-        wells.append(Well(name: name))
+        wells.append(Well(id: id, name: name))
     }
     
     func loadWells()
@@ -40,7 +40,8 @@ class WellsManager: NSObject {
                 if jsonResult is NSArray {
                     
                     for x in jsonResult as NSArray {
-                        wellsMngr.addWell(String(x as NSString))
+                        wellsMngr.addWell(1, name: String(x as NSString))
+                        dashMngr.dashboards[x as String] = Dashboard(title: x as String)
                     }
                 }
                 else {

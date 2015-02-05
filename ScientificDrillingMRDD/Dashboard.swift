@@ -1,0 +1,29 @@
+//
+//  Dashboard.swift
+//  ScientificDrillingMRDD
+//
+//  Created by Justine Dunham on 2/3/15.
+//  Copyright (c) 2015 Noha Alon. All rights reserved.
+//
+
+import UIKit
+
+class Dashboard: NSObject {
+    
+    var title: String
+    var dataVisualizations: [DataVisualization]
+    
+    init(title: String) {
+        self.title = title
+        dataVisualizations = [DataVisualization]()
+    }
+    
+    func addVisualization(type: VisualizationType, id: Int, name: String) {
+        println("Adding " + name + " to " + title)
+        dataVisualizations += [(DataVisualization(type: type, curveId: id, label: name))]
+    }
+    
+    func addVisualization(visualization: DataVisualization) {
+        dataVisualizations += [visualization]
+    }
+}

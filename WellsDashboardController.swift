@@ -7,12 +7,12 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
 
     @IBOutlet var collectionView: UICollectionView!
     
-    var wellName = "some-name"
+    var well: Well = Well(id: -1, name: "NoWell")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = wellName;
+        self.navigationItem.title = well.name;
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
@@ -41,6 +41,66 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
         cell.textLabel?.text = "\(indexPath.row)" + String(5) + " " + DEGREE_SIGN + "F"
         
         return cell
+    }
+   
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "AddCurveSegue" {
+            let navigationController = segue.destinationViewController as UINavigationController
+            var addCurveController = navigationController.topViewController as AddCurveViewController
+
+            var urlString = "http://127.0.0.1:5000/getCurvesForWell?well=" + well.name
+            urlString = urlString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+            var url = NSURL(string: urlString)
+        
+            // Opens session with server
+            let task = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: {data, response, error -> Void in
+                if(error != nil) {
+                    // If there is an error in the web request, print it to the console
+                    println(error.localizedDescription)
+                }
+
+                var err: NSError?
+            
+                if let jsonResult: AnyObject = NSJSONSerialization.JSONObjectWithData(data,options:nil,error: nil) {
+                    if jsonResult is NSArray {
+                    
+                        for x in jsonResult as NSArray {
+                            addCurveController.curveList.append(x as String)
+                        }
+                    }
+                    else {
+                        println("jsonResult was not an NSArray")
+                    }
+                }
+            
+                if(err != nil) {
+                    // If there is an error parsing JSON, print it to the console
+                    println("JSON Error \(err!.localizedDescription)")
+                }
+            })
+        
+            task.resume()
+        }
+    }
+   
+    @IBAction func unwindToDashboard(segue: UIStoryboardSegue) {
+        if segue.identifier == "SelectCurveSegue" {
+            let addCurveController = segue.sourceViewController as AddCurveViewController
+            
+            if let selected = addCurveController.selectedCurve {
+                dashMngr.dashboards[well.name]?.addVisualization(VisualizationType.StaticValue, id: 1, name: selected)
+            }
+        }
+        
+        if let dashboard = dashMngr.dashboards[well.name] {
+            var dataVisualizations = dashboard.dataVisualizations
+            for dv in dataVisualizations {
+                println(dv.label)
+            }
+        }
+        else {
+            println("No data visualizations added")
+        }
     }
     
     override func didReceiveMemoryWarning() {
