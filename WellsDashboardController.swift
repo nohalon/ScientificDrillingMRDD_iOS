@@ -4,6 +4,9 @@ import Foundation
 class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     let DEGREE_SIGN = "\u{00B0}"
+    let SIDE_PADDING : CGFloat = 10
+    let TOP_PADDING : CGFloat = 20
+    let BOTTOM_PADDING : CGFloat = 10
 
     @IBOutlet var collectionView: UICollectionView!
     
@@ -15,8 +18,8 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
         self.navigationItem.title = well.name;
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
-        layout.itemSize = CGSize(width: 100, height: 50)
+        layout.sectionInset = UIEdgeInsets(top: TOP_PADDING, left: SIDE_PADDING, bottom: BOTTOM_PADDING, right: SIDE_PADDING)
+        layout.itemSize = CGSize(width: (self.view.frame.width - 3 * SIDE_PADDING) / 2 , height: 50)
         collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
         collectionView!.dataSource = self
         collectionView!.delegate = self
