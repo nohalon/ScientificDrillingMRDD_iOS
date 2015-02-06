@@ -104,13 +104,12 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
             }
             
             dashMngr.loadDashboard(well.name)
+            self.collectionView.reloadData()
         }
         
         if let dashboard = dashMngr.dashboards[well.name] {
-            var dataVisualizations = dashboard.dataVisualizations
-            for dv in dataVisualizations {
-                println(dv.label)
-            }
+            //dashboard.printDashboard()
+            // Jonathan: I'm printing the dashboard after we request the data in DashBoardManager.swift 
         }
         else {
             println("No data visualizations added")

@@ -26,4 +26,14 @@ class Dashboard: NSObject {
     func addVisualization(visualization: DataVisualization) {
         dataVisualizations += [visualization]
     }
+    
+    func printDashboard() {
+        println("TITLE: " + title)
+        for var i = 0; i < dataVisualizations.count; i++ {
+            println("---------------------")
+            println("DV" + String(i))
+            println("LABEL: " + dataVisualizations[i].label)
+            println(dataVisualizations[i].currentValue)
+        }
+    }
 }

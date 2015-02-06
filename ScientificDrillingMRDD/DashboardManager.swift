@@ -18,9 +18,9 @@ class DashboardManager: NSObject {
         if let dash = dashboards[wellName] {
         
         for dv in dash.dataVisualizations {
-            var urlString = "http://127.0.0.1:5000/getCurvesData?well=" + wellName
-            urlString += "curve=" + dv.label
+            var urlString = "http://127.0.0.1:5000/getCurveValue?well=" + wellName + "&curve=" + dv.label
             urlString = urlString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+            println(urlString)
             var url = NSURL(string: urlString)
         
             // Opens session with server
@@ -31,12 +31,12 @@ class DashboardManager: NSObject {
                 }
 
                 var err: NSError?
-            
                 if let jsonResult: AnyObject = NSJSONSerialization.JSONObjectWithData(data,options:nil,error: nil) {
                     if jsonResult is NSArray {
-                    
+                        println(jsonResult)
                         for x in jsonResult as NSArray {
                             dv.currentValue = x as? Float
+                            println(dv.currentValue)
                         }
                     }
                     else {
@@ -53,6 +53,7 @@ class DashboardManager: NSObject {
             task.resume()
             
         }
+            dash.printDashboard()
         }
     }
     
