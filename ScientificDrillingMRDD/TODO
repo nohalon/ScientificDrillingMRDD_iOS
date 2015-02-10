@@ -1,7 +1,7 @@
 TODO: Week of Feb. 9, 2015
 
 1. logging errors
-2. updating values every X seconds
+DONE 2. updating values every X seconds
 3. HTTP requests (NSConnection?) - Justine
 4. persistence - Justine
 5. ADFS (2 people) - Kevin, Jonathan
