@@ -36,6 +36,8 @@
 		A0FFB46E1A8327280032C8DC /* DataVisualization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FFB46D1A8327280032C8DC /* DataVisualization.swift */; };
 		EA20A2A01A8040080023D2CC /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA20A29F1A8040080023D2CC /* CollectionViewCell.swift */; };
 		EA913BFB1A7AE7FC00E1F97B /* WellsDashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA913BFA1A7AE7FC00E1F97B /* WellsDashboardController.swift */; };
+		EAB8FA5A1A8993B800407A75 /* CurveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB8FA591A8993B800407A75 /* CurveManager.swift */; };
+		EAB8FA5C1A899A1D00407A75 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = EAB8FA5B1A899A1D00407A75 /* TODO */; };
 		EAE7C8141A70A118002AB567 /* WellsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE7C8131A70A118002AB567 /* WellsManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +85,8 @@
 		A0FFB46D1A8327280032C8DC /* DataVisualization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataVisualization.swift; sourceTree = "<group>"; };
 		EA20A29F1A8040080023D2CC /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		EA913BFA1A7AE7FC00E1F97B /* WellsDashboardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WellsDashboardController.swift; path = ../WellsDashboardController.swift; sourceTree = "<group>"; };
+		EAB8FA591A8993B800407A75 /* CurveManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurveManager.swift; sourceTree = "<group>"; };
+		EAB8FA5B1A899A1D00407A75 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
 		EAE7C8131A70A118002AB567 /* WellsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WellsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -153,19 +157,13 @@
 		2D1B15F21A678152001B3382 /* ScientificDrillingMRDD */ = {
 			isa = PBXGroup;
 			children = (
+				EAB8FA5B1A899A1D00407A75 /* TODO */,
+				EAB8FA581A89907300407A75 /* Managers */,
+				EAB8FA571A89906500407A75 /* View */,
+				EAB8FA561A89902F00407A75 /* Controllers */,
+				EAB8FA551A89901100407A75 /* Model */,
 				2D1B15F51A678152001B3382 /* AppDelegate.swift */,
-				EA913BFA1A7AE7FC00E1F97B /* WellsDashboardController.swift */,
-				A0D2B5F21A83DAFC0040B8B7 /* DashboardManager.swift */,
-				EA20A29F1A8040080023D2CC /* CollectionViewCell.swift */,
-				A03393B21A7045160010B45C /* WellsViewController.swift */,
-				A03393B41A7046710010B45C /* LoginViewController.swift */,
 				2D1B15F91A678152001B3382 /* Main.storyboard */,
-				A073BC191A82A89D003A3A72 /* AddCurveViewController.swift */,
-				EAE7C8131A70A118002AB567 /* WellsManager.swift */,
-				A073BC151A81D301003A3A72 /* Well.swift */,
-				A073BC171A81D4AF003A3A72 /* Dashboard.swift */,
-				A0FFB46D1A8327280032C8DC /* DataVisualization.swift */,
-				A0FFB46B1A8326E90032C8DC /* Curve.swift */,
 				2D1B15FC1A678152001B3382 /* Images.xcassets */,
 				2D1B15FE1A678152001B3382 /* LaunchScreen.xib */,
 				2D1B15F31A678152001B3382 /* Supporting Files */,
@@ -196,6 +194,46 @@
 				2D1B160A1A678152001B3382 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EAB8FA551A89901100407A75 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A0FFB46D1A8327280032C8DC /* DataVisualization.swift */,
+				A073BC171A81D4AF003A3A72 /* Dashboard.swift */,
+				A0FFB46B1A8326E90032C8DC /* Curve.swift */,
+				A073BC151A81D301003A3A72 /* Well.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		EAB8FA561A89902F00407A75 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A073BC191A82A89D003A3A72 /* AddCurveViewController.swift */,
+				A03393B41A7046710010B45C /* LoginViewController.swift */,
+				A03393B21A7045160010B45C /* WellsViewController.swift */,
+				EA913BFA1A7AE7FC00E1F97B /* WellsDashboardController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		EAB8FA571A89906500407A75 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EA20A29F1A8040080023D2CC /* CollectionViewCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		EAB8FA581A89907300407A75 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				A0D2B5F21A83DAFC0040B8B7 /* DashboardManager.swift */,
+				EAE7C8131A70A118002AB567 /* WellsManager.swift */,
+				EAB8FA591A8993B800407A75 /* CurveManager.swift */,
+			);
+			name = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,6 +318,7 @@
 			files = (
 				2D1B15FB1A678152001B3382 /* Main.storyboard in Resources */,
 				2D1B16001A678152001B3382 /* LaunchScreen.xib in Resources */,
+				EAB8FA5C1A899A1D00407A75 /* TODO in Resources */,
 				2D1B15FD1A678152001B3382 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -305,6 +344,7 @@
 				EA20A2A01A8040080023D2CC /* CollectionViewCell.swift in Sources */,
 				A0FFB46C1A8326E90032C8DC /* Curve.swift in Sources */,
 				A03393B31A7045160010B45C /* WellsViewController.swift in Sources */,
+				EAB8FA5A1A8993B800407A75 /* CurveManager.swift in Sources */,
 				A073BC161A81D301003A3A72 /* Well.swift in Sources */,
 				A0D2B5F31A83DAFC0040B8B7 /* DashboardManager.swift in Sources */,
 				EAE7C8141A70A118002AB567 /* WellsManager.swift in Sources */,

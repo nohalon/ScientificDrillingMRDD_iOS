@@ -11,10 +11,11 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
     @IBOutlet var collectionView: UICollectionView!
     
     var well: Well = Well(id: -1, name: "NoWell")
+    var myTimer : NSTimer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        println("B")
         self.navigationItem.title = well.name;
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -27,7 +28,21 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
         collectionView!.backgroundColor = UIColor.whiteColor()
         self.view.addSubview(collectionView!)
         
+        myTimer = NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
+        
         dashMngr.loadDashboard(well.name)
+    }
+    
+    func update() {
+        dashMngr.loadDashboard(well.name)
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        myTimer!.invalidate()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        myTimer!.fire()
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -52,7 +67,7 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
         var visualization = dashboard?.dataVisualizations[indexPath.row]
         
         cell.unitLabel?.text = visualization?.label
-        cell.textLabel?.text = "\(visualization?.currentValue)"
+        cell.textLabel?.text = "\((visualization?.currentValue)!)"
         
         return cell
     }
@@ -61,39 +76,9 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
         if segue.identifier == "AddCurveSegue" {
             let navigationController = segue.destinationViewController as UINavigationController
             var addCurveController = navigationController.topViewController as AddCurveViewController
-
-            var urlString = "http://127.0.0.1:5000/getCurvesForWell?well=" + well.name
-            urlString = urlString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
-            var url = NSURL(string: urlString)
-        
-            // Opens session with server
-            let task = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: {data, response, error -> Void in
-                if(error != nil) {
-                    // If there is an error in the web request, print it to the console
-                    println(error.localizedDescription)
-                }
-
-                var err: NSError?
             
-                if let jsonResult: AnyObject = NSJSONSerialization.JSONObjectWithData(data,options:nil,error: nil) {
-                    if jsonResult is NSArray {
-                    
-                        for x in jsonResult as NSArray {
-                            addCurveController.curveList.append(x as String)
-                        }
-                    }
-                    else {
-                        println("jsonResult was not an NSArray")
-                    }
-                }
+            addCurveController.wellName = well.name
             
-                if(err != nil) {
-                    // If there is an error parsing JSON, print it to the console
-                    println("JSON Error \(err!.localizedDescription)")
-                }
-            })
-        
-            task.resume()
             
         }
     }
@@ -123,6 +108,7 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 
     
 }

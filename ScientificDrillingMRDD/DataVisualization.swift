@@ -18,12 +18,13 @@ class DataVisualization {
     var type: VisualizationType
     var curveId: Int
     var label: String
-    var currentValue: Float?
+    var currentValue: Float
     
     init(type: VisualizationType, curveId: Int, label: String) {
         self.type = type
         self.curveId = curveId
         self.label = label
+        self.currentValue = 0.0
     }
 }
 

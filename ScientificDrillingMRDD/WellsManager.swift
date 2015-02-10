@@ -53,6 +53,8 @@ class WellsManager: NSObject {
                 // If there is an error parsing JSON, print it to the console
                 println("JSON Error \(err!.localizedDescription)")
             }
+            
+            curveMngr.loadAllCurves(wellsMngr.wells)
         })
         
         task.resume()

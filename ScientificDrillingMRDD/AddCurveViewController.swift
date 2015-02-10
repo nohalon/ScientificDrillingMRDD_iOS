@@ -12,7 +12,7 @@ class AddCurveViewController: UITableViewController {
     
     @IBOutlet var curveTable: UITableView!
     
-    var curveList = [String]()
+    var wellName : String?
     var selectedCurve: String?
     var index: Int = 0
     
@@ -30,19 +30,38 @@ class AddCurveViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return curveList.count
+        var curveCount = 0;
+        if let name = wellName? {
+            curveCount = curveMngr.curves[name]!.count
+        }
+        else {
+            
+        }
+        return curveCount
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "WellCell")
-        cell.textLabel?.text = curveList[indexPath.row]
+        
+        if let name = wellName? {
+            cell.textLabel?.text = curveMngr.curves[name]![indexPath.row]
+        }
+        else {
+            
+        }
         
         return cell;
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.index = indexPath.row
-        self.selectedCurve = curveList[index]
+        
+        if let name = wellName? {
+            self.selectedCurve = curveMngr.curves[name]![index]
+        }
+        else {
+            
+        }
         
         self.performSegueWithIdentifier("SelectCurveSegue", sender: self)
     }

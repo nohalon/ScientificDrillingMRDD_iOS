@@ -19,7 +19,6 @@ class Dashboard: NSObject {
     }
     
     func addVisualization(type: VisualizationType, id: Int, name: String) {
-        println("Adding " + name + " to " + title)
         dataVisualizations += [(DataVisualization(type: type, curveId: id, label: name))]
     }
     
