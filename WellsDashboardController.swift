@@ -7,7 +7,7 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
     let SIDE_PADDING : CGFloat = 10
     let TOP_PADDING : CGFloat = 20
     let BOTTOM_PADDING : CGFloat = 10
-
+    
     @IBOutlet var collectionView: UICollectionView!
     
     var well: Well = Well(id: -1, name: "NoWell")
@@ -15,7 +15,7 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        println("B")
+        
         self.navigationItem.title = well.name;
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -28,21 +28,26 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
         collectionView!.backgroundColor = UIColor.whiteColor()
         self.view.addSubview(collectionView!)
         
-        myTimer = NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
-        
         dashMngr.loadDashboard(well.name)
     }
     
     func update() {
+        // TODO: Animations - http://stackoverflow.com/questions/14804359/uicollectionview-doesnt-update-immediately-when-calling-reloaddata-but-randoml
+        println("update well " + well.name)
         dashMngr.loadDashboard(well.name)
+        dispatch_async(dispatch_get_main_queue(), {
+            self.collectionView.reloadData()
+        })
     }
     
     override func viewDidDisappear(animated: Bool) {
+        println("view did disappear")
         myTimer!.invalidate()
     }
     
     override func viewWillAppear(animated: Bool) {
-        myTimer!.fire()
+        println("view will appear")
+        myTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -66,23 +71,37 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
         var dashboard = dashMngr.dashboards[well.name]
         var visualization = dashboard?.dataVisualizations[indexPath.row]
         
+        var unitResult : String? = visualization?.label
+        
+        var valueResult = String(format: "%.2f", (visualization?.currentValue)!)
+        var unit : String?
+        
+        switch unitResult! {
+        case "Temperature":
+            unit = " " + DEGREE_SIGN + "F"
+        case "Depth":
+            unit = " m"
+        case "Time":
+            unit = " s"
+        default:
+            println("INVALID: unit does not exist")
+            break
+        }
         cell.unitLabel?.text = visualization?.label
-        cell.textLabel?.text = "\((visualization?.currentValue)!)"
+        cell.textLabel?.text = valueResult + unit!
         
         return cell
     }
-   
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "AddCurveSegue" {
             let navigationController = segue.destinationViewController as UINavigationController
             var addCurveController = navigationController.topViewController as AddCurveViewController
             
             addCurveController.wellName = well.name
-            
-            
         }
     }
-   
+    
     @IBAction func unwindToDashboard(segue: UIStoryboardSegue) {
         if segue.identifier == "SelectCurveSegue" {
             let addCurveController = segue.sourceViewController as AddCurveViewController
@@ -97,7 +116,7 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
         
         if let dashboard = dashMngr.dashboards[well.name] {
             //dashboard.printDashboard()
-            // Jonathan: I'm printing the dashboard after we request the data in DashBoardManager.swift 
+            // Jonathan: I'm printing the dashboard after we request the data in DashBoardManager.swift
         }
         else {
             println("No data visualizations added")
@@ -109,6 +128,6 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     
 }
