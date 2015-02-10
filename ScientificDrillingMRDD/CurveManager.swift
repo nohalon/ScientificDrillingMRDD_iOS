@@ -8,52 +8,53 @@
 
 import UIKit
 
-var dashMngr: DashboardManager = DashboardManager()
+var curveMngr: CurveManager = CurveManager()
 
-class DashboardManager: NSObject {
+class CurveManager: NSObject {
     
-    var dashboards = [String:Dashboard]()
+    var curves = [String:[String]]()
     
-    func loadDashboard(wellName: String) {
-        if let dash = dashboards[wellName] {
-        
-        for dv in dash.dataVisualizations {
-            var urlString = "http://127.0.0.1:5000/getCurveValue?well=" + wellName + "&curve=" + dv.label
+    func loadCurves(wellName: String) {
+            
+            var urlString = "http://127.0.0.1:5000/getCurvesForWell?well=" + wellName
             urlString = urlString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
-            println(urlString)
             var url = NSURL(string: urlString)
         
+            curves[wellName] = [String]()
+            
             // Opens session with server
             let task = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: {data, response, error -> Void in
                 if(error != nil) {
                     // If there is an error in the web request, print it to the console
                     println(error.localizedDescription)
                 }
-
+                
                 var err: NSError?
+                
                 if let jsonResult: AnyObject = NSJSONSerialization.JSONObjectWithData(data,options:nil,error: nil) {
-                    
                     if jsonResult is NSArray {
-                        println(jsonResult)
+                        
                         for x in jsonResult as NSArray {
-                            dv.currentValue = x as Float
+                            self.curves[wellName]!.append((x as String))
                         }
                     }
                     else {
                         println("jsonResult was not an NSArray")
                     }
                 }
-            
+                
                 if(err != nil) {
                     // If there is an error parsing JSON, print it to the console
                     println("JSON Error \(err!.localizedDescription)")
                 }
             })
-        
-            task.resume()
             
-        }
-        }
+            task.resume()
     }
     
+    func loadAllCurves(wellNames : [Well]) {
+        for well in wellNames {
+            loadCurves(well.name)
+        }
+    }
 }

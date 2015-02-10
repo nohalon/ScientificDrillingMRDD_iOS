@@ -20,8 +20,6 @@ class WellsViewController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true;
         self.navigationController?.navigationBar.translucent = false
-        
-        //signOutBtn.addTarget(GPPSignIn.sharedInstance().delegate, action: "logoutApplication", forControlEvents: .TouchUpInside)
     }
     
     override func didReceiveMemoryWarning() {
@@ -55,8 +53,6 @@ class WellsViewController: UIViewController {
         if segue.identifier == "DashboardSegue" {
             var dashboard = segue.destinationViewController as WellsDashboardController
             dashboard.well = wellsMngr.wells[index]
-            
-            //= wellsMngr.wells[index].name
         }
     }
     

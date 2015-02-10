@@ -12,11 +12,9 @@ class Well: NSObject {
 
     var name: String
     var id: Int
-    var dashboard: Dashboard
     
     init(id: Int, name: String) {
         self.id = id
         self.name = name
-        dashboard = Dashboard(title: name)
     }
 }

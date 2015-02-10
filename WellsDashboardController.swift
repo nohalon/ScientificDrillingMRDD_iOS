@@ -4,25 +4,45 @@ import Foundation
 class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     let DEGREE_SIGN = "\u{00B0}"
+    let SIDE_PADDING : CGFloat = 10
+    let TOP_PADDING : CGFloat = 20
+    let BOTTOM_PADDING : CGFloat = 10
 
     @IBOutlet var collectionView: UICollectionView!
     
     var well: Well = Well(id: -1, name: "NoWell")
+    var myTimer : NSTimer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        println("B")
         self.navigationItem.title = well.name;
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
-        layout.itemSize = CGSize(width: 100, height: 50)
+        layout.sectionInset = UIEdgeInsets(top: TOP_PADDING, left: SIDE_PADDING, bottom: BOTTOM_PADDING, right: SIDE_PADDING)
+        layout.itemSize = CGSize(width: (self.view.frame.width - 3 * SIDE_PADDING) / 2 , height: 50)
         collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
         collectionView!.dataSource = self
         collectionView!.delegate = self
         collectionView!.registerClass(CollectionViewCell.self, forCellWithReuseIdentifier: "CollectionViewCell")
         collectionView!.backgroundColor = UIColor.whiteColor()
         self.view.addSubview(collectionView!)
+        
+        myTimer = NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
+        
+        dashMngr.loadDashboard(well.name)
+    }
+    
+    func update() {
+        dashMngr.loadDashboard(well.name)
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        myTimer!.invalidate()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        myTimer!.fire()
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -30,15 +50,24 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        var items: Int?
+        if let dash = dashMngr.dashboards[well.name] {
+            items = dash.dataVisualizations.count
+        }
+        else {
+            items = 0
+        }
+        return items!
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CollectionViewCell", forIndexPath: indexPath) as CollectionViewCell
         cell.layer.borderWidth = 1.0
+        var dashboard = dashMngr.dashboards[well.name]
+        var visualization = dashboard?.dataVisualizations[indexPath.row]
         
-        cell.unitLabel?.text = "Temperature"
-        cell.textLabel?.text = "\(indexPath.row)" + String(5) + " " + DEGREE_SIGN + "F"
+        cell.unitLabel?.text = visualization?.label
+        cell.textLabel?.text = "\((visualization?.currentValue)!)"
         
         return cell
     }
@@ -47,39 +76,10 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
         if segue.identifier == "AddCurveSegue" {
             let navigationController = segue.destinationViewController as UINavigationController
             var addCurveController = navigationController.topViewController as AddCurveViewController
-
-            var urlString = "http://127.0.0.1:5000/getCurvesForWell?well=" + well.name
-            urlString = urlString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
-            var url = NSURL(string: urlString)
-        
-            // Opens session with server
-            let task = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: {data, response, error -> Void in
-                if(error != nil) {
-                    // If there is an error in the web request, print it to the console
-                    println(error.localizedDescription)
-                }
-
-                var err: NSError?
             
-                if let jsonResult: AnyObject = NSJSONSerialization.JSONObjectWithData(data,options:nil,error: nil) {
-                    if jsonResult is NSArray {
-                    
-                        for x in jsonResult as NSArray {
-                            addCurveController.curveList.append(x as String)
-                        }
-                    }
-                    else {
-                        println("jsonResult was not an NSArray")
-                    }
-                }
+            addCurveController.wellName = well.name
             
-                if(err != nil) {
-                    // If there is an error parsing JSON, print it to the console
-                    println("JSON Error \(err!.localizedDescription)")
-                }
-            })
-        
-            task.resume()
+            
         }
     }
    
@@ -90,13 +90,14 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
             if let selected = addCurveController.selectedCurve {
                 dashMngr.dashboards[well.name]?.addVisualization(VisualizationType.StaticValue, id: 1, name: selected)
             }
+            
+            dashMngr.loadDashboard(well.name)
+            self.collectionView.reloadData()
         }
         
         if let dashboard = dashMngr.dashboards[well.name] {
-            var dataVisualizations = dashboard.dataVisualizations
-            for dv in dataVisualizations {
-                println(dv.label)
-            }
+            //dashboard.printDashboard()
+            // Jonathan: I'm printing the dashboard after we request the data in DashBoardManager.swift 
         }
         else {
             println("No data visualizations added")
@@ -107,6 +108,7 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 
     
 }

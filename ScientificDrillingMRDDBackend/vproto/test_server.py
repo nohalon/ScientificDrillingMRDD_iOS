@@ -37,8 +37,9 @@ def get_curve_value():
     print wellName
     print curveName
     if (wellName in Wells or wellName == "test") and curveName in _default_curves:
-        return make_response(dumps(random() * 100))
-    return make_response(dumps("N/A"))
+    	curve_value = [random() * 100]
+        return make_response(dumps(curve_value))
+    return make_response(dumps([]))
 
 
 if __name__ == '__main__':
