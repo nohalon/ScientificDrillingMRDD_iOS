@@ -8,11 +8,15 @@
 
 import Foundation
 
-class WellsViewController: UIViewController {
+let SETTINGS_NDX = 0
+let LOGOUT_NDX = 1
+
+class WellsViewController: UIViewController, SideBarDelegate {
     
     //@IBOutlet weak var signOutBtn: UIButton!
     @IBOutlet var table: UITableView!
-    
+    var sideBar : SideBar = SideBar()
+
     var array : NSArray = []
     var index = 0
     
@@ -20,6 +24,9 @@ class WellsViewController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true;
         self.navigationController?.navigationBar.translucent = false
+        
+        sideBar = SideBar(sourceView: self.view, menuItems: ["Settings", "Logout", "funny item", "another item"])
+        sideBar.delegate = self
     }
     
     override func didReceiveMemoryWarning() {
@@ -53,6 +60,28 @@ class WellsViewController: UIViewController {
         if segue.identifier == "DashboardSegue" {
             var dashboard = segue.destinationViewController as WellsDashboardController
             dashboard.well = wellsMngr.wells[index]
+        }
+    }
+    
+    @IBAction func menuBarAction(sender: AnyObject) {
+        if sideBar.isSideBarOpen {
+            sideBar.showSideBar(false)
+        }
+        else {
+            sideBar.showSideBar(true)
+        }
+    }
+    
+    func didSelectButtonAtIndex(index : Int) {
+        if index == SETTINGS_NDX {
+            // Settings
+        }
+        else if index == LOGOUT_NDX {
+            // log
+            self.performSegueWithIdentifier("LogoutSegue", sender : self)
+            /*let segue : UIStoryboardSegue = self.segueForUnwindingToViewController(self, fromViewController: loginView, identifier: "WellsSegue")
+            loginView.unwindToLogin(segue)*/
+            
         }
     }
     

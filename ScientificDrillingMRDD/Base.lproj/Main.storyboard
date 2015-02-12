@@ -97,15 +97,24 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6VG-hw-lGa">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="4ED-R9-qIc">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="1oQ-5G-67v" userLabel="Slide Bar Button">
+                            <connections>
+                                <action selector="menuBarAction:" destination="Fmk-mM-Eyi" id="QCj-Yy-kfc"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Item" id="4ED-R9-qIc">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wdC-0X-be0">
                                 <rect key="frame" x="-23" y="-15" width="71" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Logout">
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" notEnabled="YES"/>
+                                    <bool key="isElement" value="NO"/>
+                                </accessibility>
+                                <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="t5q-cu-8sr" kind="unwind" unwindAction="unwindToLogin:" id="0bD-aP-g8y"/>
+                                    <segue destination="t5q-cu-8sr" kind="unwind" identifier="LogoutSegue" unwindAction="unwindToLogin:" id="0bD-aP-g8y"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -244,6 +253,9 @@
             <point key="canvasLocation" x="2247" y="1012"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="menu" width="20" height="14"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
