@@ -28,13 +28,13 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
         collectionView!.backgroundColor = UIColor.whiteColor()
         self.view.addSubview(collectionView!)
         
-        dashMngr.loadDashboard(well.name)
+        dashMngr.loadDashboardForWell(well.name)
     }
     
     func update() {
         // TODO: Animations - http://stackoverflow.com/questions/14804359/uicollectionview-doesnt-update-immediately-when-calling-reloaddata-but-randoml
         println("update well " + well.name)
-        dashMngr.loadDashboard(well.name)
+        dashMngr.loadDashboardForWell(well.name)
         dispatch_async(dispatch_get_main_queue(), {
             self.collectionView.reloadData()
         })
@@ -110,7 +110,7 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
                 dashMngr.dashboards[well.name]?.addVisualization(VisualizationType.StaticValue, id: 1, name: selected)
             }
             
-            dashMngr.loadDashboard(well.name)
+            dashMngr.loadDashboardForWell(well.name)
             self.collectionView.reloadData()
         }
         

@@ -148,7 +148,6 @@
 		2D1B15F21A678152001B3382 /* ScientificDrillingMRDD */ = {
 			isa = PBXGroup;
 			children = (
-				2DD06C211A8C447E0044D558 /* SideBar */,
 				EAB8FA5B1A899A1D00407A75 /* TODO */,
 				EAB8FA581A89907300407A75 /* Managers */,
 				EAB8FA571A89906500407A75 /* View */,
@@ -209,15 +208,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		2DD06C211A8C447E0044D558 /* SideBar */ = {
-			isa = PBXGroup;
-			children = (
-				2DD06C1D1A8B37BF0044D558 /* SideBar.swift */,
-				2DD06C1F1A8B37F00044D558 /* SideBarTableViewController.swift */,
-			);
-			name = SideBar;
-			sourceTree = "<group>";
-		};
 		EAB8FA551A89901100407A75 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,6 +222,7 @@
 		EAB8FA561A89902F00407A75 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2DD06C1F1A8B37F00044D558 /* SideBarTableViewController.swift */,
 				A073BC191A82A89D003A3A72 /* AddCurveViewController.swift */,
 				A03393B41A7046710010B45C /* LoginViewController.swift */,
 				A03393B21A7045160010B45C /* WellsViewController.swift */,
@@ -243,6 +234,7 @@
 		EAB8FA571A89906500407A75 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2DD06C1D1A8B37BF0044D558 /* SideBar.swift */,
 				EA20A29F1A8040080023D2CC /* CollectionViewCell.swift */,
 			);
 			name = View;

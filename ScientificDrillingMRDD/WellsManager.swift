@@ -10,10 +10,6 @@ import UIKit
 
 var wellsMngr: WellsManager = WellsManager()
 
-/*struct Well {
-    var name = "some-name"
-}*/
-
 class WellsManager: NSObject {
     
     var wells = [Well]()
