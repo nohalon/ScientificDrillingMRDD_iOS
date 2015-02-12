@@ -23,6 +23,8 @@
 		2D1B16261A678470001B3382 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D1B16251A678470001B3382 /* Security.framework */; };
 		2D1B16281A67847A001B3382 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D1B16271A67847A001B3382 /* SystemConfiguration.framework */; };
 		2D1B162A1A678482001B3382 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D1B16291A678482001B3382 /* UIKit.framework */; };
+		2DD06C1E1A8B37BF0044D558 /* SideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD06C1D1A8B37BF0044D558 /* SideBar.swift */; };
+		2DD06C201A8B37F00044D558 /* SideBarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD06C1F1A8B37F00044D558 /* SideBarTableViewController.swift */; };
 		A03393B31A7045160010B45C /* WellsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03393B21A7045160010B45C /* WellsViewController.swift */; };
 		A03393B51A7046710010B45C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03393B41A7046710010B45C /* LoginViewController.swift */; };
 		A073BC161A81D301003A3A72 /* Well.swift in Sources */ = {isa = PBXBuildFile; fileRef = A073BC151A81D301003A3A72 /* Well.swift */; };
@@ -72,6 +74,8 @@
 		2D1B16251A678470001B3382 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		2D1B16271A67847A001B3382 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		2D1B16291A678482001B3382 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2DD06C1D1A8B37BF0044D558 /* SideBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SideBar.swift; path = ../SideBar.swift; sourceTree = "<group>"; };
+		2DD06C1F1A8B37F00044D558 /* SideBarTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBarTableViewController.swift; sourceTree = "<group>"; };
 		A03393B21A7045160010B45C /* WellsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WellsViewController.swift; sourceTree = "<group>"; };
 		A03393B41A7046710010B45C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A073BC151A81D301003A3A72 /* Well.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Well.swift; sourceTree = "<group>"; };
@@ -125,20 +129,7 @@
 		2D1B15E71A678152001B3382 = {
 			isa = PBXGroup;
 			children = (
-				A0E962B11A68E942004B1C00 /* GoogleOpenSource.framework */,
-				A0E962B21A68E942004B1C00 /* GooglePlus.bundle */,
-				A0E962B31A68E942004B1C00 /* GooglePlus.framework */,
-				2D1B16291A678482001B3382 /* UIKit.framework */,
-				2D1B16271A67847A001B3382 /* SystemConfiguration.framework */,
-				2D1B16251A678470001B3382 /* Security.framework */,
-				2D1B16231A678469001B3382 /* MediaPlayer.framework */,
-				2D1B16211A678461001B3382 /* CoreText.framework */,
-				2D1B161F1A67845A001B3382 /* CoreGraphics.framework */,
-				2D1B161D1A678451001B3382 /* CoreMotion.framework */,
-				2D1B161B1A678448001B3382 /* CoreLocation.framework */,
-				2D1B16191A678440001B3382 /* Foundation.framework */,
-				2D1B16171A67842D001B3382 /* AssetsLibrary.framework */,
-				2D1B16151A678420001B3382 /* AddressBook.framework */,
+				2DD06C1C1A8B378A0044D558 /* Frameworks */,
 				2D1B15F21A678152001B3382 /* ScientificDrillingMRDD */,
 				2D1B16081A678152001B3382 /* ScientificDrillingMRDDTests */,
 				2D1B15F11A678152001B3382 /* Products */,
@@ -157,6 +148,7 @@
 		2D1B15F21A678152001B3382 /* ScientificDrillingMRDD */ = {
 			isa = PBXGroup;
 			children = (
+				2DD06C211A8C447E0044D558 /* SideBar */,
 				EAB8FA5B1A899A1D00407A75 /* TODO */,
 				EAB8FA581A89907300407A75 /* Managers */,
 				EAB8FA571A89906500407A75 /* View */,
@@ -194,6 +186,36 @@
 				2D1B160A1A678152001B3382 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2DD06C1C1A8B378A0044D558 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A0E962B11A68E942004B1C00 /* GoogleOpenSource.framework */,
+				A0E962B21A68E942004B1C00 /* GooglePlus.bundle */,
+				A0E962B31A68E942004B1C00 /* GooglePlus.framework */,
+				2D1B16291A678482001B3382 /* UIKit.framework */,
+				2D1B16271A67847A001B3382 /* SystemConfiguration.framework */,
+				2D1B16251A678470001B3382 /* Security.framework */,
+				2D1B16231A678469001B3382 /* MediaPlayer.framework */,
+				2D1B16211A678461001B3382 /* CoreText.framework */,
+				2D1B161F1A67845A001B3382 /* CoreGraphics.framework */,
+				2D1B161D1A678451001B3382 /* CoreMotion.framework */,
+				2D1B161B1A678448001B3382 /* CoreLocation.framework */,
+				2D1B16191A678440001B3382 /* Foundation.framework */,
+				2D1B16171A67842D001B3382 /* AssetsLibrary.framework */,
+				2D1B16151A678420001B3382 /* AddressBook.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2DD06C211A8C447E0044D558 /* SideBar */ = {
+			isa = PBXGroup;
+			children = (
+				2DD06C1D1A8B37BF0044D558 /* SideBar.swift */,
+				2DD06C1F1A8B37F00044D558 /* SideBarTableViewController.swift */,
+			);
+			name = SideBar;
 			sourceTree = "<group>";
 		};
 		EAB8FA551A89901100407A75 /* Model */ = {
@@ -339,7 +361,9 @@
 			files = (
 				A03393B51A7046710010B45C /* LoginViewController.swift in Sources */,
 				A073BC1A1A82A89D003A3A72 /* AddCurveViewController.swift in Sources */,
+				2DD06C1E1A8B37BF0044D558 /* SideBar.swift in Sources */,
 				2D1B15F61A678152001B3382 /* AppDelegate.swift in Sources */,
+				2DD06C201A8B37F00044D558 /* SideBarTableViewController.swift in Sources */,
 				A073BC181A81D4AF003A3A72 /* Dashboard.swift in Sources */,
 				EA20A2A01A8040080023D2CC /* CollectionViewCell.swift in Sources */,
 				A0FFB46C1A8326E90032C8DC /* Curve.swift in Sources */,
