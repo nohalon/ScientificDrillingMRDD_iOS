@@ -1,5 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict/>
+<dict>
+	<key>getCurveValueURL</key>
+	<string>http://127.0.0.1:5000/getCurveValue?well=</string>
+	<key>sideBarMenuItems</key>
+	<array>
+		<string>Settings</string>
+		<string>Logout</string>
+		<string>funny item</string>
+		<string>another item</string>
+	</array>
+	<key>sideBarColorComponent</key>
+	<real>0.3</real>
+	<key>sideBarHeight</key>
+	<integer>45</integer>
+	<key>collectionViewCellFont</key>
+	<string>HelveticaNeue</string>
+	<key>sideBarWidth</key>
+	<real>150</real>
+	<key>sideBarTopInsert</key>
+	<integer>70</integer>
+	<key>getWellsURL</key>
+	<string>http://127.0.0.1:5000/getWells</string>
+	<key>googleClientID</key>
+	<string>741302004274-03334h3tk30brn2n9fhe9l32nnn6gk1k.apps.googleusercontent.com</string>
+	<key>getCurvesURL</key>
+	<string>http://127.0.0.1:5000/getCurvesForWell?well=</string>
+</dict>
 </plist>

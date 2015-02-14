@@ -21,7 +21,7 @@ class WellsManager: NSObject {
     
     func loadWells()
     {
-        let url = NSURL(string: "http://127.0.0.1:5000/getWells")
+        let url = NSURL(string: config.getProperty("getWellsURL") as String)
         
         // Opens session with server
         let task = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: {data, response, error -> Void in

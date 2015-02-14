@@ -7,3 +7,21 @@
 //
 
 import Foundation
+
+var config: ConfigManager = ConfigManager()
+
+
+class ConfigManager: NSObject {
+    
+    var dict = NSDictionary()
+    
+    func loadPropertiesFromFile() {
+        var path = NSBundle.mainBundle().pathForResource("Config", ofType: "plist")
+        dict = NSDictionary(contentsOfFile: path!)!
+    }
+    
+    func getProperty(property: String) -> AnyObject {
+        return dict[property]!
+    }
+    
+}

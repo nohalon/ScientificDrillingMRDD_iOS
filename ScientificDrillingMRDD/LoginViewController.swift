@@ -23,6 +23,9 @@ class LoginViewController: UIViewController, GPPSignInDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Load configuration data for app
+        config.loadPropertiesFromFile()
+        
         // Configure Google Login
         signIn = GPPSignIn.sharedInstance()
         
@@ -33,7 +36,7 @@ class LoginViewController: UIViewController, GPPSignInDelegate {
         signIn?.shouldFetchGoogleUserEmail = true
         
         signIn?.shouldFetchGooglePlusUser = true
-        signIn?.clientID = "741302004274-03334h3tk30brn2n9fhe9l32nnn6gk1k.apps.googleusercontent.com"
+        signIn?.clientID = config.getProperty("googleClientID") as String
         signIn?.scopes = [kGTLAuthScopePlusLogin]
         signIn?.delegate = self
         

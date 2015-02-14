@@ -17,7 +17,7 @@ class CurveManager: NSObject {
     
     func loadCurvesForWell(wellName: String) {
         
-        var urlString = "http://127.0.0.1:5000/getCurvesForWell?well=" + wellName
+        var urlString = config.getProperty("getCurvesURL") as String + wellName
         urlString = urlString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
         var url = NSURL(string: urlString)
         

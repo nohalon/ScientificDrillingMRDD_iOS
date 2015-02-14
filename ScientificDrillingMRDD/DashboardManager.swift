@@ -18,7 +18,7 @@ class DashboardManager: NSObject {
     func loadDashboardForWell(wellName: String) {
         if let dash = dashboards[wellName] {
             for dv in dash.dataVisualizations {
-                var urlString = "http://127.0.0.1:5000/getCurveValue?well=" + wellName + "&curve=" + dv.label
+                var urlString = config.getProperty("getCurveValueURL") as String + wellName + "&curve=" + dv.label
                 urlString = urlString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
                 println(urlString)
                 var url = NSURL(string: urlString)

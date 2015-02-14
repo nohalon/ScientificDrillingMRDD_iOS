@@ -25,7 +25,7 @@ class WellsViewController: UIViewController, SideBarDelegate {
         self.navigationItem.hidesBackButton = true;
         self.navigationController?.navigationBar.translucent = false
         
-        sideBar = SideBar(sourceView: self.view, menuItems: ["Settings", "Logout", "funny item", "another item"])
+        sideBar = SideBar(sourceView: self.view, menuItems: config.getProperty("sideBarMenuItems") as [String])
         sideBar.delegate = self
     }
     
