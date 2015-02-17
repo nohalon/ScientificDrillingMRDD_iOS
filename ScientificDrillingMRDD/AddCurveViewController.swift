@@ -10,6 +10,7 @@ import UIKit
 
 // View Controller for selecting a curve from a list to add to a selected well's dashboard
 class AddCurveViewController: UITableViewController {
+    let log = Logging()
     
     @IBOutlet var curveTable: UITableView!
     
@@ -37,7 +38,7 @@ class AddCurveViewController: UITableViewController {
             curveCount = curveMngr.curves[name]!.count
         }
         else {
-            println("Error: No well selected")
+            log.DLog("No well selected", function: "tableView")
         }
         
         return curveCount
@@ -51,7 +52,7 @@ class AddCurveViewController: UITableViewController {
             cell.textLabel?.text = curveMngr.curves[name]![indexPath.row]
         }
         else {
-            println("Error: No well selected")
+            log.DLog("No well selected", function: "tableView")
         }
         
         return cell;
@@ -71,7 +72,7 @@ class AddCurveViewController: UITableViewController {
             self.selectedCurve = curveMngr.curves[name]![index]
         }
         else {
-            println("Error: No well selected")
+            log.DLog("No well selected", function: "tableView")
         }
         
         self.performSegueWithIdentifier("SelectCurveSegue", sender: self)

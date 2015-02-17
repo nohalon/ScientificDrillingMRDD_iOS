@@ -39,6 +39,7 @@
 		DFF811A41A8DCAAF001C4B43 /* ConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF811A31A8DCAAF001C4B43 /* ConfigManager.swift */; };
 		DFF811A61A8DCC2C001C4B43 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = DFF811A51A8DCC2C001C4B43 /* Config.plist */; };
 		EA20A2A01A8040080023D2CC /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA20A29F1A8040080023D2CC /* CollectionViewCell.swift */; };
+		EA2285071A92C66200CF438A /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2285061A92C66200CF438A /* Logging.swift */; };
 		EA913BFB1A7AE7FC00E1F97B /* WellsDashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA913BFA1A7AE7FC00E1F97B /* WellsDashboardController.swift */; };
 		EAB8FA5A1A8993B800407A75 /* CurveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB8FA591A8993B800407A75 /* CurveManager.swift */; };
 		EAB8FA5C1A899A1D00407A75 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = EAB8FA5B1A899A1D00407A75 /* TODO */; };
@@ -92,6 +93,7 @@
 		DFF811A31A8DCAAF001C4B43 /* ConfigManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigManager.swift; sourceTree = "<group>"; };
 		DFF811A51A8DCC2C001C4B43 /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		EA20A29F1A8040080023D2CC /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		EA2285061A92C66200CF438A /* Logging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
 		EA913BFA1A7AE7FC00E1F97B /* WellsDashboardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WellsDashboardController.swift; path = ../WellsDashboardController.swift; sourceTree = "<group>"; };
 		EAB8FA591A8993B800407A75 /* CurveManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurveManager.swift; sourceTree = "<group>"; };
 		EAB8FA5B1A899A1D00407A75 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				2D1B15FE1A678152001B3382 /* LaunchScreen.xib */,
 				2D1B15F31A678152001B3382 /* Supporting Files */,
 				DFF811A51A8DCC2C001C4B43 /* Config.plist */,
+				EA2285061A92C66200CF438A /* Logging.swift */,
 			);
 			path = ScientificDrillingMRDD;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				A073BC1A1A82A89D003A3A72 /* AddCurveViewController.swift in Sources */,
 				2DD06C1E1A8B37BF0044D558 /* SideBar.swift in Sources */,
 				2D1B15F61A678152001B3382 /* AppDelegate.swift in Sources */,
+				EA2285071A92C66200CF438A /* Logging.swift in Sources */,
 				2DD06C201A8B37F00044D558 /* SideBarTableViewController.swift in Sources */,
 				A073BC181A81D4AF003A3A72 /* Dashboard.swift in Sources */,
 				EA20A2A01A8040080023D2CC /* CollectionViewCell.swift in Sources */,
@@ -509,6 +513,7 @@
 					"$(OTHER_LDFLAGS)",
 					"-ObjC",
 				);
+				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ScientificDrillingMRDD/Bridging-Header.h";
 			};
