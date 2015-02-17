@@ -11,6 +11,7 @@ import UIKit
 var curveMngr: CurveManager = CurveManager()
 
 class CurveManager: NSObject {
+    let log = Logging()
     
     // Key-value list of wellnames to available curve names
     var curves = [String:[String]]()
@@ -27,7 +28,7 @@ class CurveManager: NSObject {
         let task = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: {data, response, error -> Void in
             if(error != nil) {
                 // If there is an error in the web request, print it to the console
-                println(error.localizedDescription)
+                self.log.DLog(error.localizedDescription, function: "loadCurvesForWell")
             }
             
             var err: NSError?
@@ -40,13 +41,13 @@ class CurveManager: NSObject {
                     }
                 }
                 else {
-                    println("jsonResult was not an NSArray")
+                    self.log.DLog("jsonResult was not an NSArray", function: "loadCurvesForWell")
                 }
             }
             
             if(err != nil) {
                 // If there is an error parsing JSON, print it to the console
-                println("JSON Error \(err!.localizedDescription)")
+                self.log.DLog("JSON Error \(err!.localizedDescription)", function: "loadCurvesForWell")
             }
         })
         
