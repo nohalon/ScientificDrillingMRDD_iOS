@@ -55,9 +55,12 @@ class LoginWebViewController : UIViewController, UIWebViewDelegate {
                 return true
             }
             else if (request.URL.absoluteString?.rangeOfString("code=") != nil){
-                println(request.description)
-                self.getToken()
-                code =
+                let response = request.URL.absoluteString
+                var codeIndex = response?.rangeOfString("=", options: .BackwardsSearch)?.startIndex
+                code = response?.substringFromIndex(codeIndex!)
+                // TODO: better to just trim the first character
+                code = code?.stringByReplacingOccurrencesOfString("=", withString: "", options: .allZeros, range: nil)
+                getToken()
                 // You don't want to open the redirect uri
                 return false
             }
@@ -69,38 +72,28 @@ class LoginWebViewController : UIViewController, UIWebViewDelegate {
     }
     
     func getToken() {
-        let url = NSURL(string: config.getProperty("getWellsURL") as String)
-        
-        // Opens session with server
-        let task = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: {data, response, error -> Void in
-            if(error != nil) {
-                // If there is an error in the web request, print it to the console
-                self.log.DLog(error.localizedDescription, function: "loadWells")
+        let request = NSMutableURLRequest(URL: NSURL(string: "https://capstone2015federation.scientificdrilling.com/adfs/oauth2/token")!)
+        request.HTTPMethod = "POST"
+        let postString = "client_id=7e3e1419-204e-4038-b594-80e812d20c6f&redirect_uri=https://localhost:8000/callback" +
+                            "&code=" + self.code!
+        println("@@@@@@@@@@@@@@@@@@@@@@@")
+        println(postString)
+        println("AAAAAAAAAAAAAAAAAAAAAAAA")
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+        println(request)
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            if error != nil {
+                println("error=\(error)")
+                return
             }
             
-            var err: NSError?
+            println("response = \(response)")
             
-            if let jsonResult: AnyObject = NSJSONSerialization.JSONObjectWithData(data,options:nil,error: nil) {
-                if jsonResult is NSArray {
-                    
-                    for x in jsonResult as NSArray {
-                        wellsMngr.addWell(1, name: String(x as NSString))
-                        dashMngr.dashboards[x as String] = Dashboard(title: x as String)
-                    }
-                }
-                else {
-                    self.log.DLog("jsonResult was not an NSArray", function: "loadWells")
-                }
-            }
-            
-            if(err != nil) {
-                // If there is an error parsing JSON, print it to the console
-                self.log.DLog("JSON Error \(err!.localizedDescription)", function: "loadWells")
-            }
-            
-            curveMngr.loadAllCurves(wellsMngr.wells)
-        })
-        
+            let responseString = NSString(data: data, encoding: NSUTF8StringEncoding)
+            println("responseString = \(responseString)")
+        }
         task.resume()
     }
     
