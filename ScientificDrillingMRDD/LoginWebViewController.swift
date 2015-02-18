@@ -92,7 +92,7 @@ class LoginWebViewController : UIViewController, UIWebViewDelegate {
             println("response = \(response)")
             
             let responseString = NSString(data: data, encoding: NSUTF8StringEncoding)
-            println("responseString = \(responseString)")
+            gprintln("responseString = \(responseString)")
         }
         task.resume()
     }
