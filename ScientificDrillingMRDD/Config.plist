@@ -2,6 +2,18 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>getResourceURI</key>
+	<string>https://mrdd</string>
+	<key>getRedirectURI</key>
+	<string>http://localhost:8000/callback</string>
+	<key>getClientID</key>
+	<string>7e3e1419-204e-4038-b594-80e812d20c6f</string>
+	<key>getADFSAuthorize</key>
+	<string>adfs/oauth2/authorize?</string>
+	<key>getResponseType</key>
+	<string>code</string>
+	<key>getBaseLoginURL</key>
+	<string>https://capstone2015federation.scientificdrilling.com/</string>
 	<key>getCurveValueURL</key>
 	<string>http://127.0.0.1:5000/getCurveValue?well=</string>
 	<key>sideBarMenuItems</key>
