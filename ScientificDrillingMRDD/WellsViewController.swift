@@ -15,8 +15,8 @@ class WellsViewController: UIViewController, SideBarDelegate {
     
     //@IBOutlet weak var signOutBtn: UIButton!
     @IBOutlet var table: UITableView!
+    
     var sideBar : SideBar = SideBar()
-
     var array : NSArray = []
     var index = 0
     
