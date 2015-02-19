@@ -14,23 +14,21 @@ class LoginWebViewController : UIViewController, UIWebViewDelegate {
     let log = Logging()
     
     @IBOutlet var webView: UIWebView!
-    
-    let adfs_url = "https://capstone2015federation.scientificdrilling.com/adfs/oauth2/authorize?response_type=code&client_id=7e3e1419-204e-4038-b594-80e812d20c6f&redirect_uri=http://localhost:8000/callback&resource=https://mrdd"
+
     var requestURL : NSURL?
     var code : String?
+    var token : String?
+    var userID : String?
     
-    /* config.getProperty("getBaseLoginURL") as String +
-    config.getProperty("getADFSAuthorize") as String + "response_type=" +
-    config.getProperty("getResponseType") as String + "&client_id=" +
-    config.getProperty("getClientID") as String + "&redirect_uri=" +
-    config.getProperty("getRedirectURI") as String + "&resource=" +
-    config.getProperty("getResourceURI") as String 
-    
-    Might want to look into NSURLComponent */
+    let adfs_url = (config.getProperty("getBaseLoginURL") as String) +
+                    (config.getProperty("getADFSAuthorize") as String) + "response_type=" +
+                    (config.getProperty("getResponseType") as String) + "&client_id=" +
+                    (config.getProperty("getClientID") as String) + "&redirect_uri=" +
+                    (config.getProperty("getRedirectURI") as String) + "&resource=" +
+                    (config.getProperty("getResourceURI") as String)
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        // Custom initialization
     }
     
     required init(coder aDecoder: NSCoder)  {
@@ -56,50 +54,104 @@ class LoginWebViewController : UIViewController, UIWebViewDelegate {
             }
             else if (request.URL.absoluteString?.rangeOfString("code=") != nil){
                 let response = request.URL.absoluteString
+                //println(response)
                 var codeIndex = response?.rangeOfString("=", options: .BackwardsSearch)?.startIndex
                 code = response?.substringFromIndex(codeIndex!)
                 // TODO: better to just trim the first character
                 code = code?.stringByReplacingOccurrencesOfString("=", withString: "", options: .allZeros, range: nil)
-                getToken()
+                authenticateUser()
+                
                 // You don't want to open the redirect uri
                 return false
             }
             else {
                 // Throw some user error, maybe an alert
-                self.log.DLog("User has failed to log in", function: "webView")
+                //self.log.DLog("User has failed to log in", function: "webView")
                 return false
             }
     }
     
-    func getToken() {
-        let request = NSMutableURLRequest(URL: NSURL(string: "https://capstone2015federation.scientificdrilling.com/adfs/oauth2/token")!)
+    func authenticateUser() {
+        let token_url = (config.getProperty("getBaseLoginURL") as String) +
+                        (config.getProperty("getADFSToken") as String)
+        
+        let request = NSMutableURLRequest(URL: NSURL(string: token_url)!)
         request.HTTPMethod = "POST"
-        let postString = "client_id=7e3e1419-204e-4038-b594-80e812d20c6f&redirect_uri=https://localhost:8000/callback" +
-                            "&code=" + self.code!
-        println("@@@@@@@@@@@@@@@@@@@@@@@")
-        println(postString)
-        println("AAAAAAAAAAAAAAAAAAAAAAAA")
+
+        var postString = "&client_id=" + (config.getProperty("getClientID") as String)
+                        + "&grant_type=" + (config.getProperty("getGrantType") as String)
+                        + "&redirect_uri=" + (config.getProperty("getRedirectURI") as String)
+                        + "&code=" + self.code!
+        
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
-        println(request)
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
-            data, response, error in
+    
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+            //println("Response: \(response)")
+    
+            var strData = NSString(data: data, encoding: NSUTF8StringEncoding)
+            //println("Body: \(strData)")
+            var err: NSError?
+            var json = NSJSONSerialization.JSONObjectWithData(data, options: .MutableLeaves, error: &err) as? NSDictionary
             
-            if error != nil {
-                println("error=\(error)")
-                return
+            // Did the JSONObjectWithData constructor return an error? If so, log the error to the console
+            if(err != nil) {
+                println(err!.localizedDescription)
+                let jsonStr = NSString(data: data, encoding: NSUTF8StringEncoding)
+                println("Error could not parse JSON: '\(jsonStr)'")
             }
-            
-            println("response = \(response)")
-            
-            let responseString = NSString(data: data, encoding: NSUTF8StringEncoding)
-            gprintln("responseString = \(responseString)")
-        }
+            else {
+                // The JSONObjectWithData constructor didn't return an error. But, we should still
+                // check and make sure that json has a value using optional binding.
+                if let parseJSON = json {
+                    // TODO: error checking needed... access_token not always available
+                    self.token = parseJSON["access_token"] as? String
+                    println("PRINTING TOKEN")
+                    println(self.token)
+                }
+                else {
+                    // Woa, okay the json object was nil, something went worng. Maybe the server isn't running?
+                    let jsonStr = NSString(data: data, encoding: NSUTF8StringEncoding)
+                    println("Error could not parse JSON: \(jsonStr)")
+                }
+            }
+            // Authenticate the user
+            if let testToken = self.token {
+                self.getUserID()
+            }
+            else {
+                // TODO: Error logging
+                println(self.token!)
+                println("Token is nil")
+            }
+        })
+        task.resume()
+    }
+    
+    func getUserID() {
+        let token_url = config.getProperty("getAuthenticate") as String
+        
+        let request = NSMutableURLRequest(URL: NSURL(string: token_url)!)
+        request.HTTPMethod = "POST"
+        
+        var postString = "&token=" + self.token!
+        
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+            if error != nil {
+                //do something
+            }
+            else {
+                var userID = NSString(data: data, encoding: NSUTF8StringEncoding)
+            }
+        })
         task.resume()
     }
     
     
     // Cancel goes back to dashboard
     @IBAction func cancel(sender: AnyObject) {
+        // some garbage collection
         dismissViewControllerAnimated(true, completion: nil)
     }
     
