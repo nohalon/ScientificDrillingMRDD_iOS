@@ -143,6 +143,8 @@ class LoginWebViewController : UIViewController, UIWebViewDelegate {
             }
             else {
                 var userID = NSString(data: data, encoding: NSUTF8StringEncoding)
+                println("PRINTING UNIQUE USER ID")
+                println(userID)
             }
         })
         task.resume()
