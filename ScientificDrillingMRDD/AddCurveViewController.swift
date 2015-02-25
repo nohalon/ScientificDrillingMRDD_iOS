@@ -58,12 +58,6 @@ class AddCurveViewController: UITableViewController {
         return cell;
     }
     
-    
-    
-    
-    
-    
-    
     // Sets the selected curve to the name of the selected curve and segues back to the dashboard
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let index = indexPath.row

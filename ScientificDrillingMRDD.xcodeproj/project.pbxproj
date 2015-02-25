@@ -44,6 +44,7 @@
 		EAB8FA5A1A8993B800407A75 /* CurveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB8FA591A8993B800407A75 /* CurveManager.swift */; };
 		EAB8FA5C1A899A1D00407A75 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = EAB8FA5B1A899A1D00407A75 /* TODO */; };
 		EAC388BE1A94068E00DC69AD /* LoginWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC388BD1A94068E00DC69AD /* LoginWebViewController.swift */; };
+		EAC6EECA1A9D450D00AC1118 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6EEC91A9D450D00AC1118 /* Authenticator.swift */; };
 		EAE7C8141A70A118002AB567 /* WellsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE7C8131A70A118002AB567 /* WellsManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +100,7 @@
 		EAB8FA591A8993B800407A75 /* CurveManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurveManager.swift; sourceTree = "<group>"; };
 		EAB8FA5B1A899A1D00407A75 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
 		EAC388BD1A94068E00DC69AD /* LoginWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginWebViewController.swift; sourceTree = "<group>"; };
+		EAC6EEC91A9D450D00AC1118 /* Authenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
 		EAE7C8131A70A118002AB567 /* WellsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WellsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -225,6 +227,7 @@
 				A073BC171A81D4AF003A3A72 /* Dashboard.swift */,
 				A0FFB46B1A8326E90032C8DC /* Curve.swift */,
 				A073BC151A81D301003A3A72 /* Well.swift */,
+				EAC6EEC91A9D450D00AC1118 /* Authenticator.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A03393B51A7046710010B45C /* LoginViewController.swift in Sources */,
+				EAC6EECA1A9D450D00AC1118 /* Authenticator.swift in Sources */,
 				A073BC1A1A82A89D003A3A72 /* AddCurveViewController.swift in Sources */,
 				2DD06C1E1A8B37BF0044D558 /* SideBar.swift in Sources */,
 				2D1B15F61A678152001B3382 /* AppDelegate.swift in Sources */,
