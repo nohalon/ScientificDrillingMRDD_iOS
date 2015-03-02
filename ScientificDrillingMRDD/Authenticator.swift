@@ -14,6 +14,8 @@ class Authenticator {
     var token : String?
     var userID : String?
     
+    var webController : LoginWebViewController!
+    
     let adfs_url = (config.getProperty("getBaseLoginURL") as String) +
         (config.getProperty("getADFSAuthorize") as String) + "response_type=" +
         (config.getProperty("getResponseType") as String) + "&client_id=" +
@@ -21,8 +23,9 @@ class Authenticator {
         (config.getProperty("getRedirectURI") as String) + "&resource=" +
         (config.getProperty("getResourceURI") as String)
 
-    init() {
+    init(controller : LoginWebViewController) {
         requestURL = NSURL(string: self.adfs_url)
+        webController = controller
     }
     
     
@@ -93,13 +96,15 @@ class Authenticator {
                 self.userID = NSString(data: data, encoding: NSUTF8StringEncoding)
                 //TODO: segue to main dashboard
                 println(self.userID)
+                
+                self.webController.segueToDashboard()
             }
         })
         task.resume()
     }
     
     func parseCode(request: NSURLRequest) -> Bool{
-        if request.URL.isEqual(self.requestURL!)  {
+        if request.URL.isEqual(self.requestURL!) || request.URL.absoluteString?.rangeOfString(":443") != nil  {
             // You always want to display the adfs_url
             return true
         }
@@ -107,8 +112,8 @@ class Authenticator {
             let response = request.URL.absoluteString
             var codeIndex = response?.rangeOfString("=", options: .BackwardsSearch)?.startIndex
             code = response?.substringFromIndex(codeIndex!)
-            // TODO: better to just trim the first character
-            code = code?.stringByReplacingOccurrencesOfString("=", withString: "", options: .allZeros, range: nil)
+
+            code = code?.substringFromIndex(advance(minElement(indices(code as String!)), 1))
             self.authenticateUser()
             
             // You don't want to open the redirect uri

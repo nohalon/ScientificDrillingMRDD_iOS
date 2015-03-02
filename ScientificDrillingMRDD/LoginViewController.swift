@@ -21,6 +21,8 @@ class LoginViewController: UIViewController, GPPSignInDelegate {
     
     var signIn: GPPSignIn?
     
+    var loginSuccessful = false;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -70,6 +72,23 @@ class LoginViewController: UIViewController, GPPSignInDelegate {
         checkSignIn()
     }
     
+    @IBAction func unwindToLogin2(segue : UIStoryboardSegue) {
+        if segue.identifier == "LogoutSegue2" {
+
+            if loginSuccessful {
+                wellsMngr.loadWells()
+                self.dismissViewControllerAnimated(true, completion: {
+                    self.performSegueWithIdentifier("WellsSegue", sender: self)
+                })
+            }
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "WellsSegue" {
+            println("prepareForSegue: WellsSegue")
+        }
+    }
     
     @IBAction func unwindToLogin(segue : UIStoryboardSegue) {
         if segue.identifier == "LogoutSegue" {
