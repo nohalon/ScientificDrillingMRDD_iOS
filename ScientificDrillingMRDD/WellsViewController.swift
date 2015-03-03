@@ -79,6 +79,9 @@ class WellsViewController: UIViewController, SideBarDelegate {
         else if index == LOGOUT_NDX {
             // log
             self.performSegueWithIdentifier("LogoutSegue", sender : self)
+            /*let segue : UIStoryboardSegue = self.segueForUnwindingToViewController(self, fromViewController: loginView, identifier: "WellsSegue")
+            loginView.unwindToLogin(segue)*/
+            
         }
     }
     
