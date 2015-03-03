@@ -14,14 +14,20 @@ import CoreLocation
 import CoreMotion
 
 class LoginViewController: UIViewController, GPPSignInDelegate {
+    let log = Logging()
     
     @IBOutlet weak var btnGPlus: GPPSignInButton!
     @IBOutlet weak var label: UILabel!
     
     var signIn: GPPSignIn?
     
+    var loginSuccessful = false;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Load configuration data for app
+        config.loadPropertiesFromFile()
         
         // Configure Google Login
         signIn = GPPSignIn.sharedInstance()
@@ -33,7 +39,7 @@ class LoginViewController: UIViewController, GPPSignInDelegate {
         signIn?.shouldFetchGoogleUserEmail = true
         
         signIn?.shouldFetchGooglePlusUser = true
-        signIn?.clientID = "741302004274-03334h3tk30brn2n9fhe9l32nnn6gk1k.apps.googleusercontent.com"
+        signIn?.clientID = config.getProperty("googleClientID") as String
         signIn?.scopes = [kGTLAuthScopePlusLogin]
         signIn?.delegate = self
         
@@ -50,7 +56,6 @@ class LoginViewController: UIViewController, GPPSignInDelegate {
     func logoutApplication() {
         signIn?.signOut()
         navigationController?.popToRootViewControllerAnimated(true)
-        println("Logging out")
     }
 
     //Go to home page if authenticated
@@ -59,31 +64,29 @@ class LoginViewController: UIViewController, GPPSignInDelegate {
             // Load Wells
             wellsMngr.loadWells()
             performSegueWithIdentifier("WellsSegue", sender: self)
-        } else {
-            println("Not logged in")
         }
     }
 
     //After authentication
     func finishedWithAuth(auth: GTMOAuth2Authentication!, error: NSError!) {
         checkSignIn()
-        //println(auth)
     }
     
-    func didDisconnectWithError(error: NSError!) {
-        println()
+    @IBAction func unwindToLogin2(segue : UIStoryboardSegue) {
+        if segue.identifier == "LogoutSegue2" {
+
+            if loginSuccessful {
+                wellsMngr.loadWells()
+                self.dismissViewControllerAnimated(true, completion: {
+                    self.performSegueWithIdentifier("WellsSegue", sender: self)
+                })
+            }
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "WellsSegue"
-        {
-            if let destinationVC = segue.destinationViewController as? WellsViewController {
-                println("Segue")
-            }
-        }
-        else if segue.identifier == "LogoutSegue"
-        {
-            
+        if segue.identifier == "WellsSegue" {
+            println("prepareForSegue: WellsSegue")
         }
     }
     

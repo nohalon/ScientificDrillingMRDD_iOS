@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>getAuthenticate</key>
+	<string>http://localhost:5000/authenticate/</string>
+	<key>getGrantType</key>
+	<string>authorization_code</string>
+	<key>getADFSToken</key>
+	<string>adfs/oauth2/token</string>
+	<key>getResourceURI</key>
+	<string>https://mrdd</string>
+	<key>getRedirectURI</key>
+	<string>https://localhost:8000/callback</string>
+	<key>getClientID</key>
+	<string>7e3e1419-204e-4038-b594-80e812d20c6f</string>
+	<key>getADFSAuthorize</key>
+	<string>adfs/oauth2/authorize?</string>
+	<key>getResponseType</key>
+	<string>code</string>
+	<key>getBaseLoginURL</key>
+	<string>https://capstone2015federation.scientificdrilling.com/</string>
+	<key>getCurveValueURL</key>
+	<string>http://localhost:5000/getCurveValue?well=</string>
+	<key>sideBarMenuItems</key>
+	<array>
+		<string>Settings</string>
+		<string>Logout</string>
+		<string>funny item</string>
+		<string>another item</string>
+	</array>
+	<key>sideBarColorComponent</key>
+	<real>0.3</real>
+	<key>sideBarHeight</key>
+	<integer>45</integer>
+	<key>collectionViewCellFont</key>
+	<string>HelveticaNeue</string>
+	<key>sideBarWidth</key>
+	<real>150</real>
+	<key>sideBarTopInsert</key>
+	<integer>70</integer>
+	<key>getWellsURL</key>
+	<string>http://localhost:5000/getWells</string>
+	<key>googleClientID</key>
+	<string>741302004274-03334h3tk30brn2n9fhe9l32nnn6gk1k.apps.googleusercontent.com</string>
+	<key>getCurvesURL</key>
+	<string>http://localhost:5000/getCurvesForWell?well=</string>
+</dict>
+</plist>

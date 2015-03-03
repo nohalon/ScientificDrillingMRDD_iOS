@@ -8,13 +8,14 @@
 
 import UIKit
 
+// View Controller for selecting a curve from a list to add to a selected well's dashboard
 class AddCurveViewController: UITableViewController {
+    let log = Logging()
     
     @IBOutlet var curveTable: UITableView!
     
     var wellName : String?
     var selectedCurve: String?
-    var index: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,17 +30,21 @@ class AddCurveViewController: UITableViewController {
         curveTable.reloadData()
     }
     
+    // Returns number of rows in a section (number of curves)
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var curveCount = 0;
+        
         if let name = wellName? {
             curveCount = curveMngr.curves[name]!.count
         }
         else {
-            
+            log.DLog("No well selected", function: "tableView")
         }
+        
         return curveCount
     }
     
+    // Returns a cell for an index, with label set to the appropriate curve's name
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "WellCell")
         
@@ -47,40 +52,30 @@ class AddCurveViewController: UITableViewController {
             cell.textLabel?.text = curveMngr.curves[name]![indexPath.row]
         }
         else {
-            
+            log.DLog("No well selected", function: "tableView")
         }
         
         return cell;
     }
-
+    
+    // Sets the selected curve to the name of the selected curve and segues back to the dashboard
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.index = indexPath.row
+        let index = indexPath.row
         
         if let name = wellName? {
             self.selectedCurve = curveMngr.curves[name]![index]
         }
         else {
-            
+            log.DLog("No well selected", function: "tableView")
         }
         
         self.performSegueWithIdentifier("SelectCurveSegue", sender: self)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "SelectCurveSegue" {
-            //var dashboard = segue.destinationViewController as WellsDashboardController
-            //dashboard.well = wellsMngr.wells[index]
-            
-            //= wellsMngr.wells[index].name
-        }
-    }
-    
-    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        
-    }
-    
+    // Cancel goes back to dashboard
     @IBAction func cancel(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
 }
+

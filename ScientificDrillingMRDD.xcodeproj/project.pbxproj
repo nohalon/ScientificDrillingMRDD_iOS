@@ -36,10 +36,15 @@
 		A0E962B61A68E942004B1C00 /* GooglePlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E962B31A68E942004B1C00 /* GooglePlus.framework */; };
 		A0FFB46C1A8326E90032C8DC /* Curve.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FFB46B1A8326E90032C8DC /* Curve.swift */; };
 		A0FFB46E1A8327280032C8DC /* DataVisualization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FFB46D1A8327280032C8DC /* DataVisualization.swift */; };
+		DFF811A41A8DCAAF001C4B43 /* ConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF811A31A8DCAAF001C4B43 /* ConfigManager.swift */; };
+		DFF811A61A8DCC2C001C4B43 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = DFF811A51A8DCC2C001C4B43 /* Config.plist */; };
 		EA20A2A01A8040080023D2CC /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA20A29F1A8040080023D2CC /* CollectionViewCell.swift */; };
+		EA2285071A92C66200CF438A /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2285061A92C66200CF438A /* Logging.swift */; };
 		EA913BFB1A7AE7FC00E1F97B /* WellsDashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA913BFA1A7AE7FC00E1F97B /* WellsDashboardController.swift */; };
 		EAB8FA5A1A8993B800407A75 /* CurveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB8FA591A8993B800407A75 /* CurveManager.swift */; };
 		EAB8FA5C1A899A1D00407A75 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = EAB8FA5B1A899A1D00407A75 /* TODO */; };
+		EAC388BE1A94068E00DC69AD /* LoginWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC388BD1A94068E00DC69AD /* LoginWebViewController.swift */; };
+		EAC6EECA1A9D450D00AC1118 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6EEC91A9D450D00AC1118 /* Authenticator.swift */; };
 		EAE7C8141A70A118002AB567 /* WellsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE7C8131A70A118002AB567 /* WellsManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -87,10 +92,15 @@
 		A0E962B31A68E942004B1C00 /* GooglePlus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlus.framework; path = Frameworks/GooglePlus.framework; sourceTree = "<group>"; };
 		A0FFB46B1A8326E90032C8DC /* Curve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Curve.swift; sourceTree = "<group>"; };
 		A0FFB46D1A8327280032C8DC /* DataVisualization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataVisualization.swift; sourceTree = "<group>"; };
+		DFF811A31A8DCAAF001C4B43 /* ConfigManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigManager.swift; sourceTree = "<group>"; };
+		DFF811A51A8DCC2C001C4B43 /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		EA20A29F1A8040080023D2CC /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		EA2285061A92C66200CF438A /* Logging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
 		EA913BFA1A7AE7FC00E1F97B /* WellsDashboardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WellsDashboardController.swift; path = ../WellsDashboardController.swift; sourceTree = "<group>"; };
 		EAB8FA591A8993B800407A75 /* CurveManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurveManager.swift; sourceTree = "<group>"; };
 		EAB8FA5B1A899A1D00407A75 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
+		EAC388BD1A94068E00DC69AD /* LoginWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginWebViewController.swift; sourceTree = "<group>"; };
+		EAC6EEC91A9D450D00AC1118 /* Authenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
 		EAE7C8131A70A118002AB567 /* WellsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WellsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,7 +158,6 @@
 		2D1B15F21A678152001B3382 /* ScientificDrillingMRDD */ = {
 			isa = PBXGroup;
 			children = (
-				2DD06C211A8C447E0044D558 /* SideBar */,
 				EAB8FA5B1A899A1D00407A75 /* TODO */,
 				EAB8FA581A89907300407A75 /* Managers */,
 				EAB8FA571A89906500407A75 /* View */,
@@ -159,6 +168,8 @@
 				2D1B15FC1A678152001B3382 /* Images.xcassets */,
 				2D1B15FE1A678152001B3382 /* LaunchScreen.xib */,
 				2D1B15F31A678152001B3382 /* Supporting Files */,
+				DFF811A51A8DCC2C001C4B43 /* Config.plist */,
+				EA2285061A92C66200CF438A /* Logging.swift */,
 			);
 			path = ScientificDrillingMRDD;
 			sourceTree = "<group>";
@@ -209,15 +220,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		2DD06C211A8C447E0044D558 /* SideBar */ = {
-			isa = PBXGroup;
-			children = (
-				2DD06C1D1A8B37BF0044D558 /* SideBar.swift */,
-				2DD06C1F1A8B37F00044D558 /* SideBarTableViewController.swift */,
-			);
-			name = SideBar;
-			sourceTree = "<group>";
-		};
 		EAB8FA551A89901100407A75 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,6 +227,7 @@
 				A073BC171A81D4AF003A3A72 /* Dashboard.swift */,
 				A0FFB46B1A8326E90032C8DC /* Curve.swift */,
 				A073BC151A81D301003A3A72 /* Well.swift */,
+				EAC6EEC91A9D450D00AC1118 /* Authenticator.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -232,10 +235,12 @@
 		EAB8FA561A89902F00407A75 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2DD06C1F1A8B37F00044D558 /* SideBarTableViewController.swift */,
 				A073BC191A82A89D003A3A72 /* AddCurveViewController.swift */,
 				A03393B41A7046710010B45C /* LoginViewController.swift */,
 				A03393B21A7045160010B45C /* WellsViewController.swift */,
 				EA913BFA1A7AE7FC00E1F97B /* WellsDashboardController.swift */,
+				EAC388BD1A94068E00DC69AD /* LoginWebViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -243,6 +248,7 @@
 		EAB8FA571A89906500407A75 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2DD06C1D1A8B37BF0044D558 /* SideBar.swift */,
 				EA20A29F1A8040080023D2CC /* CollectionViewCell.swift */,
 			);
 			name = View;
@@ -254,6 +260,7 @@
 				A0D2B5F21A83DAFC0040B8B7 /* DashboardManager.swift */,
 				EAE7C8131A70A118002AB567 /* WellsManager.swift */,
 				EAB8FA591A8993B800407A75 /* CurveManager.swift */,
+				DFF811A31A8DCAAF001C4B43 /* ConfigManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -341,6 +348,7 @@
 				2D1B15FB1A678152001B3382 /* Main.storyboard in Resources */,
 				2D1B16001A678152001B3382 /* LaunchScreen.xib in Resources */,
 				EAB8FA5C1A899A1D00407A75 /* TODO in Resources */,
+				DFF811A61A8DCC2C001C4B43 /* Config.plist in Resources */,
 				2D1B15FD1A678152001B3382 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -360,9 +368,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A03393B51A7046710010B45C /* LoginViewController.swift in Sources */,
+				EAC6EECA1A9D450D00AC1118 /* Authenticator.swift in Sources */,
 				A073BC1A1A82A89D003A3A72 /* AddCurveViewController.swift in Sources */,
 				2DD06C1E1A8B37BF0044D558 /* SideBar.swift in Sources */,
 				2D1B15F61A678152001B3382 /* AppDelegate.swift in Sources */,
+				EA2285071A92C66200CF438A /* Logging.swift in Sources */,
 				2DD06C201A8B37F00044D558 /* SideBarTableViewController.swift in Sources */,
 				A073BC181A81D4AF003A3A72 /* Dashboard.swift in Sources */,
 				EA20A2A01A8040080023D2CC /* CollectionViewCell.swift in Sources */,
@@ -371,9 +381,11 @@
 				EAB8FA5A1A8993B800407A75 /* CurveManager.swift in Sources */,
 				A073BC161A81D301003A3A72 /* Well.swift in Sources */,
 				A0D2B5F31A83DAFC0040B8B7 /* DashboardManager.swift in Sources */,
+				EAC388BE1A94068E00DC69AD /* LoginWebViewController.swift in Sources */,
 				EAE7C8141A70A118002AB567 /* WellsManager.swift in Sources */,
 				EA913BFB1A7AE7FC00E1F97B /* WellsDashboardController.swift in Sources */,
 				A0FFB46E1A8327280032C8DC /* DataVisualization.swift in Sources */,
+				DFF811A41A8DCAAF001C4B43 /* ConfigManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,6 +521,7 @@
 					"$(OTHER_LDFLAGS)",
 					"-ObjC",
 				);
+				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ScientificDrillingMRDD/Bridging-Header.h";
 			};

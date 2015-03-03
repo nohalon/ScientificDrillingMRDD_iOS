@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6724" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
         <!--LoginViewController-->
@@ -37,12 +37,22 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LVo-fZ-Usl">
+                                <rect key="frame" x="137" y="421" width="46" height="30"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="l0y-xM-N0D" kind="modal" id="GHc-Rs-XYa"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="7vY-PF-Tzb" secondAttribute="centerX" id="H9N-h1-UIw"/>
                             <constraint firstAttribute="centerX" secondItem="RjI-4H-zIF" secondAttribute="centerX" id="dfC-Iw-Ufu"/>
                             <constraint firstAttribute="centerY" secondItem="7vY-PF-Tzb" secondAttribute="centerY" id="fVP-dI-tDf"/>
+                            <constraint firstAttribute="centerX" secondItem="LVo-fZ-Usl" secondAttribute="centerX" id="vRN-i9-q6e"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pi3-IE-Exo"/>
@@ -54,6 +64,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="694" y="299"/>
+        </scene>
+        <!--Login Web View Controller-->
+        <scene sceneID="ZAA-Ga-9wF">
+            <objects>
+                <viewController id="pFA-pe-qQp" customClass="LoginWebViewController" customModule="ScientificDrillingMRDD" customModuleProvider="target" sceneMemberID="viewController">
+                    <webView key="view" contentMode="scaleToFill" id="MNr-wJ-qij">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </webView>
+                    <navigationItem key="navigationItem" id="1aA-uS-S5L">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="3Mj-5P-f8s">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="d3v-7v-rsS">
+                                <rect key="frame" x="-23" y="-15" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancel:" destination="pFA-pe-qQp" eventType="touchUpInside" id="EsO-AI-qIn"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="webView" destination="MNr-wJ-qij" id="7Sw-7N-Dea"/>
+                        <segue destination="lkD-XR-2Ou" kind="unwind" identifier="LogoutSegue2" unwindAction="unwindToLogin2:" id="GYK-0d-XuS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pvl-g3-7n0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="lkD-XR-2Ou" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1060" y="941"/>
         </scene>
         <!--Wells View Controller-->
         <scene sceneID="J07-Mb-80G">
@@ -126,7 +169,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QsS-jo-APs" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="t5q-cu-8sr" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1433" y="299"/>
+            <point key="canvasLocation" x="1445" y="285"/>
         </scene>
         <!--Add Curve View Controller-->
         <scene sceneID="uZJ-C6-8hW">
@@ -166,7 +209,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BQ4-dH-rPa" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="8Es-fS-7YV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2785" y="1012"/>
+            <point key="canvasLocation" x="2165" y="946"/>
         </scene>
         <!--Wells Dashboard Controller-->
         <scene sceneID="6gW-Gk-XeS">
@@ -213,7 +256,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pKr-Vv-XNn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1755" y="1088"/>
+            <point key="canvasLocation" x="1433" y="941"/>
         </scene>
         <!--Wells View Nav-->
         <scene sceneID="YQr-KI-n2T">
@@ -250,7 +293,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zJP-ed-Efa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2247" y="1012"/>
+            <point key="canvasLocation" x="1797" y="941"/>
+        </scene>
+        <!--login web nav-->
+        <scene sceneID="TN8-Bn-tM0">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="l0y-xM-N0D" userLabel="login web nav" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rB4-Xp-Z8O">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="pFA-pe-qQp" kind="relationship" relationship="rootViewController" id="pKM-px-I5v"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3uH-jM-4cg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="694" y="941"/>
         </scene>
     </scenes>
     <resources>

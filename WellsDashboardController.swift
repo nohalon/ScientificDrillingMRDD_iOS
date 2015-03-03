@@ -2,6 +2,7 @@ import UIKit
 import Foundation
 
 class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+    let log = Logging()
     
     let DEGREE_SIGN = "\u{00B0}"
     let SIDE_PADDING : CGFloat = 10
@@ -28,25 +29,22 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
         collectionView!.backgroundColor = UIColor.whiteColor()
         self.view.addSubview(collectionView!)
         
-        dashMngr.loadDashboard(well.name)
+        dashMngr.loadDashboardForWell(well.name)
     }
     
     func update() {
         // TODO: Animations - http://stackoverflow.com/questions/14804359/uicollectionview-doesnt-update-immediately-when-calling-reloaddata-but-randoml
-        println("update well " + well.name)
-        dashMngr.loadDashboard(well.name)
+        dashMngr.loadDashboardForWell(well.name)
         dispatch_async(dispatch_get_main_queue(), {
             self.collectionView.reloadData()
         })
     }
     
     override func viewDidDisappear(animated: Bool) {
-        println("view did disappear")
         myTimer!.invalidate()
     }
     
     override func viewWillAppear(animated: Bool) {
-        println("view will appear")
         myTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
     }
     
@@ -84,7 +82,7 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
         case "Time":
             unit = " s"
         default:
-            println("INVALID: unit does not exist")
+            self.log.DLog("ERROR: Invalid unit found", function: "collectionView")
             break
         }
         cell.unitLabel?.text = visualization?.label
@@ -110,16 +108,8 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
                 dashMngr.dashboards[well.name]?.addVisualization(VisualizationType.StaticValue, id: 1, name: selected)
             }
             
-            dashMngr.loadDashboard(well.name)
+            dashMngr.loadDashboardForWell(well.name)
             self.collectionView.reloadData()
-        }
-        
-        if let dashboard = dashMngr.dashboards[well.name] {
-            //dashboard.printDashboard()
-            // Jonathan: I'm printing the dashboard after we request the data in DashBoardManager.swift
-        }
-        else {
-            println("No data visualizations added")
         }
     }
     

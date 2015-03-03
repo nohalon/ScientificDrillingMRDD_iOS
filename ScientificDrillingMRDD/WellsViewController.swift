@@ -13,19 +13,19 @@ let LOGOUT_NDX = 1
 
 class WellsViewController: UIViewController, SideBarDelegate {
     
-    //@IBOutlet weak var signOutBtn: UIButton!
     @IBOutlet var table: UITableView!
+    
     var sideBar : SideBar = SideBar()
-
     var array : NSArray = []
     var index = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.navigationItem.hidesBackButton = true;
         self.navigationController?.navigationBar.translucent = false
         
-        sideBar = SideBar(sourceView: self.view, menuItems: ["Settings", "Logout", "funny item", "another item"])
+        sideBar = SideBar(sourceView: self.view, menuItems: config.getProperty("sideBarMenuItems") as [String])
         sideBar.delegate = self
     }
     
@@ -79,8 +79,6 @@ class WellsViewController: UIViewController, SideBarDelegate {
         else if index == LOGOUT_NDX {
             // log
             self.performSegueWithIdentifier("LogoutSegue", sender : self)
-            /*let segue : UIStoryboardSegue = self.segueForUnwindingToViewController(self, fromViewController: loginView, identifier: "WellsSegue")
-            loginView.unwindToLogin(segue)*/
             
         }
     }

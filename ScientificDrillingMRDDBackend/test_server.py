@@ -1,6 +1,9 @@
+# Requires flask, PyJWT.
+
 from flask import Flask, make_response, request
 from random import random
 from json import dumps
+import jwt
 app = Flask(__name__)
 
 # TODO: Replace with something that isn't this trivial.
@@ -36,11 +39,27 @@ def get_curve_value():
     curveName = request.args.get('curve')
     print wellName
     print curveName
+    value = []
+    if (curveName == "Depth"):
+    	value.append(random() * 99999)
+    else:
+	value.append(random() * 100)
     if (wellName in Wells or wellName == "test") and curveName in _default_curves:
-    	curve_value = [random() * 100]
-        return make_response(dumps(curve_value))
-    return make_response(dumps([]))
+        return make_response(dumps(value))
+    return make_response(dumps("N/A"))
 
+@app.route('/authenticate/', methods=["POST"])
+# Requires a parameter "token" with that being the access token in the POST request.
+def authenticate():
+    token = request.form['token']
+    # TODO(dhnishi): Actually return something of value.
+    try:
+        jwt_decoded = jwt.decode(token, verify=False)
+        return make_response(dumps(jwt_decoded['sub']))
+    except Exception, e:
+        pass
+
+    return make_response(dumps("Failed to parse the jwt access token."), 500)
 
 if __name__ == '__main__':
     GenerateWells();

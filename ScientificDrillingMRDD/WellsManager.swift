@@ -10,11 +10,8 @@ import UIKit
 
 var wellsMngr: WellsManager = WellsManager()
 
-/*struct Well {
-    var name = "some-name"
-}*/
-
 class WellsManager: NSObject {
+    let log = Logging()
     
     var wells = [Well]()
     
@@ -25,13 +22,13 @@ class WellsManager: NSObject {
     
     func loadWells()
     {
-        let url = NSURL(string: "http://127.0.0.1:5000/getWells")
+        let url = NSURL(string: config.getProperty("getWellsURL") as String)
         
         // Opens session with server
         let task = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: {data, response, error -> Void in
             if(error != nil) {
                 // If there is an error in the web request, print it to the console
-                println(error.localizedDescription)
+                self.log.DLog(error.localizedDescription, function: "loadWells")
             }
             
             var err: NSError?
@@ -45,13 +42,13 @@ class WellsManager: NSObject {
                     }
                 }
                 else {
-                    println("jsonResult was not an NSArray")
+                    self.log.DLog("jsonResult was not an NSArray", function: "loadWells")
                 }
             }
             
             if(err != nil) {
                 // If there is an error parsing JSON, print it to the console
-                println("JSON Error \(err!.localizedDescription)")
+                self.log.DLog("JSON Error \(err!.localizedDescription)", function: "loadWells")
             }
             
             curveMngr.loadAllCurves(wellsMngr.wells)
