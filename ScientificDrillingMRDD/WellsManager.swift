@@ -15,7 +15,7 @@ class WellsManager: NSObject {
     
     var wells = [Well]()
     
-    func addWell(id: Int, name: String)
+    func addWell(id: String, name: String)
     {
         wells.append(Well(id: id, name: name))
     }
@@ -37,8 +37,10 @@ class WellsManager: NSObject {
                 if jsonResult is NSArray {
                     
                     for x in jsonResult as NSArray {
-                        wellsMngr.addWell(1, name: String(x as NSString))
-                        dashMngr.dashboards[x as String] = Dashboard(title: x as String)
+                        if let status = x as? NSDictionary {
+                            wellsMngr.addWell(status["id"] as String, name: status["name"] as String)
+                            dashMngr.dashboards[status["id"] as String] = Dashboard(title: status["name"] as String)
+                        }
                     }
                 }
                 else {

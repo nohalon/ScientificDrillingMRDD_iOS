@@ -11,7 +11,7 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
     
     @IBOutlet var collectionView: UICollectionView!
     
-    var well: Well = Well(id: -1, name: "NoWell")
+    var well: Well = Well(id: "", name: "NoWell")
     var myTimer : NSTimer?
     
     override func viewDidLoad() {

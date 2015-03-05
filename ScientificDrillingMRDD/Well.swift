@@ -11,9 +11,9 @@ import UIKit
 class Well: NSObject {
 
     var name: String
-    var id: Int
+    var id: String
     
-    init(id: Int, name: String) {
+    init(id: String, name: String) {
         self.id = id
         self.name = name
     }

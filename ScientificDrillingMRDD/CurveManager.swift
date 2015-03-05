@@ -16,13 +16,13 @@ class CurveManager: NSObject {
     // Key-value list of wellnames to available curve names
     var curves = [String:[String]]()
     
-    func loadCurvesForWell(wellName: String) {
+    func loadCurvesForWell(wellID: String) {
         
-        var urlString = config.getProperty("getCurvesURL") as String + wellName
+        var urlString = config.getProperty("getCurvesURL") as String + wellID
         urlString = urlString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
         var url = NSURL(string: urlString)
         
-        curves[wellName] = [String]()
+        curves[wellID] = [String]()
         
         // Opens session with server
         let task = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: {data, response, error -> Void in
@@ -34,10 +34,12 @@ class CurveManager: NSObject {
             var err: NSError?
             
             if let jsonResult: AnyObject = NSJSONSerialization.JSONObjectWithData(data,options:nil,error: nil) {
-                if jsonResult is NSArray {
+                if jsonResult is NSDictionary {
                     
                     for x in jsonResult as NSArray {
-                        self.curves[wellName]!.append(x as String)
+                        if let aStatus = x as? NSDictionary {
+                           self.curves[wellID]!.append(x as String)
+                        }
                     }
                 }
                 else {
@@ -56,7 +58,7 @@ class CurveManager: NSObject {
     
     func loadAllCurves(wells : [Well]) {
         for well in wells {
-            loadCurvesForWell(well.name)
+            loadCurvesForWell(well.id)
         }
     }
 }
