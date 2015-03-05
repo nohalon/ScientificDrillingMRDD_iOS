@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6724" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--LoginViewController-->
@@ -101,7 +102,7 @@
         <!--Plots-->
         <scene sceneID="nmN-N7-NCY">
             <objects>
-                <viewController id="yCb-jO-701" sceneMemberID="viewController">
+                <viewController id="yCb-jO-701" customClass="WellsPlotViewController" customModule="ScientificDrillingMRDD" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dtA-Tz-Lp0"/>
                         <viewControllerLayoutGuide type="bottom" id="0Zm-ec-gRz"/>
@@ -109,14 +110,34 @@
                     <view key="view" contentMode="scaleToFill" id="qP9-zD-SNS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ljm-E8-lJ3">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="yCb-jO-701" id="eHS-aN-RYi"/>
+                                    <outlet property="delegate" destination="yCb-jO-701" id="cKf-0c-b9L"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ljm-E8-lJ3" firstAttribute="top" secondItem="qP9-zD-SNS" secondAttribute="top" id="Duv-mh-Vea"/>
+                            <constraint firstItem="ljm-E8-lJ3" firstAttribute="leading" secondItem="qP9-zD-SNS" secondAttribute="leading" id="Q6n-Gx-PIT"/>
+                            <constraint firstAttribute="trailing" secondItem="ljm-E8-lJ3" secondAttribute="trailing" id="Rfi-kR-gZ0"/>
+                            <constraint firstItem="ljm-E8-lJ3" firstAttribute="bottom" secondItem="0Zm-ec-gRz" secondAttribute="top" id="ZZV-Xr-dEd"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Plots" id="nUa-yW-hmT"/>
                     <navigationItem key="navigationItem" id="Gmp-an-i70"/>
+                    <connections>
+                        <outlet property="plotsListTable" destination="ljm-E8-lJ3" id="6Cf-GT-9wr"/>
+                        <segue destination="yUk-4o-sEK" kind="push" identifier="PlotWebViewSegue" id="0up-wh-Jtd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OHs-w3-QeY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2021" y="736"/>
+            <point key="canvasLocation" x="2021" y="790"/>
         </scene>
         <!--Tab Bar-->
         <scene sceneID="k6A-I4-wqo">
@@ -133,6 +154,7 @@
                         <segue destination="KRU-rc-ETa" kind="relationship" relationship="viewControllers" id="Rp5-I6-pO5"/>
                         <segue destination="yCb-jO-701" kind="relationship" relationship="viewControllers" id="mOC-b1-7CL"/>
                         <segue destination="cJm-qa-kB5" kind="modal" identifier="AddCurveSegue" id="vXa-TX-bwP"/>
+                        <segue destination="23u-Sh-5nL" kind="modal" identifier="AddPlotSegue" id="krS-cv-aKE"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UiA-TL-ZEH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -210,32 +232,37 @@
             </objects>
             <point key="canvasLocation" x="1493" y="235"/>
         </scene>
-        <!--Table View Controller-->
-        <scene sceneID="siL-vw-Dg4">
+        <!--Add a Plot-->
+        <scene sceneID="AvA-ii-qua">
             <objects>
-                <tableViewController id="1iF-P0-5Fw" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="go7-v0-hAS">
+                <viewController id="uZC-5A-1Oc" customClass="AddPlotViewController" customModule="ScientificDrillingMRDD" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HSC-gn-S0z"/>
+                        <viewControllerLayoutGuide type="bottom" id="VTE-d9-7xv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xMZ-t2-9hU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="6qK-0f-MXV">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6qK-0f-MXV" id="y8S-qe-W2b">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="1iF-P0-5Fw" id="UY5-Wt-qZH"/>
-                            <outlet property="delegate" destination="1iF-P0-5Fw" id="YNu-if-G5j"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="IAi-m3-SH3"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LTL-AU-dVH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add a Plot" id="RlA-ha-0sa">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="q2B-8Z-xK5">
+                            <connections>
+                                <action selector="cancelAddPlotAction:" destination="uZC-5A-1Oc" id="T51-AC-c5Z"/>
+                                <segue destination="1dN-kE-Sbj" kind="unwind" unwindAction="unwindToTabBar:" id="1wq-of-SFr"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="fcf-co-v8q">
+                            <connections>
+                                <action selector="doneAddPlotAction:" destination="uZC-5A-1Oc" id="Vuo-qT-1r2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BbU-vC-s0Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="1dN-kE-Sbj" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2991" y="729"/>
+            <point key="canvasLocation" x="2984" y="741"/>
         </scene>
         <!--Add Curve View Controller-->
         <scene sceneID="uZJ-C6-8hW">
@@ -377,23 +404,58 @@
             </objects>
             <point key="canvasLocation" x="694" y="941"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="4l2-cZ-7kZ">
+        <!--Plot Web View-->
+        <scene sceneID="tm9-a7-C9r">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9tV-bM-PPw" sceneMemberID="viewController">
+                <viewController id="yUk-4o-sEK" userLabel="Plot Web View" customClass="PlotWebViewController" customModule="ScientificDrillingMRDD" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6Xd-Wg-qFJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="8hi-Of-rmy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5jS-2Q-tye">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kMP-Tk-CJS">
+                                <rect key="frame" x="0.0" y="64" width="320" height="530"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="kMP-Tk-CJS" secondAttribute="trailing" id="L2D-SM-piV"/>
+                            <constraint firstItem="kMP-Tk-CJS" firstAttribute="leading" secondItem="5jS-2Q-tye" secondAttribute="leading" id="Mu0-Jq-pia"/>
+                            <constraint firstItem="kMP-Tk-CJS" firstAttribute="top" secondItem="6Xd-Wg-qFJ" secondAttribute="bottom" id="N0Q-wY-b4A"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="kMP-Tk-CJS" secondAttribute="bottom" constant="-26" id="bBj-8a-CvP"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="FkM-D5-Anw"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="plotWebView" destination="kMP-Tk-CJS" id="2nu-df-421"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PIU-zY-Km5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2500" y="-3"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="E4j-SQ-PnI">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="23u-Sh-5nL" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3yC-51-MmG">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="i1f-3D-mkb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="1iF-P0-5Fw" kind="relationship" relationship="rootViewController" id="U5Y-zh-WQa"/>
+                        <segue destination="uZC-5A-1Oc" kind="relationship" relationship="rootViewController" id="ajj-KT-6iW"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rFF-N5-CNn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hcy-2e-z1o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2505" y="721"/>
+            <point key="canvasLocation" x="2505" y="741"/>
         </scene>
     </scenes>
     <resources>

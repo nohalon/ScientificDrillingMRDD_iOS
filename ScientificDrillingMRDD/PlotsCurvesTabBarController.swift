@@ -13,18 +13,17 @@ let PLOTS_NDX = 1
 
 class PlotsCurvesTabBarController : UITabBarController {
     
-    
     override func viewDidLoad() {
         self.navigationItem.setRightBarButtonItem(UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addButtonItemClicked"), animated: true)
     }
     
     func addButtonItemClicked() {
         if (self.selectedIndex == CURVES_NDX) {
-            self.viewControllers?.first
             performSegueWithIdentifier("AddCurveSegue", sender: self)
         }
         else if (self.selectedIndex == PLOTS_NDX) {
             println("Open on Plots");
+            performSegueWithIdentifier("AddPlotSegue", sender: self)
         }
     }
     
@@ -34,5 +33,12 @@ class PlotsCurvesTabBarController : UITabBarController {
             var addCurveController = navigationController.topViewController as AddCurveViewController
             addCurveController.wellName = self.title
         }
+//        if (segue.identifier == "AddPlotSegue") {
+//            
+//        }
+    }
+    
+    @IBAction func unwindToTabBar(segue: UIStoryboardSegue) {
+        
     }
 }

@@ -24,6 +24,9 @@
 		2D1B16281A67847A001B3382 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D1B16271A67847A001B3382 /* SystemConfiguration.framework */; };
 		2D1B162A1A678482001B3382 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D1B16291A678482001B3382 /* UIKit.framework */; };
 		2D4699441AA6784E00712675 /* WellsPlotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4699431AA6784E00712675 /* WellsPlotViewController.swift */; };
+		2D51017C1AA8094400F79374 /* AddPlotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D51017B1AA8094400F79374 /* AddPlotViewController.swift */; };
+		2D51017E1AA80FEA00F79374 /* PlotWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D51017D1AA80FEA00F79374 /* PlotWebViewController.swift */; };
+		2D5101801AA811C100F79374 /* linechart.html in Resources */ = {isa = PBXBuildFile; fileRef = 2D51017F1AA811C100F79374 /* linechart.html */; };
 		2D9D8CA51AA7D1E40085AE5B /* PlotsCurvesTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9D8CA41AA7D1E40085AE5B /* PlotsCurvesTabBarController.swift */; };
 		2DD06C1E1A8B37BF0044D558 /* SideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD06C1D1A8B37BF0044D558 /* SideBar.swift */; };
 		2DD06C201A8B37F00044D558 /* SideBarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD06C1F1A8B37F00044D558 /* SideBarTableViewController.swift */; };
@@ -82,6 +85,9 @@
 		2D1B16271A67847A001B3382 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		2D1B16291A678482001B3382 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2D4699431AA6784E00712675 /* WellsPlotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WellsPlotViewController.swift; sourceTree = "<group>"; };
+		2D51017B1AA8094400F79374 /* AddPlotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPlotViewController.swift; sourceTree = "<group>"; };
+		2D51017D1AA80FEA00F79374 /* PlotWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotWebViewController.swift; sourceTree = "<group>"; };
+		2D51017F1AA811C100F79374 /* linechart.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = linechart.html; path = ../../ChartDemo_WebView/ChartDemo_WebView/linechart.html; sourceTree = "<group>"; };
 		2D9D8CA41AA7D1E40085AE5B /* PlotsCurvesTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotsCurvesTabBarController.swift; sourceTree = "<group>"; };
 		2DD06C1D1A8B37BF0044D558 /* SideBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SideBar.swift; path = ../SideBar.swift; sourceTree = "<group>"; };
 		2DD06C1F1A8B37F00044D558 /* SideBarTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBarTableViewController.swift; sourceTree = "<group>"; };
@@ -239,6 +245,7 @@
 		EAB8FA561A89902F00407A75 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2D51017F1AA811C100F79374 /* linechart.html */,
 				2DD06C1F1A8B37F00044D558 /* SideBarTableViewController.swift */,
 				A073BC191A82A89D003A3A72 /* AddCurveViewController.swift */,
 				A03393B41A7046710010B45C /* LoginViewController.swift */,
@@ -247,6 +254,8 @@
 				EAC388BD1A94068E00DC69AD /* LoginWebViewController.swift */,
 				2D4699431AA6784E00712675 /* WellsPlotViewController.swift */,
 				2D9D8CA41AA7D1E40085AE5B /* PlotsCurvesTabBarController.swift */,
+				2D51017B1AA8094400F79374 /* AddPlotViewController.swift */,
+				2D51017D1AA80FEA00F79374 /* PlotWebViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -354,6 +363,7 @@
 				2D1B15FB1A678152001B3382 /* Main.storyboard in Resources */,
 				2D1B16001A678152001B3382 /* LaunchScreen.xib in Resources */,
 				EAB8FA5C1A899A1D00407A75 /* TODO in Resources */,
+				2D5101801AA811C100F79374 /* linechart.html in Resources */,
 				DFF811A61A8DCC2C001C4B43 /* Config.plist in Resources */,
 				2D1B15FD1A678152001B3382 /* Images.xcassets in Resources */,
 			);
@@ -387,6 +397,7 @@
 				A0FFB46C1A8326E90032C8DC /* Curve.swift in Sources */,
 				A03393B31A7045160010B45C /* WellsViewController.swift in Sources */,
 				EAB8FA5A1A8993B800407A75 /* CurveManager.swift in Sources */,
+				2D51017E1AA80FEA00F79374 /* PlotWebViewController.swift in Sources */,
 				A073BC161A81D301003A3A72 /* Well.swift in Sources */,
 				A0D2B5F31A83DAFC0040B8B7 /* DashboardManager.swift in Sources */,
 				EAC388BE1A94068E00DC69AD /* LoginWebViewController.swift in Sources */,
@@ -394,6 +405,7 @@
 				EA913BFB1A7AE7FC00E1F97B /* WellsDashboardController.swift in Sources */,
 				A0FFB46E1A8327280032C8DC /* DataVisualization.swift in Sources */,
 				DFF811A41A8DCAAF001C4B43 /* ConfigManager.swift in Sources */,
+				2D51017C1AA8094400F79374 /* AddPlotViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
