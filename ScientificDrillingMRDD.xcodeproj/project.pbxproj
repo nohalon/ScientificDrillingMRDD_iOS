@@ -23,6 +23,8 @@
 		2D1B16261A678470001B3382 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D1B16251A678470001B3382 /* Security.framework */; };
 		2D1B16281A67847A001B3382 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D1B16271A67847A001B3382 /* SystemConfiguration.framework */; };
 		2D1B162A1A678482001B3382 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D1B16291A678482001B3382 /* UIKit.framework */; };
+		2D4699441AA6784E00712675 /* WellsPlotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4699431AA6784E00712675 /* WellsPlotViewController.swift */; };
+		2D9D8CA51AA7D1E40085AE5B /* PlotsCurvesTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9D8CA41AA7D1E40085AE5B /* PlotsCurvesTabBarController.swift */; };
 		2DD06C1E1A8B37BF0044D558 /* SideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD06C1D1A8B37BF0044D558 /* SideBar.swift */; };
 		2DD06C201A8B37F00044D558 /* SideBarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD06C1F1A8B37F00044D558 /* SideBarTableViewController.swift */; };
 		A03393B31A7045160010B45C /* WellsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03393B21A7045160010B45C /* WellsViewController.swift */; };
@@ -79,6 +81,8 @@
 		2D1B16251A678470001B3382 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		2D1B16271A67847A001B3382 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		2D1B16291A678482001B3382 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2D4699431AA6784E00712675 /* WellsPlotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WellsPlotViewController.swift; sourceTree = "<group>"; };
+		2D9D8CA41AA7D1E40085AE5B /* PlotsCurvesTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotsCurvesTabBarController.swift; sourceTree = "<group>"; };
 		2DD06C1D1A8B37BF0044D558 /* SideBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SideBar.swift; path = ../SideBar.swift; sourceTree = "<group>"; };
 		2DD06C1F1A8B37F00044D558 /* SideBarTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBarTableViewController.swift; sourceTree = "<group>"; };
 		A03393B21A7045160010B45C /* WellsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WellsViewController.swift; sourceTree = "<group>"; };
@@ -241,6 +245,8 @@
 				A03393B21A7045160010B45C /* WellsViewController.swift */,
 				EA913BFA1A7AE7FC00E1F97B /* WellsDashboardController.swift */,
 				EAC388BD1A94068E00DC69AD /* LoginWebViewController.swift */,
+				2D4699431AA6784E00712675 /* WellsPlotViewController.swift */,
+				2D9D8CA41AA7D1E40085AE5B /* PlotsCurvesTabBarController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -372,6 +378,8 @@
 				A073BC1A1A82A89D003A3A72 /* AddCurveViewController.swift in Sources */,
 				2DD06C1E1A8B37BF0044D558 /* SideBar.swift in Sources */,
 				2D1B15F61A678152001B3382 /* AppDelegate.swift in Sources */,
+				2D9D8CA51AA7D1E40085AE5B /* PlotsCurvesTabBarController.swift in Sources */,
+				2D4699441AA6784E00712675 /* WellsPlotViewController.swift in Sources */,
 				EA2285071A92C66200CF438A /* Logging.swift in Sources */,
 				2DD06C201A8B37F00044D558 /* SideBarTableViewController.swift in Sources */,
 				A073BC181A81D4AF003A3A72 /* Dashboard.swift in Sources */,

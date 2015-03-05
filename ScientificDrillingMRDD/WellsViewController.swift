@@ -53,13 +53,18 @@ class WellsViewController: UIViewController, SideBarDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.index = indexPath.row
         
-        self.performSegueWithIdentifier("DashboardSegue", sender: self)
+        self.performSegueWithIdentifier("TabBarSegue", sender: self)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "DashboardSegue" {
-            var dashboard = segue.destinationViewController as WellsDashboardController
-            dashboard.well = wellsMngr.wells[index]
+        if segue.identifier == "TabBarSegue" {
+            var dashboard = segue.destinationViewController as UITabBarController
+            
+            var destinationViewController = dashboard.viewControllers?.first as WellsDashboardController // or whatever tab index you're trying to access
+            
+            //var destinationViewController = segue. as WellsDashboardController
+            destinationViewController.well = wellsMngr.wells[index]
+            //test.well = wellsMngr.wells[index]
         }
     }
     

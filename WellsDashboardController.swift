@@ -17,7 +17,10 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = well.name;
+        self.tabBarController?.title = well.name;
+        
+        //self.title = well.name;
+        //self.navigationItem.title = well.name;
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: TOP_PADDING, left: SIDE_PADDING, bottom: BOTTOM_PADDING, right: SIDE_PADDING)
@@ -95,7 +98,6 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
         if segue.identifier == "AddCurveSegue" {
             let navigationController = segue.destinationViewController as UINavigationController
             var addCurveController = navigationController.topViewController as AddCurveViewController
-            
             addCurveController.wellName = well.name
         }
     }
@@ -117,7 +119,5 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
     
 }
