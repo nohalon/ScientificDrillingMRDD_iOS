@@ -6,8 +6,13 @@
 //  Copyright (c) 2015 Noha Alon. All rights reserved.
 //
 
-import Cocoa
-
 class WellboreCurve: Curve {
-
+    var iv : String
+    
+    init(id: String, dv : String, iv : String) {
+        self.iv = iv
+        
+        super.init(id: id, dv : dv)
+    }
+    
 }

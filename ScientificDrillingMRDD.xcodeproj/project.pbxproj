@@ -30,7 +30,6 @@
 		A073BC161A81D301003A3A72 /* Well.swift in Sources */ = {isa = PBXBuildFile; fileRef = A073BC151A81D301003A3A72 /* Well.swift */; };
 		A073BC181A81D4AF003A3A72 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A073BC171A81D4AF003A3A72 /* Dashboard.swift */; };
 		A073BC1A1A82A89D003A3A72 /* AddCurveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A073BC191A82A89D003A3A72 /* AddCurveViewController.swift */; };
-		A0D2B5F31A83DAFC0040B8B7 /* DashboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D2B5F21A83DAFC0040B8B7 /* DashboardManager.swift */; };
 		A0E962B41A68E942004B1C00 /* GoogleOpenSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E962B11A68E942004B1C00 /* GoogleOpenSource.framework */; };
 		A0E962B51A68E942004B1C00 /* GooglePlus.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E962B21A68E942004B1C00 /* GooglePlus.bundle */; };
 		A0E962B61A68E942004B1C00 /* GooglePlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E962B31A68E942004B1C00 /* GooglePlus.framework */; };
@@ -40,8 +39,9 @@
 		DFF811A61A8DCC2C001C4B43 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = DFF811A51A8DCC2C001C4B43 /* Config.plist */; };
 		EA20A2A01A8040080023D2CC /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA20A29F1A8040080023D2CC /* CollectionViewCell.swift */; };
 		EA2285071A92C66200CF438A /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2285061A92C66200CF438A /* Logging.swift */; };
+		EA52333B1AA7DF3C0005C381 /* WellboreCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA52333A1AA7DF3C0005C381 /* WellboreCurve.swift */; };
+		EA52333D1AA7DF9B0005C381 /* TimeCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA52333C1AA7DF9B0005C381 /* TimeCurve.swift */; };
 		EA913BFB1A7AE7FC00E1F97B /* WellsDashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA913BFA1A7AE7FC00E1F97B /* WellsDashboardController.swift */; };
-		EAB8FA5A1A8993B800407A75 /* CurveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB8FA591A8993B800407A75 /* CurveManager.swift */; };
 		EAB8FA5C1A899A1D00407A75 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = EAB8FA5B1A899A1D00407A75 /* TODO */; };
 		EAC388BE1A94068E00DC69AD /* LoginWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC388BD1A94068E00DC69AD /* LoginWebViewController.swift */; };
 		EAC6EECA1A9D450D00AC1118 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6EEC91A9D450D00AC1118 /* Authenticator.swift */; };
@@ -86,7 +86,6 @@
 		A073BC151A81D301003A3A72 /* Well.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Well.swift; sourceTree = "<group>"; };
 		A073BC171A81D4AF003A3A72 /* Dashboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
 		A073BC191A82A89D003A3A72 /* AddCurveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCurveViewController.swift; sourceTree = "<group>"; };
-		A0D2B5F21A83DAFC0040B8B7 /* DashboardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardManager.swift; sourceTree = "<group>"; };
 		A0E962B11A68E942004B1C00 /* GoogleOpenSource.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleOpenSource.framework; path = Frameworks/GoogleOpenSource.framework; sourceTree = "<group>"; };
 		A0E962B21A68E942004B1C00 /* GooglePlus.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GooglePlus.bundle; path = Frameworks/GooglePlus.bundle; sourceTree = "<group>"; };
 		A0E962B31A68E942004B1C00 /* GooglePlus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlus.framework; path = Frameworks/GooglePlus.framework; sourceTree = "<group>"; };
@@ -96,8 +95,9 @@
 		DFF811A51A8DCC2C001C4B43 /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		EA20A29F1A8040080023D2CC /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		EA2285061A92C66200CF438A /* Logging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
+		EA52333A1AA7DF3C0005C381 /* WellboreCurve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WellboreCurve.swift; sourceTree = "<group>"; };
+		EA52333C1AA7DF9B0005C381 /* TimeCurve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeCurve.swift; sourceTree = "<group>"; };
 		EA913BFA1A7AE7FC00E1F97B /* WellsDashboardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WellsDashboardController.swift; path = ../WellsDashboardController.swift; sourceTree = "<group>"; };
-		EAB8FA591A8993B800407A75 /* CurveManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurveManager.swift; sourceTree = "<group>"; };
 		EAB8FA5B1A899A1D00407A75 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
 		EAC388BD1A94068E00DC69AD /* LoginWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginWebViewController.swift; sourceTree = "<group>"; };
 		EAC6EEC91A9D450D00AC1118 /* Authenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
@@ -226,6 +226,8 @@
 				A0FFB46D1A8327280032C8DC /* DataVisualization.swift */,
 				A073BC171A81D4AF003A3A72 /* Dashboard.swift */,
 				A0FFB46B1A8326E90032C8DC /* Curve.swift */,
+				EA52333A1AA7DF3C0005C381 /* WellboreCurve.swift */,
+				EA52333C1AA7DF9B0005C381 /* TimeCurve.swift */,
 				A073BC151A81D301003A3A72 /* Well.swift */,
 				EAC6EEC91A9D450D00AC1118 /* Authenticator.swift */,
 			);
@@ -257,9 +259,7 @@
 		EAB8FA581A89907300407A75 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				A0D2B5F21A83DAFC0040B8B7 /* DashboardManager.swift */,
 				EAE7C8131A70A118002AB567 /* WellsManager.swift */,
-				EAB8FA591A8993B800407A75 /* CurveManager.swift */,
 				DFF811A31A8DCAAF001C4B43 /* ConfigManager.swift */,
 			);
 			name = Managers;
@@ -372,16 +372,16 @@
 				A073BC1A1A82A89D003A3A72 /* AddCurveViewController.swift in Sources */,
 				2DD06C1E1A8B37BF0044D558 /* SideBar.swift in Sources */,
 				2D1B15F61A678152001B3382 /* AppDelegate.swift in Sources */,
+				EA52333D1AA7DF9B0005C381 /* TimeCurve.swift in Sources */,
 				EA2285071A92C66200CF438A /* Logging.swift in Sources */,
 				2DD06C201A8B37F00044D558 /* SideBarTableViewController.swift in Sources */,
 				A073BC181A81D4AF003A3A72 /* Dashboard.swift in Sources */,
 				EA20A2A01A8040080023D2CC /* CollectionViewCell.swift in Sources */,
 				A0FFB46C1A8326E90032C8DC /* Curve.swift in Sources */,
 				A03393B31A7045160010B45C /* WellsViewController.swift in Sources */,
-				EAB8FA5A1A8993B800407A75 /* CurveManager.swift in Sources */,
 				A073BC161A81D301003A3A72 /* Well.swift in Sources */,
-				A0D2B5F31A83DAFC0040B8B7 /* DashboardManager.swift in Sources */,
 				EAC388BE1A94068E00DC69AD /* LoginWebViewController.swift in Sources */,
+				EA52333B1AA7DF3C0005C381 /* WellboreCurve.swift in Sources */,
 				EAE7C8141A70A118002AB567 /* WellsManager.swift in Sources */,
 				EA913BFB1A7AE7FC00E1F97B /* WellsDashboardController.swift in Sources */,
 				A0FFB46E1A8327280032C8DC /* DataVisualization.swift in Sources */,

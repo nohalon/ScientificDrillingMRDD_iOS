@@ -14,7 +14,6 @@ class LoginWebViewController : UIViewController, UIWebViewDelegate {
     @IBOutlet var webView: UIWebView!
     
     var authenticator : Authenticator?
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +27,7 @@ class LoginWebViewController : UIViewController, UIWebViewDelegate {
     func webView(webView: UIWebView,
         shouldStartLoadWithRequest request: NSURLRequest,
         navigationType: UIWebViewNavigationType) -> Bool {
-            return authenticator!.parseCode(request);
+            return authenticator!.parseRequest(request);
     }
     
     // Cancel goes back to dashboard

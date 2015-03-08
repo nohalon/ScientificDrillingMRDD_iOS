@@ -11,10 +11,10 @@ import UIKit
 class Curve: NSObject {
  
     var id: String
-    var name: String
+    var dv : String
 
-    init(id: String, name: String) {
+    init(id: String, dv : String) {
         self.id = id
-        self.name = name
+        self.dv = dv
     }
 }

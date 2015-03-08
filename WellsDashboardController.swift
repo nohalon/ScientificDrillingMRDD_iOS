@@ -29,12 +29,13 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
         collectionView!.backgroundColor = UIColor.whiteColor()
         self.view.addSubview(collectionView!)
         
-        dashMngr.loadDashboardForWell(well.name)
+        wellsMngr.loadCurvesForWell(well)
+        wellsMngr.updateDashboardForWell(well)
+        
     }
     
     func update() {
-        // TODO: Animations - http://stackoverflow.com/questions/14804359/uicollectionview-doesnt-update-immediately-when-calling-reloaddata-but-randoml
-        dashMngr.loadDashboardForWell(well.name)
+        wellsMngr.updateDashboardForWell(well)
         dispatch_async(dispatch_get_main_queue(), {
             self.collectionView.reloadData()
         })
@@ -54,39 +55,37 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         var items: Int?
-        if let dash = dashMngr.dashboards[well.name] {
-            items = dash.dataVisualizations.count
-        }
-        else {
-            items = 0
-        }
+
+        items = well.dashboard.staticNumberDV.count
+
         return items!
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CollectionViewCell", forIndexPath: indexPath) as CollectionViewCell
         cell.layer.borderWidth = 1.0
-        var dashboard = dashMngr.dashboards[well.name]
-        var visualization = dashboard?.dataVisualizations[indexPath.row]
+
+        var visualization = well.dashboard.staticNumberDV[indexPath.row]
         
-        var unitResult : String? = visualization?.label
+        var unitResult : String? = visualization.curve.dv
         
-        var valueResult = String(format: "%.2f", (visualization?.currentValue)!)
-        var unit : String?
+        println("visualization's current value: \(visualization.currentValue)")
+        var valueResult = String(format: "%.2f", visualization.currentValue)
+//        var unit : String?
         
-        switch unitResult! {
-        case "Temperature":
-            unit = " " + DEGREE_SIGN + "F"
-        case "Depth":
-            unit = " m"
-        case "Time":
-            unit = " s"
-        default:
-            self.log.DLog("ERROR: Invalid unit found", function: "collectionView")
-            break
-        }
-        cell.unitLabel?.text = visualization?.label
-        cell.textLabel?.text = valueResult + unit!
+//        switch unitResult! {
+//        case "Temperature":
+//            unit = " " + DEGREE_SIGN + "F"
+//        case "Depth":
+//            unit = " m"
+//        case "Time":
+//            unit = " s"
+//        default:
+//            self.log.DLog("ERROR: Invalid unit found", function: "collectionView")
+//            break
+//        }
+        cell.unitLabel?.text = visualization.curve.dv
+        cell.textLabel?.text = valueResult
         
         return cell
     }
@@ -96,7 +95,7 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
             let navigationController = segue.destinationViewController as UINavigationController
             var addCurveController = navigationController.topViewController as AddCurveViewController
             
-            addCurveController.wellName = well.name
+            addCurveController.well = well
         }
     }
     
@@ -105,10 +104,10 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
             let addCurveController = segue.sourceViewController as AddCurveViewController
             
             if let selected = addCurveController.selectedCurve {
-                dashMngr.dashboards[well.name]?.addVisualization(VisualizationType.StaticValue, id: 1, name: selected)
+                well.dashboard.addVisualization(.StaticValue, curve: selected)
             }
             
-            dashMngr.loadDashboardForWell(well.name)
+            wellsMngr.updateDashboardForWell(well)
             self.collectionView.reloadData()
         }
     }

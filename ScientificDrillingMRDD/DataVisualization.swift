@@ -16,14 +16,14 @@ enum VisualizationType {
 
 class DataVisualization {
     var type: VisualizationType
-    var curveId: Int
-    var label: String
+    var curve : Curve
+
     var currentValue: Float
     
-    init(type: VisualizationType, curveId: Int, label: String) {
+    init(type: VisualizationType, curve: Curve) {
         self.type = type
-        self.curveId = curveId
-        self.label = label
+        self.curve = curve
+        
         self.currentValue = 0.0
     }
 }

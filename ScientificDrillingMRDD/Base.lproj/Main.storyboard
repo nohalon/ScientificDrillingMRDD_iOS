@@ -203,7 +203,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="curveTable" destination="gXU-Bg-x56" id="tr9-ZE-m1U"/>
+                        <outlet property="curveTable" destination="gXU-Bg-x56" id="VLU-2q-dGm"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BQ4-dH-rPa" userLabel="First Responder" sceneMemberID="firstResponder"/>

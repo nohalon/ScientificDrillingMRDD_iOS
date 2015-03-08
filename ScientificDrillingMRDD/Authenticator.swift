@@ -28,7 +28,6 @@ class Authenticator {
         webController = controller
     }
     
-    
     func authenticateUser() {
         let token_url = (config.getProperty("getBaseLoginURL") as String) +
             (config.getProperty("getADFSToken") as String)
@@ -53,26 +52,22 @@ class Authenticator {
             if(err != nil) {
                 println(err!.localizedDescription)
                 let jsonStr = NSString(data: data, encoding: NSUTF8StringEncoding)
-                self.log.DLog("Error could not parse JSON: '\(jsonStr)'", function: "authenticateUser")
+                self.handleError("authenticateUser", message: "Error could not parse JSON: '\(jsonStr)'")
             }
             else {
                 // The JSONObjectWithData constructor didn't return an error. But, we should still
                 // check and make sure that json has a value using optional binding.
                 if let parseJSON = json {
                     self.token = parseJSON["access_token"] as? String
+                    if let testToken = self.token {
+                        self.getUserID()
+                    }
                 }
                 else {
                     // The json object was nil, something went worng. Maybe the server isn't running?
                     let jsonStr = NSString(data: data, encoding: NSUTF8StringEncoding)
-                    self.log.DLog("Error could not parse JSON: '\(jsonStr)'", function: "authenticateUser")
+                    self.handleError("authenticateUser", message : "Error could not parse JSON: '\(jsonStr)'")
                 }
-            }
-            // Authenticate the user
-            if let testToken = self.token {
-                self.getUserID()
-            }
-            else {
-                self.log.DLog("Token is nil", function: "authenticateUser")
             }
         })
         task.resume()
@@ -90,20 +85,21 @@ class Authenticator {
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
             if error != nil {
-                self.log.DLog(error.localizedDescription, function: "authenticateUser")
+                self.handleError("getUserID", message: error.localizedDescription)
             }
             else {
                 self.userID = NSString(data: data, encoding: NSUTF8StringEncoding)
-                //TODO: segue to main dashboard
-                println(self.userID)
-                
                 self.webController.segueToDashboard()
             }
         })
         task.resume()
     }
     
-    func parseCode(request: NSURLRequest) -> Bool{
+    /*
+     *
+     * Return Value: determines whether to show the webpage or not
+     */
+    func parseRequest(request: NSURLRequest) -> Bool{
         if request.URL.isEqual(self.requestURL!) || request.URL.absoluteString?.rangeOfString(":443") != nil  {
             // You always want to display the adfs_url
             return true
@@ -112,7 +108,7 @@ class Authenticator {
             let response = request.URL.absoluteString
             var codeIndex = response?.rangeOfString("=", options: .BackwardsSearch)?.startIndex
             code = response?.substringFromIndex(codeIndex!)
-
+            // The code variable still has an equal sign, need to trim that equal sign out
             code = code?.substringFromIndex(advance(minElement(indices(code as String!)), 1))
             self.authenticateUser()
             
@@ -121,10 +117,14 @@ class Authenticator {
         }
         else {
             // Throw some user error, maybe an alert
-            self.log.DLog("User has failed to log in", function: "webView")
+            self.handleError("User has failed to log in", message: "webView")
             return false
         }
         
+    }
+    
+    func handleError(functionName : String, message : String) {
+        self.log.DLog(message, function: functionName)
     }
 
 
