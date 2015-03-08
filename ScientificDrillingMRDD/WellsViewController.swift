@@ -45,11 +45,11 @@ class WellsViewController: UIViewController, SideBarDelegate {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "WellCell")
-        cell.textLabel?.text = wellsMngr.wells[indexPath.row].name        
+        cell.textLabel?.text = wellsMngr.wells[indexPath.row].name
         
         return cell;
     }
-
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.index = indexPath.row
         
@@ -58,13 +58,12 @@ class WellsViewController: UIViewController, SideBarDelegate {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "TabBarSegue" {
-            var dashboard = segue.destinationViewController as UITabBarController
+            var dashboard = segue.destinationViewController as PlotsCurvesTabBarController
+            var destinationViewController = dashboard.viewControllers?.first as WellsDashboardController
             
-            var destinationViewController = dashboard.viewControllers?.first as WellsDashboardController // or whatever tab index you're trying to access
             
-            //var destinationViewController = segue. as WellsDashboardController
+            dashboard.well = wellsMngr.wells[index]
             destinationViewController.well = wellsMngr.wells[index]
-            //test.well = wellsMngr.wells[index]
         }
     }
     

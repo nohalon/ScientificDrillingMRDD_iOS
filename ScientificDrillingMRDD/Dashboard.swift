@@ -9,30 +9,24 @@
 import UIKit
 
 class Dashboard: NSObject {
+    var staticNumberDV: [DataVisualization]
+    var gaugeDV : [DataVisualization]
+    var lineDV : [DataVisualization]
     
-    var title: String
-    var dataVisualizations: [DataVisualization]
-    
-    init(title: String) {
-        self.title = title
-        dataVisualizations = [DataVisualization]()
+    override init () {
+        staticNumberDV = [DataVisualization]()
+        gaugeDV = [DataVisualization]()
+        lineDV = [DataVisualization]()
     }
     
-    func addVisualization(type: VisualizationType, id: Int, name: String) {
-        dataVisualizations += [(DataVisualization(type: type, curveId: id, label: name))]
-    }
-    
-    func addVisualization(visualization: DataVisualization) {
-        dataVisualizations += [visualization]
-    }
-    
-    func printDashboard() {
-        println("TITLE: " + title)
-        for var i = 0; i < dataVisualizations.count; i++ {
-            println("---------------------")
-            println("DV" + String(i))
-            println("LABEL: " + dataVisualizations[i].label)
-            println(dataVisualizations[i].currentValue)
+    func addVisualization(type: VisualizationType, curve : Curve) {
+        switch type {
+        case .StaticValue :
+            staticNumberDV += [(DataVisualization(type: type, curve : curve))]
+        case .Line :
+            lineDV += [(DataVisualization(type: type, curve : curve))]
+        case .Gauge :
+            gaugeDV += [(DataVisualization(type: type, curve : curve))]
         }
     }
 }

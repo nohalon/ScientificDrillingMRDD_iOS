@@ -9,12 +9,28 @@
 import UIKit
 
 class Well: NSObject {
-
-    var name: String
-    var id: Int
     
-    init(id: Int, name: String) {
+    var name: String
+    var id: String
+    
+    var tCurves : [TimeCurve]
+    var wCurves : [WellboreCurve]
+    
+    var dashboard : Dashboard
+    
+    init(id: String, name: String) {
         self.id = id
         self.name = name
+        self.dashboard = Dashboard()
+        self.tCurves = [TimeCurve]()
+        self.wCurves = [WellboreCurve]()
+    }
+    
+    func addTimeCurve(tc : TimeCurve) {
+        tCurves += [tc]
+    }
+    
+    func addWellboreCurve(wc : WellboreCurve) {
+        wCurves += [wc]
     }
 }

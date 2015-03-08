@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6724" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -264,10 +264,10 @@
             </objects>
             <point key="canvasLocation" x="2984" y="741"/>
         </scene>
-        <!--Add Curve View Controller-->
+        <!--add curve view-->
         <scene sceneID="uZJ-C6-8hW">
             <objects>
-                <tableViewController storyboardIdentifier="Add Curve Controller" id="qj5-pC-Qv8" customClass="AddCurveViewController" customModule="ScientificDrillingMRDD" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Add Curve Controller" id="qj5-pC-Qv8" userLabel="add curve view" customClass="AddCurveViewController" customModule="ScientificDrillingMRDD" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="gXU-Bg-x56">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -296,7 +296,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="curveTable" destination="gXU-Bg-x56" id="tr9-ZE-m1U"/>
+                        <outlet property="curveTable" destination="gXU-Bg-x56" id="tb8-kd-T3v"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BQ4-dH-rPa" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -14,8 +14,10 @@ class AddCurveViewController: UITableViewController {
     
     @IBOutlet var curveTable: UITableView!
     
-    var wellName : String?
-    var selectedCurve: String?
+    // Selected Well
+    var well : Well?
+    // Curve ID
+    var selectedCurve: Curve?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,8 +36,8 @@ class AddCurveViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var curveCount = 0;
         
-        if let name = wellName? {
-            curveCount = curveMngr.curves[name]!.count
+        if let selectedWell = well? {
+            curveCount = selectedWell.tCurves.count
         }
         else {
             log.DLog("No well selected", function: "tableView")
@@ -48,8 +50,8 @@ class AddCurveViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "WellCell")
         
-        if let name = wellName? {
-            cell.textLabel?.text = curveMngr.curves[name]![indexPath.row]
+        if let selectedWell = well? {
+            cell.textLabel?.text = selectedWell.tCurves[indexPath.row].dv
         }
         else {
             log.DLog("No well selected", function: "tableView")
@@ -62,8 +64,8 @@ class AddCurveViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let index = indexPath.row
         
-        if let name = wellName? {
-            self.selectedCurve = curveMngr.curves[name]![index]
+        if let selectedWell = well? {
+            self.selectedCurve = selectedWell.tCurves[index]
         }
         else {
             log.DLog("No well selected", function: "tableView")

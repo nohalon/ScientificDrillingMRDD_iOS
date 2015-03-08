@@ -13,6 +13,8 @@ let PLOTS_NDX = 1
 
 class PlotsCurvesTabBarController : UITabBarController {
     
+    var well : Well?
+    
     override func viewDidLoad() {
         self.navigationItem.setRightBarButtonItem(UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addButtonItemClicked"), animated: true)
     }
@@ -31,7 +33,9 @@ class PlotsCurvesTabBarController : UITabBarController {
         if (segue.identifier == "AddCurveSegue") {
             let navigationController = segue.destinationViewController as UINavigationController
             var addCurveController = navigationController.topViewController as AddCurveViewController
-            addCurveController.wellName = self.title
+            //addCurveController.well?.name = self.title!
+            addCurveController.well = well
+            
         }
 //        if (segue.identifier == "AddPlotSegue") {
 //            

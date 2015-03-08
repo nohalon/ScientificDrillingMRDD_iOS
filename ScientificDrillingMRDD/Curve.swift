@@ -9,12 +9,12 @@
 import UIKit
 
 class Curve: NSObject {
- 
-    var id: Int
-    var name: String
-
-    init(id: Int, name: String) {
+    
+    var id: String
+    var dv : String
+    
+    init(id: String, dv : String) {
         self.id = id
-        self.name = name
+        self.dv = dv
     }
 }
