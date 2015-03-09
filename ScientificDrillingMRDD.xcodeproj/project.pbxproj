@@ -34,6 +34,33 @@
 		A073BC161A81D301003A3A72 /* Well.swift in Sources */ = {isa = PBXBuildFile; fileRef = A073BC151A81D301003A3A72 /* Well.swift */; };
 		A073BC181A81D4AF003A3A72 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A073BC171A81D4AF003A3A72 /* Dashboard.swift */; };
 		A073BC1A1A82A89D003A3A72 /* AddCurveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A073BC191A82A89D003A3A72 /* AddCurveViewController.swift */; };
+		A0999ECA1AAE4DA30006BE0D /* GoogleOpenSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E962B11A68E942004B1C00 /* GoogleOpenSource.framework */; };
+		A0999ECB1AAE4DA30006BE0D /* GooglePlus.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E962B21A68E942004B1C00 /* GooglePlus.bundle */; };
+		A0999ECC1AAE4DA30006BE0D /* GooglePlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E962B31A68E942004B1C00 /* GooglePlus.framework */; };
+		A0999ECD1AAE4E0F0006BE0D /* Well.swift in Sources */ = {isa = PBXBuildFile; fileRef = A073BC151A81D301003A3A72 /* Well.swift */; };
+		A0999ECE1AAE4E2E0006BE0D /* WellsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE7C8131A70A118002AB567 /* WellsManager.swift */; };
+		A0999ECF1AAE4E300006BE0D /* ConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF811A31A8DCAAF001C4B43 /* ConfigManager.swift */; };
+		A0999ED01AAE4E330006BE0D /* SideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD06C1D1A8B37BF0044D558 /* SideBar.swift */; };
+		A0999ED11AAE4E360006BE0D /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA20A29F1A8040080023D2CC /* CollectionViewCell.swift */; };
+		A0999ED21AAE4E390006BE0D /* SideBarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD06C1F1A8B37F00044D558 /* SideBarTableViewController.swift */; };
+		A0999ED31AAE4E3B0006BE0D /* AddCurveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A073BC191A82A89D003A3A72 /* AddCurveViewController.swift */; };
+		A0999ED41AAE4E3D0006BE0D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03393B41A7046710010B45C /* LoginViewController.swift */; };
+		A0999ED51AAE4E400006BE0D /* WellsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03393B21A7045160010B45C /* WellsViewController.swift */; };
+		A0999ED61AAE4E420006BE0D /* WellsDashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA913BFA1A7AE7FC00E1F97B /* WellsDashboardController.swift */; };
+		A0999ED71AAE4E450006BE0D /* LoginWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC388BD1A94068E00DC69AD /* LoginWebViewController.swift */; };
+		A0999ED81AAE4E470006BE0D /* WellsPlotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4699431AA6784E00712675 /* WellsPlotViewController.swift */; };
+		A0999ED91AAE4E490006BE0D /* PlotsCurvesTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9D8CA41AA7D1E40085AE5B /* PlotsCurvesTabBarController.swift */; };
+		A0999EDA1AAE4E4B0006BE0D /* AddPlotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D51017B1AA8094400F79374 /* AddPlotViewController.swift */; };
+		A0999EDB1AAE4E4E0006BE0D /* PlotWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D51017D1AA80FEA00F79374 /* PlotWebViewController.swift */; };
+		A0999EDC1AAE4E500006BE0D /* DataVisualization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FFB46D1A8327280032C8DC /* DataVisualization.swift */; };
+		A0999EDD1AAE4E530006BE0D /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A073BC171A81D4AF003A3A72 /* Dashboard.swift */; };
+		A0999EDE1AAE4E560006BE0D /* Curve.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FFB46B1A8326E90032C8DC /* Curve.swift */; };
+		A0999EDF1AAE4E580006BE0D /* WellboreCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2267421AABDF9000B75152 /* WellboreCurve.swift */; };
+		A0999EE01AAE4E5A0006BE0D /* TimeCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2267441AABDF9E00B75152 /* TimeCurve.swift */; };
+		A0999EE11AAE4E5E0006BE0D /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6EEC91A9D450D00AC1118 /* Authenticator.swift */; };
+		A0999EE21AAE4E620006BE0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1B15F51A678152001B3382 /* AppDelegate.swift */; };
+		A0999EE31AAE4E740006BE0D /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2285061A92C66200CF438A /* Logging.swift */; };
+		A0999EE41AAE4E7B0006BE0D /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = DFF811A51A8DCC2C001C4B43 /* Config.plist */; };
 		A0E962B41A68E942004B1C00 /* GoogleOpenSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E962B11A68E942004B1C00 /* GoogleOpenSource.framework */; };
 		A0E962B51A68E942004B1C00 /* GooglePlus.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E962B21A68E942004B1C00 /* GooglePlus.bundle */; };
 		A0E962B61A68E942004B1C00 /* GooglePlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E962B31A68E942004B1C00 /* GooglePlus.framework */; };
@@ -138,6 +165,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0999ECA1AAE4DA30006BE0D /* GoogleOpenSource.framework in Frameworks */,
+				A0999ECB1AAE4DA30006BE0D /* GooglePlus.bundle in Frameworks */,
+				A0999ECC1AAE4DA30006BE0D /* GooglePlus.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +399,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0999EE41AAE4E7B0006BE0D /* Config.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,7 +440,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0999ED81AAE4E470006BE0D /* WellsPlotViewController.swift in Sources */,
+				A0999EE11AAE4E5E0006BE0D /* Authenticator.swift in Sources */,
+				A0999EDA1AAE4E4B0006BE0D /* AddPlotViewController.swift in Sources */,
+				A0999EDB1AAE4E4E0006BE0D /* PlotWebViewController.swift in Sources */,
+				A0999EDE1AAE4E560006BE0D /* Curve.swift in Sources */,
+				A0999ED41AAE4E3D0006BE0D /* LoginViewController.swift in Sources */,
+				A0999EE01AAE4E5A0006BE0D /* TimeCurve.swift in Sources */,
+				A0999EE31AAE4E740006BE0D /* Logging.swift in Sources */,
+				A0999EDD1AAE4E530006BE0D /* Dashboard.swift in Sources */,
+				A0999ED71AAE4E450006BE0D /* LoginWebViewController.swift in Sources */,
+				A0999ED21AAE4E390006BE0D /* SideBarTableViewController.swift in Sources */,
+				A0999ED01AAE4E330006BE0D /* SideBar.swift in Sources */,
+				A0999ECE1AAE4E2E0006BE0D /* WellsManager.swift in Sources */,
+				A0999ED61AAE4E420006BE0D /* WellsDashboardController.swift in Sources */,
+				A0999ED11AAE4E360006BE0D /* CollectionViewCell.swift in Sources */,
+				A0999ED31AAE4E3B0006BE0D /* AddCurveViewController.swift in Sources */,
+				A0999EDC1AAE4E500006BE0D /* DataVisualization.swift in Sources */,
 				2D1B160C1A678152001B3382 /* ScientificDrillingMRDDTests.swift in Sources */,
+				A0999EDF1AAE4E580006BE0D /* WellboreCurve.swift in Sources */,
+				A0999ECD1AAE4E0F0006BE0D /* Well.swift in Sources */,
+				A0999ED51AAE4E400006BE0D /* WellsViewController.swift in Sources */,
+				A0999ED91AAE4E490006BE0D /* PlotsCurvesTabBarController.swift in Sources */,
+				A0999ECF1AAE4E300006BE0D /* ConfigManager.swift in Sources */,
+				A0999EE21AAE4E620006BE0D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,6 +626,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -580,6 +635,7 @@
 				INFOPLIST_FILE = ScientificDrillingMRDDTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ScientificDrillingMRDD/Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ScientificDrillingMRDD.app/ScientificDrillingMRDD";
 			};
 			name = Debug;
@@ -591,10 +647,12 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = ScientificDrillingMRDDTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ScientificDrillingMRDD/Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ScientificDrillingMRDD.app/ScientificDrillingMRDD";
 			};
 			name = Release;
