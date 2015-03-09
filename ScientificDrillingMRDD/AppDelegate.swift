@@ -14,6 +14,7 @@ import CoreData
 let kClientId = "741302004274-aiafgsvf2ps49k3ifplk8lp0p1triil6.apps.googleusercontent.com";
 let wellsMngr : WellsManager = WellsManager()
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
