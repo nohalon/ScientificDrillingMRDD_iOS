@@ -8,7 +8,7 @@
 
 import UIKit
 
-var wellsMngr: WellsManager = WellsManager()
+//var wellsMngr: WellsManager = WellsManager()
 
 class WellsManager: NSObject {
     let log = Logging()
