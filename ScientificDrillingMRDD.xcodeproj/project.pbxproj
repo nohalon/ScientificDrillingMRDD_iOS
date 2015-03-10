@@ -62,6 +62,7 @@
 		A0999EE21AAE4E620006BE0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1B15F51A678152001B3382 /* AppDelegate.swift */; };
 		A0999EE31AAE4E740006BE0D /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2285061A92C66200CF438A /* Logging.swift */; };
 		A0999EE41AAE4E7B0006BE0D /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = DFF811A51A8DCC2C001C4B43 /* Config.plist */; };
+		A0D2A1DA1AAE72A8000E1BB6 /* WellsManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D2A1D91AAE72A8000E1BB6 /* WellsManagerTests.swift */; };
 		A0E962B41A68E942004B1C00 /* GoogleOpenSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E962B11A68E942004B1C00 /* GoogleOpenSource.framework */; };
 		A0E962B51A68E942004B1C00 /* GooglePlus.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E962B21A68E942004B1C00 /* GooglePlus.bundle */; };
 		A0E962B61A68E942004B1C00 /* GooglePlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E962B31A68E942004B1C00 /* GooglePlus.framework */; };
@@ -126,6 +127,7 @@
 		A073BC151A81D301003A3A72 /* Well.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Well.swift; sourceTree = "<group>"; };
 		A073BC171A81D4AF003A3A72 /* Dashboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
 		A073BC191A82A89D003A3A72 /* AddCurveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCurveViewController.swift; sourceTree = "<group>"; };
+		A0D2A1D91AAE72A8000E1BB6 /* WellsManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WellsManagerTests.swift; sourceTree = "<group>"; };
 		A0E962B11A68E942004B1C00 /* GoogleOpenSource.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleOpenSource.framework; path = Frameworks/GoogleOpenSource.framework; sourceTree = "<group>"; };
 		A0E962B21A68E942004B1C00 /* GooglePlus.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GooglePlus.bundle; path = Frameworks/GooglePlus.bundle; sourceTree = "<group>"; };
 		A0E962B31A68E942004B1C00 /* GooglePlus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlus.framework; path = Frameworks/GooglePlus.framework; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 			children = (
 				2D1B160B1A678152001B3382 /* ScientificDrillingMRDDTests.swift */,
 				2D1B16091A678152001B3382 /* Supporting Files */,
+				A0D2A1D91AAE72A8000E1BB6 /* WellsManagerTests.swift */,
 			);
 			path = ScientificDrillingMRDDTests;
 			sourceTree = "<group>";
@@ -454,6 +457,7 @@
 				A0999EE11AAE4E5E0006BE0D /* Authenticator.swift in Sources */,
 				A0999EDA1AAE4E4B0006BE0D /* AddPlotViewController.swift in Sources */,
 				A0999EDB1AAE4E4E0006BE0D /* PlotWebViewController.swift in Sources */,
+				A0D2A1DA1AAE72A8000E1BB6 /* WellsManagerTests.swift in Sources */,
 				A0999EDE1AAE4E560006BE0D /* Curve.swift in Sources */,
 				A0999ED41AAE4E3D0006BE0D /* LoginViewController.swift in Sources */,
 				A0999EE01AAE4E5A0006BE0D /* TimeCurve.swift in Sources */,

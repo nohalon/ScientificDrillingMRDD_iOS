@@ -46,7 +46,7 @@ class WellsManager: NSObject {
                     
                     for x in jsonResult as NSArray {
                         if let status = x as? NSDictionary {
-                            wellsMngr.addWell(status["id"] as String, name: status["name"] as String)
+                            self.addWell(status["id"] as String, name: status["name"] as String)
                         }
                     }
                 }
