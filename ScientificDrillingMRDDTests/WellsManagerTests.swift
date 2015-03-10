@@ -15,8 +15,6 @@ var testWellMngr = WellsManager()
 
 class WellsManagerTests: XCTestCase {
     
-    //var wellsMngr = WellsManager()
-    
     override func setUp() {
         super.setUp()
         
@@ -54,6 +52,24 @@ class WellsManagerTests: XCTestCase {
         XCTAssert(newWell.id == id, "Latest added well's id does not match the id provided to addWell")
         XCTAssert(newWell.name == name, "Latest added well's name does not match the name provided to addWell")        
     }
+   
+    func testAddLotsOfWells() {
+        
+        for num in 1...1000 {
+            let beforeCount = testWellMngr.wells.count
+            let id = "\(num)"
+            let name = "TestWell\(num)"
+            
+            testWellMngr.addWell(id, name: name)
+
+            let afterCount = testWellMngr.wells.count
+            XCTAssert(afterCount == beforeCount + 1, "Number of wells did not increase after adding a well")
+            
+            let newWell = testWellMngr.wells[afterCount - 1]
+            XCTAssert(newWell.id == id, "Latest added well's id does not match the id provided to addWell")
+            XCTAssert(newWell.name == name, "Latest added well's name does not match the name provided to addWell")
+        }
+    }
     
     func testLoadWells() {
         XCTAssert(testWellMngr.wells.count > 0, "No wells loaded")
@@ -65,8 +81,6 @@ class WellsManagerTests: XCTestCase {
         var loadedSomeWCurves = false
         
         for var idx = 0; idx < wellList.count && !loadedSomeTCurves && !loadedSomeWCurves; idx++ {
-            //wellsMngr.loadCurvesForWell(wellList[idx])
-            //sleep(1)
             loadedSomeTCurves |= wellList[idx].tCurves.count > 0
             loadedSomeWCurves |= wellList[idx].wCurves.count > 0
         }
@@ -89,5 +103,4 @@ class WellsManagerTests: XCTestCase {
         let afterValue = testWell.dashboard.staticNumberDV[latestDV].currentValue
         XCTAssert(beforeValue != afterValue, "Value did not change when dashboard was updated")
     }
-    
 }
