@@ -77,6 +77,9 @@
 		EAB8FA5C1A899A1D00407A75 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = EAB8FA5B1A899A1D00407A75 /* TODO */; };
 		EAC388BE1A94068E00DC69AD /* LoginWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC388BD1A94068E00DC69AD /* LoginWebViewController.swift */; };
 		EAC6EECA1A9D450D00AC1118 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6EEC91A9D450D00AC1118 /* Authenticator.swift */; };
+		EACE9CF21AAE5E7100723206 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D1B15FE1A678152001B3382 /* LaunchScreen.xib */; };
+		EACE9CF31AAE5E7400723206 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D1B15FC1A678152001B3382 /* Images.xcassets */; };
+		EACE9CF41AAE5E8600723206 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D1B15F91A678152001B3382 /* Main.storyboard */; };
 		EAE7C8141A70A118002AB567 /* WellsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE7C8131A70A118002AB567 /* WellsManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -403,7 +406,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EACE9CF31AAE5E7400723206 /* Images.xcassets in Resources */,
+				EACE9CF21AAE5E7100723206 /* LaunchScreen.xib in Resources */,
 				A0999EE41AAE4E7B0006BE0D /* Config.plist in Resources */,
+				EACE9CF41AAE5E8600723206 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

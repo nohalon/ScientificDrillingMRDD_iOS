@@ -15,6 +15,14 @@ class WellsManager: NSObject {
     
     var wells = [Well]()
     
+    var config = ConfigManager()
+    
+    
+    override init() {
+        config.loadPropertiesFromFile()
+        
+    }
+    
     func addWell(id: String, name: String)
     {
         wells.append(Well(id: id, name: name))
