@@ -118,12 +118,18 @@ class WellsManager: NSObject {
     
     func parseDV(curveName : String) -> String {
         var array = curveName.componentsSeparatedByString(" vs. ")
-        return array[1]
+        if (array.count > 1) {
+            return array[1]
+        }
+        return ""
     }
     
     func parseIV(curveName : String) -> String {
         var array = curveName.componentsSeparatedByString(" vs. ")
-        return array[0]
+        if (array.count > 1) {
+            return array[0]
+        }
+        return ""
     }
     
     
@@ -133,7 +139,7 @@ class WellsManager: NSObject {
         
         
         for dv in dataVisualizations {
-            var urlString = config.getProperty("getCurveValueURL") as String + "&well=" + well.id + "&curve=" + dv.curve.id
+            var urlString = config.getProperty("getCurveValueURL") as String + "curve=" + dv.curve.id
             urlString = urlString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
             var url = NSURL(string: urlString)
             

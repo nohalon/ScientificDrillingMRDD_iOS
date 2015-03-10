@@ -43,7 +43,7 @@ class Authenticator {
             + "&grant_type=" + (config?.getProperty("getGrantType") as String)
             + "&redirect_uri=" + (config?.getProperty("getRedirectURI") as String)
             + "&code=" + self.code!
-        
+
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
