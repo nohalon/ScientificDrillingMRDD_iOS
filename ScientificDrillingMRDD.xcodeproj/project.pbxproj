@@ -29,6 +29,7 @@
 		2D9D8CA51AA7D1E40085AE5B /* PlotsCurvesTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9D8CA41AA7D1E40085AE5B /* PlotsCurvesTabBarController.swift */; };
 		2DD06C1E1A8B37BF0044D558 /* SideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD06C1D1A8B37BF0044D558 /* SideBar.swift */; };
 		2DD06C201A8B37F00044D558 /* SideBarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD06C1F1A8B37F00044D558 /* SideBarTableViewController.swift */; };
+		2DF43A181AAE6EA6003F5321 /* Plot.html in Resources */ = {isa = PBXBuildFile; fileRef = 2DF43A171AAE6EA6003F5321 /* Plot.html */; };
 		A03393B31A7045160010B45C /* WellsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03393B21A7045160010B45C /* WellsViewController.swift */; };
 		A03393B51A7046710010B45C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03393B41A7046710010B45C /* LoginViewController.swift */; };
 		A073BC161A81D301003A3A72 /* Well.swift in Sources */ = {isa = PBXBuildFile; fileRef = A073BC151A81D301003A3A72 /* Well.swift */; };
@@ -116,6 +117,7 @@
 		2D9D8CA41AA7D1E40085AE5B /* PlotsCurvesTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotsCurvesTabBarController.swift; sourceTree = "<group>"; };
 		2DD06C1D1A8B37BF0044D558 /* SideBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SideBar.swift; path = ../SideBar.swift; sourceTree = "<group>"; };
 		2DD06C1F1A8B37F00044D558 /* SideBarTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBarTableViewController.swift; sourceTree = "<group>"; };
+		2DF43A171AAE6EA6003F5321 /* Plot.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Plot.html; sourceTree = "<group>"; };
 		A03393B21A7045160010B45C /* WellsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WellsViewController.swift; sourceTree = "<group>"; };
 		A03393B41A7046710010B45C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A073BC151A81D301003A3A72 /* Well.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Well.swift; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 				2D9D8CA41AA7D1E40085AE5B /* PlotsCurvesTabBarController.swift */,
 				2D51017B1AA8094400F79374 /* AddPlotViewController.swift */,
 				2D51017D1AA80FEA00F79374 /* PlotWebViewController.swift */,
+				2DF43A171AAE6EA6003F5321 /* Plot.html */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 				2D1B15FB1A678152001B3382 /* Main.storyboard in Resources */,
 				2D1B16001A678152001B3382 /* LaunchScreen.xib in Resources */,
 				EAB8FA5C1A899A1D00407A75 /* TODO in Resources */,
+				2DF43A181AAE6EA6003F5321 /* Plot.html in Resources */,
 				DFF811A61A8DCC2C001C4B43 /* Config.plist in Resources */,
 				2D1B15FD1A678152001B3382 /* Images.xcassets in Resources */,
 			);
