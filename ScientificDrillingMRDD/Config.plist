@@ -21,7 +21,7 @@
 	<key>getBaseLoginURL</key>
 	<string>https://capstone2015federation.scientificdrilling.com/</string>
 	<key>getCurveValueURL</key>
-	<string>http://localhost:5000/getCurveValue?well=</string>
+	<string>http://localhost:5000/getCurveValuePresent?</string>
 	<key>sideBarMenuItems</key>
 	<array>
 		<string>Settings</string>

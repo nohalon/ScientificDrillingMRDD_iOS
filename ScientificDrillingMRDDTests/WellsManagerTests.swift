@@ -103,4 +103,24 @@ class WellsManagerTests: XCTestCase {
         let afterValue = testWell.dashboard.staticNumberDV[latestDV].currentValue
         XCTAssert(beforeValue != afterValue, "Value did not change when dashboard was updated")
     }
+    
+    func testParseDV() {
+        println(testWellMngr.parseDV("Time vs. Depth"))
+        XCTAssert(testWellMngr.parseDV("Time vs. Depth") == "Depth", "DV was not parsed correctly")
+        XCTAssert(testWellMngr.parseDV("Depth") == "", "DV was not parsed correctly")
+        XCTAssert(testWellMngr.parseDV("Depth Time") == "", "DV was not parsed correctly")
+        XCTAssert(testWellMngr.parseDV("Depth v Time") == "", "DV was not parsed correctly")
+        XCTAssert(testWellMngr.parseDV("Depth vs Time") == "", "DV was not parsed correctly")
+        XCTAssert(testWellMngr.parseDV("Depth vs. Gamma Ray") == "Gamma Ray", "DV was not parsed correctly")
+    }
+    
+    func testParseIV() {
+        XCTAssert(testWellMngr.parseIV("True Vertical Depth vs. Inclination") == "True Vertical Depth", "IV was not parsed correctly")
+        XCTAssert(testWellMngr.parseIV("Depth") == "", "IV was not parsed correctly")
+        XCTAssert(testWellMngr.parseIV("Depth Time") == "", "IV was not parsed correctly")
+        XCTAssert(testWellMngr.parseIV("Depth v Time") == "", "IV was not parsed correctly")
+        XCTAssert(testWellMngr.parseIV("Depth vs Time") == "", "IV was not parsed correctly")
+    }
+    
+    
 }

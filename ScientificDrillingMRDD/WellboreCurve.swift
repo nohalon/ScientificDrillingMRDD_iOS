@@ -14,5 +14,4 @@ class WellboreCurve: Curve {
         
         super.init(id: id, dv : dv)
     }
-    
 }
