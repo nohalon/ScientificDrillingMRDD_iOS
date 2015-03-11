@@ -12,8 +12,7 @@ class Well: NSObject {
     var name: String
     var id: String
     
-    var tCurves : [Curve]
-    var wCurves : [Curve]
+    var curves : [String : [Curve]]
     
     var dashboard : Dashboard
     
@@ -23,17 +22,14 @@ class Well: NSObject {
         self.id = id
         self.name = name
         self.dashboard = Dashboard()
-        self.tCurves = [Curve]()
-        self.wCurves = [Curve]()
         self.plots = [Plot]()
-        
+        self.curves = [String : [Curve]]()
     }
     
-    func addTimeCurve(tc : Curve) {
-        tCurves += [tc]
-    }
-    
-    func addWellboreCurve(wc : Curve) {
-        wCurves += [wc]
+    func addCurve(curve : Curve) {
+        if self.curves[curve.iv] == nil {
+            self.curves[curve.iv] = [Curve]()
+        }
+        self.curves[curve.iv]!.append(curve)
     }
 }

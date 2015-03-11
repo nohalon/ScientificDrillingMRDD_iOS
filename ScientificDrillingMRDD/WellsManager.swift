@@ -87,7 +87,7 @@ class WellsManager: NSObject {
                             let name : String = aStatus["name"] as String
                             
                             
-                            well.addTimeCurve(Curve(id: aStatus["id"] as String, dv : self.parseDV(name), iv : self.parseIV(name)))
+                            well.addCurve(Curve(id: aStatus["id"] as String, dv : self.parseDV(name), iv : self.parseIV(name)))
                         }
                     }
                     
@@ -95,7 +95,7 @@ class WellsManager: NSObject {
                         if let aStatus = x as? NSDictionary {
                             let name : String = aStatus["name"] as String
                             
-                            well.addWellboreCurve(Curve(id: aStatus["id"] as String, dv: self.parseDV(name), iv: self.parseIV(name)))
+                            well.addCurve(Curve(id: aStatus["id"] as String, dv: self.parseDV(name), iv: self.parseIV(name)))
                             
                         }
                     }
