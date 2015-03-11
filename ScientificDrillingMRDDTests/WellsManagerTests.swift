@@ -95,33 +95,15 @@ class WellsManagerTests: XCTestCase {
         testWell.dashboard.addVisualization(VisualizationType.StaticValue, curve: testCurve)
         
         let latestDV = testWell.dashboard.staticNumberDV.count - 1
-        let beforeValue = testWell.dashboard.staticNumberDV[latestDV].currentValue
+        let beforeValue = testWell.dashboard.staticNumberDV[latestDV].curve.values.last!.1
         
         testWellMngr.updateDashboardForWell(testWell)
         sleep(1)
         
-        let afterValue = testWell.dashboard.staticNumberDV[latestDV].currentValue
+        let afterValue = testWell.dashboard.staticNumberDV[latestDV].curve.values.last!.1
         XCTAssert(beforeValue != afterValue, "Value did not change when dashboard was updated")
     }
     
-    func testUpdateDashboardForAllWellCurves() {
-        var testWell = testWellMngr.wells[0]
-        var beforeValues = [Float]()
-        
-        for curve in testWell.tCurves {
-            testWell.dashboard.addVisualization(VisualizationType.StaticValue, curve: curve)
-            beforeValues.append(testWell.dashboard.staticNumberDV.last!.currentValue)
-        }
-
-        testWellMngr.updateDashboardForWell(testWell)
-        sleep(1)
-        
-        for var idx = 0; idx < beforeValues.count; idx++ {
-            let afterValue = testWell.dashboard.staticNumberDV[idx].currentValue
-            XCTAssert(beforeValues[idx] != afterValue, "Value did not change when dashboard was updated")
-        }
-    }
-
     func testParseDV() {
         println(testWellMngr.parseDV("Time vs. Depth"))
         XCTAssert(testWellMngr.parseDV("Time vs. Depth") == "Depth", "DV was not parsed correctly")

@@ -69,8 +69,9 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
         
         var unitResult : String? = visualization.curve.dv
         
-        println("visualization's current value: \(visualization.currentValue)")
-        var valueResult = String(format: "%.2f", visualization.currentValue)
+        //println("visualization's current value: \(visualization.curve.values.last!.1)")
+        var valueResult = String(format: "%.2f", (visualization.curve.values.count == 0 ? 0.0 : visualization.curve.values.last!.1))
+        //var valueResult = String(format: "%.2f", 123.123)
         //        var unit : String?
         
         //        switch unitResult! {

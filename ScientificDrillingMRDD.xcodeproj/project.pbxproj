@@ -29,7 +29,7 @@
 		2D9D8CA51AA7D1E40085AE5B /* PlotsCurvesTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9D8CA41AA7D1E40085AE5B /* PlotsCurvesTabBarController.swift */; };
 		2DD06C1E1A8B37BF0044D558 /* SideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD06C1D1A8B37BF0044D558 /* SideBar.swift */; };
 		2DD06C201A8B37F00044D558 /* SideBarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD06C1F1A8B37F00044D558 /* SideBarTableViewController.swift */; };
-		2DF43A181AAE6EA6003F5321 /* Plot.html in Resources */ = {isa = PBXBuildFile; fileRef = 2DF43A171AAE6EA6003F5321 /* Plot.html */; };
+		2DF43A181AAE6EA6003F5321 /* PlotTest.html in Resources */ = {isa = PBXBuildFile; fileRef = 2DF43A171AAE6EA6003F5321 /* PlotTest.html */; };
 		A03393B31A7045160010B45C /* WellsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03393B21A7045160010B45C /* WellsViewController.swift */; };
 		A03393B51A7046710010B45C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03393B41A7046710010B45C /* LoginViewController.swift */; };
 		A073BC161A81D301003A3A72 /* Well.swift in Sources */ = {isa = PBXBuildFile; fileRef = A073BC151A81D301003A3A72 /* Well.swift */; };
@@ -56,8 +56,6 @@
 		A0999EDC1AAE4E500006BE0D /* DataVisualization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FFB46D1A8327280032C8DC /* DataVisualization.swift */; };
 		A0999EDD1AAE4E530006BE0D /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A073BC171A81D4AF003A3A72 /* Dashboard.swift */; };
 		A0999EDE1AAE4E560006BE0D /* Curve.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FFB46B1A8326E90032C8DC /* Curve.swift */; };
-		A0999EDF1AAE4E580006BE0D /* WellboreCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2267421AABDF9000B75152 /* WellboreCurve.swift */; };
-		A0999EE01AAE4E5A0006BE0D /* TimeCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2267441AABDF9E00B75152 /* TimeCurve.swift */; };
 		A0999EE11AAE4E5E0006BE0D /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6EEC91A9D450D00AC1118 /* Authenticator.swift */; };
 		A0999EE21AAE4E620006BE0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1B15F51A678152001B3382 /* AppDelegate.swift */; };
 		A0999EE31AAE4E740006BE0D /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2285061A92C66200CF438A /* Logging.swift */; };
@@ -71,12 +69,12 @@
 		DFF811A41A8DCAAF001C4B43 /* ConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF811A31A8DCAAF001C4B43 /* ConfigManager.swift */; };
 		DFF811A61A8DCC2C001C4B43 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = DFF811A51A8DCC2C001C4B43 /* Config.plist */; };
 		EA20A2A01A8040080023D2CC /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA20A29F1A8040080023D2CC /* CollectionViewCell.swift */; };
-		EA2267431AABDF9000B75152 /* WellboreCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2267421AABDF9000B75152 /* WellboreCurve.swift */; };
-		EA2267451AABDF9E00B75152 /* TimeCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2267441AABDF9E00B75152 /* TimeCurve.swift */; };
 		EA2285071A92C66200CF438A /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2285061A92C66200CF438A /* Logging.swift */; };
 		EA5AE4FC1AAEBFBF00A73E69 /* AuthenticatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5AE4FB1AAEBFBF00A73E69 /* AuthenticatorTest.swift */; };
 		EA5AE4FE1AAEC2C800A73E69 /* DashboardTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5AE4FD1AAEC2C800A73E69 /* DashboardTest.swift */; };
 		EA913BFB1A7AE7FC00E1F97B /* WellsDashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA913BFA1A7AE7FC00E1F97B /* WellsDashboardController.swift */; };
+		EAACDA631AB0F83D00553099 /* Plot.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB7638A1AB0E7F8004B9CEB /* Plot.swift */; };
+		EAB7638B1AB0E7F8004B9CEB /* Plot.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB7638A1AB0E7F8004B9CEB /* Plot.swift */; };
 		EAB8FA5C1A899A1D00407A75 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = EAB8FA5B1A899A1D00407A75 /* TODO */; };
 		EAC388BE1A94068E00DC69AD /* LoginWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC388BD1A94068E00DC69AD /* LoginWebViewController.swift */; };
 		EAC6EECA1A9D450D00AC1118 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6EEC91A9D450D00AC1118 /* Authenticator.swift */; };
@@ -123,7 +121,7 @@
 		2D9D8CA41AA7D1E40085AE5B /* PlotsCurvesTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotsCurvesTabBarController.swift; sourceTree = "<group>"; };
 		2DD06C1D1A8B37BF0044D558 /* SideBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SideBar.swift; path = ../SideBar.swift; sourceTree = "<group>"; };
 		2DD06C1F1A8B37F00044D558 /* SideBarTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBarTableViewController.swift; sourceTree = "<group>"; };
-		2DF43A171AAE6EA6003F5321 /* Plot.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Plot.html; sourceTree = "<group>"; };
+		2DF43A171AAE6EA6003F5321 /* PlotTest.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = PlotTest.html; sourceTree = "<group>"; };
 		A03393B21A7045160010B45C /* WellsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WellsViewController.swift; sourceTree = "<group>"; };
 		A03393B41A7046710010B45C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A073BC151A81D301003A3A72 /* Well.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Well.swift; sourceTree = "<group>"; };
@@ -138,12 +136,11 @@
 		DFF811A31A8DCAAF001C4B43 /* ConfigManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigManager.swift; sourceTree = "<group>"; };
 		DFF811A51A8DCC2C001C4B43 /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		EA20A29F1A8040080023D2CC /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
-		EA2267421AABDF9000B75152 /* WellboreCurve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WellboreCurve.swift; sourceTree = "<group>"; };
-		EA2267441AABDF9E00B75152 /* TimeCurve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeCurve.swift; sourceTree = "<group>"; };
 		EA2285061A92C66200CF438A /* Logging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
 		EA5AE4FB1AAEBFBF00A73E69 /* AuthenticatorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticatorTest.swift; sourceTree = "<group>"; };
 		EA5AE4FD1AAEC2C800A73E69 /* DashboardTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DashboardTest.swift; path = ../ScientificDrillingMRDD/DashboardTest.swift; sourceTree = "<group>"; };
 		EA913BFA1A7AE7FC00E1F97B /* WellsDashboardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WellsDashboardController.swift; path = ../WellsDashboardController.swift; sourceTree = "<group>"; };
+		EAB7638A1AB0E7F8004B9CEB /* Plot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plot.swift; sourceTree = "<group>"; };
 		EAB8FA5B1A899A1D00407A75 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
 		EAC388BD1A94068E00DC69AD /* LoginWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginWebViewController.swift; sourceTree = "<group>"; };
 		EAC6EEC91A9D450D00AC1118 /* Authenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
@@ -276,10 +273,9 @@
 			isa = PBXGroup;
 			children = (
 				A0FFB46D1A8327280032C8DC /* DataVisualization.swift */,
+				EAB7638A1AB0E7F8004B9CEB /* Plot.swift */,
 				A073BC171A81D4AF003A3A72 /* Dashboard.swift */,
 				A0FFB46B1A8326E90032C8DC /* Curve.swift */,
-				EA2267421AABDF9000B75152 /* WellboreCurve.swift */,
-				EA2267441AABDF9E00B75152 /* TimeCurve.swift */,
 				A073BC151A81D301003A3A72 /* Well.swift */,
 				EAC6EEC91A9D450D00AC1118 /* Authenticator.swift */,
 			);
@@ -299,7 +295,7 @@
 				2D9D8CA41AA7D1E40085AE5B /* PlotsCurvesTabBarController.swift */,
 				2D51017B1AA8094400F79374 /* AddPlotViewController.swift */,
 				2D51017D1AA80FEA00F79374 /* PlotWebViewController.swift */,
-				2DF43A171AAE6EA6003F5321 /* Plot.html */,
+				2DF43A171AAE6EA6003F5321 /* PlotTest.html */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -405,7 +401,7 @@
 				2D1B15FB1A678152001B3382 /* Main.storyboard in Resources */,
 				2D1B16001A678152001B3382 /* LaunchScreen.xib in Resources */,
 				EAB8FA5C1A899A1D00407A75 /* TODO in Resources */,
-				2DF43A181AAE6EA6003F5321 /* Plot.html in Resources */,
+				2DF43A181AAE6EA6003F5321 /* PlotTest.html in Resources */,
 				DFF811A61A8DCC2C001C4B43 /* Config.plist in Resources */,
 				2D1B15FD1A678152001B3382 /* Images.xcassets in Resources */,
 			);
@@ -433,6 +429,7 @@
 				EAC6EECA1A9D450D00AC1118 /* Authenticator.swift in Sources */,
 				A073BC1A1A82A89D003A3A72 /* AddCurveViewController.swift in Sources */,
 				2DD06C1E1A8B37BF0044D558 /* SideBar.swift in Sources */,
+				EAB7638B1AB0E7F8004B9CEB /* Plot.swift in Sources */,
 				2D1B15F61A678152001B3382 /* AppDelegate.swift in Sources */,
 				2D9D8CA51AA7D1E40085AE5B /* PlotsCurvesTabBarController.swift in Sources */,
 				2D4699441AA6784E00712675 /* WellsPlotViewController.swift in Sources */,
@@ -450,8 +447,6 @@
 				A0FFB46E1A8327280032C8DC /* DataVisualization.swift in Sources */,
 				DFF811A41A8DCAAF001C4B43 /* ConfigManager.swift in Sources */,
 				2D51017C1AA8094400F79374 /* AddPlotViewController.swift in Sources */,
-				EA2267431AABDF9000B75152 /* WellboreCurve.swift in Sources */,
-				EA2267451AABDF9E00B75152 /* TimeCurve.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,7 +461,6 @@
 				A0D2A1DA1AAE72A8000E1BB6 /* WellsManagerTests.swift in Sources */,
 				A0999EDE1AAE4E560006BE0D /* Curve.swift in Sources */,
 				A0999ED41AAE4E3D0006BE0D /* LoginViewController.swift in Sources */,
-				A0999EE01AAE4E5A0006BE0D /* TimeCurve.swift in Sources */,
 				A0999EE31AAE4E740006BE0D /* Logging.swift in Sources */,
 				A0999EDD1AAE4E530006BE0D /* Dashboard.swift in Sources */,
 				A0999ED71AAE4E450006BE0D /* LoginWebViewController.swift in Sources */,
@@ -478,8 +472,8 @@
 				A0999ED31AAE4E3B0006BE0D /* AddCurveViewController.swift in Sources */,
 				EA5AE4FC1AAEBFBF00A73E69 /* AuthenticatorTest.swift in Sources */,
 				A0999EDC1AAE4E500006BE0D /* DataVisualization.swift in Sources */,
+				EAACDA631AB0F83D00553099 /* Plot.swift in Sources */,
 				2D1B160C1A678152001B3382 /* ScientificDrillingMRDDTests.swift in Sources */,
-				A0999EDF1AAE4E580006BE0D /* WellboreCurve.swift in Sources */,
 				A0999ECD1AAE4E0F0006BE0D /* Well.swift in Sources */,
 				A0999ED51AAE4E400006BE0D /* WellsViewController.swift in Sources */,
 				A0999ED91AAE4E490006BE0D /* PlotsCurvesTabBarController.swift in Sources */,

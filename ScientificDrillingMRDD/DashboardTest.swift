@@ -25,15 +25,15 @@ class DashboardTest: XCTestCase {
         var dash : Dashboard = Dashboard()
         
         XCTAssert(dash.lineDV.count == 0, "Dashboard has been initialized incorrectly")
-        dash.addVisualization(.Line, curve: Curve(id: "testID1", dv: "Depth"))
+        dash.addVisualization(.Line, curve: Curve(id: "testID1", dv: "Depth", iv : ""))
         XCTAssert(dash.lineDV.count == 1, "AddVisualization incorrectly added Line DataVisualization")
         XCTAssert(dash.gaugeDV.count == 0, "Dashboard has been initialized incorrectly")
         XCTAssert(dash.staticNumberDV.count == 0, "Dashboard has been initialized incorrectly")
-        dash.addVisualization(.Line, curve: Curve(id: "testID2", dv: "Inclination"))
+        dash.addVisualization(.Line, curve: Curve(id: "testID2", dv: "Inclination", iv : ""))
         XCTAssert(dash.lineDV.count == 2, "AddVisualization incorrectly added Line DataVisualization")
-        dash.addVisualization(.StaticValue, curve: Curve(id: "testID3", dv: "Temperature"))
+        dash.addVisualization(.StaticValue, curve: Curve(id: "testID3", dv: "Temperature", iv : ""))
         XCTAssert(dash.staticNumberDV.count == 1, "AddVisualization incorrectly added StaticValue DataVisualization")
-        dash.addVisualization(.Gauge, curve: Curve(id: "tedv: stID4", dv: "Gamma"))
+        dash.addVisualization(.Gauge, curve: Curve(id: "tedv: stID4", dv: "Gamma", iv : ""))
         XCTAssert(dash.gaugeDV.count == 1, "AddVisualization incorrectly added Guage DataVisualization")
         
     }

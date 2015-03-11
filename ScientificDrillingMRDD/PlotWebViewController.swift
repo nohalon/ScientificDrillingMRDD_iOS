@@ -24,7 +24,7 @@ class PlotWebViewController : UIViewController, UIWebViewDelegate {
     }
     
     override func viewDidAppear(animated: Bool) {
-        var path = NSBundle.mainBundle().pathForResource("Plot", ofType: "html")!
+        var path = NSBundle.mainBundle().pathForResource("PlotTest", ofType: "html")!
         
         var html = NSString(contentsOfFile: path, usedEncoding: nil, error: nil)
         var url = NSURL(fileURLWithPath: path)

@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>getCurveValues</key>
+	<string>http://localhost:5000/getCurveValuePresent?</string>
+	<key>getCurveValueURL</key>
+	<string>http://localhost:5000/getCurveValuePresent?</string>
 	<key>getAuthenticate</key>
 	<string>http://localhost:5000/authenticate/</string>
 	<key>getGrantType</key>
@@ -20,8 +24,6 @@
 	<string>code</string>
 	<key>getBaseLoginURL</key>
 	<string>https://capstone2015federation.scientificdrilling.com/</string>
-	<key>getCurveValueURL</key>
-	<string>http://localhost:5000/getCurveValuePresent?</string>
 	<key>sideBarMenuItems</key>
 	<array>
 		<string>Settings</string>

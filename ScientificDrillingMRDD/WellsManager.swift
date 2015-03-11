@@ -87,7 +87,7 @@ class WellsManager: NSObject {
                             let name : String = aStatus["name"] as String
                             
                             
-                            well.addTimeCurve(TimeCurve(id: aStatus["id"] as String, dv : self.parseDV(name)))
+                            well.addTimeCurve(Curve(id: aStatus["id"] as String, dv : self.parseDV(name), iv : self.parseIV(name)))
                         }
                     }
                     
@@ -95,12 +95,10 @@ class WellsManager: NSObject {
                         if let aStatus = x as? NSDictionary {
                             let name : String = aStatus["name"] as String
                             
-                            well.addWellboreCurve(WellboreCurve(id: aStatus["id"] as String, dv: self.parseDV(name), iv: self.parseIV(name)))
+                            well.addWellboreCurve(Curve(id: aStatus["id"] as String, dv: self.parseDV(name), iv: self.parseIV(name)))
                             
                         }
                     }
-                    
-                    println(well.tCurves.count)
                 }
                 else {
                     self.log.DLog("jsonResult was not an NSArray", function: "loadCurvesForWell")
@@ -139,37 +137,52 @@ class WellsManager: NSObject {
         
         
         for dv in dataVisualizations {
-            var urlString = config.getProperty("getCurveValueURL") as String + "curve=" + dv.curve.id
-            urlString = urlString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
-            var url = NSURL(string: urlString)
-            
-            // Opens session with server
-            let task = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: {data, response, error ->Void in
-                if(error != nil) {
-                    // If there is an error in the web request, print it to the console
-                    self.log.DLog(error.localizedDescription, function: "updateDashboardForWell")
-                }
-                
-                var err: NSError?
-                
-                if var dataResult: NSString = NSString(data: data, encoding: NSUTF8StringEncoding) {
-                    println(dataResult)
-                    
-                    dataResult = dataResult.stringByReplacingOccurrencesOfString("\"", withString: "")
-                    dv.currentValue = (dataResult as NSString).floatValue
-                }
-                
-                
-                if(err != nil) {
-                    // If there is an error parsing JSON, print it to the console
-                    self.log.DLog("JSON Error \(err!.localizedDescription)", function: "updateDashboardForWell")
-                }
-            })
-            
-            task.resume()
+            loadCurve(dv.curve)
         }
-        
-        
     }
     
+    func updatePlot(plot : Plot) {
+        for curve in plot.curves {
+            loadCurve(curve)
+        }
+    }
+    
+    
+    func loadCurve(curve : Curve) {
+        
+        var urlString = config.getProperty("getCurveValues") as String + "curve=" + curve.id
+        urlString = urlString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+        var url = NSURL(string: urlString)
+        
+        // Opens session with server
+        let task = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: {data, response, error ->Void in
+            if(error != nil) {
+                // If there is an error in the web request, print it to the console
+                self.log.DLog(error.localizedDescription, function: "loadCurve")
+            }
+            
+            var err: NSError?
+            
+
+            if let jsonResult: AnyObject = NSJSONSerialization.JSONObjectWithData(data,options:nil,error: nil) {
+                if jsonResult is NSDictionary {
+                    //TODO: Tell daniel about values being proper json array of FLOATS
+                    let dvValue = (jsonResult["dv_values"] as NSString).componentsSeparatedByString(",") as [NSString]
+                    let ivValue = (jsonResult["iv_values"] as NSString).componentsSeparatedByString(",") as [NSString]
+                    curve.updateValues(dvValue, yVal: ivValue)
+                }
+                else {
+                    self.log.DLog("jsonResult was not an NSArray", function: "loadCurve")
+                }
+            }
+
+            
+            if(err != nil) {
+                // If there is an error parsing JSON, print it to the console
+                self.log.DLog("JSON Error \(err!.localizedDescription)", function: "loadCurve")
+            }
+        })
+        
+        task.resume()
+    }
 }
