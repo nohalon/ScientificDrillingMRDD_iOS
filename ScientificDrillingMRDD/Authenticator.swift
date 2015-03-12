@@ -23,25 +23,25 @@ class Authenticator {
         config = ConfigManager()
         config?.loadPropertiesFromFile()
         webController = controller
-        adfs_url = (config?.getProperty("getBaseLoginURL") as String) +
-            (config?.getProperty("getADFSAuthorize") as String) + "response_type=" +
-            (config?.getProperty("getResponseType") as String) + "&client_id=" +
-            (config?.getProperty("getClientID") as String) + "&redirect_uri=" +
-            (config?.getProperty("getRedirectURI") as String) + "&resource=" +
-            (config?.getProperty("getResourceURI") as String)
+        adfs_url = (config?.getProperty("getBaseLoginURL") as! String) +
+            (config?.getProperty("getADFSAuthorize") as! String) + "response_type=" +
+            (config?.getProperty("getResponseType") as! String) + "&client_id=" +
+            (config?.getProperty("getClientID") as! String) + "&redirect_uri=" +
+            (config?.getProperty("getRedirectURI") as! String) + "&resource=" +
+            (config?.getProperty("getResourceURI") as! String)
         requestURL = NSURL(string: self.adfs_url!)
     }
     
     func authenticateUser() {
-        let token_url = (config?.getProperty("getBaseLoginURL") as String) +
-            (config?.getProperty("getADFSToken") as String)
+        let token_url = (config?.getProperty("getBaseLoginURL") as! String) +
+            (config?.getProperty("getADFSToken") as! String)
         
         let request = NSMutableURLRequest(URL: NSURL(string: token_url)!)
         request.HTTPMethod = "POST"
         
-        var postString = "&client_id=" + (config?.getProperty("getClientID") as String)
-            + "&grant_type=" + (config?.getProperty("getGrantType") as String)
-            + "&redirect_uri=" + (config?.getProperty("getRedirectURI") as String)
+        var postString = "&client_id=" + (config?.getProperty("getClientID") as! String)
+            + "&grant_type=" + (config?.getProperty("getGrantType") as! String)
+            + "&redirect_uri=" + (config?.getProperty("getRedirectURI") as! String)
             + "&code=" + self.code!
         
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
@@ -78,7 +78,7 @@ class Authenticator {
     }
     
     func getUserID() {
-        let token_url = config?.getProperty("getAuthenticate") as String
+        let token_url = config?.getProperty("getAuthenticate") as! String
         
         let request = NSMutableURLRequest(URL: NSURL(string: token_url)!)
         request.HTTPMethod = "POST"
@@ -92,7 +92,7 @@ class Authenticator {
                 self.handleError("getUserID", message: error.localizedDescription)
             }
             else {
-                self.userID = NSString(data: data, encoding: NSUTF8StringEncoding)
+                self.userID = NSString(data: data, encoding: NSUTF8StringEncoding) as! String
                 self.webController.segueToDashboard()
             }
         })
@@ -104,12 +104,12 @@ class Authenticator {
     * Return Value: determines whether to show the webpage or not
     */
     func parseRequest(request: NSURLRequest) -> Bool{
-        if request.URL.isEqual(self.requestURL!) || request.URL.absoluteString?.rangeOfString(":443") != nil  {
+        if request.URL!.isEqual(self.requestURL!) || request.URL!.absoluteString?.rangeOfString(":443") != nil  {
             // You always want to display the adfs_url
             return true
         }
-        else if (request.URL.absoluteString?.rangeOfString("code=") != nil){
-            let response = request.URL.absoluteString
+        else if (request.URL!.absoluteString?.rangeOfString("code=") != nil){
+            let response = request.URL!.absoluteString
             var codeIndex = response?.rangeOfString("=", options: .BackwardsSearch)?.startIndex
             code = response?.substringFromIndex(codeIndex!)
             // The code variable still has an equal sign, need to trim that equal sign out

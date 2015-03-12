@@ -62,15 +62,16 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CollectionViewCell", forIndexPath: indexPath) as CollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CollectionViewCell", forIndexPath: indexPath) as! CollectionViewCell
         cell.layer.borderWidth = 1.0
         
         var visualization = well.dashboard.staticNumberDV[indexPath.row]
         
         var unitResult : String? = visualization.curve.dv
         
-        println("visualization's current value: \(visualization.currentValue)")
-        var valueResult = String(format: "%.2f", visualization.currentValue)
+        //println("visualization's current value: \(visualization.curve.values.last!.1)")
+        var valueResult = String(format: "%.2f", (visualization.curve.values.count == 0 ? 0.0 : visualization.curve.values.last!.1))
+        //var valueResult = String(format: "%.2f", 123.123)
         //        var unit : String?
         
         //        switch unitResult! {
@@ -84,16 +85,16 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
         //            self.log.DLog("ERROR: Invalid unit found", function: "collectionView")
         //            break
         //        }
-        cell.unitLabel?.text = visualization.curve.dv
-        cell.textLabel?.text = valueResult
+        cell.unitLabel.text = visualization.curve.dv
+        cell.textLabel.text = valueResult
         
         return cell
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "AddCurveSegue" {
-            let navigationController = segue.destinationViewController as UINavigationController
-            var addCurveController = navigationController.topViewController as AddCurveViewController
+            let navigationController = segue.destinationViewController as! UINavigationController
+            var addCurveController = navigationController.topViewController as! AddCurveViewController
             
             addCurveController.well = well
         }
@@ -101,7 +102,7 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
     
     @IBAction func unwindToDashboard(segue: UIStoryboardSegue) {
         if segue.identifier == "SelectCurveSegue" {
-            let addCurveController = segue.sourceViewController as AddCurveViewController
+            let addCurveController = segue.sourceViewController as! AddCurveViewController
             
             if let selected = addCurveController.selectedCurve {
                 well.dashboard.addVisualization(.StaticValue, curve: selected)

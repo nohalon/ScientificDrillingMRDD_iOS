@@ -36,8 +36,8 @@ class AddCurveViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var curveCount = 0;
         
-        if let selectedWell = well? {
-            curveCount = selectedWell.tCurves.count
+        if let selectedWell = well {
+            curveCount = selectedWell.curves["Time"]!.count
         }
         else {
             log.DLog("No well selected", function: "tableView")
@@ -50,8 +50,8 @@ class AddCurveViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "WellCell")
         
-        if let selectedWell = well? {
-            cell.textLabel?.text = selectedWell.tCurves[indexPath.row].dv
+        if let selectedWell = well {
+            cell.textLabel?.text = selectedWell.curves["Time"]![indexPath.row].dv
         }
         else {
             log.DLog("No well selected", function: "tableView")
@@ -64,8 +64,8 @@ class AddCurveViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let index = indexPath.row
         
-        if let selectedWell = well? {
-            self.selectedCurve = selectedWell.tCurves[index]
+        if let selectedWell = well {
+            self.selectedCurve = selectedWell.curves["Time"]![index]
         }
         else {
             log.DLog("No well selected", function: "tableView")
@@ -80,4 +80,3 @@ class AddCurveViewController: UITableViewController {
     }
     
 }
-

@@ -39,7 +39,7 @@ class LoginWebViewController : UIViewController, UIWebViewDelegate {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "LogoutSegue2" {
-            let navigationController = segue.destinationViewController as LoginViewController
+            let navigationController = segue.destinationViewController as! LoginViewController
             
             navigationController.loginSuccessful = true;
         }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D074F1E1AB1446B00AB3871 /* Plot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D074F1D1AB1446B00AB3871 /* Plot.swift */; };
 		2D1B15F61A678152001B3382 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1B15F51A678152001B3382 /* AppDelegate.swift */; };
 		2D1B15FB1A678152001B3382 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D1B15F91A678152001B3382 /* Main.storyboard */; };
 		2D1B15FD1A678152001B3382 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D1B15FC1A678152001B3382 /* Images.xcassets */; };
@@ -56,8 +57,6 @@
 		A0999EDC1AAE4E500006BE0D /* DataVisualization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FFB46D1A8327280032C8DC /* DataVisualization.swift */; };
 		A0999EDD1AAE4E530006BE0D /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A073BC171A81D4AF003A3A72 /* Dashboard.swift */; };
 		A0999EDE1AAE4E560006BE0D /* Curve.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FFB46B1A8326E90032C8DC /* Curve.swift */; };
-		A0999EDF1AAE4E580006BE0D /* WellboreCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2267421AABDF9000B75152 /* WellboreCurve.swift */; };
-		A0999EE01AAE4E5A0006BE0D /* TimeCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2267441AABDF9E00B75152 /* TimeCurve.swift */; };
 		A0999EE11AAE4E5E0006BE0D /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6EEC91A9D450D00AC1118 /* Authenticator.swift */; };
 		A0999EE21AAE4E620006BE0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1B15F51A678152001B3382 /* AppDelegate.swift */; };
 		A0999EE31AAE4E740006BE0D /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2285061A92C66200CF438A /* Logging.swift */; };
@@ -71,8 +70,6 @@
 		DFF811A41A8DCAAF001C4B43 /* ConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF811A31A8DCAAF001C4B43 /* ConfigManager.swift */; };
 		DFF811A61A8DCC2C001C4B43 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = DFF811A51A8DCC2C001C4B43 /* Config.plist */; };
 		EA20A2A01A8040080023D2CC /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA20A29F1A8040080023D2CC /* CollectionViewCell.swift */; };
-		EA2267431AABDF9000B75152 /* WellboreCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2267421AABDF9000B75152 /* WellboreCurve.swift */; };
-		EA2267451AABDF9E00B75152 /* TimeCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2267441AABDF9E00B75152 /* TimeCurve.swift */; };
 		EA2285071A92C66200CF438A /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2285061A92C66200CF438A /* Logging.swift */; };
 		EA913BFB1A7AE7FC00E1F97B /* WellsDashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA913BFA1A7AE7FC00E1F97B /* WellsDashboardController.swift */; };
 		EAB8FA5C1A899A1D00407A75 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = EAB8FA5B1A899A1D00407A75 /* TODO */; };
@@ -95,6 +92,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D074F1D1AB1446B00AB3871 /* Plot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plot.swift; sourceTree = "<group>"; };
 		2D1B15F01A678152001B3382 /* ScientificDrillingMRDD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScientificDrillingMRDD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D1B15F41A678152001B3382 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D1B15F51A678152001B3382 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -136,8 +134,6 @@
 		DFF811A31A8DCAAF001C4B43 /* ConfigManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigManager.swift; sourceTree = "<group>"; };
 		DFF811A51A8DCC2C001C4B43 /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		EA20A29F1A8040080023D2CC /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
-		EA2267421AABDF9000B75152 /* WellboreCurve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WellboreCurve.swift; sourceTree = "<group>"; };
-		EA2267441AABDF9E00B75152 /* TimeCurve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeCurve.swift; sourceTree = "<group>"; };
 		EA2285061A92C66200CF438A /* Logging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
 		EA913BFA1A7AE7FC00E1F97B /* WellsDashboardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WellsDashboardController.swift; path = ../WellsDashboardController.swift; sourceTree = "<group>"; };
 		EAB8FA5B1A899A1D00407A75 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
@@ -203,6 +199,7 @@
 		2D1B15F21A678152001B3382 /* ScientificDrillingMRDD */ = {
 			isa = PBXGroup;
 			children = (
+				2D5816ED1AB11989005C4DA1 /* CustomCells */,
 				EAB8FA5B1A899A1D00407A75 /* TODO */,
 				EAB8FA581A89907300407A75 /* Managers */,
 				EAB8FA571A89906500407A75 /* View */,
@@ -245,6 +242,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		2D5816ED1AB11989005C4DA1 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = CustomCells;
+			sourceTree = "<group>";
+		};
 		2DD06C1C1A8B378A0044D558 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,10 +276,9 @@
 				A0FFB46D1A8327280032C8DC /* DataVisualization.swift */,
 				A073BC171A81D4AF003A3A72 /* Dashboard.swift */,
 				A0FFB46B1A8326E90032C8DC /* Curve.swift */,
-				EA2267421AABDF9000B75152 /* WellboreCurve.swift */,
-				EA2267441AABDF9E00B75152 /* TimeCurve.swift */,
 				A073BC151A81D301003A3A72 /* Well.swift */,
 				EAC6EEC91A9D450D00AC1118 /* Authenticator.swift */,
+				2D074F1D1AB1446B00AB3871 /* Plot.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -427,6 +430,7 @@
 				EAC6EECA1A9D450D00AC1118 /* Authenticator.swift in Sources */,
 				A073BC1A1A82A89D003A3A72 /* AddCurveViewController.swift in Sources */,
 				2DD06C1E1A8B37BF0044D558 /* SideBar.swift in Sources */,
+				2D074F1E1AB1446B00AB3871 /* Plot.swift in Sources */,
 				2D1B15F61A678152001B3382 /* AppDelegate.swift in Sources */,
 				2D9D8CA51AA7D1E40085AE5B /* PlotsCurvesTabBarController.swift in Sources */,
 				2D4699441AA6784E00712675 /* WellsPlotViewController.swift in Sources */,
@@ -444,8 +448,6 @@
 				A0FFB46E1A8327280032C8DC /* DataVisualization.swift in Sources */,
 				DFF811A41A8DCAAF001C4B43 /* ConfigManager.swift in Sources */,
 				2D51017C1AA8094400F79374 /* AddPlotViewController.swift in Sources */,
-				EA2267431AABDF9000B75152 /* WellboreCurve.swift in Sources */,
-				EA2267451AABDF9E00B75152 /* TimeCurve.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,7 +462,6 @@
 				A0D2A1DA1AAE72A8000E1BB6 /* WellsManagerTests.swift in Sources */,
 				A0999EDE1AAE4E560006BE0D /* Curve.swift in Sources */,
 				A0999ED41AAE4E3D0006BE0D /* LoginViewController.swift in Sources */,
-				A0999EE01AAE4E5A0006BE0D /* TimeCurve.swift in Sources */,
 				A0999EE31AAE4E740006BE0D /* Logging.swift in Sources */,
 				A0999EDD1AAE4E530006BE0D /* Dashboard.swift in Sources */,
 				A0999ED71AAE4E450006BE0D /* LoginWebViewController.swift in Sources */,
@@ -472,7 +473,6 @@
 				A0999ED31AAE4E3B0006BE0D /* AddCurveViewController.swift in Sources */,
 				A0999EDC1AAE4E500006BE0D /* DataVisualization.swift in Sources */,
 				2D1B160C1A678152001B3382 /* ScientificDrillingMRDDTests.swift in Sources */,
-				A0999EDF1AAE4E580006BE0D /* WellboreCurve.swift in Sources */,
 				A0999ECD1AAE4E0F0006BE0D /* Well.swift in Sources */,
 				A0999ED51AAE4E400006BE0D /* WellsViewController.swift in Sources */,
 				A0999ED91AAE4E490006BE0D /* PlotsCurvesTabBarController.swift in Sources */,

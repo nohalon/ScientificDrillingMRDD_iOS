@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7519.1" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7513.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -230,39 +230,146 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QsS-jo-APs" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="t5q-cu-8sr" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1493" y="235"/>
+            <point key="canvasLocation" x="1477" y="235"/>
         </scene>
-        <!--Add a Plot-->
-        <scene sceneID="AvA-ii-qua">
+        <!--Add Plot-->
+        <scene sceneID="oBE-OG-PJ9">
             <objects>
-                <viewController id="uZC-5A-1Oc" customClass="AddPlotViewController" customModule="ScientificDrillingMRDD" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="HSC-gn-S0z"/>
-                        <viewControllerLayoutGuide type="bottom" id="VTE-d9-7xv"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="xMZ-t2-9hU">
+                <tableViewController id="L3L-wc-mKb" customClass="AddPlotViewController" customModule="ScientificDrillingMRDD" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="I2W-CI-W95">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Add a Plot" id="RlA-ha-0sa">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="q2B-8Z-xK5">
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="addCell" id="5R2-GO-CSQ" userLabel="add cell" customClass="AddTableViewCell" customModule="ScientificDrillingMRDD" customModuleProvider="target">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5R2-GO-CSQ" id="1pa-VA-tij">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Create_with_plus_mail_layer_add_vector_stock" translatesAutoresizingMaskIntoConstraints="NO" id="4G1-Mz-8ld">
+                                            <rect key="frame" x="10" y="12" width="20" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="0Gm-kq-5fJ"/>
+                                                <constraint firstAttribute="width" constant="20" id="ca8-sX-wxt"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Add an Independent Variable" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Laf-CU-RXT">
+                                            <rect key="frame" x="40" y="14" width="174" height="16"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="centerY" secondItem="4G1-Mz-8ld" secondAttribute="centerY" id="AR9-H6-AkD"/>
+                                        <constraint firstAttribute="centerY" secondItem="Laf-CU-RXT" secondAttribute="centerY" id="FRA-WB-rNb"/>
+                                        <constraint firstItem="Laf-CU-RXT" firstAttribute="top" secondItem="1pa-VA-tij" secondAttribute="topMargin" constant="6" id="NZa-7i-NHm"/>
+                                        <constraint firstItem="4G1-Mz-8ld" firstAttribute="leading" secondItem="1pa-VA-tij" secondAttribute="leadingMargin" constant="2" id="bF0-GL-a9f"/>
+                                        <constraint firstItem="Laf-CU-RXT" firstAttribute="leading" secondItem="4G1-Mz-8ld" secondAttribute="trailing" constant="10" id="itd-qb-vnu"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Laf-CU-RXT" secondAttribute="bottom" constant="5" id="wic-F6-q7a"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                <connections>
+                                    <outlet property="label" destination="Laf-CU-RXT" id="fm1-3g-zIh"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="nameCell" id="ElB-eY-S7e" userLabel="name cell" customClass="PlotNameInsertCell" customModule="ScientificDrillingMRDD" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ElB-eY-S7e" id="AO3-Je-ghM">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Plot Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ri6-ef-M44" userLabel="NameLabel">
+                                            <rect key="frame" x="32" y="0.0" width="54" height="43"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="11"/>
+                                            <color key="textColor" red="0.38823529410000002" green="0.41960784309999999" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6a0-Hz-wEi" userLabel="plotNameInput">
+                                            <rect key="frame" x="99" y="8" width="213" height="27"/>
+                                            <color key="textColor" red="0.38823529410000002" green="0.41960784309999999" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jrj-8Q-NJO">
+                                            <rect key="frame" x="94" y="0.0" width="1" height="43"/>
+                                            <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="1" id="tpT-sf-bJO"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="jrj-8Q-NJO" firstAttribute="top" secondItem="AO3-Je-ghM" secondAttribute="top" id="23U-qe-LIp"/>
+                                        <constraint firstItem="ri6-ef-M44" firstAttribute="top" secondItem="AO3-Je-ghM" secondAttribute="top" id="6R8-zj-hQn"/>
+                                        <constraint firstItem="jrj-8Q-NJO" firstAttribute="leading" secondItem="ri6-ef-M44" secondAttribute="trailing" constant="8" id="Lf9-zC-jv8"/>
+                                        <constraint firstAttribute="bottom" secondItem="ri6-ef-M44" secondAttribute="bottom" id="TYe-Yd-dLd"/>
+                                        <constraint firstAttribute="trailing" secondItem="6a0-Hz-wEi" secondAttribute="trailing" constant="8" id="hB4-YV-JsR"/>
+                                        <constraint firstAttribute="bottom" secondItem="jrj-8Q-NJO" secondAttribute="bottom" id="jGn-iL-Uyp"/>
+                                        <constraint firstAttribute="bottom" secondItem="6a0-Hz-wEi" secondAttribute="bottom" constant="8" id="sEU-IZ-6mI"/>
+                                        <constraint firstItem="ri6-ef-M44" firstAttribute="leading" secondItem="AO3-Je-ghM" secondAttribute="leading" constant="32" id="ydt-R0-rzs"/>
+                                        <constraint firstItem="6a0-Hz-wEi" firstAttribute="leading" secondItem="jrj-8Q-NJO" secondAttribute="trailing" constant="8" id="ysC-ZA-rGw"/>
+                                        <constraint firstItem="6a0-Hz-wEi" firstAttribute="top" secondItem="AO3-Je-ghM" secondAttribute="top" constant="8" id="zlH-yG-yoz"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="ri6-ef-M44" id="m9b-tC-9Ip"/>
+                                    <outlet property="plotNameInput" destination="6a0-Hz-wEi" id="b0G-tK-x0J"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ivCell" id="fDI-VW-hsS" userLabel="iv cell" customClass="IVSelectedCell" customModule="ScientificDrillingMRDD" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fDI-VW-hsS" id="yxC-za-UxZ">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fea-Wq-9EO" userLabel="iv">
+                                            <rect key="frame" x="8" y="8" width="304" height="27"/>
+                                            <color key="textColor" red="0.38823529410000002" green="0.41960784309999999" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="fea-Wq-9EO" secondAttribute="bottom" id="QT8-5h-ier"/>
+                                        <constraint firstItem="fea-Wq-9EO" firstAttribute="leading" secondItem="yxC-za-UxZ" secondAttribute="leadingMargin" id="aNJ-9l-3d8"/>
+                                        <constraint firstItem="fea-Wq-9EO" firstAttribute="trailing" secondItem="yxC-za-UxZ" secondAttribute="trailingMargin" id="kaw-6P-CSi"/>
+                                        <constraint firstItem="fea-Wq-9EO" firstAttribute="top" secondItem="yxC-za-UxZ" secondAttribute="topMargin" id="l2m-JZ-wsw"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="iv_selected" destination="fea-Wq-9EO" id="85v-j6-7Zb"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="CDd-yf-Gws" userLabel="regular cell">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CDd-yf-Gws" id="aSv-Ei-Hvo">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="L3L-wc-mKb" id="KIs-ir-Hf8"/>
+                            <outlet property="delegate" destination="L3L-wc-mKb" id="UFf-Ud-6kz"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Add Plot" id="rGV-gX-Vef">
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="LHb-tM-V71">
                             <connections>
-                                <action selector="cancelAddPlotAction:" destination="uZC-5A-1Oc" id="T51-AC-c5Z"/>
-                                <segue destination="1dN-kE-Sbj" kind="unwind" unwindAction="unwindToTabBar:" id="1wq-of-SFr"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="fcf-co-v8q">
-                            <connections>
-                                <action selector="doneAddPlotAction:" destination="uZC-5A-1Oc" id="Vuo-qT-1r2"/>
+                                <segue destination="HB4-vr-hc2" kind="unwind" unwindAction="unwindToTabBar:" id="esi-4k-dne"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BbU-vC-s0Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="1dN-kE-Sbj" userLabel="Exit" sceneMemberID="exit"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gVJ-Uy-V6h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="HB4-vr-hc2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2984" y="741"/>
+            <point key="canvasLocation" x="3038" y="741"/>
         </scene>
         <!--add curve view-->
         <scene sceneID="uZJ-C6-8hW">
@@ -402,7 +509,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3uH-jM-4cg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="694" y="941"/>
+            <point key="canvasLocation" x="656" y="1000"/>
         </scene>
         <!--Plot Web View-->
         <scene sceneID="tm9-a7-C9r">
@@ -450,7 +557,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="uZC-5A-1Oc" kind="relationship" relationship="rootViewController" id="ajj-KT-6iW"/>
+                        <segue destination="L3L-wc-mKb" kind="relationship" relationship="rootViewController" id="h36-HT-1OZ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hcy-2e-z1o" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -459,6 +566,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Create_with_plus_mail_layer_add_vector_stock" width="512" height="512"/>
         <image name="menu" width="20" height="14"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -24,11 +24,11 @@ class PlotWebViewController : UIViewController, UIWebViewDelegate {
     }
     
     override func viewDidAppear(animated: Bool) {
-        var path = NSBundle.mainBundle().pathForResource("Plot", ofType: "html")!
+        var path = NSBundle.mainBundle().pathForResource("PlotTest", ofType: "html")!
         
         var html = NSString(contentsOfFile: path, usedEncoding: nil, error: nil)
         var url = NSURL(fileURLWithPath: path)
-        self.plotWebView.loadHTMLString(html, baseURL: url)
+        self.plotWebView.loadHTMLString(html as! String, baseURL: url)
     }
     
     override func shouldAutorotate() -> Bool {

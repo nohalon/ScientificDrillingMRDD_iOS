@@ -17,11 +17,11 @@ import UIKit
 
 class SideBar: NSObject, SideBarTableViewControllerDelegate {
     
-    let barWidth : CGFloat = config.getProperty("sideBarWidth") as CGFloat
-    let sideBarTableViewTopInsert : CGFloat = config.getProperty("sideBarTopInsert") as CGFloat
+    let barWidth : CGFloat = config.getProperty("sideBarWidth") as! CGFloat
+    let sideBarTableViewTopInsert : CGFloat = config.getProperty("sideBarTopInsert") as! CGFloat
     let sideBarContainerView : UIView = UIView()
     let sideBarTableViewController : SideBarTableViewController = SideBarTableViewController()
-    let originView : UIView!
+    var originView : UIView = UIView()
     
     var animator : UIDynamicAnimator!
     var delegate : SideBarDelegate?
@@ -33,7 +33,7 @@ class SideBar: NSObject, SideBarTableViewControllerDelegate {
     
     init(sourceView:UIView, menuItems:Array<String>){
         super.init()
-        originView = sourceView
+        self.originView = sourceView
         sideBarTableViewController.tableData = menuItems
         
         setupSideBar()

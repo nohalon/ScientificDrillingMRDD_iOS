@@ -31,8 +31,8 @@ class PlotsCurvesTabBarController : UITabBarController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "AddCurveSegue") {
-            let navigationController = segue.destinationViewController as UINavigationController
-            var addCurveController = navigationController.topViewController as AddCurveViewController
+            let navigationController = segue.destinationViewController as! UINavigationController
+            var addCurveController = navigationController.topViewController as! AddCurveViewController
             //addCurveController.well?.name = self.title!
             addCurveController.well = well
             

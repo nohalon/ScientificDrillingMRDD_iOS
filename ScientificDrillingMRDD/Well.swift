@@ -6,31 +6,30 @@
 //  Copyright (c) 2015 Noha Alon. All rights reserved.
 //
 
-import UIKit
 
 class Well: NSObject {
     
     var name: String
     var id: String
     
-    var tCurves : [TimeCurve]
-    var wCurves : [WellboreCurve]
+    var curves : [String : [Curve]]
     
     var dashboard : Dashboard
+    
+    var plots : [Plot]
     
     init(id: String, name: String) {
         self.id = id
         self.name = name
         self.dashboard = Dashboard()
-        self.tCurves = [TimeCurve]()
-        self.wCurves = [WellboreCurve]()
+        self.plots = [Plot]()
+        self.curves = [String : [Curve]]()
     }
     
-    func addTimeCurve(tc : TimeCurve) {
-        tCurves += [tc]
-    }
-    
-    func addWellboreCurve(wc : WellboreCurve) {
-        wCurves += [wc]
+    func addCurve(curve : Curve) {
+        if self.curves[curve.iv] == nil {
+            self.curves[curve.iv] = [Curve]()
+        }
+        self.curves[curve.iv]!.append(curve)
     }
 }

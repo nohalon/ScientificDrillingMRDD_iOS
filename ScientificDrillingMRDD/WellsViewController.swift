@@ -25,7 +25,7 @@ class WellsViewController: UIViewController, SideBarDelegate {
         self.navigationItem.hidesBackButton = true;
         self.navigationController?.navigationBar.translucent = false
         
-        sideBar = SideBar(sourceView: self.view, menuItems: config.getProperty("sideBarMenuItems") as [String])
+        sideBar = SideBar(sourceView: self.view, menuItems: config.getProperty("sideBarMenuItems") as! [String])
         sideBar.delegate = self
     }
     
@@ -58,8 +58,8 @@ class WellsViewController: UIViewController, SideBarDelegate {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "TabBarSegue" {
-            var dashboard = segue.destinationViewController as PlotsCurvesTabBarController
-            var destinationViewController = dashboard.viewControllers?.first as WellsDashboardController
+            var dashboard = segue.destinationViewController as! PlotsCurvesTabBarController
+            var destinationViewController = dashboard.viewControllers?.first as! WellsDashboardController
             
             
             dashboard.well = wellsMngr.wells[index]

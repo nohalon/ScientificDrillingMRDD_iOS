@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Noha Alon. All rights reserved.
 //
 
+
 import UIKit
 
 enum VisualizationType {
@@ -18,14 +19,8 @@ class DataVisualization {
     var type: VisualizationType
     var curve : Curve
     
-    var currentValue: Float
-    
     init(type: VisualizationType, curve: Curve) {
         self.type = type
         self.curve = curve
-        
-        self.currentValue = 0.0
     }
 }
-
-

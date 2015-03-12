@@ -39,7 +39,7 @@ class LoginViewController: UIViewController, GPPSignInDelegate {
         signIn?.shouldFetchGoogleUserEmail = true
         
         signIn?.shouldFetchGooglePlusUser = true
-        signIn?.clientID = config.getProperty("googleClientID") as String
+        signIn?.clientID = config.getProperty("googleClientID") as! String
         signIn?.scopes = [kGTLAuthScopePlusLogin]
         signIn?.delegate = self
         

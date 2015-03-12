@@ -9,7 +9,7 @@
 import Foundation
 
 class TimeCurve : Curve {
-    override init(id: String, dv : String) {
+    init(id: String, dv : String) {
         super.init(id: id, dv : dv)
     }
 }
