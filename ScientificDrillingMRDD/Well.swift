@@ -16,7 +16,7 @@ class Well: NSObject {
     
     var dashboard : Dashboard
     
-    var plots : [Plot]
+    var plots = [Plot]()
     
     init(id: String, name: String) {
         self.id = id
@@ -33,3 +33,25 @@ class Well: NSObject {
         self.curves[curve.iv]!.append(curve)
     }
 }
+
+
+class Plot : NSObject {
+    var title : String
+    var iv : String
+    var curves : [Curve]
+    
+    init (title : String, iv : String) {
+        self.title = title;
+        self.iv = iv;
+        self.curves = [Curve]();
+    }
+    
+    init (title : String, iv : String, curves : [Curve]) {
+        self.title = title;
+        self.iv = iv;
+        self.curves = curves;
+    }
+}
+
+
+

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2D074F1E1AB1446B00AB3871 /* Plot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D074F1D1AB1446B00AB3871 /* Plot.swift */; };
 		2D1B15F61A678152001B3382 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1B15F51A678152001B3382 /* AppDelegate.swift */; };
 		2D1B15FB1A678152001B3382 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D1B15F91A678152001B3382 /* Main.storyboard */; };
 		2D1B15FD1A678152001B3382 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D1B15FC1A678152001B3382 /* Images.xcassets */; };
@@ -92,7 +91,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2D074F1D1AB1446B00AB3871 /* Plot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plot.swift; sourceTree = "<group>"; };
 		2D1B15F01A678152001B3382 /* ScientificDrillingMRDD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScientificDrillingMRDD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D1B15F41A678152001B3382 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D1B15F51A678152001B3382 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -278,7 +276,6 @@
 				A0FFB46B1A8326E90032C8DC /* Curve.swift */,
 				A073BC151A81D301003A3A72 /* Well.swift */,
 				EAC6EEC91A9D450D00AC1118 /* Authenticator.swift */,
-				2D074F1D1AB1446B00AB3871 /* Plot.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -430,7 +427,6 @@
 				EAC6EECA1A9D450D00AC1118 /* Authenticator.swift in Sources */,
 				A073BC1A1A82A89D003A3A72 /* AddCurveViewController.swift in Sources */,
 				2DD06C1E1A8B37BF0044D558 /* SideBar.swift in Sources */,
-				2D074F1E1AB1446B00AB3871 /* Plot.swift in Sources */,
 				2D1B15F61A678152001B3382 /* AppDelegate.swift in Sources */,
 				2D9D8CA51AA7D1E40085AE5B /* PlotsCurvesTabBarController.swift in Sources */,
 				2D4699441AA6784E00712675 /* WellsPlotViewController.swift in Sources */,

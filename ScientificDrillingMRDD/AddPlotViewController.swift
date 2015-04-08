@@ -5,14 +5,16 @@ import UIKit
 let PLOTNAME_SECTION = 0
 let IV_SECTION = 1
 let DV_SECTION = 2
+let ADD_CELL_ROW = 0
 
 class AddPlotViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource {
 
-    @IBOutlet weak var plotName: UITextField!
-
     var iv_selected  = false;
-    
-    var dvsArry = ["hello"]
+    var iv_chosen : String = ""
+    var iVsArry = [""]
+    var dVsArry = [""]
+    var well : Well?
+    var plot : Plot!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,11 +35,6 @@ class AddPlotViewController: UITableViewController, UITableViewDelegate, UITable
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        if (!iv_selected)
-        {
-            return 2;
-        }
-        
         return 3;
     }
     
@@ -46,27 +43,55 @@ class AddPlotViewController: UITableViewController, UITableViewDelegate, UITable
             return 1
         }
         else if section == IV_SECTION {
-            return dvsArry.count
+            return iVsArry.count
         }
         else if (section == DV_SECTION) {
-            return 3
+            return dVsArry.count
         }
         
         return 0;
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        if (indexPath.section == 1)
+        // insert new row only if you have not yet selected an iv
+        if (indexPath.section == IV_SECTION)
         {
-            self.tableView.beginUpdates()
-            self.dvsArry.append("new")
-            
-
-            self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: self.dvsArry.count - 1, inSection: 1)], withRowAnimation: UITableViewRowAnimation.Left)
-            self.tableView.endUpdates()
+            if (iv_selected && indexPath.row == ADD_CELL_ROW) {
+                showAlert("IV Selection Notice", message: "You may only select one IV at a time.")
+            }
+            else if (indexPath.row == 1) {
+                println("selected iv cell")
+            }
+            else {
+                self.tableView.beginUpdates()
+                self.iVsArry.append("testing")
+                
+                self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: self.iVsArry.count - 1, inSection: IV_SECTION)], withRowAnimation: UITableViewRowAnimation.Left)
+                self.tableView.endUpdates()
+            }
+        }
+        else if (indexPath.section == DV_SECTION) {
+            if (iv_selected) {
+                self.tableView.beginUpdates()
+                self.dVsArry.append("testing")
+                
+                self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: self.dVsArry.count - 1, inSection: DV_SECTION)], withRowAnimation: UITableViewRowAnimation.Left)
+                self.tableView.endUpdates()
+                
+            }
+            else {
+                showAlert("DV Selection Notice", message: "You must select an IV before selecting any DVs.")
+            }
         }
 
+    }
+
+    func showAlert(title : String, message : String) {
+        let alertController = UIAlertController(title: title, message:
+            message, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -78,26 +103,109 @@ class AddPlotViewController: UITableViewController, UITableViewDelegate, UITable
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        if (indexPath.section == 1 && indexPath.row == 0) {
-            // style as add button
-            let cell = self.tableView.dequeueReusableCellWithIdentifier("addCell") as! AddTableViewCell
-            return cell
-        }
-        else if (indexPath.section == 0 && indexPath.row == 0) {
+        if (indexPath.section == PLOTNAME_SECTION && indexPath.row == ADD_CELL_ROW) {
             let cell = self.tableView.dequeueReusableCellWithIdentifier("nameCell") as! PlotNameInsertCell
             return cell
         }
-        else if (indexPath.section == IV_SECTION && indexPath.row != 0) {
-            let cell = self.tableView.dequeueReusableCellWithIdentifier("ivCell") as! IVSelectedCell
-            cell.openPickerView(self.view)
-            return cell
+        else if (indexPath.section == IV_SECTION) {
+            if (indexPath.row == ADD_CELL_ROW) {
+                // style as add button
+                let cell = self.tableView.dequeueReusableCellWithIdentifier("addCell") as! AddTableViewCell
+                cell.customInitIV()
+                return cell
+            }
+            else {
+                iv_selected = true;
+                let cell = self.tableView.dequeueReusableCellWithIdentifier("ivDvCell") as! IvDvSelectedCell
+                
+                var iv_list = getIvListFromWell()
+                
+                cell.customInit(self.view, ivDv_list: iv_list)
+                return cell
+            }
+        }
+        else if (indexPath.section == DV_SECTION)
+        {
+            if (indexPath.row == ADD_CELL_ROW) {
+                // style as add button
+                let cell = self.tableView.dequeueReusableCellWithIdentifier("addCell") as! AddTableViewCell
+                cell.customInitDV()
+                return cell
+            }
+            else {
+                let cell = self.tableView.dequeueReusableCellWithIdentifier("ivDvCell") as! IvDvSelectedCell
+                
+                var ivCell = self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 1, inSection: IV_SECTION)) as! IvDvSelectedCell
+                iv_chosen = ivCell.getCellText()
+                var dv_list = getDvListFromIV(iv_chosen)
+                
+                cell.customInit(self.view, ivDv_list: dv_list)
+                return cell
+            }
         }
         
         let cell = self.tableView.dequeueReusableCellWithIdentifier("cell") as! UITableViewCell
         return cell
     }
     
+    func getDvListFromIV(iv: String) -> [String] {
+        var dv_list = [String]()
+        
+        for (ivTemp, curve) in well!.curves {
+            if (ivTemp == iv) {
+                for data in curve {
+                    dv_list.append(data.dv)
+                }
+            }
+        }
+        
+        return dv_list
+    }
+    
+    func getIvListFromWell() -> [String] {
+        var iv_list = [String]()
+        
+        for (iv, curve) in well!.curves {
+            iv_list.append(iv)
+        }
+        
+        return iv_list
+    }
+    
+    func getDvId(iv : String, dv : String) -> String {
+        var temp = well!.curves[iv]
+        
+        for curve in temp! {
+            if (curve.dv == dv) {
+                return curve.id
+            }
+        }
+        
+        return "error"
+    }
+    
+    func getPlotName() -> String {
+        var cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: PLOTNAME_SECTION)) as! PlotNameInsertCell
+        return cell.getPlotName()
+    }
+    
     @IBAction func doneAddPlotAction(sender: AnyObject) {
+        if (iv_chosen != "") {
+            var cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 1, inSection: DV_SECTION)) as! IvDvSelectedCell
+            var dv = cell.getCellText()
+            var dvId = getDvId(iv_chosen, dv: dv)
+            
+            var curve : Curve = Curve(id: dvId, dv: dv, iv: iv_chosen)
+            var plot : Plot = Plot(title: getPlotName(), iv: iv_chosen, curves: [curve])
+            self.plot = plot
+            
+            well!.plots.append(plot)
+            wellsMngr.updatePlot(plot)
+            performSegueWithIdentifier("PlotsTabBarSegue", sender: self)
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
     }
     
@@ -108,23 +216,46 @@ class AddPlotViewController: UITableViewController, UITableViewDelegate, UITable
 class AddTableViewCell : UITableViewCell {
     
     @IBOutlet weak var label: UILabel!
+    
+    func customInitIV() {
+        label.text = "Add an Independent Variable"
+    }
+    
+    func customInitDV() {
+        label.text = "Add a Dependent Variable"
+    }
 }
 
 class PlotNameInsertCell : UITableViewCell {
-    
-    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var plotNameInput: UITextField!
+    
+    func getPlotName() ->String {
+        return plotNameInput.text
+    }
 }
 
-class IVSelectedCell : UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource {
+class IvDvSelectedCell : UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    @IBOutlet weak var iv_selected: UITextField!
-    var listPickerArray = ["testing 1", "testing 2", "testing 3", "testing 4"]
+    @IBOutlet weak var elmt_selected: UITextField!
+    var listPickerArray = [String]()
+    var view : UIView!
     var listPicker : UIPickerView = UIPickerView()
     var pickerView : UIView = UIView();
     
+    func getCellText() -> String {
+        return elmt_selected.text
+    }
     
-    func openPickerView(view : UIView) {
+    func customInit(view : UIView, ivDv_list : [String]) {
+        self.view = view
+        self.listPickerArray = ivDv_list
+        self.selectionStyle = UITableViewCellSelectionStyle.None
+        elmt_selected.text = listPickerArray[0];
+
+        openPickerView()
+    }
+    
+    func openPickerView() {
         pickerView =  UIView(frame: CGRectMake(0, view.frame.size.height/2, view.frame.size.width, 400))
         
         var toolbar : UIToolbar = UIToolbar(frame: CGRectMake(0,0,view.bounds.width,44))
@@ -143,11 +274,10 @@ class IVSelectedCell : UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSo
         view.addSubview(pickerView)
         view.bringSubviewToFront(pickerView)
         
-        iv_selected.inputView = listPicker
+        elmt_selected.inputView = listPicker
     }
     
     func donePressed() {
-        println("done touched")
         pickerView.hidden = true
     }
     
@@ -164,7 +294,7 @@ class IVSelectedCell : UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        iv_selected.text = listPickerArray[row];
+        elmt_selected.text = listPickerArray[row];
     }
     
 }

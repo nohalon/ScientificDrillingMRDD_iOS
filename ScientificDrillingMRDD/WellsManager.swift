@@ -155,7 +155,7 @@ class WellsManager: NSObject {
         var url = NSURL(string: urlString)
         
         // Opens session with server
-        let task = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: {data, response, error ->Void in
+        let task = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: {data, response, error -> Void in
             if(error != nil) {
                 // If there is an error in the web request, print it to the console
                 self.log.DLog(error.localizedDescription, function: "loadCurve")
@@ -164,7 +164,7 @@ class WellsManager: NSObject {
             var err: NSError?
             
             
-            if let jsonResult: AnyObject = NSJSONSerialization.JSONObjectWithData(data,options:nil,error: nil) {
+            if let jsonResult: AnyObject = NSJSONSerialization.JSONObjectWithData(data, options:nil, error: nil) {
                 if jsonResult is NSDictionary {
                     //TODO: Tell daniel about values being proper json array of FLOATS
                     let dvValue = (jsonResult["dv_values"] as! NSString).componentsSeparatedByString(",") as! [NSString]

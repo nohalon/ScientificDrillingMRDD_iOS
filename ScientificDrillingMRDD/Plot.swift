@@ -1,4 +1,6 @@
 
+import UIKit
+import Foundation
 
 class Plot : NSObject {
     var title : String

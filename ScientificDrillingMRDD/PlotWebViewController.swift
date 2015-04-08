@@ -12,6 +12,13 @@ import UIKit
 class PlotWebViewController : UIViewController, UIWebViewDelegate {
     
     @IBOutlet weak var plotWebView: UIWebView!
+    var plot : Plot?
+    var plotName : String!
+    
+    override func viewWillAppear(animated: Bool) {
+        plotName = plot?.title
+        self.title = plotName
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +31,7 @@ class PlotWebViewController : UIViewController, UIWebViewDelegate {
     }
     
     override func viewDidAppear(animated: Bool) {
-        var path = NSBundle.mainBundle().pathForResource("PlotTest", ofType: "html")!
+        var path = NSBundle.mainBundle().pathForResource("Plot", ofType: "html")!
         
         var html = NSString(contentsOfFile: path, usedEncoding: nil, error: nil)
         var url = NSURL(fileURLWithPath: path)
@@ -49,8 +56,24 @@ class PlotWebViewController : UIViewController, UIWebViewDelegate {
         
         println("screen width: \(screenWidth) screen height: \(screenHeight)")
         
-        var functionCall : String = "InitChart( \(screenWidth), \(screenHeight))"
+        var lineData = formatCurve()
+        var functionCall : String = "InitChart(\(lineData), \(screenWidth), \(screenHeight))"
         self.plotWebView.stringByEvaluatingJavaScriptFromString(functionCall)
         
+    }
+    
+    func formatCurve() -> String {
+        
+        var jsonStr : String = "["
+        
+        if let lineData = plot?.curves[0].values {
+            for (x, y) in lineData {
+                jsonStr += "{'x': \(x), 'y': \(y)},"
+            }
+            jsonStr = jsonStr.substringToIndex(jsonStr.endIndex.predecessor())
+            jsonStr += "]"
+        }
+        
+        return jsonStr
     }
 }

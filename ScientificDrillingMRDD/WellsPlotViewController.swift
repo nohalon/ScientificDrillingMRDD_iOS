@@ -11,7 +11,10 @@ import Foundation
 class WellsPlotViewController : UIViewController {
     
     @IBOutlet var plotsListTable: UITableView!
-    
+    var plots = [Plot]()
+    var well : Well?
+    var selectedPlot : Int?
+
     override func viewDidLoad() {
     }
     
@@ -20,17 +23,38 @@ class WellsPlotViewController : UIViewController {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return plots.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "WellCell")
-        cell.textLabel?.text = "Testing Plot"
+        cell.textLabel?.text = plots[indexPath.row].title
         
         return cell;
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        selectedPlot = indexPath.row
         self.performSegueWithIdentifier("PlotWebViewSegue", sender: self)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "PlotWebViewSegue")
+        {
+            var destinationViewController = segue.destinationViewController as! PlotWebViewController
+            destinationViewController.plot = plots[selectedPlot!]
+        }
+    }
+    
+    @IBAction func unwindToPlotsTabBar(segue: UIStoryboardSegue) {
+        if (segue.identifier == "PlotsTabBarSegue")
+        {
+            var source = segue.sourceViewController as! AddPlotViewController
+            var item: Plot = source.plot!
+        
+            self.well = source.well
+            self.plots.append(item)
+            self.plotsListTable.reloadData()
+        }
     }
 }

@@ -33,16 +33,18 @@ class PlotsCurvesTabBarController : UITabBarController {
         if (segue.identifier == "AddCurveSegue") {
             let navigationController = segue.destinationViewController as! UINavigationController
             var addCurveController = navigationController.topViewController as! AddCurveViewController
-            //addCurveController.well?.name = self.title!
             addCurveController.well = well
-            
         }
-//        if (segue.identifier == "AddPlotSegue") {
-//            
-//        }
+            
+       else if (segue.identifier == "AddPlotSegue") {
+        let navigationController = segue.destinationViewController as! UINavigationController
+        var addPlotController = navigationController.topViewController as! AddPlotViewController
+        addPlotController.well = well
+
+        }
     }
     
     @IBAction func unwindToTabBar(segue: UIStoryboardSegue) {
-        
+
     }
 }
