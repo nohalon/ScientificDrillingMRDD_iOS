@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>getCurveValueURL</key>
-	<string>http://localhost:5000/getCurveValuePresent?</string>
+	<string>http://54.67.103.185/getCurveValuePresent?</string>
 	<key>getCurveValues</key>
-	<string>http://localhost:5000/getCurveValuePresent?</string>
+	<string>http://54.67.103.185/getCurveValuePresent?</string>
 	<key>getAuthenticate</key>
-	<string>http://localhost:5000/authenticate/</string>
+	<string>http://54.67.103.185/authenticate/</string>
 	<key>getGrantType</key>
 	<string>authorization_code</string>
 	<key>getADFSToken</key>
@@ -15,7 +15,7 @@
 	<key>getResourceURI</key>
 	<string>https://mrdd</string>
 	<key>getRedirectURI</key>
-	<string>https://localhost:8000/callback</string>
+	<string>http://localhost:8000/callback</string>
 	<key>getClientID</key>
 	<string>7e3e1419-204e-4038-b594-80e812d20c6f</string>
 	<key>getADFSAuthorize</key>
@@ -41,10 +41,10 @@
 	<key>sideBarTopInsert</key>
 	<integer>70</integer>
 	<key>getWellsURL</key>
-	<string>http://localhost:5000/getWells</string>
+	<string>http://54.67.103.185/getWells</string>
 	<key>googleClientID</key>
 	<string>741302004274-03334h3tk30brn2n9fhe9l32nnn6gk1k.apps.googleusercontent.com</string>
 	<key>getCurvesURL</key>
-	<string>http://localhost:5000/getCurvesForWell?well=</string>
+	<string>http://54.67.103.185/getCurvesForWell?well=</string>
 </dict>
 </plist>
