@@ -5,7 +5,7 @@ Prerequisities<br />
 1. Mac machine to run simulator<br />
 2. Latest XCode Version (6.3) : https://developer.apple.com/xcode/downloads/<br /><br />
 
-Steps
+Steps<br />
 1. Open XCode<br />
 2. Click the 'Source Control' tab<br />
 3. Click 'Check Out...'<br />
