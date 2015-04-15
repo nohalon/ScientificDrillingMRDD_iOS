@@ -207,7 +207,7 @@ class AddPlotViewController: UITableViewController, UITableViewDelegate, UITable
             well!.plots.append(plot)
             wellsMngr.updatePlot(plot)
             performSegueWithIdentifier("PlotsTabBarSegue", sender: self)
-        }
+        } 
     }
 }
 
