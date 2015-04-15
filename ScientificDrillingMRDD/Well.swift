@@ -32,6 +32,31 @@ class Well: NSObject {
         }
         self.curves[curve.iv]!.append(curve)
     }
+
+    func removeAddedCurves() -> [Curve] {
+        var returnList : [Curve] = [Curve]();
+        
+        // Deep copy
+        for ndx in 0...curves["Time"]!.count - 1 {
+            var temp = curves["Time"]![ndx]
+            returnList.append(Curve(id: temp.id, dv: temp.dv, iv: temp.iv))
+        }
+        
+        for var index = 0; index < dashboard.staticNumberDV.count; index++ {
+            removeItemFromArray(dashboard.staticNumberDV[index].curve, list: &returnList)
+        }
+        
+        return returnList;
+    }
+    
+    func removeItemFromArray(item : Curve, inout list : [Curve]) -> [Curve] {
+        for var ndx = 0; ndx < list.count; ndx++ {
+            if item.id == list[ndx].id {
+                list.removeAtIndex(ndx)
+            }
+        }
+        return list
+    }
 }
 
 

@@ -37,7 +37,7 @@ class AddCurveViewController: UITableViewController {
         var curveCount = 0;
         
         if let selectedWell = well {
-            curveCount = selectedWell.curves["Time"]!.count
+            curveCount = selectedWell.removeAddedCurves().count
         }
         else {
             log.DLog("No well selected", function: "tableView")
@@ -51,7 +51,7 @@ class AddCurveViewController: UITableViewController {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "WellCell")
         
         if let selectedWell = well {
-            cell.textLabel?.text = selectedWell.curves["Time"]![indexPath.row].dv
+            cell.textLabel?.text = selectedWell.removeAddedCurves()[indexPath.row].dv
         }
         else {
             log.DLog("No well selected", function: "tableView")
@@ -65,7 +65,7 @@ class AddCurveViewController: UITableViewController {
         let index = indexPath.row
         
         if let selectedWell = well {
-            self.selectedCurve = selectedWell.curves["Time"]![index]
+            self.selectedCurve = selectedWell.removeAddedCurves()[index]
         }
         else {
             log.DLog("No well selected", function: "tableView")
