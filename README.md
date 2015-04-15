@@ -3,7 +3,7 @@ Capstone Project
 
 Prerequisities<br />
 1. Mac machine to run simulator<br />
-2. Latest XCode Version (6.3)<br /><br />
+2. Latest XCode Version (6.3) : https://developer.apple.com/xcode/downloads/<br /><br />
 
 Steps
 1. Open XCode<br />
