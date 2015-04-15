@@ -50,11 +50,12 @@ class WellsPlotViewController : UIViewController {
         if (segue.identifier == "PlotsTabBarSegue")
         {
             var source = segue.sourceViewController as! AddPlotViewController
-            var item: Plot = source.plot!
-        
-            self.well = source.well
-            self.plots.append(item)
-            self.plotsListTable.reloadData()
+            if let item: Plot = source.plot {
+                self.well = source.well
+                self.plots.append(item)
+                self.plotsListTable.reloadData()
+            }
         }
+        
     }
 }

@@ -15,6 +15,7 @@ class AddPlotViewController: UITableViewController, UITableViewDelegate, UITable
     var dVsArry = [""]
     var well : Well?
     var plot : Plot!
+    var listPickerView : UIView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,6 +106,7 @@ class AddPlotViewController: UITableViewController, UITableViewDelegate, UITable
         
         if (indexPath.section == PLOTNAME_SECTION && indexPath.row == ADD_CELL_ROW) {
             let cell = self.tableView.dequeueReusableCellWithIdentifier("nameCell") as! PlotNameInsertCell
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
             return cell
         }
         else if (indexPath.section == IV_SECTION) {
@@ -121,11 +123,11 @@ class AddPlotViewController: UITableViewController, UITableViewDelegate, UITable
                 var iv_list = getIvListFromWell()
                 
                 cell.customInit(self.view, ivDv_list: iv_list)
+                listPickerView = cell.getPickerView()
                 return cell
             }
         }
-        else if (indexPath.section == DV_SECTION)
-        {
+        else if (indexPath.section == DV_SECTION) {
             if (indexPath.row == ADD_CELL_ROW) {
                 // style as add button
                 let cell = self.tableView.dequeueReusableCellWithIdentifier("addCell") as! AddTableViewCell
@@ -133,6 +135,7 @@ class AddPlotViewController: UITableViewController, UITableViewDelegate, UITable
                 return cell
             }
             else {
+                listPickerView?.hidden = true
                 let cell = self.tableView.dequeueReusableCellWithIdentifier("ivDvCell") as! IvDvSelectedCell
                 
                 var ivCell = self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 1, inSection: IV_SECTION)) as! IvDvSelectedCell
@@ -140,11 +143,13 @@ class AddPlotViewController: UITableViewController, UITableViewDelegate, UITable
                 var dv_list = getDvListFromIV(iv_chosen)
                 
                 cell.customInit(self.view, ivDv_list: dv_list)
+                listPickerView = cell.getPickerView()
                 return cell
             }
         }
         
         let cell = self.tableView.dequeueReusableCellWithIdentifier("cell") as! UITableViewCell
+        
         return cell
     }
     
@@ -204,13 +209,6 @@ class AddPlotViewController: UITableViewController, UITableViewDelegate, UITable
             performSegueWithIdentifier("PlotsTabBarSegue", sender: self)
         }
     }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-    }
-    
-    @IBAction func cancelAddPlotAction(sender: AnyObject) {
-    }
 }
 
 class AddTableViewCell : UITableViewCell {
@@ -218,10 +216,12 @@ class AddTableViewCell : UITableViewCell {
     @IBOutlet weak var label: UILabel!
     
     func customInitIV() {
+        self.selectionStyle = UITableViewCellSelectionStyle.None
         label.text = "Add an Independent Variable"
     }
     
     func customInitDV() {
+        self.selectionStyle = UITableViewCellSelectionStyle.None
         label.text = "Add a Dependent Variable"
     }
 }
@@ -240,7 +240,7 @@ class IvDvSelectedCell : UITableViewCell, UIPickerViewDelegate, UIPickerViewData
     var listPickerArray = [String]()
     var view : UIView!
     var listPicker : UIPickerView = UIPickerView()
-    var pickerView : UIView = UIView();
+    var pickerView : UIView = UIView()
     
     func getCellText() -> String {
         return elmt_selected.text
@@ -251,25 +251,30 @@ class IvDvSelectedCell : UITableViewCell, UIPickerViewDelegate, UIPickerViewData
         self.listPickerArray = ivDv_list
         self.selectionStyle = UITableViewCellSelectionStyle.None
         elmt_selected.text = listPickerArray[0];
-
         openPickerView()
     }
     
     func openPickerView() {
-        pickerView =  UIView(frame: CGRectMake(0, view.frame.size.height/2, view.frame.size.width, 400))
+        var bounds: CGRect = UIScreen.mainScreen().bounds
+        var width:CGFloat = bounds.size.width
+        var height:CGFloat = bounds.size.height
         
-        var toolbar : UIToolbar = UIToolbar(frame: CGRectMake(0,0,view.bounds.width,44))
+        pickerView = UIView(frame: CGRectMake(0, height - 260, width, 300))
+        
+        var toolbar : UIToolbar = UIToolbar(frame: CGRectMake(0, 0, width, 44))
         toolbar.barStyle = UIBarStyle.Default
-        let doneButton = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: "donePressed")
+        let doneButton = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: "dismissUIView")
         toolbar.setItems([doneButton], animated: true)
         
-        var dim = CGRectMake(0, toolbar.frame.size.height, toolbar.frame.size.width, 100)
+        var dim = CGRectMake(0, 0, width, 300)
+        
         listPicker = UIPickerView(frame: dim);
+        listPicker.backgroundColor = UIColor.whiteColor()
         listPicker.delegate = self;
         listPicker.showsSelectionIndicator = true
-        
-        pickerView.addSubview(toolbar)
+    
         pickerView.addSubview(listPicker)
+        pickerView.addSubview(toolbar)
         
         view.addSubview(pickerView)
         view.bringSubviewToFront(pickerView)
@@ -277,7 +282,11 @@ class IvDvSelectedCell : UITableViewCell, UIPickerViewDelegate, UIPickerViewData
         elmt_selected.inputView = listPicker
     }
     
-    func donePressed() {
+    func getPickerView() -> UIView {
+        return pickerView
+    }
+    
+    func dismissUIView() {
         pickerView.hidden = true
     }
     
