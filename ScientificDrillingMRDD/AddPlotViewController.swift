@@ -73,12 +73,16 @@ class AddPlotViewController: UITableViewController, UITableViewDelegate, UITable
         }
         else if (indexPath.section == DV_SECTION) {
             if (iv_selected) {
-                self.tableView.beginUpdates()
-                self.dVsArry.append("testing")
-                
-                self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: self.dVsArry.count - 1, inSection: DV_SECTION)], withRowAnimation: UITableViewRowAnimation.Left)
-                self.tableView.endUpdates()
-                
+                if (dVsArry.count <= 4) {
+                    self.tableView.beginUpdates()
+                    self.dVsArry.append("testing")
+                    
+                    self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: self.dVsArry.count - 1, inSection: DV_SECTION)], withRowAnimation: UITableViewRowAnimation.Left)
+                    self.tableView.endUpdates()
+                }
+                else {
+                    showAlert("Max DVs Reached", message: "You may only select up to 4 dependent variables")
+                }
             }
             else {
                 showAlert("DV Selection Notice", message: "You must select an IV before selecting any DVs.")
@@ -207,6 +211,9 @@ class AddPlotViewController: UITableViewController, UITableViewDelegate, UITable
             well!.plots.append(plot)
             wellsMngr.updatePlot(plot)
             performSegueWithIdentifier("PlotsTabBarSegue", sender: self)
+        }
+        else {
+            showAlert("Plot Creation", message: "Oops! Please enter a title, an IV, and at least one DV to create a plot.")
         }
     }
 }
