@@ -26,8 +26,15 @@ class Curve: NSObject {
     
     func updateValues(xVal : [NSString], yVal : [NSString]) {
         var temp : [(Float, Float)] = [(Float, Float)]()
-        for ndx in 0...xVal.count - 1 {
-            //TODO : TELL daniel
+        var count = 0
+        
+        if xVal.count > yVal.count {
+            count = yVal.count
+        } else {
+            count = xVal.count
+        }
+        
+        for ndx in 0...count - 1 {
             temp += [(xVal[ndx].floatValue, yVal[ndx].floatValue)]
         }
         values = temp

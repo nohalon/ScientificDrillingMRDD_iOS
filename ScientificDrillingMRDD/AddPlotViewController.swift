@@ -211,10 +211,14 @@ class AddPlotViewController: UITableViewController, UITableViewDelegate, UITable
             well!.plots.append(plot)
             wellsMngr.updatePlot(plot)
             performSegueWithIdentifier("PlotsTabBarSegue", sender: self)
+<<<<<<< HEAD
         }
         else {
             showAlert("Plot Creation", message: "Oops! Please enter a title, an IV, and at least one DV to create a plot.")
         }
+=======
+        } 
+>>>>>>> 82a76e5fc85f3e540b677145077311393c2e9e9c
     }
 }
 
