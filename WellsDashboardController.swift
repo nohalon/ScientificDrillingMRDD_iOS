@@ -66,25 +66,9 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
         cell.layer.borderWidth = 1.0
         
         var visualization = well.dashboard.staticNumberDV[indexPath.row]
-        
         var unitResult : String? = visualization.curve.dv
-        
-        //println("visualization's current value: \(visualization.curve.values.last!.1)")
-        var valueResult = String(format: "%.2f", (visualization.curve.values.count == 0 ? 0.0 : visualization.curve.values.last!.1))
-        //var valueResult = String(format: "%.2f", 123.123)
-        //        var unit : String?
-        
-        //        switch unitResult! {
-        //        case "Temperature":
-        //            unit = " " + DEGREE_SIGN + "F"
-        //        case "Depth":
-        //            unit = " m"
-        //        case "Time":
-        //            unit = " s"
-        //        default:
-        //            self.log.DLog("ERROR: Invalid unit found", function: "collectionView")
-        //            break
-        //        }
+        var valueResult = String(format: "%.2f", (visualization.curve.values.count == 0 ? 0.0 : visualization.curve.lastValue))
+
         cell.unitLabel.text = visualization.curve.dv
         cell.textLabel.text = valueResult
         

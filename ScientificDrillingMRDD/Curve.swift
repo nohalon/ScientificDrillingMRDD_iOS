@@ -13,14 +13,23 @@ class Curve: NSObject {
     var id: String
     var dv : String
     var iv : String
+    var iv_units : String
+    var dv_units : String
     
     var values : [(Float, Float)]// assumes ordered
+    var lastValue : Float
+    
+    var nextQueryTime : String
     
     init(id: String, dv : String, iv : String) {
         self.id = id
         self.dv = dv
         self.iv = iv
         self.values = [(Float, Float)]()
+        self.lastValue = 0.0
+        self.iv_units = ""
+        self.dv_units = ""
+        self.nextQueryTime = ""
     }
     
     
@@ -39,6 +48,4 @@ class Curve: NSObject {
         }
         values = temp
     }
-    
-    
 }
