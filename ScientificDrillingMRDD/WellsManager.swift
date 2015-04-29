@@ -17,8 +17,8 @@ class WellsManager: NSObject {
     
     var config = ConfigManager()
     
-    var starttime : String = "130707191965340000"
-    let endtime : String = "130746490990000000"
+    var starttime : String = ""
+    var endtime : String = ""
     
     
     override init() {
@@ -161,7 +161,10 @@ class WellsManager: NSObject {
         var baseURLString = config.getProperty("getBaseURL") as! String +
                         (config.getProperty("getTimeCurve") as! String)
             
-        var tags = "?well=" + wellID + "&curve=" + curve.id + "&start=" + starttime + "&end=" +  endtime
+        var tags = "?well=" + wellID + "&curve=" + curve.id;
+        if starttime != "" {
+            tags += "&start=" + starttime + "&end=" + endtime
+        }
         
         var urlString = baseURLString + tags
         urlString = urlString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
@@ -186,13 +189,17 @@ class WellsManager: NSObject {
                                 var x_value : Float = array[1].floatValue
                                 curve.values += [(x_value, y_value)]
                             }
-                            curve.lastValue = curve.values[curve.values.count - 1].0
+                            if curve.values.count > 0 {
+                                curve.lastValue = curve.values[curve.values.count - 1].0
+                            }
                         }
                         
                         if let nextQuery = result[1] as? NSDictionary {
                             var nextTime =  nextQuery["startIV"]!.longValue
+                            var end = nextQuery["oldIV"]!.longValue
                             
                             curve.nextQueryTime = String(stringInterpolationSegment: nextTime)
+                            self.endtime = String(end)
                         }
                         
                         if let units = result[2] as? NSArray {
