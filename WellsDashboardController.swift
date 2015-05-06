@@ -3,8 +3,7 @@ import Foundation
 
 class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     let log = Logging()
-    
-    let DEGREE_SIGN = "\u{00B0}"
+
     let SIDE_PADDING : CGFloat = 10
     let TOP_PADDING : CGFloat = 20
     let BOTTOM_PADDING : CGFloat = 10
@@ -21,7 +20,7 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: TOP_PADDING, left: SIDE_PADDING, bottom: BOTTOM_PADDING, right: SIDE_PADDING)
-        layout.itemSize = CGSize(width: (self.view.frame.width - 3 * SIDE_PADDING) / 2 , height: 50)
+        layout.itemSize = CGSize(width: (self.view.frame.width - 3 * SIDE_PADDING) / 2 , height: 60)
         collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
         collectionView!.dataSource = self
         collectionView!.delegate = self
@@ -66,13 +65,34 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
         cell.layer.borderWidth = 1.0
         
         var visualization = well.dashboard.staticNumberDV[indexPath.row]
-        var unitResult : String? = visualization.curve.dv
-        var valueResult = String(format: "%.2f", (visualization.curve.values.count == 0 ? 0.0 : visualization.curve.lastValue))
-
-        cell.unitLabel.text = visualization.curve.dv
-        cell.textLabel.text = valueResult
-        
+        var unitResult : String = visualization.curve.dv
+        var valueResult = String(format: "%.2f", visualization.curve.lastValue.0)
+        cell.unitLabel.text = unitResult
+        cell.textLabel.text = "\(valueResult) \(visualization.curve.dv_units)"
+        cell.timeLabel.text = timeSince(visualization.curve)
         return cell
+    }
+    
+    func timeSince(curve : Curve) -> String {
+        let date = NSDate()
+        let dateFormatter = NSDateFormatter()
+        let timeZone = NSTimeZone(name: "UTC")
+        dateFormatter.dateFormat = "HH:mm:ss"
+        dateFormatter.timeZone = timeZone
+        
+        let epochTime : String = String(stringInterpolationSegment: curve.lastValue.1)
+        let epochSeconds : NSTimeInterval = (epochTime as NSString).doubleValue
+        let thenNSDate : NSDate = NSDate(timeIntervalSince1970: epochSeconds)
+        
+        let difference = NSInteger(date.timeIntervalSinceDate(thenNSDate))
+        //let diffNSDate : NSDate = NSDate(timeIntervalSinceNow: difference)
+        
+        var seconds = difference % 60
+        var minutes = (difference / 60) % 60
+        var hours = (difference / 3600)
+        
+        println(NSString(format: "%0.2d:%0.2d:%0.2d",hours,minutes,seconds))
+        return NSString(format: "%0.2d:%0.2d:%0.2d",hours,minutes,seconds) as String
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

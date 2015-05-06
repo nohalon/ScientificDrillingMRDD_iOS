@@ -57,6 +57,17 @@ class Well: NSObject {
         }
         return list
     }
+    
+    func convertTimeStamp(epoch : Float) -> String {
+        let dateFormatter = NSDateFormatter()
+        let timeZone = NSTimeZone(name: "UTC")
+        dateFormatter.dateFormat = "M/d/yyyy\nHH:mm:ss"
+        dateFormatter.timeZone = timeZone
+        let epochSeconds : NSTimeInterval = (String(stringInterpolationSegment: epoch) as NSString).doubleValue
+        let date : NSDate = NSDate(timeIntervalSince1970: epochSeconds)
+
+        return dateFormatter.stringFromDate(date)
+    }
 }
 
 

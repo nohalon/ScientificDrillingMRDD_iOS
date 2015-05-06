@@ -141,7 +141,7 @@ class WellsManager: NSObject {
         
         
         for dv in dataVisualizations {
-            loadCurve(well.id, curve: dv.curve)
+            getLastValue(well.id, curve: dv.curve)
         }
     }
     
@@ -151,6 +151,102 @@ class WellsManager: NSObject {
         }
     }
     
+    func getLastValue(wellID : String , curve : Curve) {
+        var endTime : String?
+        var baseURLString = config.getProperty("getBaseURL") as! String +
+            (config.getProperty("getTimeCurve") as! String)
+        
+        var tags = "?well=" + wellID + "&curve=" + curve.id;
+
+        var urlString = baseURLString + tags
+        urlString = urlString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+        var url = NSURL(string: urlString)
+        
+        // Opens session with server
+        let task = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: {data, response, error -> Void in
+            if(error != nil) {
+                // If there is an error in the web request, print it to the console
+                self.log.DLog(error.localizedDescription, function: "loadCurve")
+            }
+            
+            var err: NSError?
+            
+            
+            if let jsonResult: AnyObject = NSJSONSerialization.JSONObjectWithData(data, options:nil, error: nil) {
+                if jsonResult is NSArray {
+                    if let result = jsonResult as? NSArray {
+                        if let nextQuery = result[1] as? NSDictionary {
+                            endTime = String(nextQuery["oldIV"]!.longValue)
+                            self.loadCurveWithParams(wellID, curve: curve, start: endTime!, end: endTime!)
+                        }
+                    }
+                }
+                else {
+                    self.log.DLog("jsonResult was not an NSArray", function: "loadCurve")
+                }
+            }
+            
+            
+            if(err != nil) {
+                // If there is an error parsing JSON, print it to the console
+                self.log.DLog("JSON Error \(err!.localizedDescription)", function: "loadCurve")
+            }
+        })
+        
+        task.resume()
+    }
+    
+    func loadCurveWithParams(wellID : String, curve : Curve, start : String, end : String) {
+        var endTime : String?
+        var baseURLString = config.getProperty("getBaseURL") as! String +
+            (config.getProperty("getTimeCurve") as! String)
+        
+        var tags = "?well=" + wellID + "&curve=" + curve.id + "&start=" + start + "&end=" + end;
+        
+        var urlString = baseURLString + tags
+        urlString = urlString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+        var url = NSURL(string: urlString)
+        
+        // Opens session with server
+        let task = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: {data, response, error -> Void in
+            if(error != nil) {
+                // If there is an error in the web request, print it to the console
+                self.log.DLog(error.localizedDescription, function: "loadCurve")
+            }
+            
+            var err: NSError?
+            
+            
+            if let jsonResult: AnyObject = NSJSONSerialization.JSONObjectWithData(data, options:nil, error: nil) {
+                if jsonResult is NSArray {
+                    if let result = jsonResult as? NSArray {
+                        if let values = result[0] as? NSArray {
+                            for array in values {
+                                var y_value : Float = array[0].floatValue / 10000000 - 11644473600 // epoch
+                                var x_value : Float = array[1].floatValue
+                                curve.lastValue = (x_value, y_value)
+                            }
+                        }
+                        if let units = result[2] as? NSArray {
+                            curve.iv_units = units[0] as! String;
+                            curve.dv_units = units[1] as! String;
+                        }
+                    }
+                }
+                else {
+                    self.log.DLog("jsonResult was not an NSArray", function: "loadCurve")
+                }
+            }
+            
+            
+            if(err != nil) {
+                // If there is an error parsing JSON, print it to the console
+                self.log.DLog("JSON Error \(err!.localizedDescription)", function: "loadCurve")
+            }
+        })
+        
+        task.resume()
+    }
     
     func loadCurve(wellID : String, curve : Curve) {
         
@@ -188,9 +284,6 @@ class WellsManager: NSObject {
                                 var y_value : Float = array[0].floatValue / 10000000 - 11644473600 // epoch
                                 var x_value : Float = array[1].floatValue
                                 curve.values += [(x_value, y_value)]
-                            }
-                            if curve.values.count > 0 {
-                                curve.lastValue = curve.values[curve.values.count - 1].0
                             }
                         }
                         
