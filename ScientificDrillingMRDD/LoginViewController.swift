@@ -56,6 +56,7 @@ class LoginViewController: UIViewController, GPPSignInDelegate {
     func logoutApplication() {
         signIn?.signOut()
         navigationController?.popToRootViewControllerAnimated(true)
+        wellsMngr.wells = []
     }
 
     //Go to home page if authenticated

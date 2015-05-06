@@ -20,7 +20,7 @@ class PlotsCurvesTabBarController : UITabBarController {
         plusButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addButtonItemClicked")
         self.navigationItem.setRightBarButtonItem(plusButton, animated: true)
     }
-    
+
     func addButtonItemClicked() {
         if well!.curves.count > 0 {
             if (self.selectedIndex == CURVES_NDX) {

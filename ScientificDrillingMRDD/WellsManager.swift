@@ -68,7 +68,7 @@ class WellsManager: NSObject {
         task.resume()
     }
     
-    func loadCurvesForWell(well: Well) {
+    func loadCurvesForWell(well: Well, onSuccess: () -> Void) {
         
         var urlString = config.getProperty("getBaseURL") as! String +
                         (config.getProperty("getCurvesURL") as! String) + well.id
@@ -103,6 +103,8 @@ class WellsManager: NSObject {
                             
                         }
                     }
+                    
+                    onSuccess()
                 }
                 else {
                     self.log.DLog("jsonResult was not an NSArray", function: "loadCurvesForWell")

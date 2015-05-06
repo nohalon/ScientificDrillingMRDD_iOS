@@ -28,7 +28,6 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
         collectionView!.backgroundColor = UIColor.whiteColor()
         self.view.addSubview(collectionView!)
         
-        wellsMngr.loadCurvesForWell(well)
         wellsMngr.updateDashboardForWell(well)
         
     }
