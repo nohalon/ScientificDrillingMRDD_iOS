@@ -13,9 +13,9 @@ import QuartzCore
 class CollectionViewCell: UICollectionViewCell {
     var textLabel: UILabel = UILabel()
     var unitLabel: UILabel = UILabel()
+    var timeLabel: UILabel = UILabel()
     
     required init(coder aDecoder: NSCoder) {
-        //self.textLabel = ""
         super.init(coder: aDecoder)
     }
     
@@ -34,7 +34,14 @@ class CollectionViewCell: UICollectionViewCell {
         //textLabel.layer.borderWidth = 1.0;
         textLabel.textAlignment = .Center
         
+        let timeFrame = CGRect(x: 0, y: frame.size.height/4, width: frame.size.width, height: frame.size.height/3)
+        self.timeLabel = UILabel(frame: timeFrame)
+        timeLabel.font = UIFont (name: config.getProperty("collectionViewCellFont") as! String, size: frame.size.height/6)
+        //textLabel.layer.borderWidth = 1.0;
+        timeLabel.textAlignment = .Center
+        
         contentView.addSubview(unitLabel)
         contentView.addSubview(textLabel)
+        contentView.addSubview(timeLabel)
     }
 }

@@ -17,7 +17,7 @@ class Curve: NSObject {
     var dv_units : String
     
     var values : [(Float, Float)]// assumes ordered
-    var lastValue : Float
+    var lastValue : (Float, Float)
     
     var nextQueryTime : String
     
@@ -26,7 +26,7 @@ class Curve: NSObject {
         self.dv = dv
         self.iv = iv
         self.values = [(Float, Float)]()
-        self.lastValue = 0.0
+        self.lastValue = (0.0, 0.0)
         self.iv_units = ""
         self.dv_units = ""
         self.nextQueryTime = ""

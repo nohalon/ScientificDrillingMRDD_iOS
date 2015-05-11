@@ -23,7 +23,7 @@ class WellsManagerTests: XCTestCase {
             sleep(1)
             
             for well in testWellMngr.wells {
-                testWellMngr.loadCurvesForWell(well)
+                testWellMngr.loadCurvesForWell(well, onSuccess: successFunc)
                 sleep(1)
             }
             
@@ -31,6 +31,10 @@ class WellsManagerTests: XCTestCase {
         }
         
         // Put setup code here. This method is called before the invocation of each test method in the class.
+    }
+
+    func successFunc() {
+        
     }
     
     override func tearDown() {

@@ -17,8 +17,8 @@ class WellsManager: NSObject {
     
     var config = ConfigManager()
     
-    var starttime : String = "130707191965340000"
-    let endtime : String = "130746490990000000"
+    var starttime : String = ""
+    var endtime : String = ""
     
     
     override init() {
@@ -68,7 +68,7 @@ class WellsManager: NSObject {
         task.resume()
     }
     
-    func loadCurvesForWell(well: Well) {
+    func loadCurvesForWell(well: Well, onSuccess: () -> Void) {
         
         var urlString = config.getProperty("getBaseURL") as! String +
                         (config.getProperty("getCurvesURL") as! String) + well.id
@@ -103,6 +103,8 @@ class WellsManager: NSObject {
                             
                         }
                     }
+                    
+                    onSuccess()
                 }
                 else {
                     self.log.DLog("jsonResult was not an NSArray", function: "loadCurvesForWell")
@@ -141,7 +143,7 @@ class WellsManager: NSObject {
         
         
         for dv in dataVisualizations {
-            loadCurve(well.id, curve: dv.curve)
+            getLastValue(well.id, curve: dv.curve)
         }
     }
     
@@ -151,6 +153,102 @@ class WellsManager: NSObject {
         }
     }
     
+    func getLastValue(wellID : String , curve : Curve) {
+        var endTime : String?
+        var baseURLString = config.getProperty("getBaseURL") as! String +
+            (config.getProperty("getTimeCurve") as! String)
+        
+        var tags = "?well=" + wellID + "&curve=" + curve.id;
+
+        var urlString = baseURLString + tags
+        urlString = urlString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+        var url = NSURL(string: urlString)
+        
+        // Opens session with server
+        let task = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: {data, response, error -> Void in
+            if(error != nil) {
+                // If there is an error in the web request, print it to the console
+                self.log.DLog(error.localizedDescription, function: "loadCurve")
+            }
+            
+            var err: NSError?
+            
+            
+            if let jsonResult: AnyObject = NSJSONSerialization.JSONObjectWithData(data, options:nil, error: nil) {
+                if jsonResult is NSArray {
+                    if let result = jsonResult as? NSArray {
+                        if let nextQuery = result[1] as? NSDictionary {
+                            endTime = String(nextQuery["oldIV"]!.longValue)
+                            self.loadCurveWithParams(wellID, curve: curve, start: endTime!, end: endTime!)
+                        }
+                    }
+                }
+                else {
+                    self.log.DLog("jsonResult was not an NSArray", function: "loadCurve")
+                }
+            }
+            
+            
+            if(err != nil) {
+                // If there is an error parsing JSON, print it to the console
+                self.log.DLog("JSON Error \(err!.localizedDescription)", function: "loadCurve")
+            }
+        })
+        
+        task.resume()
+    }
+    
+    func loadCurveWithParams(wellID : String, curve : Curve, start : String, end : String) {
+        var endTime : String?
+        var baseURLString = config.getProperty("getBaseURL") as! String +
+            (config.getProperty("getTimeCurve") as! String)
+        
+        var tags = "?well=" + wellID + "&curve=" + curve.id + "&start=" + start + "&end=" + end;
+        
+        var urlString = baseURLString + tags
+        urlString = urlString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+        var url = NSURL(string: urlString)
+        
+        // Opens session with server
+        let task = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: {data, response, error -> Void in
+            if(error != nil) {
+                // If there is an error in the web request, print it to the console
+                self.log.DLog(error.localizedDescription, function: "loadCurve")
+            }
+            
+            var err: NSError?
+            
+            
+            if let jsonResult: AnyObject = NSJSONSerialization.JSONObjectWithData(data, options:nil, error: nil) {
+                if jsonResult is NSArray {
+                    if let result = jsonResult as? NSArray {
+                        if let values = result[0] as? NSArray {
+                            for array in values {
+                                var y_value : Float = array[0].floatValue / 10000000 - 11644473600 // epoch
+                                var x_value : Float = array[1].floatValue
+                                curve.lastValue = (x_value, y_value)
+                            }
+                        }
+                        if let units = result[2] as? NSArray {
+                            curve.iv_units = units[0] as! String;
+                            curve.dv_units = units[1] as! String;
+                        }
+                    }
+                }
+                else {
+                    self.log.DLog("jsonResult was not an NSArray", function: "loadCurve")
+                }
+            }
+            
+            
+            if(err != nil) {
+                // If there is an error parsing JSON, print it to the console
+                self.log.DLog("JSON Error \(err!.localizedDescription)", function: "loadCurve")
+            }
+        })
+        
+        task.resume()
+    }
     
     func loadCurve(wellID : String, curve : Curve) {
         
@@ -161,7 +259,10 @@ class WellsManager: NSObject {
         var baseURLString = config.getProperty("getBaseURL") as! String +
                         (config.getProperty("getTimeCurve") as! String)
             
-        var tags = "?well=" + wellID + "&curve=" + curve.id + "&start=" + starttime + "&end=" +  endtime
+        var tags = "?well=" + wellID + "&curve=" + curve.id;
+        if starttime != "" {
+            tags += "&start=" + starttime + "&end=" + endtime
+        }
         
         var urlString = baseURLString + tags
         urlString = urlString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
@@ -186,13 +287,14 @@ class WellsManager: NSObject {
                                 var x_value : Float = array[1].floatValue
                                 curve.values += [(x_value, y_value)]
                             }
-                            curve.lastValue = curve.values[curve.values.count - 1].0
                         }
                         
                         if let nextQuery = result[1] as? NSDictionary {
                             var nextTime =  nextQuery["startIV"]!.longValue
+                            var end = nextQuery["oldIV"]!.longValue
                             
                             curve.nextQueryTime = String(stringInterpolationSegment: nextTime)
+                            self.endtime = String(end)
                         }
                         
                         if let units = result[2] as? NSArray {

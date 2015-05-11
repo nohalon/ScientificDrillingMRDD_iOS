@@ -36,6 +36,12 @@
 		A073BC161A81D301003A3A72 /* Well.swift in Sources */ = {isa = PBXBuildFile; fileRef = A073BC151A81D301003A3A72 /* Well.swift */; };
 		A073BC181A81D4AF003A3A72 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A073BC171A81D4AF003A3A72 /* Dashboard.swift */; };
 		A073BC1A1A82A89D003A3A72 /* AddCurveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A073BC191A82A89D003A3A72 /* AddCurveViewController.swift */; };
+		A07D2D141AF1458100382DF5 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07D2D121AF1458100382DF5 /* Fabric.framework */; };
+		A07D2D151AF1458100382DF5 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07D2D121AF1458100382DF5 /* Fabric.framework */; };
+		A07D2D161AF1458100382DF5 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07D2D131AF1458100382DF5 /* Crashlytics.framework */; };
+		A07D2D171AF1458100382DF5 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A07D2D131AF1458100382DF5 /* Crashlytics.framework */; };
+		A07D2D191AF186A000382DF5 /* RemoveWell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07D2D181AF186A000382DF5 /* RemoveWell.swift */; };
+		A07D2D1A1AF186A000382DF5 /* RemoveWell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07D2D181AF186A000382DF5 /* RemoveWell.swift */; };
 		A0999ECA1AAE4DA30006BE0D /* GoogleOpenSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E962B11A68E942004B1C00 /* GoogleOpenSource.framework */; };
 		A0999ECB1AAE4DA30006BE0D /* GooglePlus.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E962B21A68E942004B1C00 /* GooglePlus.bundle */; };
 		A0999ECC1AAE4DA30006BE0D /* GooglePlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E962B31A68E942004B1C00 /* GooglePlus.framework */; };
@@ -125,6 +131,9 @@
 		A073BC151A81D301003A3A72 /* Well.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Well.swift; sourceTree = "<group>"; };
 		A073BC171A81D4AF003A3A72 /* Dashboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
 		A073BC191A82A89D003A3A72 /* AddCurveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCurveViewController.swift; sourceTree = "<group>"; };
+		A07D2D121AF1458100382DF5 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		A07D2D131AF1458100382DF5 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		A07D2D181AF186A000382DF5 /* RemoveWell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoveWell.swift; sourceTree = "<group>"; };
 		A0D2A1D91AAE72A8000E1BB6 /* WellsManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WellsManagerTests.swift; sourceTree = "<group>"; };
 		A0E962B11A68E942004B1C00 /* GoogleOpenSource.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleOpenSource.framework; path = Frameworks/GoogleOpenSource.framework; sourceTree = "<group>"; };
 		A0E962B21A68E942004B1C00 /* GooglePlus.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GooglePlus.bundle; path = Frameworks/GooglePlus.bundle; sourceTree = "<group>"; };
@@ -157,7 +166,9 @@
 				2D1B16221A678461001B3382 /* CoreText.framework in Frameworks */,
 				2D1B16201A67845A001B3382 /* CoreGraphics.framework in Frameworks */,
 				2D1B161E1A678451001B3382 /* CoreMotion.framework in Frameworks */,
+				A07D2D161AF1458100382DF5 /* Crashlytics.framework in Frameworks */,
 				2D1B161C1A678448001B3382 /* CoreLocation.framework in Frameworks */,
+				A07D2D141AF1458100382DF5 /* Fabric.framework in Frameworks */,
 				2D1B161A1A678440001B3382 /* Foundation.framework in Frameworks */,
 				2D1B16181A67842D001B3382 /* AssetsLibrary.framework in Frameworks */,
 				2D1B16161A678420001B3382 /* AddressBook.framework in Frameworks */,
@@ -169,8 +180,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0999ECA1AAE4DA30006BE0D /* GoogleOpenSource.framework in Frameworks */,
+				A07D2D171AF1458100382DF5 /* Crashlytics.framework in Frameworks */,
 				A0999ECB1AAE4DA30006BE0D /* GooglePlus.bundle in Frameworks */,
 				A0999ECC1AAE4DA30006BE0D /* GooglePlus.framework in Frameworks */,
+				A07D2D151AF1458100382DF5 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +193,8 @@
 		2D1B15E71A678152001B3382 = {
 			isa = PBXGroup;
 			children = (
+				A07D2D121AF1458100382DF5 /* Fabric.framework */,
+				A07D2D131AF1458100382DF5 /* Crashlytics.framework */,
 				2DD06C1C1A8B378A0044D558 /* Frameworks */,
 				2D1B15F21A678152001B3382 /* ScientificDrillingMRDD */,
 				2D1B16081A678152001B3382 /* ScientificDrillingMRDDTests */,
@@ -278,6 +293,7 @@
 				A0FFB46B1A8326E90032C8DC /* Curve.swift */,
 				A073BC151A81D301003A3A72 /* Well.swift */,
 				EAC6EEC91A9D450D00AC1118 /* Authenticator.swift */,
+				A07D2D181AF186A000382DF5 /* RemoveWell.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -329,6 +345,7 @@
 				2D1B15EC1A678152001B3382 /* Sources */,
 				2D1B15ED1A678152001B3382 /* Frameworks */,
 				2D1B15EE1A678152001B3382 /* Resources */,
+				A07D2D111AF144FF00382DF5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -422,6 +439,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A07D2D111AF144FF00382DF5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run d698277ffabf18ac3838c55eb809cd595daa687b 0914969b35be1a111652cebd8f2847ae76176d98186b59391c982a3903751973";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2D1B15EC1A678152001B3382 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -444,6 +477,7 @@
 				A073BC161A81D301003A3A72 /* Well.swift in Sources */,
 				EAC388BE1A94068E00DC69AD /* LoginWebViewController.swift in Sources */,
 				EAE7C8141A70A118002AB567 /* WellsManager.swift in Sources */,
+				A07D2D191AF186A000382DF5 /* RemoveWell.swift in Sources */,
 				EA913BFB1A7AE7FC00E1F97B /* WellsDashboardController.swift in Sources */,
 				A0FFB46E1A8327280032C8DC /* DataVisualization.swift in Sources */,
 				DFF811A41A8DCAAF001C4B43 /* ConfigManager.swift in Sources */,
@@ -476,6 +510,7 @@
 				A0999ECD1AAE4E0F0006BE0D /* Well.swift in Sources */,
 				A0999ED51AAE4E400006BE0D /* WellsViewController.swift in Sources */,
 				A0999ED91AAE4E490006BE0D /* PlotsCurvesTabBarController.swift in Sources */,
+				A07D2D1A1AF186A000382DF5 /* RemoveWell.swift in Sources */,
 				A0999ECF1AAE4E300006BE0D /* ConfigManager.swift in Sources */,
 				A0999EE21AAE4E620006BE0D /* AppDelegate.swift in Sources */,
 			);
@@ -596,6 +631,7 @@
 					"$(inherited)",
 					"/Users/nohaalon/Downloads/google-plus-ios-sdk-1.7.1",
 					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = ScientificDrillingMRDD/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
@@ -619,6 +655,7 @@
 					"$(inherited)",
 					"/Users/nohaalon/Downloads/google-plus-ios-sdk-1.7.1",
 					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = ScientificDrillingMRDD/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
@@ -641,6 +678,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -662,6 +700,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = ScientificDrillingMRDDTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

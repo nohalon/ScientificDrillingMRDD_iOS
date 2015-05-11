@@ -14,6 +14,7 @@ let LOGOUT_NDX = 1
 class WellsViewController: UIViewController, SideBarDelegate {
     
     @IBOutlet var table: UITableView!
+    var loading: UIActivityIndicatorView!
     
     var sideBar : SideBar = SideBar()
     var array : NSArray = []
@@ -27,6 +28,8 @@ class WellsViewController: UIViewController, SideBarDelegate {
         
         sideBar = SideBar(sourceView: self.view, menuItems: config.getProperty("sideBarMenuItems") as! [String])
         sideBar.delegate = self
+        loading = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
+        loading.frame = CGRectMake(100, 100, 100, 100);
     }
     
     override func didReceiveMemoryWarning() {
@@ -46,13 +49,22 @@ class WellsViewController: UIViewController, SideBarDelegate {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "WellCell")
         cell.textLabel?.text = wellsMngr.wells[indexPath.row].name
-        
+       
         return cell;
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.index = indexPath.row
         
+        wellsMngr.loadCurvesForWell(wellsMngr.wells[index], onSuccess: self.curvesLoaded)
+        table.userInteractionEnabled = false
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        cell?.contentView.addSubview(loading)
+        loading.startAnimating()
+    }
+
+    func curvesLoaded() {
+        loading.stopAnimating()
         self.performSegueWithIdentifier("TabBarSegue", sender: self)
     }
     

@@ -9,6 +9,9 @@
 
 import UIKit
 import CoreData
+import Fabric
+import Crashlytics
+
 
 // Client ID for Google Authentication
 let kClientId = "741302004274-aiafgsvf2ps49k3ifplk8lp0p1triil6.apps.googleusercontent.com";
@@ -23,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        Fabric.with([Crashlytics()])
+
         return true
     }
 
