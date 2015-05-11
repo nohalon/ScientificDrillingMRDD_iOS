@@ -27,6 +27,7 @@
 		2D51017C1AA8094400F79374 /* AddPlotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D51017B1AA8094400F79374 /* AddPlotViewController.swift */; };
 		2D51017E1AA80FEA00F79374 /* PlotWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D51017D1AA80FEA00F79374 /* PlotWebViewController.swift */; };
 		2D9D8CA51AA7D1E40085AE5B /* PlotsCurvesTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9D8CA41AA7D1E40085AE5B /* PlotsCurvesTabBarController.swift */; };
+		2DA9C1601AE8098A00F2A813 /* ScrollPlot.html in Resources */ = {isa = PBXBuildFile; fileRef = 2DA9C15F1AE8098A00F2A813 /* ScrollPlot.html */; };
 		2DD06C1E1A8B37BF0044D558 /* SideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD06C1D1A8B37BF0044D558 /* SideBar.swift */; };
 		2DD06C201A8B37F00044D558 /* SideBarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD06C1F1A8B37F00044D558 /* SideBarTableViewController.swift */; };
 		2DF43A181AAE6EA6003F5321 /* Plot.html in Resources */ = {isa = PBXBuildFile; fileRef = 2DF43A171AAE6EA6003F5321 /* Plot.html */; };
@@ -115,6 +116,7 @@
 		2D51017B1AA8094400F79374 /* AddPlotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPlotViewController.swift; sourceTree = "<group>"; };
 		2D51017D1AA80FEA00F79374 /* PlotWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotWebViewController.swift; sourceTree = "<group>"; };
 		2D9D8CA41AA7D1E40085AE5B /* PlotsCurvesTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotsCurvesTabBarController.swift; sourceTree = "<group>"; };
+		2DA9C15F1AE8098A00F2A813 /* ScrollPlot.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ScrollPlot.html; sourceTree = "<group>"; };
 		2DD06C1D1A8B37BF0044D558 /* SideBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SideBar.swift; path = ../SideBar.swift; sourceTree = "<group>"; };
 		2DD06C1F1A8B37F00044D558 /* SideBarTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBarTableViewController.swift; sourceTree = "<group>"; };
 		2DF43A171AAE6EA6003F5321 /* Plot.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Plot.html; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 				2D51017B1AA8094400F79374 /* AddPlotViewController.swift */,
 				2D51017D1AA80FEA00F79374 /* PlotWebViewController.swift */,
 				2DF43A171AAE6EA6003F5321 /* Plot.html */,
+				2DA9C15F1AE8098A00F2A813 /* ScrollPlot.html */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				2DF43A181AAE6EA6003F5321 /* Plot.html in Resources */,
 				DFF811A61A8DCC2C001C4B43 /* Config.plist in Resources */,
 				2D1B15FD1A678152001B3382 /* Images.xcassets in Resources */,
+				2DA9C1601AE8098A00F2A813 /* ScrollPlot.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

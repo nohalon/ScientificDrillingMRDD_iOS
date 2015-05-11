@@ -1,18 +1,12 @@
-//
-//  PlotWebViewController.swift
-//  ScientificDrillingMRDD
-//
-//  Created by Noha Alon on 3/4/15.
-//  Copyright (c) 2015 Noha Alon. All rights reserved.
-//
-
 import Foundation
 import UIKit
 
 class PlotWebViewController : UIViewController, UIWebViewDelegate {
-    
+    let log = Logging()
+
     @IBOutlet weak var plotWebView: UIWebView!
     var plot : Plot?
+    var well : Well?
     var plotName : String!
     
     override func viewWillAppear(animated: Bool) {
@@ -23,15 +17,17 @@ class PlotWebViewController : UIViewController, UIWebViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.plotWebView.delegate = self
-        self.plotWebView.scrollView.scrollEnabled = true;
-        //self.graphWebView.scalesPageToFit = true;
-        //NSString *htmlPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"index" ofType:@"html"];
-        //[self.webView loadHTMLString:html baseURL:[NSURL fileURLWithPath:[htmlPath stringByDeletingLastPathComponent]]];
-        // Do any additional setup after loading the view, typically from a nib.
+        self.plotWebView.scrollView.scrollEnabled = false;
+    }
+    
+    @IBAction func refreshPlotAction(sender: AnyObject) {
+        log.DLog("\(NSDate()): refresh the plot with new data.", function: "refreshPlotAction")
+        wellsMngr.updatePlot(well!.id, plot: plot!)
+        self.plotWebView.reload()
     }
     
     override func viewDidAppear(animated: Bool) {
-        var path = NSBundle.mainBundle().pathForResource("Plot", ofType: "html")!
+        var path = NSBundle.mainBundle().pathForResource("ScrollPlot", ofType: "html")!
         
         var html = NSString(contentsOfFile: path, usedEncoding: nil, error: nil)
         var url = NSURL(fileURLWithPath: path)
@@ -47,31 +43,39 @@ class PlotWebViewController : UIViewController, UIWebViewDelegate {
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {
-        //[self.webView stringByEvaluatingJavaScriptFromString:@"showData([200, 350], ['Blue', 'Crowbar'])"];
-        //self.graphWebView.stringByEvaluatingJavaScriptFromString("showData([200, 350], ['Blue', 'Crowbar'])")
-        
+        loadWebView()
+    }
+    
+    func loadWebView() {
         var screenRect : CGRect = UIScreen.mainScreen().bounds;
         var screenWidth : CGFloat = self.view.frame.size.width;
         var screenHeight : CGFloat = self.view.frame.size.height;
         
-        println("screen width: \(screenWidth) screen height: \(screenHeight)")
+        var ivName : String? = plot?.curves[0].iv_units
+        var dvName : String? = plot?.curves[0].dv_units
+        
+        log.DLog("\(NSDate()): load plot with screen width: \(screenWidth) screen height: \(screenHeight).", function: "loadWebView")
         
         var lineData = formatCurve()
         var functionCall : String = "InitChart(\(lineData), \(screenWidth), \(screenHeight))"
-        self.plotWebView.stringByEvaluatingJavaScriptFromString(functionCall)
         
+        self.plotWebView.stringByEvaluatingJavaScriptFromString(functionCall)
     }
     
     func formatCurve() -> String {
         
         var jsonStr : String = "["
-        
+    
         if let lineData = plot?.curves[0].values {
             for (x, y) in lineData {
                 jsonStr += "{'x': \(x), 'y': \(y)},"
             }
             jsonStr = jsonStr.substringToIndex(jsonStr.endIndex.predecessor())
             jsonStr += "]"
+        }
+        else
+        {
+            log.DLog("\(NSDate()): Error with loading curve values.", function: "formatCurve")
         }
         
         return jsonStr
