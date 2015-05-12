@@ -205,9 +205,13 @@ class AddPlotViewController: UITableViewController, UITableViewDelegate, UITable
             self.plot = plot
             
             well!.plots.append(plot)
-            wellsMngr.updatePlot(well!.id, plot: plot)
-            performSegueWithIdentifier("PlotsTabBarSegue", sender: self)
-        } 
+            wellsMngr.updatePlot(well!.id, plot: plot, onSuccess: onSuccess)
+            //performSegueWithIdentifier("PlotsTabBarSegue", sender: self)
+        }
+    }
+    
+    func onSuccess() {
+        performSegueWithIdentifier("PlotsTabBarSegue", sender: self)
     }
 }
 

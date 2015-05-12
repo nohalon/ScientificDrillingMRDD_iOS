@@ -4,7 +4,7 @@ import UIKit
 class PlotWebViewController : UIViewController, UIWebViewDelegate {
     let log = Logging()
 
-    @IBOutlet weak var plotWebView: UIWebView!
+    @IBOutlet var plotWebView: UIWebView!
     var plot : Plot?
     var well : Well?
     var plotName : String!
@@ -22,8 +22,12 @@ class PlotWebViewController : UIViewController, UIWebViewDelegate {
     
     @IBAction func refreshPlotAction(sender: AnyObject) {
         log.DLog("\(NSDate()): refresh the plot with new data.", function: "refreshPlotAction")
-        wellsMngr.updatePlot(well!.id, plot: plot!)
-        self.plotWebView.reload()
+        wellsMngr.updatePlot(well!.id, plot: plot!, onSuccess: onSuccess)
+        //self.plotWebView.reload()
+    }
+   
+    func onSuccess() {
+        plotWebView.reload()
     }
     
     override func viewDidAppear(animated: Bool) {

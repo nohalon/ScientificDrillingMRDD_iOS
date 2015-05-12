@@ -20,6 +20,10 @@ class WellsManager: NSObject {
     var starttime : String = ""
     var endtime : String = ""
     
+    var curvesLoaded = 0
+    var loadedPlot : Plot!
+    var curvesLoadedCallback : (() -> Void)!;
+    
     
     override init() {
         config.loadPropertiesFromFile()
@@ -147,9 +151,19 @@ class WellsManager: NSObject {
         }
     }
     
-    func updatePlot(wellID : String, plot : Plot) {
+    func updatePlot(wellID : String, plot : Plot, onSuccess: () -> Void) {
+        loadedPlot = plot
+        curvesLoadedCallback = onSuccess
         for curve in plot.curves {
-            loadCurve(wellID, curve: curve)
+            loadCurve(wellID, curve: curve, onSuccess: curveLoaded)
+        }
+    }
+    
+    func curveLoaded() {
+        curvesLoaded++
+        if curvesLoaded == loadedPlot.curves.count {
+            curvesLoadedCallback()
+            curvesLoaded = 0
         }
     }
     
@@ -250,7 +264,7 @@ class WellsManager: NSObject {
         task.resume()
     }
     
-    func loadCurve(wellID : String, curve : Curve) {
+    func loadCurve(wellID : String, curve : Curve, onSuccess: () -> Void) {
         
         if curve.nextQueryTime != "" {
             starttime = curve.nextQueryTime
@@ -301,6 +315,10 @@ class WellsManager: NSObject {
                             curve.iv_units = units[0] as! String;
                             curve.dv_units = units[1] as! String;
                         }
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                           onSuccess() 
+                        })
+                        
                     }
                     
                     
