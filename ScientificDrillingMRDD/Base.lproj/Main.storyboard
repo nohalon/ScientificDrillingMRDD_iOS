@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -258,7 +258,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="I2W-CI-W95">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="addCell" id="5R2-GO-CSQ" userLabel="add cell" customClass="AddTableViewCell" customModule="ScientificDrillingMRDD" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -275,7 +275,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Add an Independent Variable" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Laf-CU-RXT">
                                             <rect key="frame" x="40" y="14" width="174" height="16"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -288,7 +288,7 @@
                                         <constraint firstAttribute="bottomMargin" secondItem="Laf-CU-RXT" secondAttribute="bottom" constant="5" id="wic-F6-q7a"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="label" destination="Laf-CU-RXT" id="fm1-3g-zIh"/>
                                 </connections>
@@ -434,7 +434,7 @@
             </objects>
             <point key="canvasLocation" x="2991" y="1464"/>
         </scene>
-        <!--Curves-->
+        <!--Dashboard-->
         <scene sceneID="6gW-Gk-XeS">
             <objects>
                 <viewController storyboardIdentifier="WellsDashboardController" id="KRU-rc-ETa" customClass="WellsDashboardController" customModule="ScientificDrillingMRDD" customModuleProvider="target" sceneMemberID="viewController">
@@ -469,7 +469,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Curves" id="ZfM-pE-zhA"/>
+                    <tabBarItem key="tabBarItem" title="Dashboard" id="ZfM-pE-zhA"/>
                     <navigationItem key="navigationItem" id="qQi-n3-p7X">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="gbX-1A-qZf"/>
                     </navigationItem>

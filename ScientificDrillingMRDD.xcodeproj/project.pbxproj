@@ -309,8 +309,8 @@
 				EAC388BD1A94068E00DC69AD /* LoginWebViewController.swift */,
 				2D4699431AA6784E00712675 /* WellsPlotViewController.swift */,
 				2D9D8CA41AA7D1E40085AE5B /* PlotsCurvesTabBarController.swift */,
-				2D51017B1AA8094400F79374 /* AddPlotViewController.swift */,
 				2D51017D1AA80FEA00F79374 /* PlotWebViewController.swift */,
+				2D51017B1AA8094400F79374 /* AddPlotViewController.swift */,
 				2DF43A171AAE6EA6003F5321 /* Plot.html */,
 				2DA9C15F1AE8098A00F2A813 /* ScrollPlot.html */,
 			);
