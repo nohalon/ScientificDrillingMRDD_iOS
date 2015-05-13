@@ -5,26 +5,30 @@
             .plot {
                 fill: rgba(250, 250, 255, 0.6);
             }
-        .grid .tick {
-            stroke: lightgrey;
-            opacity: 0.7;
-        }
-        .grid path {
-            stroke-width: 0;
-        }
-        .axis path, .axis line {
-            fill: none;
-            stroke: #000;
-            shape-rendering: crispEdges;
-        }
-        .x.axis path {
-            display: none;
-        }
-        .line {
-            fill: none;
-            stroke: steelblue;
-            stroke-width: 1.5px;
-        }`
+            .grid .tick {
+                stroke: lightgrey;
+                opacity: 0.7;
+            }
+            .grid path {
+                stroke-width: 0;
+            }
+            .axis path, .axis line {
+                fill: none;
+                stroke: #000;
+                shape-rendering: crispEdges;
+            }
+            .x.axis path {
+                display: none;
+            }
+            .line {
+                fill: none;
+                stroke: steelblue;
+                stroke-width: 1.5px;
+            }
+            .tick {
+                font-size:10px;
+            }
+
         </style>
         <meta charset="UTF-8">
             <link rel="stylesheet" href="_/base.css">
@@ -47,6 +51,11 @@
         var yLabel = "yTest";
         var xLabel = "xTest";
         
+        function setLabels(labels) {
+            xLabel = labels[0];
+            yLabel = labels[1];
+        }
+        
 
         function InitChart(dataset, screenWidth, screenHeight) {
             
@@ -54,14 +63,14 @@
                 top: 45,
                 right: 20,
                 bottom: 20,
-                left: 45
+                left: 72
             };
             tickno = 8;
             
             width = screenWidth - margin.left - margin.right;
             height = screenHeight - margin.top - margin.bottom;
+
             
-            //Based on data
             var ymax = d3.max(dataset, function (d) {
                                               return d.y;
                                         });
@@ -70,26 +79,17 @@
                                         });
             
             var xmax = d3.max(dataset, function (d) {
-                                              return d.x;
+                                              return d.x + 1;
                                         });
             var xmin = d3.min(dataset, function (d) {
-                                                return d.x;
+                                                return d.x - 1;
                                         });
-                  
-            /*var ymax = 35;
-            var ymin = 0;
-            //User defined xmax
-            var xmax = 10;
-            //User defined xmin
-            var xmin = 0;*/
             
-            var x = d3.scale.linear().domain([xmin,xmax]) /*d3.extent(data, function (d) {
-                                                           return d.item;
-                                                           }))*/
+            var x = d3.scale.linear().domain([xmin,xmax])
             .range([0, width]);
             
             var y = d3.scale.linear()
-            .domain([ymin,ymax])
+            .domain([ymax,ymin])
             .range([height, 0]);
             
             
@@ -99,14 +99,27 @@
               })
               .y(function (d) {
               return y(d.y);
-              })
-              .interpolate('linear');
+                 });
+              //.interpolate('linear');
               
               var zoom = d3.behavior.zoom()
               //.x(x)
               .scaleExtent([-1, 2])
               .y(y)
               .on("zoom", zoomed);
+              
+              var insertLinebreaks = function (d) {
+                  var el = d3.select(this);
+                  var words=d3.select(this).text().split(' ');
+                  
+                  el.text('');
+                  
+                  for (var i = 0; i < words.length; i++) {
+                      var tspan = el.append('tspan').text(words[i]);
+                      if (i > 0)
+                      tspan.attr('x', 0).attr('dy', '15');
+                  }
+              };
               
               svg = d3.select('#chart').append('svg')
               .attr('width', width + margin.left + margin.right)
@@ -131,7 +144,10 @@
                   return d3.svg.axis()
                   .scale(y)
                   .orient("left")
-                  .ticks(tickno);
+                  .ticks(tickno)
+                  .tickFormat(function(d) {
+                              var format = d3.time.format("%x %X");
+                              return format(new Date(d))});
               };
               
               var xAxis = d3.svg.axis()
@@ -148,11 +164,16 @@
               var yAxis = d3.svg.axis()
               .scale(y)
               .orient("left")
-              .ticks(tickno);
+              .ticks(tickno)
+              .tickFormat(function(d) {
+                          var format = d3.time.format("%x %X");
+                          return format(new Date(d))});
               
               svg.append("g")
               .attr("class", "y axis")
               .call(yAxis);
+              
+              svg.selectAll(".y.axis g text").each(insertLinebreaks);
               
               // LABELS
               svg.append("text")
@@ -162,14 +183,14 @@
               .attr("y", -45)
               .attr("dy", "1em")
               .style("text-anchor", "middle")
-              .text(yLabel);
+              .text(xLabel);
               
               svg.append("text")
               .attr("class", "text")
               .attr("x", screenWidth / 2 )
-              .attr("y",  -25 )
+              .attr("y",  -25)
               .style("text-anchor", "middle")
-              .text(xLabel);
+              .text(yLabel);
               
               svg.append("g")
               .attr("class", "x grid")
@@ -201,11 +222,10 @@
               .attr("d", line);
               
               function zoomed() {
-                  //console.log(d3.event.translate);
-                  //console.log(d3.event.scale);
                   
                   svg.select(".x.axis").call(xAxis);
                   svg.select(".y.axis").call(yAxis);
+                  svg.selectAll(".y.axis g text").each(insertLinebreaks);
                   svg.select(".x.grid")
                   .call(make_x_axis()
                   .tickSize(-height, 0, 0)

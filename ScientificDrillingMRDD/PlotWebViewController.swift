@@ -51,14 +51,20 @@ class PlotWebViewController : UIViewController, UIWebViewDelegate {
         var screenWidth : CGFloat = self.view.frame.size.width;
         var screenHeight : CGFloat = self.view.frame.size.height;
         
-        var ivName : String? = plot?.curves[0].iv_units
-        var dvName : String? = plot?.curves[0].dv_units
+        var ivName : String! = plot?.curves[0].iv_units
+        var dvName : String! = plot?.curves[0].dv_units
         
         log.DLog("\(NSDate()): load plot with screen width: \(screenWidth) screen height: \(screenHeight).", function: "loadWebView")
         
         var lineData = formatCurve()
+        
+        let xLabel = "Time"
+        let yLabel = "Value"
+        
+        var setLabels : String = "setLabels(['\(ivName)', '\(dvName)'])"
         var functionCall : String = "InitChart(\(lineData), \(screenWidth), \(screenHeight))"
         
+        self.plotWebView.stringByEvaluatingJavaScriptFromString(setLabels)
         self.plotWebView.stringByEvaluatingJavaScriptFromString(functionCall)
     }
     
