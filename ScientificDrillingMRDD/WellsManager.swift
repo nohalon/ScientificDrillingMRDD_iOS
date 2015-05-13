@@ -193,8 +193,12 @@ class WellsManager: NSObject {
                     if let result = jsonResult as? NSArray {
                         if let nextQuery = result[1] as? NSDictionary {
                             endTime = String(nextQuery["oldIV"]!.longValue)
-                            self.loadCurveWithParams(wellID, curve: curve, start: endTime!, end: endTime!)
+                        } else {
+                            var values = result[0] as! NSArray
+                            var lastValue = values[values.count - 1] as! NSArray
+                            endTime = String(stringInterpolationSegment: lastValue[0].longValue)
                         }
+                        self.loadCurveWithParams(wellID, curve: curve, start: endTime!, end: endTime!)
                     }
                 }
                 else {
