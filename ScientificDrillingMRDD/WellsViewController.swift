@@ -65,6 +65,7 @@ class WellsViewController: UIViewController, SideBarDelegate {
 
     func curvesLoaded() {
         loading.stopAnimating()
+        table.userInteractionEnabled = true
         self.performSegueWithIdentifier("TabBarSegue", sender: self)
     }
     
