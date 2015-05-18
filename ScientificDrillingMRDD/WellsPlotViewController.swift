@@ -9,7 +9,6 @@
 import Foundation
 
 class WellsPlotViewController : UIViewController {
-    
     @IBOutlet var plotsListTable: UITableView!
     var plots = [Plot]()
     var well : Well?
@@ -43,6 +42,7 @@ class WellsPlotViewController : UIViewController {
         {
             var destinationViewController = segue.destinationViewController as! PlotWebViewController
             destinationViewController.plot = plots[selectedPlot!]
+            destinationViewController.well = self.well
         }
     }
     

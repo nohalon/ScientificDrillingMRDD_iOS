@@ -2,12 +2,18 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>getCurveValueURL</key>
-	<string>http://54.67.103.185/getCurveValuePresent?</string>
+	<key>getTimeCurve</key>
+	<string>v2/getCurveFromCurveId</string>
+	<key>getBaseURL</key>
+	<string>http://52.8.19.70/</string>
 	<key>getCurveValues</key>
-	<string>http://54.67.103.185/getCurveValuePresent?</string>
+	<string>getCurveValuePresent</string>
+	<key>getCurvesURL</key>
+	<string>getCurvesForWell?well=</string>
+	<key>getWellsURL</key>
+	<string>getWells</string>
 	<key>getAuthenticate</key>
-	<string>http://54.67.103.185/authenticate/</string>
+	<string>authenticate/</string>
 	<key>getGrantType</key>
 	<string>authorization_code</string>
 	<key>getADFSToken</key>
@@ -19,7 +25,7 @@
 	<key>getClientID</key>
 	<string>7e3e1419-204e-4038-b594-80e812d20c6f</string>
 	<key>getADFSAuthorize</key>
-	<string>adfs/oauth2/authorize?</string>
+	<string>adfs/oauth2/authorize</string>
 	<key>getResponseType</key>
 	<string>code</string>
 	<key>getBaseLoginURL</key>
@@ -39,11 +45,7 @@
 	<real>150</real>
 	<key>sideBarTopInsert</key>
 	<integer>70</integer>
-	<key>getWellsURL</key>
-	<string>http://54.67.103.185/getWells</string>
 	<key>googleClientID</key>
 	<string>741302004274-03334h3tk30brn2n9fhe9l32nnn6gk1k.apps.googleusercontent.com</string>
-	<key>getCurvesURL</key>
-	<string>http://54.67.103.185/getCurvesForWell?well=</string>
 </dict>
 </plist>

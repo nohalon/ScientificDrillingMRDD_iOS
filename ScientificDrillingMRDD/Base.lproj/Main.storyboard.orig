@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<<<<<<< HEAD
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+=======
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+>>>>>>> 10835443daa0adb252db4a8aa48ac9f731c51011
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--LoginViewController-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" title="LoginViewController" id="vXZ-lx-hvc" customClass="LoginViewController" customModule="ScientificDrillingMRDD" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cwq-1T-aGh"/>
+                        <viewControllerLayoutGuide type="bottom" id="sNo-PV-Qkr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7vY-PF-Tzb" customClass="GPPSignInButton">
+                                <rect key="frame" x="65" y="263" width="191" height="43"/>
+                                <color key="backgroundColor" red="0.89184816919191923" green="0.16113177621543154" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="Za4-hi-Rkx"/>
+                                    <constraint firstAttribute="width" constant="191" id="nKH-kb-JFD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Login with Google+">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="drill_rig_tint" translatesAutoresizingMaskIntoConstraints="NO" id="05c-41-KZi">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="516"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LVo-fZ-Usl">
+                                <rect key="frame" x="0.0" y="518" width="320" height="50"/>
+                                <color key="backgroundColor" red="0.41176470588235292" green="0.67450980392156867" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="XdI-1T-DNy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" red="0.98823529409999999" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="l0y-xM-N0D" kind="modal" id="GHc-Rs-XYa"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LO_Scientific-Drilling" translatesAutoresizingMaskIntoConstraints="NO" id="dz5-MP-JPn">
+                                <rect key="frame" x="0.0" y="461" width="320" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="BB8-Te-zo8"/>
+                                    <constraint firstAttribute="height" constant="38" id="IFg-R9-igT"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="dz5-MP-JPn" secondAttribute="trailing" constant="-16" id="096-TZ-gno"/>
+                            <constraint firstItem="05c-41-KZi" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="1ej-3a-fyK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LVo-fZ-Usl" secondAttribute="trailing" constant="-16" id="Bn6-6L-Ebv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="05c-41-KZi" secondAttribute="trailing" constant="-16" id="DnB-Bx-tKe"/>
+                            <constraint firstItem="LVo-fZ-Usl" firstAttribute="top" secondItem="dz5-MP-JPn" secondAttribute="bottom" constant="19" id="Gq0-xA-o5W"/>
+                            <constraint firstAttribute="centerX" secondItem="7vY-PF-Tzb" secondAttribute="centerX" id="H9N-h1-UIw"/>
+                            <constraint firstItem="LVo-fZ-Usl" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="KhQ-fw-WTl"/>
+                            <constraint firstItem="05c-41-KZi" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="Ntm-xo-ndk"/>
+                            <constraint firstItem="sNo-PV-Qkr" firstAttribute="top" secondItem="LVo-fZ-Usl" secondAttribute="bottom" id="aMI-I7-PL7"/>
+                            <constraint firstItem="dz5-MP-JPn" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="aMm-5o-9Do"/>
+                            <constraint firstAttribute="centerY" secondItem="7vY-PF-Tzb" secondAttribute="centerY" id="fVP-dI-tDf"/>
+                            <constraint firstItem="LVo-fZ-Usl" firstAttribute="top" secondItem="05c-41-KZi" secondAttribute="bottom" id="nSK-mJ-Bua"/>
+                            <constraint firstItem="LVo-fZ-Usl" firstAttribute="top" secondItem="05c-41-KZi" secondAttribute="bottom" constant="2" id="xjs-iM-8HV"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="pi3-IE-Exo"/>
+                    <connections>
+                        <outlet property="btnGPlus" destination="7vY-PF-Tzb" id="VQn-MI-b1h"/>
+                        <segue destination="ftp-G7-xyz" kind="custom" identifier="WellsSegue" id="KCa-xl-iDc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="656" y="299"/>
+        </scene>
+        <!--Login Web View Controller-->
+        <scene sceneID="ZAA-Ga-9wF">
+            <objects>
+                <viewController id="pFA-pe-qQp" customClass="LoginWebViewController" customModule="ScientificDrillingMRDD" customModuleProvider="target" sceneMemberID="viewController">
+                    <webView key="view" contentMode="scaleToFill" id="MNr-wJ-qij">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </webView>
+                    <navigationItem key="navigationItem" id="1aA-uS-S5L">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="3Mj-5P-f8s">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="d3v-7v-rsS">
+                                <rect key="frame" x="-23" y="-15" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancel:" destination="pFA-pe-qQp" eventType="touchUpInside" id="EsO-AI-qIn"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="webView" destination="MNr-wJ-qij" id="7Sw-7N-Dea"/>
+                        <segue destination="lkD-XR-2Ou" kind="unwind" identifier="LogoutSegue2" unwindAction="unwindToLogin2:" id="GYK-0d-XuS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pvl-g3-7n0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="lkD-XR-2Ou" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1060" y="941"/>
+        </scene>
+        <!--Plots-->
+        <scene sceneID="nmN-N7-NCY">
+            <objects>
+                <viewController id="yCb-jO-701" customClass="WellsPlotViewController" customModule="ScientificDrillingMRDD" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dtA-Tz-Lp0"/>
+                        <viewControllerLayoutGuide type="bottom" id="0Zm-ec-gRz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qP9-zD-SNS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ljm-E8-lJ3">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="yCb-jO-701" id="eHS-aN-RYi"/>
+                                    <outlet property="delegate" destination="yCb-jO-701" id="cKf-0c-b9L"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ljm-E8-lJ3" firstAttribute="top" secondItem="qP9-zD-SNS" secondAttribute="top" id="Duv-mh-Vea"/>
+                            <constraint firstItem="ljm-E8-lJ3" firstAttribute="leading" secondItem="qP9-zD-SNS" secondAttribute="leading" id="Q6n-Gx-PIT"/>
+                            <constraint firstAttribute="trailing" secondItem="ljm-E8-lJ3" secondAttribute="trailing" id="Rfi-kR-gZ0"/>
+                            <constraint firstItem="ljm-E8-lJ3" firstAttribute="bottom" secondItem="0Zm-ec-gRz" secondAttribute="top" id="ZZV-Xr-dEd"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Plots" id="nUa-yW-hmT"/>
+                    <navigationItem key="navigationItem" id="Gmp-an-i70"/>
+                    <connections>
+                        <outlet property="plotsListTable" destination="ljm-E8-lJ3" id="6Cf-GT-9wr"/>
+                        <segue destination="yUk-4o-sEK" kind="push" identifier="PlotWebViewSegue" id="0up-wh-Jtd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OHs-w3-QeY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2021" y="790"/>
+        </scene>
+        <!--Tab Bar-->
+        <scene sceneID="k6A-I4-wqo">
+            <objects>
+                <tabBarController id="itR-tK-Klo" customClass="PlotsCurvesTabBarController" customModule="ScientificDrillingMRDD" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="Tab Bar" id="bno-B0-jsG"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="AAR-4B-T4y">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="KRU-rc-ETa" kind="relationship" relationship="viewControllers" id="Rp5-I6-pO5"/>
+                        <segue destination="yCb-jO-701" kind="relationship" relationship="viewControllers" id="mOC-b1-7CL"/>
+                        <segue destination="cJm-qa-kB5" kind="modal" identifier="AddCurveSegue" id="vXa-TX-bwP"/>
+                        <segue destination="23u-Sh-5nL" kind="modal" identifier="AddPlotSegue" id="krS-cv-aKE"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UiA-TL-ZEH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1477" y="1010"/>
+        </scene>
+        <!--Wells View Controller-->
+        <scene sceneID="J07-Mb-80G">
+            <objects>
+                <viewController storyboardIdentifier="WellsViewController" id="Fmk-mM-Eyi" customClass="WellsViewController" customModule="ScientificDrillingMRDD" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3gx-PJ-DJl"/>
+                        <viewControllerLayoutGuide type="bottom" id="sE2-vp-eWY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YZY-Wn-ZHE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mkZ-fe-3aM">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="WellCell" id="DJo-rS-2aG">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DJo-rS-2aG" id="PGt-0U-JMg">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Fmk-mM-Eyi" id="L10-VU-vrq"/>
+                                    <outlet property="delegate" destination="Fmk-mM-Eyi" id="TaF-SP-1Hk"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mkZ-fe-3aM" firstAttribute="bottom" secondItem="sE2-vp-eWY" secondAttribute="top" id="EyC-BS-e6n"/>
+                            <constraint firstItem="mkZ-fe-3aM" firstAttribute="leading" secondItem="YZY-Wn-ZHE" secondAttribute="leading" id="YhH-IX-NLu"/>
+                            <constraint firstItem="mkZ-fe-3aM" firstAttribute="top" secondItem="YZY-Wn-ZHE" secondAttribute="top" id="ZKX-UG-kjK"/>
+                            <constraint firstAttribute="trailing" secondItem="mkZ-fe-3aM" secondAttribute="trailing" id="oST-44-FrU"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="6VG-hw-lGa">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="1oQ-5G-67v" userLabel="Slide Bar Button">
+                            <connections>
+                                <action selector="menuBarAction:" destination="Fmk-mM-Eyi" id="QCj-Yy-kfc"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Item" id="4ED-R9-qIc">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wdC-0X-be0">
+                                <rect key="frame" x="-23" y="-15" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" notEnabled="YES"/>
+                                    <bool key="isElement" value="NO"/>
+                                </accessibility>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="t5q-cu-8sr" kind="unwind" identifier="LogoutSegue" unwindAction="unwindToLogin:" id="0bD-aP-g8y"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="table" destination="mkZ-fe-3aM" id="JAG-b5-Key"/>
+                        <segue destination="itR-tK-Klo" kind="push" identifier="TabBarSegue" id="In3-h0-dhk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QsS-jo-APs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="t5q-cu-8sr" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1477" y="235"/>
+        </scene>
+        <!--Add Plot-->
+        <scene sceneID="oBE-OG-PJ9">
+            <objects>
+                <tableViewController id="L3L-wc-mKb" customClass="AddPlotViewController" customModule="ScientificDrillingMRDD" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="I2W-CI-W95">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="addCell" id="5R2-GO-CSQ" userLabel="add cell" customClass="AddTableViewCell" customModule="ScientificDrillingMRDD" customModuleProvider="target">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5R2-GO-CSQ" id="1pa-VA-tij">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Create_with_plus_mail_layer_add_vector_stock" translatesAutoresizingMaskIntoConstraints="NO" id="4G1-Mz-8ld">
+                                            <rect key="frame" x="10" y="12" width="20" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="0Gm-kq-5fJ"/>
+                                                <constraint firstAttribute="width" constant="20" id="ca8-sX-wxt"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Add an Independent Variable" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Laf-CU-RXT">
+                                            <rect key="frame" x="40" y="14" width="174" height="16"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="centerY" secondItem="4G1-Mz-8ld" secondAttribute="centerY" id="AR9-H6-AkD"/>
+                                        <constraint firstAttribute="centerY" secondItem="Laf-CU-RXT" secondAttribute="centerY" id="FRA-WB-rNb"/>
+                                        <constraint firstItem="Laf-CU-RXT" firstAttribute="top" secondItem="1pa-VA-tij" secondAttribute="topMargin" constant="6" id="NZa-7i-NHm"/>
+                                        <constraint firstItem="4G1-Mz-8ld" firstAttribute="leading" secondItem="1pa-VA-tij" secondAttribute="leadingMargin" constant="2" id="bF0-GL-a9f"/>
+                                        <constraint firstItem="Laf-CU-RXT" firstAttribute="leading" secondItem="4G1-Mz-8ld" secondAttribute="trailing" constant="10" id="itd-qb-vnu"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Laf-CU-RXT" secondAttribute="bottom" constant="5" id="wic-F6-q7a"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                <connections>
+                                    <outlet property="label" destination="Laf-CU-RXT" id="fm1-3g-zIh"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="nameCell" id="ElB-eY-S7e" userLabel="name cell" customClass="PlotNameInsertCell" customModule="ScientificDrillingMRDD" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ElB-eY-S7e" id="AO3-Je-ghM">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plot Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ri6-ef-M44" userLabel="NameLabel">
+                                            <rect key="frame" x="32" y="0.0" width="50" height="43"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="11"/>
+                                            <color key="textColor" red="0.38823529410000002" green="0.41960784309999999" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6a0-Hz-wEi" userLabel="plotNameInput">
+                                            <rect key="frame" x="99" y="8" width="213" height="27"/>
+                                            <color key="textColor" red="0.38823529410000002" green="0.41960784309999999" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jrj-8Q-NJO">
+                                            <rect key="frame" x="94" y="0.0" width="1" height="43"/>
+                                            <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="1" id="tpT-sf-bJO"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="jrj-8Q-NJO" firstAttribute="top" secondItem="AO3-Je-ghM" secondAttribute="top" id="23U-qe-LIp"/>
+                                        <constraint firstItem="ri6-ef-M44" firstAttribute="top" secondItem="AO3-Je-ghM" secondAttribute="top" id="6R8-zj-hQn"/>
+                                        <constraint firstItem="jrj-8Q-NJO" firstAttribute="leading" secondItem="ri6-ef-M44" secondAttribute="trailing" constant="8" id="Lf9-zC-jv8"/>
+                                        <constraint firstAttribute="bottom" secondItem="ri6-ef-M44" secondAttribute="bottom" id="TYe-Yd-dLd"/>
+                                        <constraint firstAttribute="trailing" secondItem="6a0-Hz-wEi" secondAttribute="trailing" constant="8" id="hB4-YV-JsR"/>
+                                        <constraint firstAttribute="bottom" secondItem="jrj-8Q-NJO" secondAttribute="bottom" id="jGn-iL-Uyp"/>
+                                        <constraint firstAttribute="bottom" secondItem="6a0-Hz-wEi" secondAttribute="bottom" constant="8" id="sEU-IZ-6mI"/>
+                                        <constraint firstItem="ri6-ef-M44" firstAttribute="leading" secondItem="AO3-Je-ghM" secondAttribute="leading" constant="32" id="ydt-R0-rzs"/>
+                                        <constraint firstItem="6a0-Hz-wEi" firstAttribute="leading" secondItem="jrj-8Q-NJO" secondAttribute="trailing" constant="8" id="ysC-ZA-rGw"/>
+                                        <constraint firstItem="6a0-Hz-wEi" firstAttribute="top" secondItem="AO3-Je-ghM" secondAttribute="top" constant="8" id="zlH-yG-yoz"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="plotNameInput" destination="6a0-Hz-wEi" id="um1-DX-teE"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ivDvCell" id="fDI-VW-hsS" userLabel="iv/dv cell" customClass="IvDvSelectedCell" customModule="ScientificDrillingMRDD" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fDI-VW-hsS" id="yxC-za-UxZ">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fea-Wq-9EO" userLabel="ivDv">
+                                            <rect key="frame" x="8" y="8" width="304" height="27"/>
+                                            <color key="textColor" red="0.38823529410000002" green="0.41960784309999999" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="fea-Wq-9EO" secondAttribute="bottom" id="QT8-5h-ier"/>
+                                        <constraint firstItem="fea-Wq-9EO" firstAttribute="leading" secondItem="yxC-za-UxZ" secondAttribute="leadingMargin" id="aNJ-9l-3d8"/>
+                                        <constraint firstItem="fea-Wq-9EO" firstAttribute="trailing" secondItem="yxC-za-UxZ" secondAttribute="trailingMargin" id="kaw-6P-CSi"/>
+                                        <constraint firstItem="fea-Wq-9EO" firstAttribute="top" secondItem="yxC-za-UxZ" secondAttribute="topMargin" id="l2m-JZ-wsw"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="elmt_selected" destination="fea-Wq-9EO" id="8Az-f7-y2r"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="CDd-yf-Gws" userLabel="regular cell">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CDd-yf-Gws" id="aSv-Ei-Hvo">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="L3L-wc-mKb" id="KIs-ir-Hf8"/>
+                            <outlet property="delegate" destination="L3L-wc-mKb" id="UFf-Ud-6kz"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Add Plot" id="rGV-gX-Vef">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="cancel" id="mQI-EF-4yQ">
+                            <connections>
+                                <segue destination="HB4-vr-hc2" kind="unwind" identifier="PlotsTabBarSegue" unwindAction="unwindToPlotsTabBar:" id="Ua7-h6-Qvj"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="LHb-tM-V71">
+                            <connections>
+                                <action selector="doneAddPlotAction:" destination="L3L-wc-mKb" id="1II-7v-1ns"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gVJ-Uy-V6h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="HB4-vr-hc2" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3038" y="741"/>
+        </scene>
+        <!--add curve view-->
+        <scene sceneID="uZJ-C6-8hW">
+            <objects>
+                <tableViewController storyboardIdentifier="Add Curve Controller" id="qj5-pC-Qv8" userLabel="add curve view" customClass="AddCurveViewController" customModule="ScientificDrillingMRDD" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="gXU-Bg-x56">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="tD9-GV-nLt">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tD9-GV-nLt" id="r2L-ku-tV3">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="8Es-fS-7YV" kind="unwind" identifier="SelectCurveSegue" unwindAction="unwindToDashboard:" id="Rjd-cq-Hgf"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="qj5-pC-Qv8" id="x2c-Qi-dYf"/>
+                            <outlet property="delegate" destination="qj5-pC-Qv8" id="5cR-Pr-TKd"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="lW5-jT-Rbt">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="kBL-X0-kpx">
+                            <connections>
+                                <action selector="cancel:" destination="qj5-pC-Qv8" id="EKH-U2-4ev"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="curveTable" destination="gXU-Bg-x56" id="tb8-kd-T3v"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BQ4-dH-rPa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="8Es-fS-7YV" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2991" y="1464"/>
+        </scene>
+        <!--Curves-->
+        <scene sceneID="6gW-Gk-XeS">
+            <objects>
+                <viewController storyboardIdentifier="WellsDashboardController" id="KRU-rc-ETa" customClass="WellsDashboardController" customModule="ScientificDrillingMRDD" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CGH-fn-oot"/>
+                        <viewControllerLayoutGuide type="bottom" id="OwT-gj-MAB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qhA-15-GxQ">
+                        <rect key="frame" x="0.0" y="64" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WyA-dh-VLj">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gbA-dE-Zs7">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="oWa-5w-Esc">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Curves" id="ZfM-pE-zhA"/>
+                    <navigationItem key="navigationItem" id="qQi-n3-p7X"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pKr-Vv-XNn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2021" y="1464"/>
+        </scene>
+        <!--Wells View Nav-->
+        <scene sceneID="YQr-KI-n2T">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ftp-G7-xyz" userLabel="Wells View Nav" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="xxr-8o-HZ0"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="46n-eS-nFU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Fmk-mM-Eyi" kind="relationship" relationship="rootViewController" id="CU9-qT-XJg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CDU-dG-cKV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1060" y="299"/>
+        </scene>
+        <!--Add Curve Nav-->
+        <scene sceneID="blp-Mh-Msb">
+            <objects>
+                <navigationController storyboardIdentifier="Add Curves Nav" automaticallyAdjustsScrollViewInsets="NO" id="cJm-qa-kB5" userLabel="Add Curve Nav" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7dw-Zo-eXh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="qj5-pC-Qv8" kind="relationship" relationship="rootViewController" id="IYU-NY-jGt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zJP-ed-Efa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2505" y="1464"/>
+        </scene>
+        <!--login web nav-->
+        <scene sceneID="TN8-Bn-tM0">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="l0y-xM-N0D" userLabel="login web nav" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rB4-Xp-Z8O">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="pFA-pe-qQp" kind="relationship" relationship="rootViewController" id="pKM-px-I5v"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3uH-jM-4cg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="656" y="1000"/>
+        </scene>
+        <!--Plot Web View-->
+        <scene sceneID="tm9-a7-C9r">
+            <objects>
+                <viewController id="yUk-4o-sEK" userLabel="Plot Web View" customClass="PlotWebViewController" customModule="ScientificDrillingMRDD" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6Xd-Wg-qFJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="8hi-Of-rmy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5jS-2Q-tye">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kMP-Tk-CJS">
+                                <rect key="frame" x="0.0" y="64" width="320" height="530"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="kMP-Tk-CJS" secondAttribute="trailing" id="L2D-SM-piV"/>
+                            <constraint firstItem="kMP-Tk-CJS" firstAttribute="leading" secondItem="5jS-2Q-tye" secondAttribute="leading" id="Mu0-Jq-pia"/>
+                            <constraint firstItem="kMP-Tk-CJS" firstAttribute="top" secondItem="6Xd-Wg-qFJ" secondAttribute="bottom" id="N0Q-wY-b4A"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="kMP-Tk-CJS" secondAttribute="bottom" constant="-26" id="bBj-8a-CvP"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="FkM-D5-Anw">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="CqO-n6-RP5">
+                            <connections>
+                                <action selector="refreshPlotAction:" destination="yUk-4o-sEK" id="CVi-E2-Eol"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="plotWebView" destination="kMP-Tk-CJS" id="2nu-df-421"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PIU-zY-Km5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2500" y="-3"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="E4j-SQ-PnI">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="23u-Sh-5nL" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="i1f-3D-mkb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="L3L-wc-mKb" kind="relationship" relationship="rootViewController" id="h36-HT-1OZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hcy-2e-z1o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2505" y="741"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Create_with_plus_mail_layer_add_vector_stock" width="512" height="512"/>
+        <image name="LO_Scientific-Drilling" width="150" height="38"/>
+        <image name="drill_rig_tint" width="431" height="640"/>
+        <image name="menu" width="20" height="14"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

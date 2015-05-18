@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style>
+            .plot {
+                fill: rgba(250, 250, 255, 0.6);
+            }
+        .grid .tick {
+            stroke: lightgrey;
+            opacity: 0.7;
+        }
+        .grid path {
+            stroke-width: 0;
+        }
+        .axis path, .axis line {
+            fill: none;
+            stroke: #000;
+            shape-rendering: crispEdges;
+        }
+        .x.axis path {
+            display: none;
+        }
+        .line {
+            fill: none;
+            stroke: steelblue;
+            stroke-width: 1.5px;
+        }`
+        </style>
+        <meta charset="UTF-8">
+            <link rel="stylesheet" href="_/base.css">
+                <link rel="stylesheet" href="style.css">
+                    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+                    </head>
+    <body>
+        <div class="container">
+            <div id="chart"> </div>
+            </section>
+        </div>
+        
+        <script type="text/javascript">
+            //InitChart();
+        
+        var data = [{"x":2,"y":30},{"x":3,"y":25},{"x":4,"y":20},{"x":3.5,"y":15},{"x":4,"y":10},
+                    {"x":1,"y":5},{"x":3,"y":0},{"x":4,"y":-5},{"x":3,"y":-10},{"x":2,"y":-15},
+                    {"x":3,"y":-20}];
+                    
+        var yLabel = "yTest";
+        var xLabel = "xTest";
+        
+
+        function InitChart(dataset, screenWidth, screenHeight) {
+            
+            margin = {
+                top: 45,
+                right: 20,
+                bottom: 20,
+                left: 45
+            };
+            tickno = 8;
+            
+            width = screenWidth - margin.left - margin.right;
+            height = screenHeight - margin.top - margin.bottom;
+            
+            //Based on data
+            var ymax = d3.max(dataset, function (d) {
+                                              return d.y;
+                                        });
+            var ymin = d3.min(dataset, function (d) {
+                                              return d.y;
+                                        });
+            
+            var xmax = d3.max(dataset, function (d) {
+                                              return d.x;
+                                        });
+            var xmin = d3.min(dataset, function (d) {
+                                                return d.x;
+                                        });
+                  
+            /*var ymax = 35;
+            var ymin = 0;
+            //User defined xmax
+            var xmax = 10;
+            //User defined xmin
+            var xmin = 0;*/
+            
+            var x = d3.scale.linear().domain([xmin,xmax]) /*d3.extent(data, function (d) {
+                                                           return d.item;
+                                                           }))*/
+            .range([0, width]);
+            
+            var y = d3.scale.linear()
+            .domain([ymin,ymax])
+            .range([height, 0]);
+            
+            
+              var line = d3.svg.line()
+              .x(function (d) {
+                 return x(d.x); //x(d.item);
+              })
+              .y(function (d) {
+              return y(d.y);
+              })
+              .interpolate('linear');
+              
+              var zoom = d3.behavior.zoom()
+              //.x(x)
+              .scaleExtent([-1, 2])
+              .y(y)
+              .on("zoom", zoomed);
+              
+              svg = d3.select('#chart').append('svg')
+              .attr('width', width + margin.left + margin.right)
+              .attr('height', height + margin.top + margin.bottom)
+              .append("svg:g")
+              .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+              .call(zoom);
+              
+              svg.append("svg:rect")
+              .attr("width", width)
+              .attr("height", height)
+              .attr("class", "plot");
+              
+              var make_x_axis = function () {
+                  return d3.svg.axis()
+                  .scale(x)
+                  .orient("bottom")
+                  .ticks(tickno);
+              };
+              
+              var make_y_axis = function () {
+                  return d3.svg.axis()
+                  .scale(y)
+                  .orient("left")
+                  .ticks(tickno);
+              };
+              
+              var xAxis = d3.svg.axis()
+              .scale(x)
+              .orient("top")
+              .ticks(tickno);
+              
+              svg.append("svg:g")
+              .attr("class", "x axis")
+              .attr("transform", "translate(0, " + height + ")")
+              .attr("transform", "translate(0)")
+              .call(xAxis);
+              
+              var yAxis = d3.svg.axis()
+              .scale(y)
+              .orient("left")
+              .ticks(tickno);
+              
+              svg.append("g")
+              .attr("class", "y axis")
+              .call(yAxis);
+              
+              // LABELS
+              svg.append("text")
+              .attr("class", "text")
+              .attr("transform", "rotate(-90)")
+              .attr("x", -screenHeight / 2)
+              .attr("y", -45)
+              .attr("dy", "1em")
+              .style("text-anchor", "middle")
+              .text(yLabel);
+              
+              svg.append("text")
+              .attr("class", "text")
+              .attr("x", screenWidth / 2 )
+              .attr("y",  -25 )
+              .style("text-anchor", "middle")
+              .text(xLabel);
+              
+              svg.append("g")
+              .attr("class", "x grid")
+              .attr("transform", "translate(0," + height + ")")
+              .call(make_x_axis()
+              .tickSize(-height, 0, 0)
+              .tickFormat(""));
+                
+              svg.append("g")
+              .attr("class", "y grid")
+              .call(make_y_axis()
+              .tickSize(-width, 0, 0)
+              .tickFormat(""));
+          
+              var clip = svg.append("svg:clipPath")
+              .attr("id", "clip")
+              .append("svg:rect")
+              .attr("x", 0)
+              .attr("y", 0)
+              .attr("width", width)
+              .attr("height", height);
+              
+              var chartBody = svg.append("g")
+              .attr("clip-path", "url(#clip)");
+              
+              chartBody.append("svg:path")
+              .datum(dataset)
+              .attr("class", "line")
+              .attr("d", line);
+              
+              function zoomed() {
+                  //console.log(d3.event.translate);
+                  //console.log(d3.event.scale);
+                  
+                  svg.select(".x.axis").call(xAxis);
+                  svg.select(".y.axis").call(yAxis);
+                  svg.select(".x.grid")
+                  .call(make_x_axis()
+                  .tickSize(-height, 0, 0)
+                  .tickFormat(""));
+                  svg.select(".y.grid")
+                  .call(make_y_axis()
+                  .tickSize(-width, 0, 0)
+                  .tickFormat(""));
+                  svg.select(".line")
+                  .attr("class", "line")
+                  .attr("d", line);
+                  svg.selectAll("dot").attr()
+              }
+        }
+        
+
+         </script>
+    </body>
+</html>

@@ -24,7 +24,7 @@ class Authenticator {
         config?.loadPropertiesFromFile()
         webController = controller
         adfs_url = (config?.getProperty("getBaseLoginURL") as! String) +
-            (config?.getProperty("getADFSAuthorize") as! String) + "response_type=" +
+            (config?.getProperty("getADFSAuthorize") as! String) + "?response_type=" +
             (config?.getProperty("getResponseType") as! String) + "&client_id=" +
             (config?.getProperty("getClientID") as! String) + "&redirect_uri=" +
             (config?.getProperty("getRedirectURI") as! String) + "&resource=" +
@@ -78,7 +78,8 @@ class Authenticator {
     }
     
     func getUserID() {
-        let token_url = config?.getProperty("getAuthenticate") as! String
+        let token_url = config?.getProperty("getBaseURL") as! String +
+                        (config?.getProperty("getAuthenticate") as! String)
         
         let request = NSMutableURLRequest(URL: NSURL(string: token_url)!)
         request.HTTPMethod = "POST"
