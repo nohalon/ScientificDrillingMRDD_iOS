@@ -9,6 +9,7 @@
 import Foundation
 
 class Logging {
+    
     func DLog(message: String, function: String = __FUNCTION__) {
         #if DEBUG
             println("\(function): \(message)")

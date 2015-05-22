@@ -242,8 +242,9 @@ class WellsManager: NSObject {
                     if let result = jsonResult as? NSArray {
                         if let values = result[0] as? NSArray {
                             for array in values {
-                                var y_value : Float = array[0].floatValue / 10000000 - 11644473600 // epoch
-                                var x_value : Float = array[1].floatValue
+                                var y_value : Int = (array[0].longValue - 116444736000000000) / 10000 // epoch
+                            
+                                var x_value : Double! = array[1].doubleValue
                                 curve.lastValue = (x_value, y_value)
                             }
                         }
@@ -301,9 +302,13 @@ class WellsManager: NSObject {
                     if let result = jsonResult as? NSArray {
                         if let values = result[0] as? NSArray {
                             for array in values {
-                                var y_value : Float = array[0].floatValue / 10000000 - 11644473600 // epoch
-                                var x_value : Float = array[1].floatValue
-                                curve.values += [(x_value, y_value)]
+                                var y_value : Int = (array[0].longValue - 116444736000000000) / 10000 // epoch
+                                var y_value_temp = (array[0].longLongValue - 116444736000000000) / 10000 // epoch
+
+                                var x_value : Int = array[1].longValue
+                                var x_value_temp : Double = array[1].doubleValue
+
+                                curve.values += [(x_value_temp, y_value_temp)]
                             }
                         }
                         

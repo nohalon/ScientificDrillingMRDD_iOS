@@ -23,7 +23,6 @@ class PlotWebViewController : UIViewController, UIWebViewDelegate {
     @IBAction func refreshPlotAction(sender: AnyObject) {
         log.DLog("\(NSDate()): refresh the plot with new data.", function: "refreshPlotAction")
         wellsMngr.updatePlot(well!.id, plot: plot!, onSuccess: onSuccess)
-        //self.plotWebView.reload()
     }
    
     func onSuccess() {
@@ -61,9 +60,6 @@ class PlotWebViewController : UIViewController, UIWebViewDelegate {
         log.DLog("\(NSDate()): load plot with screen width: \(screenWidth) screen height: \(screenHeight).", function: "loadWebView")
         
         var lineData = formatCurve()
-        
-        let xLabel = "Time"
-        let yLabel = "Value"
         
         var setLabels : String = "setLabels(['\(ivName)', '\(dvName)'])"
         var functionCall : String = "InitChart(\(lineData), \(screenWidth), \(screenHeight))"

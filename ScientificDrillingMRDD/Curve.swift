@@ -16,8 +16,8 @@ class Curve: NSObject {
     var iv_units : String
     var dv_units : String
     
-    var values : [(Float, Float)]// assumes ordered
-    var lastValue : (Float, Float)
+    var values : [(Double, Int)]// assumes ordered
+    var lastValue : (Double, Int)
     
     var nextQueryTime : String
     
@@ -25,8 +25,8 @@ class Curve: NSObject {
         self.id = id
         self.dv = dv
         self.iv = iv
-        self.values = [(Float, Float)]()
-        self.lastValue = (0.0, 0.0)
+        self.values = [(Double, Int)]()
+        self.lastValue = (0, 0)
         self.iv_units = ""
         self.dv_units = ""
         self.nextQueryTime = ""
@@ -34,7 +34,7 @@ class Curve: NSObject {
     
     
     func updateValues(xVal : [NSString], yVal : [NSString]) {
-        var temp : [(Float, Float)] = [(Float, Float)]()
+        var temp : [(Double, Int)] = [(Double, Int)]()
         var count = 0
         
         if xVal.count > yVal.count {
@@ -44,7 +44,7 @@ class Curve: NSObject {
         }
         
         for ndx in 0...count - 1 {
-            temp += [(xVal[ndx].floatValue, yVal[ndx].floatValue)]
+            temp += [(xVal[ndx].doubleValue, Int(yVal[ndx].longLongValue))]
         }
         values = temp
     }
