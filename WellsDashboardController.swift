@@ -90,7 +90,6 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
         var minutes = (difference / 60) % 60
         var hours = (difference / 3600)
         
-        println(NSString(format: "%0.2d:%0.2d:%0.2d",hours,minutes,seconds))
         return NSString(format: "%0.2d:%0.2d:%0.2d",hours,minutes,seconds) as String
     }
     

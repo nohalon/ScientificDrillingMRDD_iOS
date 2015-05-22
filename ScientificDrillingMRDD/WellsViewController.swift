@@ -59,6 +59,7 @@ class WellsViewController: UIViewController, SideBarDelegate {
         wellsMngr.loadCurvesForWell(wellsMngr.wells[index], onSuccess: self.curvesLoaded)
         table.userInteractionEnabled = false
         let cell = tableView.cellForRowAtIndexPath(indexPath)
+        loading.center = cell!.contentView.center
         cell?.contentView.addSubview(loading)
         loading.startAnimating()
     }
