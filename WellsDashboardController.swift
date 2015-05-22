@@ -66,9 +66,15 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
         var visualization = well.dashboard.staticNumberDV[indexPath.row]
         var unitResult : String = visualization.curve.dv
         var valueResult = String(format: "%.2f", visualization.curve.lastValue.0)
+        cell.timeLabel.text = timeSince(visualization.curve)
+        cell.textLabel.alpha = 1.0
+        if visualization.curve.dv_units == "" && valueResult == "0.00" {
+            valueResult = "No Values"
+            cell.timeLabel.text = ""
+            cell.textLabel.alpha = 0.3
+        }
         cell.unitLabel.text = unitResult
         cell.textLabel.text = "\(valueResult) \(visualization.curve.dv_units)"
-        cell.timeLabel.text = timeSince(visualization.curve)
         return cell
     }
     
@@ -88,9 +94,11 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
         
         var seconds = difference % 60
         var minutes = (difference / 60) % 60
-        var hours = (difference / 3600)
+        var hours = (difference / 3600) % 24
+        var days = (difference / 86400)
         
-        return NSString(format: "%0.2d:%0.2d:%0.2d",hours,minutes,seconds) as String
+        
+        return NSString(format: "Age : %0.2d days %0.2d:%0.2d:%0.2d",days, hours,minutes,seconds) as String
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
