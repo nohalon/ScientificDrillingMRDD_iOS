@@ -56,7 +56,10 @@ class WellsViewController: UIViewController, SideBarDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.index = indexPath.row
         
-        wellsMngr.loadCurvesForWell(wellsMngr.wells[index], onSuccess: self.curvesLoaded)
+        if wellsMngr.wells[index].loaded == false {
+            wellsMngr.loadCurvesForWell(wellsMngr.wells[index], onSuccess: self.curvesLoaded)
+            wellsMngr.wells[index].loaded = true
+        }
         table.userInteractionEnabled = false
         let cell = tableView.cellForRowAtIndexPath(indexPath)
         loading.center = cell!.contentView.center

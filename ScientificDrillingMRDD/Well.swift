@@ -8,6 +8,7 @@
 
 
 class Well: NSObject {
+    var loaded : Bool
     
     var name: String
     var id: String
@@ -24,6 +25,7 @@ class Well: NSObject {
         self.dashboard = Dashboard()
         self.plots = [Plot]()
         self.curves = [String : [Curve]]()
+        self.loaded = false
     }
     
     func addCurve(curve : Curve) {
