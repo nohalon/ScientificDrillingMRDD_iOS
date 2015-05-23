@@ -56,15 +56,18 @@ class WellsViewController: UIViewController, SideBarDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.index = indexPath.row
         
-        if wellsMngr.wells[index].loaded == false {
-            wellsMngr.loadCurvesForWell(wellsMngr.wells[index], onSuccess: self.curvesLoaded)
-            wellsMngr.wells[index].loaded = true
-        }
         table.userInteractionEnabled = false
         let cell = tableView.cellForRowAtIndexPath(indexPath)
         loading.center = cell!.contentView.center
         cell?.contentView.addSubview(loading)
         loading.startAnimating()
+        
+        if wellsMngr.wells[index].loaded == false {
+            wellsMngr.loadCurvesForWell(wellsMngr.wells[index], onSuccess: self.curvesLoaded)
+        } else {
+            println(wellsMngr.wells[index].curves["Time"]?.count)
+            self.curvesLoaded()
+        }
     }
 
     func curvesLoaded() {

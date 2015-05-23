@@ -107,7 +107,8 @@ class WellsManager: NSObject {
                             
                         }
                     }
-                    
+                    println(well.curves["Time"]!.count)
+                    well.loaded = true
                     onSuccess()
                 }
                 else {
