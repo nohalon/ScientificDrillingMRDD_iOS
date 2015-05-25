@@ -8,6 +8,7 @@
 
 
 import UIKit
+import Foundation
 
 enum VisualizationType {
     case StaticValue
@@ -15,7 +16,7 @@ enum VisualizationType {
     case Line
 }
 
-class DataVisualization {
+class DataVisualization: NSObject, Equatable {
     var type: VisualizationType
     var curve : Curve
     
@@ -23,4 +24,8 @@ class DataVisualization {
         self.type = type
         self.curve = curve
     }
+}
+
+func ==(lhs: DataVisualization, rhs: DataVisualization) -> Bool {
+    return (lhs.curve.id == rhs.curve.id) && (lhs.type == rhs.type)
 }

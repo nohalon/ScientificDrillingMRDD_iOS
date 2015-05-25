@@ -12,11 +12,13 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
     
     var well: Well = Well(id: "", name: "NoWell")
     var myTimer : NSTimer?
+    var availableCurves = [String: [Curve]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tabBarController?.title = well.name;
+        let tabBar = self.tabBarController as! PlotsCurvesTabBarController
+        tabBar.title = well.name;
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: TOP_PADDING, left: SIDE_PADDING, bottom: BOTTOM_PADDING, right: SIDE_PADDING)
@@ -28,8 +30,25 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
         collectionView!.backgroundColor = UIColor.whiteColor()
         self.view.addSubview(collectionView!)
         
-        wellsMngr.updateDashboardForWell(well)
+        initAvailableCurves()
         
+        tabBar.dashboardCurves = availableCurves
+        wellsMngr.updateDashboardForWell(well)
+    }
+
+    func initAvailableCurves() {
+        for key in well.curves.keys {
+            availableCurves[key] = [Curve]()
+            for curve in well.curves[key]! {
+                let staticDVs = well.dashboard.staticNumberDV.filter({(dv: DataVisualization) -> Bool in
+                    return dv.curve.id == curve.id
+                })
+                
+                if staticDVs.count == 0 {
+                    availableCurves[key]!.append(Curve(id: curve.id, dv: curve.dv, iv: curve.iv, wellbore: curve.wellbore_id))
+                }
+            }
+        }
     }
     
     func update() {
@@ -107,6 +126,7 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
             var addCurveController = navigationController.topViewController as! AddCurveViewController
             
             addCurveController.well = well
+            addCurveController.availableCurves = availableCurves
         }
     }
     
@@ -116,6 +136,7 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
             
             if let selected = addCurveController.selectedCurve {
                 well.dashboard.addVisualization(.StaticValue, curve: selected)
+                removeCurveFromAvailable(selected)
             }
             
             wellsMngr.updateDashboardForWell(well)
@@ -128,4 +149,23 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
         // Dispose of any resources that can be recreated.
     }
     
+    func removeCurveFromAvailable(curve: Curve) {
+        let curveType = curve.iv
+        if let curveList = availableCurves[curveType] {
+            for curveIdx in 0...curveList.count - 1 {
+                if curveList[curveIdx].id == curve.id {
+                    availableCurves[curveType]!.removeAtIndex(curveIdx)
+                }
+            }
+        }
+    }
+    
+    func removeItemFromArray(item : Curve, inout list : [Curve]) -> [Curve] {
+        for var ndx = 0; ndx < list.count; ndx++ {
+            if item.id == list[ndx].id {
+                list.removeAtIndex(ndx)
+            }
+        }
+        return list
+    }   
 }

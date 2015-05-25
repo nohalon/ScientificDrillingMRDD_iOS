@@ -15,6 +15,7 @@ class PlotsCurvesTabBarController : UITabBarController {
     
     var well : Well?
     var plusButton: UIBarButtonItem?
+    var dashboardCurves: [String: [Curve]]?
     
     override func viewDidLoad() {
         plusButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addButtonItemClicked")
@@ -42,6 +43,7 @@ class PlotsCurvesTabBarController : UITabBarController {
             let navigationController = segue.destinationViewController as! UINavigationController
             var addCurveController = navigationController.topViewController as! AddCurveViewController
             addCurveController.well = well
+            addCurveController.availableCurves = dashboardCurves
         }
         else if (segue.identifier == "AddPlotSegue") {
             let navigationController = segue.destinationViewController as! UINavigationController

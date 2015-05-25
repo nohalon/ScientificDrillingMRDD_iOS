@@ -11,9 +11,10 @@ class AddPlotViewController: UITableViewController, UITableViewDelegate, UITable
 
     var iv_selected  = false;
     var iv_chosen : String = ""
+    var selectedDV: Curve!
     var iVsArry = [""]
     var dVsArry = [""]
-    var well : Well?
+    var well : Well!
     var plot : Plot!
     var listPickerView : UIView?
     
@@ -118,11 +119,13 @@ class AddPlotViewController: UITableViewController, UITableViewDelegate, UITable
             }
             else {
                 iv_selected = true;
-                let cell = self.tableView.dequeueReusableCellWithIdentifier("ivDvCell") as! IvDvSelectedCell
+                var cell = self.tableView.dequeueReusableCellWithIdentifier("ivDvCell") as! IvDvSelectedCell
                 
                 var iv_list = getIvListFromWell()
                 
-                cell.customInit(self.view, ivDv_list: iv_list)
+                //cell = IvDvSelectedCell(view: self.view, iv_list: well.curves.keys.array)
+                cell.ivInit(self.view, iv_list: well.curves.keys.array)
+                //cell.customInit(self.view, ivDv_list: iv_list)
                 listPickerView = cell.getPickerView()
                 return cell
             }
@@ -136,13 +139,14 @@ class AddPlotViewController: UITableViewController, UITableViewDelegate, UITable
             }
             else {
                 listPickerView?.hidden = true
-                let cell = self.tableView.dequeueReusableCellWithIdentifier("ivDvCell") as! IvDvSelectedCell
+                var cell = self.tableView.dequeueReusableCellWithIdentifier("ivDvCell") as! IvDvSelectedCell
                 
                 var ivCell = self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 1, inSection: IV_SECTION)) as! IvDvSelectedCell
                 iv_chosen = ivCell.getCellText()
-                var dv_list = getDvListFromIV(iv_chosen)
+                //var dv_list = getDvListFromIV(iv_chosen)
                 
-                cell.customInit(self.view, ivDv_list: dv_list)
+                //cell = IvDvSelectedCell(view: self.view, dv_list: well.curves[iv_chosen]!)
+                cell.dvInit(self.view, dv_list: well.curves[iv_chosen]!)
                 listPickerView = cell.getPickerView()
                 return cell
             }
@@ -197,11 +201,12 @@ class AddPlotViewController: UITableViewController, UITableViewDelegate, UITable
     @IBAction func doneAddPlotAction(sender: AnyObject) {
         if (iv_chosen != "") {
             var cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 1, inSection: DV_SECTION)) as! IvDvSelectedCell
-            var dv = cell.getCellText()
-            var dvId = getDvId(iv_chosen, dv: dv)
+            //var dv = cell.getCellText()
+            //var dvId = getDvId(iv_chosen, dv: dv)
             
-            var curve : Curve = Curve(id: dvId, dv: dv, iv: iv_chosen)
-            var plot : Plot = Plot(title: getPlotName(), iv: iv_chosen, curves: [curve])
+            let selectedCurve = cell.selectedDV
+            //var curve : Curve = Curve(id: dvId, dv: dv, iv: iv_chosen)
+            var plot : Plot = Plot(title: getPlotName(), iv: iv_chosen, curves: [selectedCurve])
             self.plot = plot
             
             well!.plots.append(plot)
@@ -245,7 +250,10 @@ class PlotNameInsertCell : UITableViewCell {
 class IvDvSelectedCell : UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var elmt_selected: UITextField!
-    var listPickerArray = [String]()
+    var ivPickerArray: [String]!
+    var dvPickerArray: [Curve]!
+    var selectedIV: String!
+    var selectedDV: Curve!
     var view : UIView!
     var listPicker : UIPickerView = UIPickerView()
     var pickerView : UIView = UIView()
@@ -254,12 +262,27 @@ class IvDvSelectedCell : UITableViewCell, UIPickerViewDelegate, UIPickerViewData
         return elmt_selected.text
     }
     
-    func customInit(view : UIView, ivDv_list : [String]) {
+    /*func customInit(view : UIView, iv_list: [String]) {
+    }*/
+    
+    func ivInit(view: UIView, iv_list: [String]) {
+        //super.init(style: UITableViewCellStyle.Default, reuseIdentifier: nil)
         self.view = view
-        self.listPickerArray = ivDv_list
+        self.ivPickerArray = iv_list
+        self.dvPickerArray = nil
         self.selectionStyle = UITableViewCellSelectionStyle.None
-        elmt_selected.text = listPickerArray[0];
+        elmt_selected.text = ivPickerArray[0];
         openPickerView()
+    }
+
+    func dvInit(view: UIView, dv_list: [Curve]) {
+        //super.init(style: UITableViewCellStyle.Default, reuseIdentifier: nil)
+        self.view = view
+        self.dvPickerArray = dv_list
+        self.ivPickerArray = nil
+        self.selectionStyle = UITableViewCellSelectionStyle.None
+        elmt_selected.text = dvPickerArray[0].dv
+        openPickerView()       
     }
     
     func openPickerView() {
@@ -303,15 +326,36 @@ class IvDvSelectedCell : UITableViewCell, UIPickerViewDelegate, UIPickerViewData
     }
 
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return listPickerArray.count
+        if let picker = ivPickerArray {
+            return picker.count
+        } else {
+            return dvPickerArray.count
+        }
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
-        return listPickerArray[row]
+        var title = ""
+        if let picker = dvPickerArray {
+            let rowCurve: Curve = picker[row]
+            title += rowCurve.dv
+        } else {
+            title += ivPickerArray[row]
+        }
+        
+        return title
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        elmt_selected.text = listPickerArray[row];
+        var text = ""
+        if let picker = dvPickerArray {
+            let rowCurve: Curve = picker[row]
+            text += rowCurve.dv
+            selectedDV = rowCurve
+        } else {
+            text += ivPickerArray[row]
+            selectedIV = ivPickerArray[row]
+        }       
+        elmt_selected.text = text;
     }
     
 }

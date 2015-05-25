@@ -93,21 +93,24 @@ class WellsManager: NSObject {
                     
                     for x in jsonResult["time_curves"] as! NSArray {
                         if let aStatus = x as? NSDictionary {
+                            let id: String = aStatus["id"] as! String
                             let name : String = aStatus["name"] as! String
                             
-                            well.addCurve(Curve(id: aStatus["id"] as! String, dv : name, iv : "Time"))
+                            well.addCurve(Curve(id: id, dv : name, iv : "Time"))
                         }
                     }
                     
                     for x in jsonResult["wellbore_curves"] as! NSArray {
                         if let aStatus = x as? NSDictionary {
-                            let name : String = aStatus["name"] as! String
+                            let id: String = aStatus["id"] as! String
+                            let name: String = aStatus["name"] as! String
+                            let iv: String = aStatus["type"] as! String
+                            let wellbore: String = aStatus["wellbore"] as! String
                             
-                            well.addCurve(Curve(id: aStatus["id"] as! String, dv: self.parseDV(name), iv: self.parseIV(name)))
-                            
+                            well.addCurve(Curve(id: id, dv: name, iv: iv, wellbore: wellbore))
                         }
                     }
-                    println(well.curves["Time"]!.count)
+                    
                     well.loaded = true
                     onSuccess()
                 }
@@ -156,7 +159,7 @@ class WellsManager: NSObject {
         loadedPlot = plot
         curvesLoadedCallback = onSuccess
         for curve in plot.curves {
-            loadCurve(wellID, curve: curve, onSuccess: curveLoaded)
+            loadCurveWithCallback(wellID, curve: curve, onSuccess: curveLoaded)
         }
     }
     
@@ -170,10 +173,15 @@ class WellsManager: NSObject {
     
     func getLastValue(wellID : String , curve : Curve) {
         var endTime : String?
-        var baseURLString = config.getProperty("getBaseURL") as! String +
-            (config.getProperty("getTimeCurve") as! String)
-        
-        var tags = "?well=" + wellID + "&curve=" + curve.id;
+        var baseURLString = config.getProperty("getBaseURL") as! String
+       
+        var tags = "?well=" + wellID + "&curve=" + curve.id
+        if curve.iv == "Time" {
+            baseURLString += config.getProperty("getTimeCurve") as! String
+        } else {
+            baseURLString += config.getProperty("getWellboreCurve") as! String
+            tags += "&wellbore=" + curve.wellbore_id!
+        }       
 
         var urlString = baseURLString + tags
         urlString = urlString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
@@ -222,17 +230,27 @@ class WellsManager: NSObject {
     
     func loadCurveWithParams(wellID : String, curve : Curve, start : String, end : String) {
         var endTime : String?
-        var baseURLString = config.getProperty("getBaseURL") as! String +
-            (config.getProperty("getTimeCurve") as! String)
         
+        var baseURLString = config.getProperty("getBaseURL") as! String
+       
         var tags = "?well=" + wellID + "&curve=" + curve.id + "&start=" + start + "&end=" + end;
+        if curve.iv == "Time" {
+            baseURLString += config.getProperty("getTimeCurve") as! String
+        } else {
+            baseURLString += config.getProperty("getWellboreCurve") as! String
+            tags += "&wellbore=" + curve.wellbore_id!
+        }
         
         var urlString = baseURLString + tags
         urlString = urlString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
         var url = NSURL(string: urlString)
         
+        loadCurveURLSession(wellID, curve: curve, url: url!)
+    }
+    
+    private func loadCurveURLSession(wellId: String, curve: Curve, url: NSURL) {
         // Opens session with server
-        let task = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: {data, response, error -> Void in
+        let task = NSURLSession.sharedSession().dataTaskWithURL(url, completionHandler: {data, response, error -> Void in
             if(error != nil) {
                 // If there is an error in the web request, print it to the console
                 self.log.DLog(error.localizedDescription, function: "loadCurve")
@@ -240,8 +258,7 @@ class WellsManager: NSObject {
             
             var err: NSError?
             
-            
-            if let jsonResult: AnyObject = NSJSONSerialization.JSONObjectWithData(data, options:nil, error: nil) {
+            if let jsonResult: AnyObject = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) {
                 if jsonResult is NSArray {
                     if let result = jsonResult as? NSArray {
                         if let values = result[0] as? NSArray {
@@ -273,26 +290,37 @@ class WellsManager: NSObject {
         task.resume()
     }
     
-    func loadCurve(wellID : String, curve : Curve, onSuccess: () -> Void) {
-        
+    func loadCurveWithCallback(wellID : String, curve : Curve, onSuccess: () -> Void) {
         if curve.nextQueryTime != "" {
             starttime = curve.nextQueryTime
         }
         
-        var baseURLString = config.getProperty("getBaseURL") as! String +
-                        (config.getProperty("getTimeCurve") as! String)
-            
-        var tags = "?well=" + wellID + "&curve=" + curve.id;
-        if starttime != "" {
-            tags += "&start=" + starttime + "&end=" + endtime
+        var baseURLString = config.getProperty("getBaseURL") as! String
+      
+        
+        var tags = "?well=" + wellID + "&curve=" + curve.id
+        if starttime != "" && endtime != "" {
+            tags += "&start=" + starttime + "&end=" + endtime;
+        }
+        
+        if curve.iv == "Time" {
+            baseURLString += config.getProperty("getTimeCurve") as! String
+        } else {
+            baseURLString += config.getProperty("getWellboreCurve") as! String
+            tags += "&wellbore=" + curve.wellbore_id!
         }
         
         var urlString = baseURLString + tags
         urlString = urlString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
         var url = NSURL(string: urlString)
         
+        loadCurveWithCallbackURLSession(wellID, curve: curve, url: url!, onSuccess: onSuccess)
+        
+    }
+    
+    private func loadCurveWithCallbackURLSession(wellId: String, curve: Curve, url: NSURL, onSuccess: () -> Void) {
         // Opens session with server
-        let task = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: {data, response, error -> Void in
+        let task = NSURLSession.sharedSession().dataTaskWithURL(url, completionHandler: {data, response, error -> Void in
             if(error != nil) {
                 // If there is an error in the web request, print it to the console
                 self.log.DLog(error.localizedDescription, function: "loadCurve")
@@ -300,7 +328,8 @@ class WellsManager: NSObject {
             
             var err: NSError?
             
-            
+           
+            let jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil)
             if let jsonResult: AnyObject = NSJSONSerialization.JSONObjectWithData(data, options:nil, error: nil) {
                 if jsonResult is NSArray {
                     if let result = jsonResult as? NSArray {

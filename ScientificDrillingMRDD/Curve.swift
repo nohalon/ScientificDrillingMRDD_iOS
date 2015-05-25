@@ -11,17 +11,19 @@ import UIKit
 class Curve: NSObject {
     
     var id: String
-    var dv : String
-    var iv : String
-    var iv_units : String
-    var dv_units : String
+    var dv: String
+    var iv: String
+    var iv_units: String
+    var dv_units: String
+    var wellbore_id: String?
     
-    var values : [(Double, Int)]// assumes ordered
-    var lastValue : (Double, Int)
+    var values: [(Double, Int)]// assumes ordered
+    var lastValue: (Double, Int)
     
-    var nextQueryTime : String
+    var nextQueryTime: String
     
-    init(id: String, dv : String, iv : String) {
+    init(id: String, dv: String, iv: String, wellbore: String?) {
+        self.wellbore_id = wellbore
         self.id = id
         self.dv = dv
         self.iv = iv
@@ -30,6 +32,10 @@ class Curve: NSObject {
         self.iv_units = ""
         self.dv_units = ""
         self.nextQueryTime = ""
+    }
+    
+    convenience init(id: String, dv: String, iv: String) {
+        self.init(id: id, dv: dv, iv: iv, wellbore: nil)
     }
     
     
