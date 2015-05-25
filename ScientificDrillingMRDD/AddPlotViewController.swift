@@ -272,6 +272,7 @@ class IvDvSelectedCell : UITableViewCell, UIPickerViewDelegate, UIPickerViewData
         self.dvPickerArray = nil
         self.selectionStyle = UITableViewCellSelectionStyle.None
         elmt_selected.text = ivPickerArray[0];
+        selectedIV = ivPickerArray[0]
         openPickerView()
     }
 
@@ -282,6 +283,7 @@ class IvDvSelectedCell : UITableViewCell, UIPickerViewDelegate, UIPickerViewData
         self.ivPickerArray = nil
         self.selectionStyle = UITableViewCellSelectionStyle.None
         elmt_selected.text = dvPickerArray[0].dv
+        selectedDV = dvPickerArray[0]
         openPickerView()       
     }
     
