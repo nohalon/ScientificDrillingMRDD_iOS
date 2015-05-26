@@ -25,19 +25,16 @@ class CollectionViewCell: UICollectionViewCell {
         let unitFrame = CGRect(x:0, y:0, width: frame.size.width, height: frame.size.height/3)
         self.unitLabel = UILabel(frame: unitFrame)
         unitLabel.font = UIFont (name: config.getProperty("collectionViewCellFont") as! String, size: frame.size.height/5)
-        //textLabel.layer.borderWidth = 1.0;
         unitLabel.textAlignment = .Center
         
-        let textFrame = CGRect(x: 0, y: frame.size.height/2, width: frame.size.width, height: frame.size.height/3)
+        let textFrame = CGRect(x: 0, y: frame.size.height/2 - 4, width: frame.size.width, height: frame.size.height/2)
         self.textLabel = UILabel(frame: textFrame)
         textLabel.font = UIFont (name: config.getProperty("collectionViewCellFont") as! String, size: frame.size.height/2.5)
-        //textLabel.layer.borderWidth = 1.0;
         textLabel.textAlignment = .Center
         
         let timeFrame = CGRect(x: 0, y: frame.size.height/4, width: frame.size.width, height: frame.size.height/3)
         self.timeLabel = UILabel(frame: timeFrame)
         timeLabel.font = UIFont (name: config.getProperty("collectionViewCellFont") as! String, size: frame.size.height/6)
-        //textLabel.layer.borderWidth = 1.0;
         timeLabel.textAlignment = .Center
         
         contentView.addSubview(unitLabel)

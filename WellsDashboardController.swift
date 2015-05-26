@@ -86,15 +86,34 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
         var unitResult : String = visualization.curve.dv
         var valueResult = String(format: "%.2f", visualization.curve.lastValue.0)
         cell.timeLabel.text = timeSince(visualization.curve)
+        
         cell.textLabel.alpha = 1.0
+        
         if visualization.curve.dv_units == "" && valueResult == "0.00" {
             valueResult = "No Values"
             cell.timeLabel.text = ""
             cell.textLabel.alpha = 0.3
+        } else if let wellbore = visualization.curve.wellbore_id {
+            cell.timeLabel.text = wellboreCurveLabel(visualization)
         }
         cell.unitLabel.text = unitResult
         cell.textLabel.text = "\(valueResult) \(visualization.curve.dv_units)"
         return cell
+    }
+    
+    func wellboreCurveLabel(visualization : DataVisualization) -> String {
+        var returnString : String
+        switch visualization.curve.iv {
+        case "Vertical Section":
+            returnString = "VS: \(visualization.curve.lastValue.1) \(visualization.curve.iv_units)"
+        case "True Vertical Depth":
+            returnString = "TVD: \(visualization.curve.lastValue.1) \(visualization.curve.iv_units)"
+        case "Measured Depth":
+            returnString = "MS: \(visualization.curve.lastValue.1) \(visualization.curve.iv_units)"
+        default :
+            returnString = ""
+        }
+        return returnString
     }
     
     func timeSince(curve : Curve) -> String {

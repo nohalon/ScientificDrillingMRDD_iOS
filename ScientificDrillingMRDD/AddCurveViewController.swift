@@ -56,10 +56,6 @@ class AddCurveViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var curveCount = 0;
         
-        /*if let selectedWell = well {
-            curveCount = selectedWell.removeAddedCurves().count
-        }*/
-        
         if !isCollapsed[section] {
             if let available = availableCurves {
                 let keys = available.keys
@@ -129,9 +125,6 @@ class AddCurveViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "WellCell")
         
-        /*if let selectedWell = well {
-            cell.textLabel?.text = selectedWell.removeAddedCurves()[indexPath.row].dv
-        }*/
         if let available = availableCurves {
             let keys = available.keys.array
             let sectionKey: String? = keys[indexPath.section]
@@ -149,9 +142,6 @@ class AddCurveViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let index = indexPath.row
         
-        /*if let selectedWell = well {
-            self.selectedCurve = selectedWell.removeAddedCurves()[index]
-        }*/
         if let available = availableCurves {
             let keys = available.keys
             let sectionKey: String? = keys.array[indexPath.section]
