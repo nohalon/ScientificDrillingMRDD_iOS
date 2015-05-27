@@ -96,6 +96,7 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
         } else if let wellbore = visualization.curve.wellbore_id {
             cell.timeLabel.text = wellboreCurveLabel(visualization)
         }
+      
         cell.unitLabel.text = unitResult
         cell.textLabel.text = "\(valueResult) \(visualization.curve.dv_units)"
         return cell
@@ -136,7 +137,7 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
         var days = (difference / 86400)
         
         
-        return NSString(format: "Age : %0.2d days %0.2d:%0.2d:%0.2d",days, hours,minutes,seconds) as String
+        return NSString(format: "Age: %0.2d days %0.2d:%0.2d:%0.2d",days, hours,minutes,seconds) as String
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
