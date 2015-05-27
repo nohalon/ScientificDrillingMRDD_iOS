@@ -17,8 +17,8 @@ class Curve: NSObject {
     var dv_units: String
     var wellbore_id: String?
     
-    var values: [(Double, Int64)]// assumes ordered
-    var lastValue: (Double, Int64)
+    var values: [(Double, Int)]// assumes ordered
+    var lastValue: (Double, Int)
     
     var nextQueryTime: String
     
@@ -27,7 +27,7 @@ class Curve: NSObject {
         self.id = id
         self.dv = dv
         self.iv = iv
-        self.values = [(Double, Int64)]()
+        self.values = [(Double, Int)]()
         self.lastValue = (0, 0)
         self.iv_units = ""
         self.dv_units = ""
@@ -40,7 +40,7 @@ class Curve: NSObject {
     
     
     func updateValues(xVal : [NSString], yVal : [NSString]) {
-        var temp : [(Double, Int64)] = [(Double, Int64)]()
+        var temp : [(Double, Int)] = [(Double, Int)]()
         var count = 0
         
         if xVal.count > yVal.count {
@@ -50,7 +50,7 @@ class Curve: NSObject {
         }
         
         for ndx in 0...count - 1 {
-            temp += [(xVal[ndx].doubleValue, Int64(yVal[ndx].longLongValue))]
+            temp += [(xVal[ndx].doubleValue, Int(yVal[ndx].longLongValue))]
         }
         values = temp
     }

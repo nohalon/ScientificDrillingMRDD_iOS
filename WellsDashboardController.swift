@@ -123,8 +123,8 @@ class WellsDashboardController : UIViewController, UICollectionViewDelegateFlowL
         let timeZone = NSTimeZone(name: "UTC")
         dateFormatter.dateFormat = "HH:mm:ss"
         dateFormatter.timeZone = timeZone
-        
-        let epochTime : String = String(stringInterpolationSegment: curve.lastValue.1)
+        let value = (curve.lastValue.1 / 1000) 
+        let epochTime : String = String(stringInterpolationSegment: value)
         let epochSeconds : NSTimeInterval = (epochTime as NSString).doubleValue
         let thenNSDate : NSDate = NSDate(timeIntervalSince1970: epochSeconds)
         
