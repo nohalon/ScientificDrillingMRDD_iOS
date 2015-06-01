@@ -346,7 +346,12 @@ class WellsManager: NSObject {
                             for array in values {
                                 //var y_value : Int = array[0].longValue / 10000000 - 11644473600 // epoch
                                 //var y_value_temp : Int = array[0].longLongValue / 10000000 - 11644473600 // epoch
-                                var y_value_temp: Int = (array[0].longLongValue - 116444736000000000) / 10000
+                                var y_value_temp : Int
+                                if curve.iv == "Time" {
+                                    y_value_temp = (array[0].longLongValue - 116444736000000000) / 10000
+                                } else {
+                                    y_value_temp = array[0].longValue
+                                }
                                 var x_value : Int = array[1].longValue
                                 var x_value_temp : Double = array[1].doubleValue
 

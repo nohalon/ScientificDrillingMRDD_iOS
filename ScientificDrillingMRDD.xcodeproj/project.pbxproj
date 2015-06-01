@@ -30,6 +30,8 @@
 		2DA9C1601AE8098A00F2A813 /* ScrollPlot.html in Resources */ = {isa = PBXBuildFile; fileRef = 2DA9C15F1AE8098A00F2A813 /* ScrollPlot.html */; };
 		2DD06C1E1A8B37BF0044D558 /* SideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD06C1D1A8B37BF0044D558 /* SideBar.swift */; };
 		2DD06C201A8B37F00044D558 /* SideBarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD06C1F1A8B37F00044D558 /* SideBarTableViewController.swift */; };
+		2DD3D4E71B1BCA15007FA5A4 /* SearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD3D4E61B1BCA15007FA5A4 /* SearchListViewController.swift */; };
+		2DD871381B1BE8EF00AA4AC2 /* SearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD3D4E61B1BCA15007FA5A4 /* SearchListViewController.swift */; };
 		2DF43A181AAE6EA6003F5321 /* Plot.html in Resources */ = {isa = PBXBuildFile; fileRef = 2DF43A171AAE6EA6003F5321 /* Plot.html */; };
 		A03393B31A7045160010B45C /* WellsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03393B21A7045160010B45C /* WellsViewController.swift */; };
 		A03393B51A7046710010B45C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03393B41A7046710010B45C /* LoginViewController.swift */; };
@@ -122,6 +124,7 @@
 		2DA9C15F1AE8098A00F2A813 /* ScrollPlot.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ScrollPlot.html; sourceTree = "<group>"; };
 		2DD06C1D1A8B37BF0044D558 /* SideBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SideBar.swift; path = ../SideBar.swift; sourceTree = "<group>"; };
 		2DD06C1F1A8B37F00044D558 /* SideBarTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBarTableViewController.swift; sourceTree = "<group>"; };
+		2DD3D4E61B1BCA15007FA5A4 /* SearchListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchListViewController.swift; sourceTree = "<group>"; };
 		2DF43A171AAE6EA6003F5321 /* Plot.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Plot.html; sourceTree = "<group>"; };
 		A03393B21A7045160010B45C /* WellsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WellsViewController.swift; sourceTree = "<group>"; };
 		A03393B41A7046710010B45C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -302,6 +305,7 @@
 				2D4699431AA6784E00712675 /* WellsPlotViewController.swift */,
 				2D9D8CA41AA7D1E40085AE5B /* PlotsCurvesTabBarController.swift */,
 				2D51017D1AA80FEA00F79374 /* PlotWebViewController.swift */,
+				2DD3D4E61B1BCA15007FA5A4 /* SearchListViewController.swift */,
 				2D51017B1AA8094400F79374 /* AddPlotViewController.swift */,
 				2DF43A171AAE6EA6003F5321 /* Plot.html */,
 				2DA9C15F1AE8098A00F2A813 /* ScrollPlot.html */,
@@ -460,6 +464,7 @@
 				EAE7C8141A70A118002AB567 /* WellsManager.swift in Sources */,
 				A07D2D191AF186A000382DF5 /* RemoveWell.swift in Sources */,
 				EA913BFB1A7AE7FC00E1F97B /* WellsDashboardController.swift in Sources */,
+				2DD3D4E71B1BCA15007FA5A4 /* SearchListViewController.swift in Sources */,
 				A0FFB46E1A8327280032C8DC /* DataVisualization.swift in Sources */,
 				DFF811A41A8DCAAF001C4B43 /* ConfigManager.swift in Sources */,
 				2D51017C1AA8094400F79374 /* AddPlotViewController.swift in Sources */,
@@ -487,6 +492,7 @@
 				A0999ED11AAE4E360006BE0D /* CollectionViewCell.swift in Sources */,
 				A0999ED31AAE4E3B0006BE0D /* AddCurveViewController.swift in Sources */,
 				A0999EDC1AAE4E500006BE0D /* DataVisualization.swift in Sources */,
+				2DD871381B1BE8EF00AA4AC2 /* SearchListViewController.swift in Sources */,
 				2D1B160C1A678152001B3382 /* ScientificDrillingMRDDTests.swift in Sources */,
 				A0999ECD1AAE4E0F0006BE0D /* Well.swift in Sources */,
 				A0999ED51AAE4E400006BE0D /* WellsViewController.swift in Sources */,
