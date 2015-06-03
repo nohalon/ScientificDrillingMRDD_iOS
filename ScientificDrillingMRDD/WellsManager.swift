@@ -15,7 +15,7 @@ class WellsManager: NSObject {
     
     var wells = [Well]()
     
-    var config = ConfigManager()
+    var config: NSDictionary!
     
     var starttime : String = ""
     var endtime : String = ""
@@ -26,8 +26,7 @@ class WellsManager: NSObject {
     
     
     override init() {
-        config.loadPropertiesFromFile()
-        
+        config = PropertyManager.loadPropertiesFromFile()
     }
     
     func addWell(id: String, name: String)
@@ -37,8 +36,8 @@ class WellsManager: NSObject {
     
     func loadWells()
     {
-        let url = NSURL(string: config.getProperty("getBaseURL") as! String + 
-                                (config.getProperty("getWellsURL") as! String))
+        let url = NSURL(string: config["getBaseURL"] as! String +
+                                (config["getWellsURL"] as! String))
         
         // Opens session with server
         let task = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: {data, response, error -> Void in
@@ -74,8 +73,8 @@ class WellsManager: NSObject {
     
     func loadCurvesForWell(well: Well, onSuccess: () -> Void) {
         
-        var urlString = config.getProperty("getBaseURL") as! String +
-                        (config.getProperty("getCurvesURL") as! String) + well.id
+        var urlString = config["getBaseURL"] as! String +
+                        (config["getCurvesURL"] as! String) + well.id
         urlString = urlString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
         var url = NSURL(string: urlString)
         
@@ -173,13 +172,13 @@ class WellsManager: NSObject {
     
     func getLastValue(wellID : String , curve : Curve) {
         var endTime : String?
-        var baseURLString = config.getProperty("getBaseURL") as! String
+        var baseURLString = config["getBaseURL"] as! String
        
         var tags = "?well=" + wellID + "&curve=" + curve.id
         if curve.iv == "Time" {
-            baseURLString += config.getProperty("getTimeCurve") as! String
+            baseURLString += config["getTimeCurve"] as! String
         } else {
-            baseURLString += config.getProperty("getWellboreCurve") as! String
+            baseURLString += config["getWellboreCurve"] as! String
             tags += "&wellbore=" + curve.wellbore_id!
         }       
 
@@ -236,13 +235,13 @@ class WellsManager: NSObject {
     func loadCurveWithParams(wellID : String, curve : Curve, start : String, end : String) {
         var endTime : String?
         
-        var baseURLString = config.getProperty("getBaseURL") as! String
+        var baseURLString = config["getBaseURL"] as! String
        
         var tags = "?well=" + wellID + "&curve=" + curve.id + "&start=" + start + "&end=" + end;
         if curve.iv == "Time" {
-            baseURLString += config.getProperty("getTimeCurve") as! String
+            baseURLString += config["getTimeCurve"] as! String
         } else {
-            baseURLString += config.getProperty("getWellboreCurve") as! String
+            baseURLString += config["getWellboreCurve"] as! String
             tags += "&wellbore=" + curve.wellbore_id!
         }
         
@@ -305,7 +304,7 @@ class WellsManager: NSObject {
             starttime = curve.nextQueryTime
         }
         
-        var baseURLString = config.getProperty("getBaseURL") as! String
+        var baseURLString = config["getBaseURL"] as! String
       
         
         var tags = "?well=" + wellID + "&curve=" + curve.id
@@ -314,9 +313,9 @@ class WellsManager: NSObject {
         }
         
         if curve.iv == "Time" {
-            baseURLString += config.getProperty("getTimeCurve") as! String
+            baseURLString += config["getTimeCurve"] as! String
         } else {
-            baseURLString += config.getProperty("getWellboreCurve") as! String
+            baseURLString += config["getWellboreCurve"] as! String
             tags += "&wellbore=" + curve.wellbore_id!
         }
         

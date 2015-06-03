@@ -16,9 +16,10 @@ import UIKit
 }
 
 class SideBar: NSObject, SideBarTableViewControllerDelegate {
-    
-    let barWidth : CGFloat = config.getProperty("sideBarWidth") as! CGFloat
-    let sideBarTableViewTopInsert : CGFloat = config.getProperty("sideBarTopInsert") as! CGFloat
+   
+    let config = PropertyManager.loadPropertiesFromFile()
+    let barWidth : CGFloat!
+    let sideBarTableViewTopInsert : CGFloat!
     let sideBarContainerView : UIView = UIView()
     let sideBarTableViewController : SideBarTableViewController = SideBarTableViewController()
     var originView : UIView = UIView()
@@ -28,11 +29,13 @@ class SideBar: NSObject, SideBarTableViewControllerDelegate {
     var isSideBarOpen : Bool = false
     
     override init() {
+        barWidth = config["sideBarWidth"] as! CGFloat
+        sideBarTableViewTopInsert = config["sideBarTopInsert"] as! CGFloat
         super.init()
     }
     
-    init(sourceView:UIView, menuItems:Array<String>){
-        super.init()
+    convenience init(sourceView:UIView, menuItems:Array<String>){
+        self.init()
         self.originView = sourceView
         sideBarTableViewController.tableData = menuItems
         

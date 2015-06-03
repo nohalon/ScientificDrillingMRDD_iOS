@@ -14,6 +14,7 @@ class CollectionViewCell: UICollectionViewCell {
     var textLabel: UILabel = UILabel()
     var unitLabel: UILabel = UILabel()
     var timeLabel: UILabel = UILabel()
+    let config = PropertyManager.loadPropertiesFromFile()
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -24,17 +25,17 @@ class CollectionViewCell: UICollectionViewCell {
         
         let unitFrame = CGRect(x:0, y:0, width: frame.size.width, height: frame.size.height/3)
         self.unitLabel = UILabel(frame: unitFrame)
-        unitLabel.font = UIFont (name: config.getProperty("collectionViewCellFont") as! String, size: frame.size.height/5)
+        unitLabel.font = UIFont (name: config["collectionViewCellFont"] as! String, size: frame.size.height/5)
         unitLabel.textAlignment = .Center
         
         let textFrame = CGRect(x: 0, y: frame.size.height/2 - 4, width: frame.size.width, height: frame.size.height/2)
         self.textLabel = UILabel(frame: textFrame)
-        textLabel.font = UIFont (name: config.getProperty("collectionViewCellFont") as! String, size: frame.size.height/2.5)
+        textLabel.font = UIFont (name: config["collectionViewCellFont"] as! String, size: frame.size.height/2.5)
         textLabel.textAlignment = .Center
         
         let timeFrame = CGRect(x: 0, y: frame.size.height/4, width: frame.size.width, height: frame.size.height/3)
         self.timeLabel = UILabel(frame: timeFrame)
-        timeLabel.font = UIFont (name: config.getProperty("collectionViewCellFont") as! String, size: frame.size.height/6)
+        timeLabel.font = UIFont (name: config["collectionViewCellFont"] as! String, size: frame.size.height/6)
         timeLabel.textAlignment = .Center
         
         contentView.addSubview(unitLabel)

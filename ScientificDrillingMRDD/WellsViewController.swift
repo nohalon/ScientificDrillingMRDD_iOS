@@ -19,6 +19,7 @@ class WellsViewController: UIViewController, SideBarDelegate {
     var sideBar : SideBar = SideBar()
     var array : NSArray = []
     var index = 0
+    let config = PropertyManager.loadPropertiesFromFile()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +27,7 @@ class WellsViewController: UIViewController, SideBarDelegate {
         self.navigationItem.hidesBackButton = true;
         self.navigationController?.navigationBar.translucent = false
         
-        sideBar = SideBar(sourceView: self.view, menuItems: config.getProperty("sideBarMenuItems") as! [String])
+        sideBar = SideBar(sourceView: self.view, menuItems: config["sideBarMenuItems"] as! [String])
         sideBar.delegate = self
         loading = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
         loading.frame = CGRectMake(100, 100, 100, 100);

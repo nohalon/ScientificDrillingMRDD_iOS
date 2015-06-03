@@ -38,8 +38,6 @@
 		A073BC161A81D301003A3A72 /* Well.swift in Sources */ = {isa = PBXBuildFile; fileRef = A073BC151A81D301003A3A72 /* Well.swift */; };
 		A073BC181A81D4AF003A3A72 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A073BC171A81D4AF003A3A72 /* Dashboard.swift */; };
 		A073BC1A1A82A89D003A3A72 /* AddCurveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A073BC191A82A89D003A3A72 /* AddCurveViewController.swift */; };
-		A07D2D191AF186A000382DF5 /* RemoveWell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07D2D181AF186A000382DF5 /* RemoveWell.swift */; };
-		A07D2D1A1AF186A000382DF5 /* RemoveWell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07D2D181AF186A000382DF5 /* RemoveWell.swift */; };
 		A0999ECA1AAE4DA30006BE0D /* GoogleOpenSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E962B11A68E942004B1C00 /* GoogleOpenSource.framework */; };
 		A0999ECB1AAE4DA30006BE0D /* GooglePlus.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E962B21A68E942004B1C00 /* GooglePlus.bundle */; };
 		A0999ECC1AAE4DA30006BE0D /* GooglePlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0E962B31A68E942004B1C00 /* GooglePlus.framework */; };
@@ -131,7 +129,6 @@
 		A073BC151A81D301003A3A72 /* Well.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Well.swift; sourceTree = "<group>"; };
 		A073BC171A81D4AF003A3A72 /* Dashboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
 		A073BC191A82A89D003A3A72 /* AddCurveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCurveViewController.swift; sourceTree = "<group>"; };
-		A07D2D181AF186A000382DF5 /* RemoveWell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoveWell.swift; sourceTree = "<group>"; };
 		A0D2A1D91AAE72A8000E1BB6 /* WellsManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WellsManagerTests.swift; sourceTree = "<group>"; };
 		A0DC60B71B0CFA7600CD77D0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A0E962B11A68E942004B1C00 /* GoogleOpenSource.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleOpenSource.framework; path = Frameworks/GoogleOpenSource.framework; sourceTree = "<group>"; };
@@ -288,7 +285,6 @@
 				A0FFB46B1A8326E90032C8DC /* Curve.swift */,
 				A073BC151A81D301003A3A72 /* Well.swift */,
 				EAC6EEC91A9D450D00AC1118 /* Authenticator.swift */,
-				A07D2D181AF186A000382DF5 /* RemoveWell.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -462,7 +458,6 @@
 				A073BC161A81D301003A3A72 /* Well.swift in Sources */,
 				EAC388BE1A94068E00DC69AD /* LoginWebViewController.swift in Sources */,
 				EAE7C8141A70A118002AB567 /* WellsManager.swift in Sources */,
-				A07D2D191AF186A000382DF5 /* RemoveWell.swift in Sources */,
 				EA913BFB1A7AE7FC00E1F97B /* WellsDashboardController.swift in Sources */,
 				2DD3D4E71B1BCA15007FA5A4 /* SearchListViewController.swift in Sources */,
 				A0FFB46E1A8327280032C8DC /* DataVisualization.swift in Sources */,
@@ -497,7 +492,6 @@
 				A0999ECD1AAE4E0F0006BE0D /* Well.swift in Sources */,
 				A0999ED51AAE4E400006BE0D /* WellsViewController.swift in Sources */,
 				A0999ED91AAE4E490006BE0D /* PlotsCurvesTabBarController.swift in Sources */,
-				A07D2D1A1AF186A000382DF5 /* RemoveWell.swift in Sources */,
 				A0999ECF1AAE4E300006BE0D /* ConfigManager.swift in Sources */,
 				A0999EE21AAE4E620006BE0D /* AppDelegate.swift in Sources */,
 			);

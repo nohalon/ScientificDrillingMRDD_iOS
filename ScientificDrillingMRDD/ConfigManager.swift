@@ -8,21 +8,11 @@
 
 import Foundation
 
-
-var config: ConfigManager = ConfigManager()
-
-
-class ConfigManager: NSObject {
+class PropertyManager: NSObject {
     
-    var dict = NSDictionary()
-    
-    func loadPropertiesFromFile() {
+    static func loadPropertiesFromFile() -> NSDictionary {
         var path = NSBundle.mainBundle().pathForResource("Config", ofType: "plist")
-        dict = NSDictionary(contentsOfFile: path!)!
+        let dict = NSDictionary(contentsOfFile: path!)!
+        return dict
     }
-    
-    func getProperty(property: String) -> AnyObject {
-        return dict[property]!
-    }
-    
 }

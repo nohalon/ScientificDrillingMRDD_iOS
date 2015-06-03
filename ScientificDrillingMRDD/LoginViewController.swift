@@ -22,12 +22,13 @@ class LoginViewController: UIViewController, GPPSignInDelegate {
     var signIn: GPPSignIn?
     
     var loginSuccessful = false;
+    let config = PropertyManager.loadPropertiesFromFile()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Load configuration data for app
-        config.loadPropertiesFromFile()
+        //config.loadPropertiesFromFile()
         
         // Configure Google Login
         signIn = GPPSignIn.sharedInstance()
@@ -39,7 +40,7 @@ class LoginViewController: UIViewController, GPPSignInDelegate {
         signIn?.shouldFetchGoogleUserEmail = true
         
         signIn?.shouldFetchGooglePlusUser = true
-        signIn?.clientID = config.getProperty("googleClientID") as! String
+        signIn?.clientID = config["googleClientID"] as! String
         signIn?.scopes = [kGTLAuthScopePlusLogin]
         signIn?.delegate = self
         

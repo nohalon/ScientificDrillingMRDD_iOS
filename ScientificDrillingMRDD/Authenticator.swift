@@ -13,35 +13,36 @@ class Authenticator {
     var code : String?
     var token : String?
     var userID : String?
-    var config : ConfigManager?
+    var config : NSDictionary!
     
     var webController : LoginWebViewController!
     
     var adfs_url : String?
     
     init(controller : LoginWebViewController) {
-        config = ConfigManager()
-        config?.loadPropertiesFromFile()
+        //config = ConfigManager()
+        //config?.loadPropertiesFromFile()
+        config = PropertyManager.loadPropertiesFromFile()
         webController = controller
-        adfs_url = (config?.getProperty("getBaseLoginURL") as! String) +
-            (config?.getProperty("getADFSAuthorize") as! String) + "?response_type=" +
-            (config?.getProperty("getResponseType") as! String) + "&client_id=" +
-            (config?.getProperty("getClientID") as! String) + "&redirect_uri=" +
-            (config?.getProperty("getRedirectURI") as! String) + "&resource=" +
-            (config?.getProperty("getResourceURI") as! String)
+        adfs_url = (config["getBaseLoginURL"] as! String) +
+            (config["getADFSAuthorize"] as! String) + "?response_type=" +
+            (config["getResponseType"] as! String) + "&client_id=" +
+            (config["getClientID"] as! String) + "&redirect_uri=" +
+            (config["getRedirectURI"] as! String) + "&resource=" +
+            (config["getResourceURI"] as! String)
         requestURL = NSURL(string: self.adfs_url!)
     }
     
     func authenticateUser() {
-        let token_url = (config?.getProperty("getBaseLoginURL") as! String) +
-            (config?.getProperty("getADFSToken") as! String)
+        let token_url = (config["getBaseLoginURL"] as! String) +
+            (config["getADFSToken"] as! String)
         
         let request = NSMutableURLRequest(URL: NSURL(string: token_url)!)
         request.HTTPMethod = "POST"
         
-        var postString = "&client_id=" + (config?.getProperty("getClientID") as! String)
-            + "&grant_type=" + (config?.getProperty("getGrantType") as! String)
-            + "&redirect_uri=" + (config?.getProperty("getRedirectURI") as! String)
+        var postString = "&client_id=" + (config["getClientID"] as! String)
+            + "&grant_type=" + (config["getGrantType"] as! String)
+            + "&redirect_uri=" + (config["getRedirectURI"] as! String)
             + "&code=" + self.code!
         
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
@@ -78,8 +79,8 @@ class Authenticator {
     }
     
     func getUserID() {
-        let token_url = config?.getProperty("getBaseURL") as! String +
-                        (config?.getProperty("getAuthenticate") as! String)
+        let token_url = config["getBaseURL"] as! String +
+                        (config["getAuthenticate"] as! String)
         
         let request = NSMutableURLRequest(URL: NSURL(string: token_url)!)
         request.HTTPMethod = "POST"
